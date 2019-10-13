@@ -5,9 +5,6 @@ if (project.hasProperty('publish')) {
         aaptOptions {
             ignoreAssetsPattern '!atlas'
         }
-        lintOptions {
-            abortOnError false
-        }
     }
 } else {
     apply plugin: 'com.android.application'
@@ -40,6 +37,9 @@ android {
     }
     aaptOptions {
         noCompress 'htm', 'js', 'css'
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 
