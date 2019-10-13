@@ -1,6 +1,9 @@
 # Built application files
 /*/build/
 
+# Device captures
+captures/
+
 # Crashlytics configuations
 com_crashlytics_export_strings.xml
 
@@ -38,3 +41,10 @@ Thumbs.db
 
 # atlas collection
 app/src/main/assets/atlas/
+
+# lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+lint/reports/
