@@ -30,11 +30,8 @@ public class ReaderInfoBoxView extends ConstraintLayout {
     private TextView startDateText;
     private TextView endDateText;
 
-    private View container;
-
     public ReaderInfoBoxView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        inflate(context, R.layout.reader_infobox, this);
     }
 
     @Override
@@ -63,7 +60,7 @@ public class ReaderInfoBoxView extends ConstraintLayout {
 
         // in current reader layout info box comes after conservation status view
         // if conservation status view is displayed do not display info box vertical rule
-        View rule = findViewById(R.id.infobox_vertical_rule);
+        View rule = findViewById(R.id.reader_infobox_vr);
         rule.setVisibility(atlasObject.hasConservation() ? View.GONE : View.VISIBLE);
 
         if (atlasObject.hasTaxonomy()) {
@@ -111,18 +108,6 @@ public class ReaderInfoBoxView extends ConstraintLayout {
                 endDateText.setVisibility(View.GONE);
             }
             startDateText.setText(atlasObject.getStartDate().toString());
-        }
-    }
-
-    public void setContainer(View container) {
-        this.container = container;
-    }
-
-    public void setVisibility(int visibility) {
-        if (container != null) {
-            container.setVisibility(visibility);
-        } else {
-            super.setVisibility(visibility);
         }
     }
 

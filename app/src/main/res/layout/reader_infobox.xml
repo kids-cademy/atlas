@@ -2,30 +2,19 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:background="#2196F3"
     tools:layout_height="wrap_content"
     tools:layout_width="wrap_content"
     tools:parentTag="android.support.constraint.ConstraintLayout">
-
-    <View
-        android:id="@+id/infobox_vertical_rule"
-        android:layout_width="1dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/vertical_rule_start_margin"
-        android:background="@color/rule"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/infobox_classification_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/paragraph_indent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_classification"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
-        app:layout_constraintStart_toEndOf="@+id/infobox_vertical_rule"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
@@ -60,11 +49,11 @@
         android:id="@+id/infobox_aliases_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/paragraph_indent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_alias"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
-        app:layout_constraintStart_toStartOf="@id/infobox_vertical_rule"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/infobox_taxonomy_frame" />
 
     <TextView
@@ -88,11 +77,11 @@
         android:id="@+id/infobox_spreading_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/paragraph_indent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_spreading"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
-        app:layout_constraintStart_toStartOf="@id/infobox_vertical_rule"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/infobox_aliases" />
 
     <TextView
@@ -109,7 +98,6 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/paragraph_space"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/infobox_vertical_rule"
         app:layout_constraintTop_toBottomOf="@id/infobox_spreading" />
 
     <android.support.constraint.Group
@@ -122,11 +110,11 @@
         android:id="@+id/infobox_date_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/paragraph_indent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_since"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
-        app:layout_constraintStart_toStartOf="@id/infobox_vertical_rule"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infobox_spreading" />
 
     <TextView
@@ -153,5 +141,5 @@
         android:layout_height="32dp"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infobox_start_date" />
+        app:layout_constraintTop_toBottomOf="@id/infobox_end_date" />
 </merge>

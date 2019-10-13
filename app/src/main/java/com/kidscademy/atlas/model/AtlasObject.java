@@ -19,7 +19,14 @@ public class AtlasObject {
     private HTML description;
 
     /**
-     * keys: icon, cover, featured, contextual
+     * Atlas object images are named to help identifying the context where they are used. Supported
+     * names are:
+     * <ul>
+     * <li>{@link Image#KEY_ICON}</li>
+     * <li>{@link Image#KEY_COVER}</li>
+     * <li>{@link Image#KEY_FEATURED}</li>
+     * <li>{@link Image#KEY_CONTEXTUAL}</li>
+     * </ul>
      */
     private Map<String, Image> images;
 
@@ -68,8 +75,16 @@ public class AtlasObject {
 
     // ---------------------------------------------------------------------------------------------
 
+    public boolean hasIcon() {
+        return images.containsKey(Image.KEY_ICON);
+    }
+
     public String getIconPath() {
         return getImagePath(Image.KEY_ICON);
+    }
+
+    public boolean hasCoverImage() {
+        return images.containsKey(Image.KEY_COVER);
     }
 
     public String getCoverPath() {
@@ -77,7 +92,7 @@ public class AtlasObject {
     }
 
     public boolean hasFeaturedImage() {
-        return images.get(Image.KEY_FEATURED) != null;
+        return images.containsKey(Image.KEY_FEATURED);
     }
 
     public String getFeaturedPath() {
@@ -89,7 +104,7 @@ public class AtlasObject {
     }
 
     public boolean hasContextualImage() {
-        return images.get(Image.KEY_CONTEXTUAL) != null;
+        return images.containsKey(Image.KEY_CONTEXTUAL);
     }
 
     public String getContextualPath() {

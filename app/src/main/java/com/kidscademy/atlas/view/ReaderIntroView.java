@@ -33,14 +33,18 @@ public class ReaderIntroView extends ConstraintLayout {
 
     public void update(AtlasObject atlasObject) {
         if (titleView != null) {
+            // title and caption views are not null on mobile phone
             titleView.setText(atlasObject.getDisplay());
             captionView.setText(atlasObject.getDisplay().substring(0, 1));
         }
 
-        BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getCoverPath(), imageView, 1);
-        loader.start();
-        // this image view tag is used by espresso tests
-        imageView.setTag(atlasObject.getCoverPath());
+        if (atlasObject.hasCoverImage()) {
+            BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getCoverPath(), imageView, 1);
+            loader.start();
+            // this image view tag is used by espresso tests
+            imageView.setTag(atlasObject.getCoverPath());
+        }
+
         definitionView.setText(atlasObject.getDefinition());
     }
 }

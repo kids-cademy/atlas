@@ -15,11 +15,13 @@
         android:id="@+id/reader_intro_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/page_padding" />
+        android:layout_marginStart="@dimen/page_padding"
+        tools:visibility="gone" />
 
     <ScrollView
         android:layout_width="@dimen/reader_description_width"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:visibility="gone">
 
         <com.kidscademy.atlas.view.ReaderDescriptionView
             android:id="@+id/reader_description_view"
@@ -36,39 +38,62 @@
     <com.kidscademy.atlas.view.ReaderConservationView
         android:id="@+id/reader_conservation_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/reader_infobox"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:minWidth="@dimen/min_infobox_width"
-        android:visibility="gone">
+        tools:visibility="gone" />
+
+    <com.kidscademy.atlas.view.ReaderInfoBoxView
+        android:id="@+id/reader_infobox_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/reader_infobox_circle"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
-            android:alpha="0.6"
+            android:alpha="0.2"
             android:contentDescription="@string/support_graphics"
-            android:tint="#4080CC"
-            app:layout_constraintBottom_toBottomOf="@+id/reader_infobox_view"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintHeight_percent="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/reader_infobox_view"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6"
             app:srcCompat="@drawable/shape_solid_circle" />
 
-        <com.kidscademy.atlas.view.ReaderInfoBoxView
-            android:id="@+id/reader_infobox_view"
-            android:layout_width="wrap_content"
+        <View
+            android:id="@+id/reader_infobox_vr"
+            android:layout_width="1dp"
             android:layout_height="0dp"
+            android:layout_marginStart="@dimen/vertical_rule_start_margin"
+            android:background="@color/rule"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reader_infobox_vr"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <include
+                    layout="@layout/reader_infobox"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+    </com.kidscademy.atlas.view.ReaderInfoBoxView>
 
     <com.kidscademy.atlas.view.ReaderContextualView
         android:id="@+id/reader_contextual_view"

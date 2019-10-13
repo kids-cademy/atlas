@@ -100,7 +100,7 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
         } catch (Throwable throwable) {
             log.dump("App start fatal error: ", throwable);
             dumpStackTrace(throwable);
-            ErrorActivity.start(getApplicationContext(), R.string.error_message);
+            ErrorActivity.start(getApplicationContext(), R.string.error_message, throwable);
         }
     }
 
@@ -140,12 +140,12 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
         // not very sure is necessary since error activity is configured to run in separated process
 
         if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-            ErrorActivity.start(getApplicationContext(), R.string.error_message);
+            ErrorActivity.start(getApplicationContext(), R.string.error_message, throwable);
         } else {
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    ErrorActivity.start(getApplicationContext(), R.string.error_message);
+                    ErrorActivity.start(getApplicationContext(), R.string.error_message, throwable);
                 }
             });
         }

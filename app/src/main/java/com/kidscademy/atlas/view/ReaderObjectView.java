@@ -47,7 +47,6 @@ public class ReaderObjectView extends LinearLayout {
         conservationView = findViewById(R.id.reader_conservation_view);
 
         infoBoxView = findViewById(R.id.reader_infobox_view);
-        infoBoxView.setContainer(findViewById(R.id.reader_infobox));
 
         contextualView = findViewById(R.id.reader_contextual_view);
 

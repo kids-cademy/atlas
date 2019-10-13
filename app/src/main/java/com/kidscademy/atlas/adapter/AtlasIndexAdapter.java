@@ -152,13 +152,15 @@ public class AtlasIndexAdapter extends RecyclerView.Adapter<AtlasIndexAdapter.Ho
                 AtlasObject atlasObject = objects.get(i);
 
                 View objectView = objectsView.getChildAt(i);
-                //objectView.setBackgroundColor(ContextCompat.getColor(context, R.color.black_T40));
+                objectView.setBackgroundColor(ContextCompat.getColor(context, R.color.black_T40));
                 objectView.setVisibility(View.VISIBLE);
                 objectView.setTag(atlasObject.getIndex());
 
-                ImageView iconView = objectView.findViewById(R.id.object_icon);
-                BitmapLoader loader = new BitmapLoader(context, atlasObject.getIconPath(), iconView, 1);
-                loader.start();
+                if(atlasObject.hasIcon()) {
+                    ImageView iconView = objectView.findViewById(R.id.object_icon);
+                    BitmapLoader loader = new BitmapLoader(context, atlasObject.getIconPath(), iconView, 1);
+                    loader.start();
+                }
 
                 TextView nameView = objectView.findViewById(R.id.object_name);
                 nameView.setText(atlasObject.getDisplay());
