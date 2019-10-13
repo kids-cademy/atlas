@@ -18,14 +18,12 @@ import com.kidscademy.atlas.app.App;
 import com.kidscademy.atlas.app.Audit;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Link;
-import com.kidscademy.atlas.model.ReaderAction;
 import com.kidscademy.atlas.util.RandomColor;
 
 import js.util.BitmapLoader;
 
 public class ReaderLinksView extends ConstraintLayout implements View.OnClickListener {
     private final Audit audit;
-    private final ReaderAction.Listener listener;
 
     private HexaIcon captionView;
     private ViewGroup listView;
@@ -33,7 +31,6 @@ public class ReaderLinksView extends ConstraintLayout implements View.OnClickLis
     public ReaderLinksView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.audit = App.instance().audit();
-        listener = (ReaderAction.Listener) context;
         inflate(context, R.layout.reader_links, this);
     }
 
@@ -77,6 +74,8 @@ public class ReaderLinksView extends ConstraintLayout implements View.OnClickLis
     }
 
     private void setObject(View view, Link link) {
+        view.setTag(link);
+
         ImageView iconView = view.findViewById(R.id.link_icon);
         BitmapLoader loader = new BitmapLoader(getContext(), link.getIconPath(), iconView, 1);
         loader.start();
