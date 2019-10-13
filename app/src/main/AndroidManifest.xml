@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kidscademy.atlas"
+    android:installLocation="auto">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".app.App"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_app"
+        android:label="@string/app_name"
+        android:theme="@style/AtlasTheme">
+
+        <uses-library
+            android:name="android.test.runner"
+            android:required="false" />
+
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MenuActivity" />
+        <activity android:name=".activity.MobileReaderActivity" />
+        <activity android:name=".activity.TabletReaderActivity" />
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.SearchResultActivity" />
+        <activity android:name=".activity.IndexActivity" />
+        <activity android:name=".activity.SyncActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.HelpActivity" />
+        <activity android:name=".activity.ShareActivity" />
+        <activity android:name=".activity.RateActivity" />
+        <activity android:name=".activity.NoAdsActivity" />
+        <activity android:name=".activity.WePlayActivity" />
+        <activity android:name=".activity.AccessibilityActivity" />
+        <activity android:name=".activity.ExitActivity" />
+        <activity
+            android:name=".activity.ErrorActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:process=":exception_process"
+            android:taskAffinity=".instruments.ErrorActivity" />
+
+        <service
+            android:name=".sync.SyncService"
+            android:enabled="true"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

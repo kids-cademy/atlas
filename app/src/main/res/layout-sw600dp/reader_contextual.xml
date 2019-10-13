@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#2196F3"
+    tools:layout_height="match_parent"
+    tools:layout_width="wrap_content"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <ImageView
+        android:id="@+id/contextual_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/image_description"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/sample_contextual_image"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/contextual_sample_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:background="@color/black_T80"
+        android:ellipsize="end"
+        android:lines="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="26dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="26dp"
+        android:singleLine="false"
+        android:text="@string/sample_object_audio_title"
+        android:textAppearance="@style/TextAppearance.Large.Accent"
+        app:layout_constraintBottom_toBottomOf="@id/contextual_image"
+        app:layout_constraintEnd_toEndOf="@id/contextual_image"
+        app:layout_constraintStart_toStartOf="@id/contextual_image"
+        app:layout_constraintTop_toBottomOf="@+id/contextual_image" />
+
+    <ImageView
+        android:id="@+id/contextual_play_button"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/image_description"
+        android:src="@drawable/action_play_sample"
+        app:layout_constraintBottom_toTopOf="@+id/contextual_sample_title"
+        app:layout_constraintEnd_toEndOf="@id/contextual_sample_title"
+        app:layout_constraintTop_toTopOf="@+id/contextual_sample_title" />
+
+    <View
+        android:id="@+id/contextual_hr"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/contextual_image"
+        app:layout_constraintStart_toStartOf="@+id/contextual_image"
+        app:layout_constraintTop_toBottomOf="@+id/contextual_sample_title" />
+
+    <ImageView
+        android:id="@+id/contextual_circle1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/contextual_image_circle_space"
+        android:alpha="0.8"
+        android:contentDescription="@string/support_graphics"
+        android:tint="#009688"
+        app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/contextual_hr"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+    <ImageView
+        android:id="@+id/contextual_circle2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/contextual_image_circle_space"
+        android:alpha="0.8"
+        android:contentDescription="@string/support_graphics"
+        android:tint="#9C27B0"
+        app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_percent="0.16"
+        app:layout_constraintStart_toEndOf="@id/contextual_circle1"
+        app:layout_constraintTop_toTopOf="@id/contextual_hr"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+    <ImageView
+        android:id="@+id/contextual_circle3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/contextual_image_circle_space"
+        android:alpha="0.8"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintStart_toEndOf="@id/contextual_circle2"
+        app:layout_constraintTop_toTopOf="@id/contextual_hr"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+    <ImageView
+        android:id="@+id/contextual_circle4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/contextual_image_circle_space"
+        android:alpha="0.8"
+        android:contentDescription="@string/support_graphics"
+        android:tint="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintStart_toEndOf="@id/contextual_circle3"
+        app:layout_constraintTop_toTopOf="@id/contextual_hr"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/contextual_image_circle_space"
+        android:alpha="0.8"
+        android:contentDescription="@string/support_graphics"
+        android:tint="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintStart_toEndOf="@id/contextual_circle4"
+        app:layout_constraintTop_toTopOf="@id/contextual_hr"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+</merge>

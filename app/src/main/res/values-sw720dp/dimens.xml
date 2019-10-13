@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="page_padding">32dp</dimen>
+    <dimen name="sections_space">80dp</dimen>
+    <dimen name="paragraph_indent">32dp</dimen>
+    <dimen name="paragraph_space">32dp</dimen>
+    <dimen name="bullet_size">48dp</dimen>
+    <dimen name="half_bullet_size">24dp</dimen>
+    <dimen name="hexa_icon_size">80dp</dimen>
+    <dimen name="large_icon_size">96dp</dimen>
+    <dimen name="vertical_rule_start_margin">50dp</dimen>
+    <dimen name="horizontal_rule_top_margin">60dp</dimen>
+    <dimen name="min_infobox_width">430dp</dimen>
+    <integer name="search_result_rows">2</integer>
+    <dimen name="divider_weight">4dp</dimen>
+    <dimen name="trademark_icon_size">96dp</dimen>
+    <dimen name="trademark_icon_margin">120dp</dimen>
+    <!-- trademark_icon_page_header_offset = icon_size  - trademark_icon_size / 2 -->
+    <dimen name="trademark_icon_page_header_offset">16dp</dimen>
+    <dimen name="textbox_padding">24dp</dimen>
+    <dimen name="xlarge_text_size">32sp</dimen>
+    <dimen name="large_text_size">28sp</dimen>
+    <dimen name="medium_text_size">24sp</dimen>
+    <dimen name="small_text_size">20sp</dimen>
+    <dimen name="xsmall_text_size">18sp</dimen>
+    <dimen name="featured_image_margin">100dp</dimen>
+    <integer name="share_acitivty_rows">3</integer>
+    <dimen name="shared_card_width">500dp</dimen>
+    <dimen name="card_width">400dp</dimen>
+
+    <dimen name="reader_description_width">500dp</dimen>
+    <dimen name="reader_facts_width">600dp</dimen>
+    <dimen name="reader_features_width">600dp</dimen>
+    <dimen name="reader_related_width">550dp</dimen>
+    <dimen name="reader_links_width">550dp</dimen>
+</resources>

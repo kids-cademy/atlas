@@ -1,0 +1,36 @@
+.related {
+	width: 700px;
+}
+
+.related .rule {
+	position: absolute;
+}
+
+.related .rule.h {
+	top: 80px;
+}
+
+.related .rule.v {
+	left: 80px;
+}
+
+.related .caption {
+	position: absolute;
+	top: 25px;
+	left: 32px;
+	xtransform: rotate(30deg);
+}
+
+.related .title {
+	margin-top: 40px;
+	margin-left: 160px;
+	text-transform: uppercase;
+	color: yellow;
+}
+
+.related .list {
+	position: absolute;
+	width: 540px;
+	top: 160px;
+	left: 160px;
+}

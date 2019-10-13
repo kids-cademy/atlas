@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#03A9F4">
+
+    <com.kidscademy.atlas.view.PageHeader
+        android:id="@+id/help_page_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pageCaption="@string/help_caption" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_page_header">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/help_overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="@string/help_overview"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Large.Accent" />
+
+            <TextView
+                android:id="@+id/help_main_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="@string/help_main_menu"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Large" />
+
+            <TextView
+                android:id="@+id/help_atlas_reader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="@string/help_atlas_reader"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Large" />
+
+            <TextView
+                android:id="@+id/help_atlas_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="@string/help_atlas_search"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Large" />
+
+            <TextView
+                android:id="@+id/help_atlas_index"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="@string/help_atlas_index"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Large" />
+
+            <TextView
+                android:id="@+id/help_browser_sync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="@string/help_browser_sync"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Large" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="32dp"
+            android:background="@color/rule" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/help_overview_slide"
+                layout="@layout/compo_help_overview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible" />
+
+            <include
+                android:id="@+id/help_main_menu_slide"
+                layout="@layout/compo_help_main_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/help_atlas_reader_slide"
+                layout="@layout/compo_help_atlas_reader"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/help_atlas_search_slide"
+                layout="@layout/compo_help_atlas_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/help_atlas_index_slide"
+                layout="@layout/compo_help_atlas_index"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/help_browser_sync_slide"
+                layout="@layout/compo_help_browser_sync"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

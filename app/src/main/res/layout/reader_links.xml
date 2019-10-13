@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#2196F3"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <View
+        android:id="@+id/reader_links_hr"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rule_weight"
+        android:layout_marginTop="@dimen/horizontal_rule_top_margin"
+        android:background="@color/rule"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/reader_links_vr"
+        android:layout_width="@dimen/rule_weight"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/vertical_rule_start_margin"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.kidscademy.atlas.view.HexaIcon
+        android:id="@+id/reader_links_caption"
+        android:layout_width="@dimen/hexa_icon_size"
+        android:layout_height="@dimen/hexa_icon_size"
+        app:borderColor="@color/white_T80"
+        app:borderSize="1"
+        app:layout_constraintBottom_toBottomOf="@id/reader_links_hr"
+        app:layout_constraintEnd_toEndOf="@id/reader_links_vr"
+        app:layout_constraintStart_toStartOf="@id/reader_links_vr"
+        app:layout_constraintTop_toTopOf="@id/reader_links_hr" />
+
+    <TextView
+        android:id="@+id/reader_links_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/reader_links"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        app:layout_constraintBottom_toTopOf="@+id/reader_links_hr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/reader_links_caption" />
+
+    <include
+        android:id="@+id/reader_links_list"
+        layout="@layout/compo_links_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/reader_links_caption"
+        app:layout_constraintTop_toBottomOf="@id/reader_links_caption" />
+
+</merge>

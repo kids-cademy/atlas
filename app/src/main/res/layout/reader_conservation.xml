@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="#2196F3"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <View
+        android:id="@+id/reader_conservation_rule"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/reader_conservation_label_LC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.5"
+        android:text="@string/conservation_label_LC"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_conservation_bullet_LC"
+        app:layout_constraintStart_toEndOf="@+id/reader_conservation_bullet_LC"
+        app:layout_constraintTop_toTopOf="@+id/reader_conservation_bullet_LC" />
+
+    <TextView
+        android:id="@+id/reader_conservation_bullet_LC"
+        android:layout_width="@dimen/bullet_size"
+        android:layout_height="@dimen/bullet_size"
+        android:layout_marginTop="16dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/conservation_bullet_LC"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#007060"
+        app:layout_constraintEnd_toEndOf="@+id/reader_conservation_rule"
+        app:layout_constraintStart_toStartOf="@+id/reader_conservation_rule"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/reader_conservation_label_NT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.5"
+        android:text="@string/conservation_label_NT"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_conservation_bullet_NT"
+        app:layout_constraintStart_toEndOf="@+id/reader_conservation_bullet_NT"
+        app:layout_constraintTop_toTopOf="@+id/reader_conservation_bullet_NT" />
+
+    <TextView
+        android:id="@+id/reader_conservation_bullet_NT"
+        android:layout_width="@dimen/bullet_size"
+        android:layout_height="@dimen/bullet_size"
+        android:layout_marginTop="16dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/conservation_bullet_NT"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#1567ff"
+        app:layout_constraintEnd_toEndOf="@+id/reader_conservation_rule"
+        app:layout_constraintStart_toStartOf="@+id/reader_conservation_rule"
+        app:layout_constraintTop_toBottomOf="@+id/reader_conservation_bullet_LC" />
+
+    <TextView
+        android:id="@+id/reader_conservation_label_VU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.5"
+        android:text="@string/conservation_label_VU"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_conservation_bullet_VU"
+        app:layout_constraintStart_toEndOf="@+id/reader_conservation_bullet_VU"
+        app:layout_constraintTop_toTopOf="@+id/reader_conservation_bullet_VU" />
+
+    <TextView
+        android:id="@+id/reader_conservation_bullet_VU"
+        android:layout_width="@dimen/bullet_size"
+        android:layout_height="@dimen/bullet_size"
+        android:layout_marginTop="16dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/conservation_bullet_VU"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#fdb713"
+        app:layout_constraintEnd_toEndOf="@+id/reader_conservation_rule"
+        app:layout_constraintStart_toStartOf="@+id/reader_conservation_rule"
+        app:layout_constraintTop_toBottomOf="@+id/reader_conservation_bullet_NT" />
+
+    <TextView
+        android:id="@+id/reader_conservation_label_EN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.5"
+        android:text="@string/conservation_label_EN"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_conservation_bullet_EN"
+        app:layout_constraintStart_toEndOf="@+id/reader_conservation_bullet_EN"
+        app:layout_constraintTop_toTopOf="@+id/reader_conservation_bullet_EN" />
+
+    <TextView
+        android:id="@+id/reader_conservation_bullet_EN"
+        android:layout_width="@dimen/bullet_size"
+        android:layout_height="@dimen/bullet_size"
+        android:layout_marginTop="16dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/conservation_bullet_EN"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#d79600"
+        app:layout_constraintEnd_toEndOf="@+id/reader_conservation_rule"
+        app:layout_constraintStart_toStartOf="@+id/reader_conservation_rule"
+        app:layout_constraintTop_toBottomOf="@+id/reader_conservation_bullet_VU" />
+
+    <TextView
+        android:id="@+id/reader_conservation_label_CR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.5"
+        android:text="@string/conservation_label_CR"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_conservation_bullet_CR"
+        app:layout_constraintStart_toEndOf="@+id/reader_conservation_bullet_CR"
+        app:layout_constraintTop_toTopOf="@+id/reader_conservation_bullet_CR" />
+
+    <TextView
+        android:id="@+id/reader_conservation_bullet_CR"
+        android:layout_width="@dimen/bullet_size"
+        android:layout_height="@dimen/bullet_size"
+        android:layout_marginTop="16dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/conservation_bullet_CR"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#d75b09"
+        app:layout_constraintEnd_toEndOf="@+id/reader_conservation_rule"
+        app:layout_constraintStart_toStartOf="@+id/reader_conservation_rule"
+        app:layout_constraintTop_toBottomOf="@+id/reader_conservation_bullet_EN" />
+
+    <TextView
+        android:id="@+id/reader_conservation_label_EW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.5"
+        android:text="@string/conservation_label_EW"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_conservation_bullet_EW"
+        app:layout_constraintStart_toEndOf="@+id/reader_conservation_bullet_EW"
+        app:layout_constraintTop_toTopOf="@+id/reader_conservation_bullet_EW" />
+
+    <TextView
+        android:id="@+id/reader_conservation_bullet_EW"
+        android:layout_width="@dimen/bullet_size"
+        android:layout_height="@dimen/bullet_size"
+        android:layout_marginTop="16dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/conservation_bullet_EW"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#df2d43"
+        app:layout_constraintEnd_toEndOf="@+id/reader_conservation_rule"
+        app:layout_constraintStart_toStartOf="@+id/reader_conservation_rule"
+        app:layout_constraintTop_toBottomOf="@+id/reader_conservation_bullet_CR" />
+
+    <TextView
+        android:id="@+id/reader_conservation_label_EX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.5"
+        android:text="@string/conservation_label_EX"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_conservation_bullet_EX"
+        app:layout_constraintStart_toEndOf="@+id/reader_conservation_bullet_EX"
+        app:layout_constraintTop_toTopOf="@+id/reader_conservation_bullet_EX" />
+
+    <TextView
+        android:id="@+id/reader_conservation_bullet_EX"
+        android:layout_width="@dimen/bullet_size"
+        android:layout_height="@dimen/bullet_size"
+        android:layout_marginTop="16dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/conservation_bullet_EX"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#8d27bd"
+        app:layout_constraintEnd_toEndOf="@+id/reader_conservation_rule"
+        app:layout_constraintStart_toStartOf="@+id/reader_conservation_rule"
+        app:layout_constraintTop_toBottomOf="@+id/reader_conservation_bullet_EW" />
+
+    <TextView
+        android:id="@+id/reader_conservation_label_NA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.5"
+        android:text="@string/conservation_label_NA"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_conservation_bullet_NA"
+        app:layout_constraintStart_toEndOf="@+id/reader_conservation_bullet_NA"
+        app:layout_constraintTop_toTopOf="@+id/reader_conservation_bullet_NA" />
+
+    <TextView
+        android:id="@+id/reader_conservation_bullet_NA"
+        android:layout_width="@dimen/bullet_size"
+        android:layout_height="@dimen/bullet_size"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/conservation_bullet_NA"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/reader_conservation_rule"
+        app:layout_constraintStart_toStartOf="@+id/reader_conservation_rule"
+        app:layout_constraintTop_toBottomOf="@+id/reader_conservation_bullet_EX" />
+</merge>

@@ -1,0 +1,8 @@
+body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(74, 144, 226);
+	font-family: "Montserrat", "Open Sans";
+	font-weight: lighter;
+}

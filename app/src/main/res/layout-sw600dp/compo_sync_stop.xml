@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#00BCD4"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/sync_stop_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <include
+        android:id="@+id/sync_stop_we_play"
+        layout="@layout/compo_we_play"
+        android:layout_width="@dimen/trademark_icon_size"
+        android:layout_height="@dimen/trademark_icon_size"
+        android:layout_marginEnd="@dimen/trademark_icon_margin"
+        app:layout_constraintBottom_toTopOf="@+id/sync_stop_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sync_stop_message" />
+
+    <TextView
+        android:id="@+id/sync_stop_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/sync_stop_button"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Large"
+        android:textSize="@dimen/xlarge_text_size"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toTopOf="@+id/sync_stop_devices"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintWidth_percent="0.14" />
+
+    <LinearLayout
+        android:id="@+id/sync_stop_message"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black_T20"
+        android:orientation="vertical"
+        android:padding="@dimen/textbox_padding"
+        app:layout_constraintBottom_toBottomOf="@+id/sync_stop_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/sync_stop_guide"
+        app:layout_constraintTop_toTopOf="@+id/sync_stop_button">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sync_stop_message_1"
+            android:textAppearance="@style/TextAppearance.Large.Accent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/sync_stop_message_2"
+            android:textAppearance="@style/TextAppearance.Medium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sync_info"
+            android:textAppearance="@style/TextAppearance.Small.Mute" />
+    </LinearLayout>
+
+    <com.kidscademy.atlas.view.SyncDevicesView
+        android:id="@+id/sync_stop_devices"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:inSync="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/sync_stop_guide" />
+
+</merge>

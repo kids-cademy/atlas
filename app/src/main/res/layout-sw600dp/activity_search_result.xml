@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    tools:activity="com.kidscademy.atlas.activity.SearchResultActivity">
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_back"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginStart="8dp"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_back" />
+
+    <TextView
+        android:id="@+id/search_result_header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.Large"
+        app:layout_constraintBottom_toTopOf="@+id/search_result_header_divider"
+        app:layout_constraintStart_toEndOf="@id/action_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_index"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="24dp"
+        android:tint="@color/action_icon"
+        app:layout_constraintEnd_toStartOf="@+id/action_menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_index" />
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_menu"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="8dp"
+        android:tint="@color/action_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_menu" />
+
+    <View
+        android:id="@+id/search_result_header_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/action_back" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/search_result_input_guide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="140dp" />
+
+    <TextView
+        android:id="@+id/search_result_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="2dp"
+        android:enabled="false"
+        android:focusable="false"
+        android:gravity="bottom"
+        android:hint="@string/search"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.XLarge"
+        app:layout_constraintBottom_toTopOf="@+id/search_result_horizontal_rule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/search_result_caption" />
+
+    <View
+        android:id="@+id/search_result_vertical_rule"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/search_result_header_title"
+        app:layout_constraintStart_toStartOf="@+id/search_result_header_title"
+        app:layout_constraintTop_toBottomOf="@+id/search_result_header_divider" />
+
+    <View
+        android:id="@+id/search_result_horizontal_rule"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/grey_800"
+        app:layout_constraintBottom_toTopOf="@id/search_result_input_guide"
+        app:layout_constraintEnd_toEndOf="@+id/search_result_input"
+        app:layout_constraintStart_toStartOf="@+id/search_result_input" />
+
+    <com.kidscademy.atlas.view.HexaIcon
+        android:id="@+id/search_result_caption"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        app:borderSize="1"
+        app:iconDrawable="@drawable/action_search"
+        app:layout_constraintBottom_toBottomOf="@id/search_result_input_guide"
+        app:layout_constraintEnd_toEndOf="@+id/search_result_vertical_rule"
+        app:layout_constraintStart_toStartOf="@+id/search_result_vertical_rule"
+        app:layout_constraintTop_toTopOf="@+id/search_result_input_guide" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_result_objects"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/search_result_input"
+        app:layout_constraintStart_toStartOf="@+id/search_result_input"
+        app:layout_constraintTop_toBottomOf="@id/search_result_input_guide"
+        tools:layoutManager="android.support.v7.widget.GridLayoutManager"
+        tools:listitem="@layout/item_search_result"
+        tools:spanCount="2" />
+
+</android.support.constraint.ConstraintLayout>

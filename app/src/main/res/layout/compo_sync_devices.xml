@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <ImageView
+        android:id="@+id/sync_tablet"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintDimensionRatio="1.379"
+        app:layout_constraintStart_toStartOf="@+id/sync_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.25"
+        app:srcCompat="@drawable/tablet_reader" />
+
+    <ImageView
+        android:id="@+id/sync_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1.463"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        app:srcCompat="@drawable/tv_reader" />
+
+    <View
+        android:id="@+id/sync_connection"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:alpha="0.2"
+        android:background="#C3FFEB3B"
+        app:layout_constraintBottom_toTopOf="@+id/sync_tv"
+        app:layout_constraintEnd_toEndOf="@+id/sync_tablet"
+        app:layout_constraintStart_toStartOf="@+id/sync_tablet"
+        app:layout_constraintTop_toBottomOf="@+id/sync_tablet" />
+
+    <TextView
+        android:id="@+id/sync_label"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:maxLines="1"
+        android:text="@string/sync_start_done"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/sync_connection"
+        app:layout_constraintStart_toEndOf="@+id/sync_connection"
+        app:layout_constraintTop_toBottomOf="@+id/sync_tablet" />
+</merge>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#10BFD8">
+
+    <com.kidscademy.atlas.view.PageHeader
+        android:id="@+id/accessibility_page_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pageCaption="@string/accessibility_caption" />
+
+    <include
+        layout="@layout/compo_we_do"
+        android:layout_width="@dimen/trademark_icon_size"
+        android:layout_height="@dimen/trademark_icon_size"
+        android:layout_marginTop="@dimen/trademark_icon_page_header_offset"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/accessibility_icon"
+        app:layout_constraintTop_toTopOf="@+id/accessibility_page_header" />
+
+    <com.kidscademy.atlas.view.HexaIcon
+        android:id="@+id/accessibility_icon"
+        style="@style/HexaIcon.Large"
+        android:layout_width="@dimen/trademark_icon_size"
+        android:layout_height="@dimen/trademark_icon_size"
+        android:layout_marginTop="@dimen/trademark_icon_page_header_offset"
+        android:layout_marginEnd="@dimen/trademark_icon_margin"
+        app:backgroundColor="#2196F3"
+        app:borderSize="1"
+        app:iconDrawable="@drawable/action_accessibility"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/accessibility_page_header" />
+
+
+    <TextView
+        android:id="@+id/accessibility_we_do_logotype"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/we_do_logotype"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#80009688"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accessibility_page_header" />
+
+    <TextView
+        android:id="@+id/accessibility_we_do_vision"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/we_do_vision"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintStart_toEndOf="@+id/accessibility_we_do_logotype"
+        app:layout_constraintTop_toTopOf="@+id/accessibility_we_do_logotype"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/accessibility_we_do_disclaimer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/we_do_disclaimer"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.XSmall.Mute"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_we_do_vision"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_we_do_vision"
+        app:layout_constraintTop_toBottomOf="@+id/accessibility_we_do_vision" />
+
+    <TextView
+        android:id="@+id/accessibility_we_do_accessibility"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/we_do_accessibility"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_we_do_disclaimer"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_we_do_disclaimer"
+        app:layout_constraintTop_toBottomOf="@+id/accessibility_we_do_disclaimer" />
+
+    <TextView
+        android:id="@+id/accessibility_h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/accessibility_caption"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Large.Accent"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_p1"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_p1"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_p1" />
+
+    <TextView
+        android:id="@+id/accessibility_p1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/accessibility_p1"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_p2"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_p2"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_p2" />
+
+    <TextView
+        android:id="@+id/accessibility_p2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/accessibility_p2"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_p3"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_p3"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_p3" />
+
+    <TextView
+        android:id="@+id/accessibility_p3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/accessibility_p3"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_p4"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_p4"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_p4" />
+
+    <TextView
+        android:id="@+id/accessibility_p4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/accessibility_p4"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <View
+        android:id="@+id/accessibility_vr"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/text"
+        app:layout_constraintBottom_toBottomOf="@+id/accessibility_p4"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_play_sample"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_play_sample"
+        app:layout_constraintTop_toTopOf="@+id/accessibility_h" />
+
+    <com.kidscademy.atlas.view.HexaIcon
+        style="@style/HexaIcon.Large"
+        android:layout_width="@dimen/trademark_icon_size"
+        android:layout_height="@dimen/trademark_icon_size"
+        android:layout_marginBottom="8dp"
+        android:visibility="visible"
+        app:backgroundColor="#2196F3"
+        app:borderSize="1"
+        app:iconDrawable="@drawable/action_accessibility"
+        app:layout_constraintBottom_toBottomOf="@+id/accessibility_vr"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_vr"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_vr" />
+
+    <ImageView
+        android:id="@+id/accessibility_play_sample"
+        android:layout_width="@dimen/trademark_icon_size"
+        android:layout_height="@dimen/trademark_icon_size"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/support_graphics"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/accessibility_p2"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toStartOf="@+id/accessibility_p2"
+        app:layout_constraintTop_toTopOf="@+id/accessibility_p2"
+        app:srcCompat="@drawable/action_play_sample" />
+
+    <TextView
+        android:id="@+id/accessibility_vote_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/accessibility_vote_label"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.XLarge"
+        app:layout_constraintBottom_toTopOf="@id/accessibility_vote_restriction"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_we_do_logotype"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_we_do_logotype" />
+
+    <TextView
+        android:id="@+id/accessibility_vote_restriction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/accessibility_vote_restriction"
+        android:textAppearance="@style/TextAppearance.Small.Mute"
+        app:layout_constraintBottom_toTopOf="@id/accessibility_vote_value"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_vote_label"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_vote_label" />
+
+    <TextView
+        android:id="@+id/accessibility_vote_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#80009688"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textAppearance="@style/TextAppearance.XLarge.Accent"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_vote_minus"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_vote_label"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_vote_label"
+        tools:text="9999" />
+
+    <ImageView
+        android:id="@+id/accessibility_vote_plus"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/support_graphics"
+        android:tint="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_vote_value"
+        app:srcCompat="@drawable/action_vote_plus" />
+
+    <ImageView
+        android:id="@+id/accessibility_vote_minus"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/support_graphics"
+        android:tint="#E91E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/accessibility_vote_value"
+        app:srcCompat="@drawable/action_vote_minus" />
+
+</android.support.constraint.ConstraintLayout>

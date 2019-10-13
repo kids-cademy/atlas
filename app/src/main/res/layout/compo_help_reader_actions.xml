@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/help_reader_actions"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/help_reader_actions_first_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_reader"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_reader_actions_search_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_reader_actions_search_label"
+        app:srcCompat="@drawable/action_search" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_search"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_reader_actions_index_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_reader_actions_index_label"
+        app:srcCompat="@drawable/action_index" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_index"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_reader_actions_previous_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_reader_actions_previous_label"
+        app:srcCompat="@drawable/action_previous" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_sync"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_reader_actions_next_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_reader_actions_next_label"
+        app:srcCompat="@drawable/action_next" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_accessibility"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_reader_actions_sync_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_reader_actions_sync_label"
+        app:srcCompat="@drawable/action_sync" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_accessibility"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_reader_actions_menu_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_reader_actions_menu_label"
+        app:srcCompat="@drawable/action_menu" />
+
+    <TextView
+        android:id="@+id/help_reader_actions_search_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/menu_help_search"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toEndOf="@id/help_reader_actions_rule"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_reader_actions_index_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_index"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_reader_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_reader_actions_search_label" />
+
+    <TextView
+        android:id="@+id/help_reader_actions_previous_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_previous_article"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toEndOf="@id/help_reader_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_reader_actions_index_label" />
+
+    <TextView
+        android:id="@+id/help_reader_actions_next_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_next_article"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_reader_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_reader_actions_previous_label" />
+
+    <TextView
+        android:id="@+id/help_reader_actions_sync_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_sync"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_reader_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_reader_actions_next_label" />
+
+    <TextView
+        android:id="@+id/help_reader_actions_menu_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_main_menu"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_reader_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_reader_actions_sync_label" />
+
+    <View
+        android:id="@+id/help_reader_actions_rule"
+        android:layout_width="@dimen/rule_weight"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/help_reader_actions_first_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

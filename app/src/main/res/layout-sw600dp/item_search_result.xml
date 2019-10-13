@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/card_width"
+    android:layout_height="wrap_content"
+    android:background="@color/black_T20"
+    android:paddingTop="@dimen/card_padding"
+    android:paddingBottom="@dimen/card_padding"
+    tools:background="#009688">
+
+    <View
+        android:id="@+id/reader_intro_horizontal_rule"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rule_weight"
+        android:layout_marginTop="4dp"
+        android:background="@color/rule"
+        app:layout_constraintTop_toBottomOf="@+id/search_result_name"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.3"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/search_result_icon"
+        app:layout_constraintStart_toEndOf="@+id/search_result_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintWidth_percent="0.4"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:alpha="0.5"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_intro_horizontal_rule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reader_intro_horizontal_rule"
+        app:srcCompat="@drawable/shape_stroke_circle" />
+
+    <ImageView
+        android:id="@+id/search_result_icon"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="@dimen/card_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sample_object_icon" />
+
+    <TextView
+        android:id="@+id/search_result_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/card_padding"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/sample_object_name"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/search_result_icon"
+        app:layout_constraintTop_toTopOf="@+id/search_result_icon" />
+
+    <TextView
+        android:id="@+id/search_result_aliasses_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/infobox_alias"
+        android:textAppearance="@style/TextAppearance.XSmall.Inverse"
+        app:layout_constraintStart_toStartOf="@+id/search_result_name"
+        app:layout_constraintTop_toBottomOf="@+id/reader_intro_horizontal_rule" />
+
+    <TextView
+        android:id="@+id/search_result_aliasses"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/card_padding"
+        android:lines="1"
+        android:text="@string/sample_object_aliases"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/search_result_aliasses_label"
+        app:layout_constraintTop_toBottomOf="@+id/search_result_aliasses_label" />
+
+    <TextView
+        android:id="@+id/search_result_definition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/card_padding"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/card_padding"
+        android:ellipsize="end"
+        android:lines="3"
+        android:text="@string/sample_object_description"
+        android:textAppearance="@style/TextAppearance.XSmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_result_icon" />
+
+</android.support.constraint.ConstraintLayout>

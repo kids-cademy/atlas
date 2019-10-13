@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#00BCD4"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/sync_start_message"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/sync_start_short_message_1"
+        android:textAppearance="@style/TextAppearance.Small"
+        android:visibility="visible"
+        app:backgroundTint="#8052AF58"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.36" />
+
+    <TextView
+        android:id="@+id/sync_start_success"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/sync_start_short_success_1"
+        android:textAppearance="@style/TextAppearance.Small"
+        android:visibility="gone"
+        app:backgroundTint="#009688"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintHeight_percent="0.26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sync_start_error"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/sync_start_short_error_1"
+        android:textAppearance="@style/TextAppearance.Small"
+        android:visibility="gone"
+        app:backgroundTint="#E91E63"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintHeight_percent="0.26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        android:padding="@dimen/textbox_padding"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/sync_start_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sync_start_message"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/sync_start_message_2"
+            android:textAppearance="@style/TextAppearance.Small" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/sync_start_message_3"
+            android:textAppearance="@style/TextAppearance.Small" />
+    </LinearLayout>
+
+    <android.support.constraint.Group
+        android:id="@+id/sync_start_browser"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="sync_start_browser_image,sync_start_browser_text,sync_start_browser_url" />
+
+    <ImageView
+        android:id="@+id/sync_start_browser_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/support_graphics"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/browser_address_bar" />
+
+    <TextView
+        android:id="@+id/sync_start_browser_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/sync_start_text"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/sync_start_browser_image"
+        app:layout_constraintStart_toStartOf="@+id/sync_start_browser_image"
+        app:layout_constraintTop_toBottomOf="@+id/sync_start_browser_image" />
+
+    <TextView
+        android:id="@+id/sync_start_browser_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintStart_toStartOf="@+id/sync_start_browser_image"
+        app:layout_constraintTop_toBottomOf="@+id/sync_start_browser_text"
+        tools:text="http://192.168.1.19:8080/sync/app.htm" />
+
+    <TextView
+        android:id="@+id/sync_start_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:text="@string/sync_start_button"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Large"
+        app:backgroundTint="#2196F3"
+        app:layout_constraintBottom_toTopOf="@+id/sync_stop_devices"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.18"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sync_stop_devices" />
+
+    <com.kidscademy.atlas.view.SyncDevicesView
+        android:id="@+id/sync_stop_devices"
+        layout="@layout/compo_sync_devices"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</merge>

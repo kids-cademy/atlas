@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kidscademy.atlas.view.ActionTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/TextAction"
+    android:text="@string/we_play"
+    app:backgroundTint="#80135E99" />

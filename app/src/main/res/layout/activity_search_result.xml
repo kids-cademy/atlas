@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/search_result_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/search"
+            android:paddingStart="110dp"
+            android:paddingEnd="0dp"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.XLarge" />
+
+        <View
+            android:id="@+id/search_result_vr"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="61dp"
+            android:background="@color/white_T60" />
+
+        <View
+            android:id="@+id/search_result_hr"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="54dp"
+            android:background="@color/black_TA0" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/search_result_caption"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="15dp"
+            app:borderColor="@color/white_T80"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_search" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/search_result_objects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            tools:listitem="@layout/item_search_result" />
+
+    </FrameLayout>
+
+    <com.kidscademy.atlas.view.FabMenu
+        android:id="@+id/search_result_fab_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal"
+        android:paddingStart="0dp"
+        android:paddingEnd="16dp"
+        app:backgroundColor="@color/white_T80"
+        app:layout_behavior="com.kidscademy.atlas.view.FabMenu$Behavior"
+        tools:background="@color/white_T80">
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/search_result_fab_close"
+            style="@style/FAB.MenuItem"
+            app:srcCompat="@drawable/action_close"
+            tools:visibility="visible" />
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/search_result_fab_main_menu"
+            style="@style/FAB.MenuItem"
+            app:srcCompat="@drawable/action_menu"
+            tools:visibility="visible" />
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/search_result_fab_index"
+            style="@style/FAB.MenuItem"
+            app:srcCompat="@drawable/action_index"
+            tools:visibility="visible" />
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:tag="control"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/action_add" />
+
+    </com.kidscademy.atlas.view.FabMenu>
+
+</android.support.design.widget.CoordinatorLayout>

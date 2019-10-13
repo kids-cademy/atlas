@@ -1,0 +1,87 @@
+.facts {
+	width: 750px;	
+}
+
+.facts .item {
+	list-style: none;
+	position: relative;
+	width: 100%;
+	padding-top: 10px;	
+	margin-bottom: 4px;
+	background: none !important;
+}
+
+.facts .item .rule {
+	position: absolute;
+	left: 33px;	
+}
+
+.facts .item .circle {
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	margin-top: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.facts .item:nth-child(1) .circle {
+	background-color: #80deea;
+}
+
+.facts .item:nth-child(2) .circle {
+	background-color: #228B22;
+}
+
+.facts .item:nth-child(3) .circle {
+	background-color: #B22222;
+}
+
+.facts .item:nth-child(4) .circle {
+	background-color: #DAA520;
+}
+
+.facts .item:nth-child(5) .circle {
+	background-color: #4664b2;
+}
+
+.facts .item:nth-child(6) .circle {
+	background-color: #83b246;
+}
+
+.facts .item:nth-child(7) .circle {
+	background-color: #b27e46;
+}
+
+.facts .item:nth-child(8) .circle {
+	background-color: #B39DDB;
+}
+
+.facts .item:nth-child(9) .circle {
+	background-color: #f0eb95;
+}
+
+.facts .item:nth-child(10) .circle {
+	background-color: #6495ED;
+}
+
+.facts .item .name {
+	height: 60px;
+	line-height: 60px;
+	margin: 10px 0 10px 0;
+	padding-left: 90.0px;
+	color: white;
+	font-size: 1.8rem;
+	font-weight: lighter;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+}
+
+.facts .item .value {
+	margin: 0;
+	padding-left: 90.0px;
+	color: #E0E0E0;
+	font-size: 1.4rem;
+	text-align: left;
+}

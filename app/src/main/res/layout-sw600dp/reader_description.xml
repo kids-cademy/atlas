@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#2196F3"
+    tools:layout_height="wrap_content"
+    tools:layout_width="500dp"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.2"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintWidth_percent="0.6"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+    <LinearLayout
+        android:id="@+id/reader_description_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/paragraph_space"
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+</merge>

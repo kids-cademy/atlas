@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BC3F51B5">
+
+    <com.kidscademy.atlas.view.PageHeader
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pageCaption="@string/app_rate_caption" />
+
+    <TextView
+        android:id="@+id/rate_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="@string/rate_on_store"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#A0009688"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="30dp"
+        android:text="@string/rate_review"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#C603A9F4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="right"
+        android:text="@string/rate_improving"
+        android:textAppearance="@style/TextAppearance.Large.Accent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1.66"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="30dp"
+        android:text="@string/rate_suggestion"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:backgroundTint="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.45"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
+</android.support.constraint.ConstraintLayout>

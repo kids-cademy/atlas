@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomAnimationActivity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_enter_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_exit_right</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_enter_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_exit_left</item>
+    </style>
+
+    <style name="AtlasTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">false</item>
+        -->
+        <item name="android:windowAnimationStyle">@style/CustomAnimationActivity</item>
+    </style>
+
+</resources>

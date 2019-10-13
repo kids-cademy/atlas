@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:background="#03A9F4">
+
+    <ImageView
+        android:id="@+id/help_menu_support_actions_first_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_reader"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_guide_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_menu_support_actions_guide_label"
+        app:srcCompat="@drawable/action_help" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_search"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_about_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_menu_support_actions_about_label"
+        app:srcCompat="@drawable/action_about" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_index"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_share_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_menu_support_actions_share_label"
+        app:srcCompat="@drawable/action_share" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_sync"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_rate_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_menu_support_actions_rate_label"
+        app:srcCompat="@drawable/action_rate" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_accessibility"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_close_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_menu_support_actions_close_label"
+        app:srcCompat="@drawable/action_close" />
+
+    <TextView
+        android:id="@+id/help_menu_support_actions_guide_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/menu_help_user_guide"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small.Mute"
+        app:layout_constraintStart_toEndOf="@id/help_menu_support_actions_rule"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_menu_support_actions_about_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_about"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_menu_support_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_menu_support_actions_guide_label" />
+
+    <TextView
+        android:id="@+id/help_menu_support_actions_share_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_share"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small.Mute"
+        app:layout_constraintStart_toEndOf="@id/help_menu_support_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_menu_support_actions_about_label" />
+
+    <TextView
+        android:id="@+id/help_menu_support_actions_rate_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_rate"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_menu_support_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_menu_support_actions_share_label" />
+
+    <TextView
+        android:id="@+id/help_menu_support_actions_close_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_close"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_menu_support_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/help_menu_support_actions_rate_label" />
+
+    <View
+        android:id="@+id/help_menu_support_actions_rule"
+        android:layout_width="@dimen/rule_weight"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/help_menu_support_actions_first_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

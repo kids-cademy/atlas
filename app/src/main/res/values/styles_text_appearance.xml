@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance">
+
+    </style>
+
+    <style name="TextAppearance.XSmall" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">@dimen/xsmall_text_size</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="TextAppearance.XSmall.Inverse">
+        <item name="android:textColor">@color/text_inverse</item>
+    </style>
+
+    <style name="TextAppearance.XSmall.Accent">
+        <item name="android:textColor">@color/text_accent</item>
+    </style>
+
+    <style name="TextAppearance.XSmall.Emphasize">
+        <item name="android:textColor">@color/text_emphasize</item>
+    </style>
+
+    <style name="TextAppearance.XSmall.Mute">
+        <item name="android:textColor">@color/text_mute</item>
+    </style>
+
+    <style name="TextAppearance.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="TextAppearance.Small.Inverse">
+        <item name="android:textColor">@color/text_inverse</item>
+    </style>
+
+    <style name="TextAppearance.Small.Accent">
+        <item name="android:textColor">@color/text_accent</item>
+    </style>
+
+    <style name="TextAppearance.Small.Emphasize">
+        <item name="android:textColor">@color/text_emphasize</item>
+    </style>
+
+    <style name="TextAppearance.Small.Mute">
+        <item name="android:textColor">@color/text_mute</item>
+    </style>
+
+    <style name="TextAppearance.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="TextAppearance.Medium.Inverse">
+        <item name="android:textColor">@color/text_inverse</item>
+    </style>
+
+    <style name="TextAppearance.Medium.Accent">
+        <item name="android:textColor">@color/text_accent</item>
+    </style>
+
+    <style name="TextAppearance.Medium.Mute">
+        <item name="android:textColor">@color/text_mute</item>
+    </style>
+
+    <style name="TextAppearance.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">@dimen/large_text_size</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="TextAppearance.Large.Inverse">
+        <item name="android:textColor">@color/text_inverse</item>
+    </style>
+
+    <style name="TextAppearance.Large.Accent">
+        <item name="android:textColor">@color/text_accent</item>
+    </style>
+
+    <style name="TextAppearance.XLarge" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">@dimen/xlarge_text_size</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="TextAppearance.XLarge.Accent">
+        <item name="android:textColor">@color/text_accent</item>
+    </style>
+
+</resources>

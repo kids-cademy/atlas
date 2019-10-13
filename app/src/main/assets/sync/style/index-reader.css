@@ -1,0 +1,83 @@
+.reader {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.reader.hidden {
+	display: none;	
+}
+
+.reader .top-menu {
+	height: 64px;
+	padding-right: 30px;
+	border-bottom: solid 1px white;
+}
+
+.reader .top-menu .title {
+	display: inline-block;
+	vertical-align: top;
+	height: 64px;
+	line-height: 64px;
+	font-size: 1.8rem;
+	color: white;
+	text-transform: uppercase;
+	margin-left: 40px;
+}
+
+.reader .h-scroll {
+	position: absolute;
+	width: 100%;
+	top: 64px;
+	bottom: 0;
+	overflow-x: scroll;
+	padding: 32px 0 15px;
+}
+
+.reader.hidden .h-scroll {
+	overflow-x: hide;
+}
+
+.reader .h-linear {
+	width: auto;
+	height: 100%;
+	white-space: nowrap;
+}
+
+.reader .scroll-mask {
+	position: absolute;
+	width: 100%;
+	height: 32px;
+	bottom: 0;	
+	background-color: rgb(74, 144, 226);
+	z-index: 100;
+}
+
+.reader.hidden .scroll-mask {
+	display: none;
+}
+	
+.reader .section {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	height: 100%;
+	margin-left: 100px;
+	xborder: dashed 1px cyan;
+	white-space: normal;
+	overflow: hidden;
+}
+
+.reader .section.hidden {
+	display: none;
+}
+
+.reader .section:first-child {
+	margin-left: 32px;
+}
+
+.reader .section:last-child {
+	padding-right: 32px;
+}

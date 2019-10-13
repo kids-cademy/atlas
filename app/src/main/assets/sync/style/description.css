@@ -1,0 +1,19 @@
+.description {
+	width: 600px;
+}
+
+.description .section {
+	padding-right: 40px;
+}
+
+.description .circle.large {
+	width: 360px;
+	height: 360px;
+	top: 50%;
+	left: 10%;
+	background-color: #FFFFFF20;
+}
+
+.description p:first-of-type {
+	margin: 0;
+}

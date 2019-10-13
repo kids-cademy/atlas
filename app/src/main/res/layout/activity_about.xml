@@ -1,0 +1,227 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BE0E3FD3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/heading_size"
+        android:background="#8FE91E63"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/app_about_caption"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/about_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/heading_size">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/about_kids_cademy"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/shape_solid_circle"
+                android:contentDescription="@string/support_graphics"
+                app:layout_constraintBottom_toBottomOf="@+id/main_release_date"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toEndOf="@+id/main_kids_cademy"
+                app:layout_constraintTop_toTopOf="@+id/main_kids_cademy"
+                app:srcCompat="@drawable/kids_cademy" />
+
+            <TextView
+                android:id="@+id/about_app"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#2196F3"
+                android:padding="32dp"
+                android:text="@string/app_about"
+                android:textAppearance="@style/TextAppearance.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/about_app_logotype"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/shape_solid_circle"
+                android:gravity="center"
+                android:padding="40dp"
+                android:text="@string/app_logotype"
+                android:textAppearance="@style/TextAppearance.Medium"
+                app:backgroundTint="#A6009688"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_app"
+                app:layout_constraintWidth_percent="0.6" />
+
+            <TextView
+                android:id="@+id/about_vision"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/shape_solid_circle"
+                android:gravity="center"
+                android:padding="24dp"
+                android:text="@string/about_vision"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.XSmall.Inverse"
+                app:backgroundTint="#A1FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/about_atlas"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_app"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintWidth_percent="0.4" />
+
+            <TextView
+                android:id="@+id/about_atlas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/about_atlas"
+                android:textAppearance="@style/TextAppearance.Small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/about_atlas_intent_rule"
+                app:layout_constraintTop_toBottomOf="@+id/about_app_logotype" />
+
+            <TextView
+                android:id="@+id/about_atlas_intent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/about_atlas_intent"
+                android:textAppearance="@style/TextAppearance.Small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/about_atlas_intent_rule"
+                app:layout_constraintTop_toBottomOf="@id/about_atlas" />
+
+            <TextView
+                android:id="@+id/main_kids_cademy"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/app_publisher"
+                android:textAppearance="@style/TextAppearance.XSmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/about_atlas_intent" />
+
+            <TextView
+                android:id="@+id/main_release_version"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/app_release"
+                android:textAppearance="@style/TextAppearance.XSmall"
+                app:layout_constraintStart_toStartOf="@+id/main_kids_cademy"
+                app:layout_constraintTop_toBottomOf="@+id/main_kids_cademy" />
+
+            <TextView
+                android:id="@+id/main_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/app_update"
+                android:textAppearance="@style/TextAppearance.XSmall"
+                app:layout_constraintStart_toStartOf="@+id/main_release_version"
+                app:layout_constraintTop_toBottomOf="@+id/main_release_version" />
+
+            <TextView
+                android:id="@+id/about_free"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/about_free"
+                android:textAppearance="@style/TextAppearance.Medium.Accent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/main_release_date" />
+
+            <TextView
+                android:id="@+id/about_open_source"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/about_open_source"
+                android:textAppearance="@style/TextAppearance.Small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/about_license_rule"
+                app:layout_constraintTop_toBottomOf="@id/about_free" />
+
+            <TextView
+                android:id="@+id/about_license_heading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/about_license_heading"
+                android:textAppearance="@style/TextAppearance.Medium.Accent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/about_license_rule"
+                app:layout_constraintTop_toBottomOf="@id/about_open_source" />
+
+            <TextView
+                android:id="@+id/about_license"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/about_license"
+                android:textAppearance="@style/TextAppearance.Small"
+                android:textSize="@dimen/xsmall_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/about_license_rule"
+                app:layout_constraintTop_toBottomOf="@+id/about_license_heading" />
+
+            <View
+                android:id="@+id/about_atlas_intent_rule"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="32dp"
+                android:background="@color/text"
+                app:layout_constraintBottom_toBottomOf="@id/about_atlas_intent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/about_atlas" />
+
+            <View
+                android:id="@+id/about_license_rule"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="32dp"
+                android:background="#FFEB3B"
+                app:layout_constraintBottom_toBottomOf="@+id/about_license"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/about_open_source" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.kidscademy.atlas.view.RandomColorFAB
+        style="@style/FAB.Back.Autohide"
+        app:layout_anchor="@id/about_scroll" />
+
+</android.support.design.widget.CoordinatorLayout>

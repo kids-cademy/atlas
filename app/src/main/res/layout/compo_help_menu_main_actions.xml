@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/menu_main_actions_first_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/paragraph_space"
+        android:contentDescription="@string/menu_help_reader"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_reader_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/menu_main_actions_reader_label"
+        app:srcCompat="@drawable/action_apps" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/paragraph_space"
+        android:contentDescription="@string/menu_help_search"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_search_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/menu_main_actions_search_label"
+        app:srcCompat="@drawable/action_search" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/paragraph_space"
+        android:contentDescription="@string/menu_help_index"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_index_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/menu_main_actions_index_label"
+        app:srcCompat="@drawable/action_index" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/paragraph_space"
+        android:contentDescription="@string/menu_help_sync"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_sync_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/menu_main_actions_sync_label"
+        app:srcCompat="@drawable/action_sync" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/paragraph_space"
+        android:contentDescription="@string/menu_help_accessibility"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_accessibility_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/menu_main_actions_accessibility_label"
+        app:srcCompat="@drawable/action_accessibility" />
+
+    <TextView
+        android:id="@+id/menu_main_actions_reader_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/menu_help_reader"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toEndOf="@id/menu_main_actions_rule"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/menu_main_actions_search_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_search"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toEndOf="@id/menu_main_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/menu_main_actions_reader_label" />
+
+    <TextView
+        android:id="@+id/menu_main_actions_index_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_index"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toEndOf="@id/menu_main_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/menu_main_actions_search_label" />
+
+    <TextView
+        android:id="@+id/menu_main_actions_sync_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_sync"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toEndOf="@id/menu_main_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/menu_main_actions_index_label" />
+
+    <TextView
+        android:id="@+id/menu_main_actions_accessibility_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu_help_accessibility"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toEndOf="@id/menu_main_actions_rule"
+        app:layout_constraintTop_toBottomOf="@id/menu_main_actions_sync_label" />
+
+    <View
+        android:id="@+id/menu_main_actions_rule"
+        android:layout_width="@dimen/rule_weight"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/menu_main_actions_first_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

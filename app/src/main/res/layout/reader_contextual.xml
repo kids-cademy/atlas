@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#2196F3"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <ImageView
+        android:id="@+id/contextual_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/image_description"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/sample_contextual_image" />
+
+    <TextView
+        android:id="@+id/contextual_sample_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="#40C62828"
+        android:ellipsize="end"
+        android:lines="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="26dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="26dp"
+        android:text="@string/sample_object_audio_title"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contextual_image" />
+
+    <ImageView
+        android:id="@+id/contextual_play_button"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/image_description"
+        android:src="@drawable/action_play_sample"
+        android:translationY="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/contextual_sample_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/contextual_text"
+        layout="@layout/compo_paragraph"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sections_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contextual_sample_title" />
+</merge>

@@ -1,0 +1,69 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#81E91E63"
+    tools:activity="com.kidscademy.atlas.activity.ErrorActivity">
+
+    <TextView
+        android:id="@+id/error_page_caption"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/error_header_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/error_page_caption"
+        app:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/error_header_edition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/app_edition"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/error_page_caption"
+        app:layout_constraintTop_toBottomOf="@id/error_header_divider" />
+
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#18000000"
+        android:padding="32dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/yellow_300"
+        app:layout_constraintBottom_toTopOf="@+id/error_restart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_header_edition"
+        tools:text="@string/sample_text" />
+
+    <Button
+        android:id="@+id/error_restart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:layout_weight="1"
+        android:text="@string/error_restart"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

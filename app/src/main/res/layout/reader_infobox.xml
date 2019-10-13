@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#2196F3"
+    tools:layout_height="wrap_content"
+    tools:layout_width="wrap_content"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <View
+        android:id="@+id/infobox_vertical_rule"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/vertical_rule_start_margin"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/infobox_classification_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/paragraph_indent"
+        android:layout_marginTop="32dp"
+        android:text="@string/infobox_classification"
+        android:textAppearance="@style/TextAppearance.Medium.Inverse"
+        app:layout_constraintStart_toEndOf="@+id/infobox_vertical_rule"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/infobox_taxonomy_frame"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="@+id/infobox_classification_label"
+        app:layout_constraintTop_toBottomOf="@+id/infobox_classification_label">
+
+        <TextView
+            android:id="@+id/infobox_classification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_object_classification"
+            android:textAppearance="@style/TextAppearance.Medium.Accent" />
+
+        <com.kidscademy.atlas.view.TaxonomyView
+            android:id="@+id/infobox_taxonomy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+    <android.support.constraint.Group
+        android:id="@+id/infobox_aliases_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="infobox_aliases_label,infobox_aliases" />
+
+    <TextView
+        android:id="@+id/infobox_aliases_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/paragraph_indent"
+        android:layout_marginTop="32dp"
+        android:text="@string/infobox_alias"
+        android:textAppearance="@style/TextAppearance.Medium.Inverse"
+        app:layout_constraintStart_toStartOf="@id/infobox_vertical_rule"
+        app:layout_constraintTop_toBottomOf="@id/infobox_taxonomy_frame" />
+
+    <TextView
+        android:id="@+id/infobox_aliases"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        app:layout_constraintStart_toStartOf="@+id/infobox_aliases_label"
+        app:layout_constraintTop_toBottomOf="@id/infobox_aliases_label"
+        tools:text="@string/sample_object_aliases" />
+
+    <android.support.constraint.Group
+        android:id="@+id/infobox_spreading_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="infobox_spreading_label,infobox_spreading" />
+
+    <TextView
+        android:id="@+id/infobox_spreading_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/paragraph_indent"
+        android:layout_marginTop="32dp"
+        android:text="@string/infobox_spreading"
+        android:textAppearance="@style/TextAppearance.Medium.Inverse"
+        app:layout_constraintStart_toStartOf="@id/infobox_vertical_rule"
+        app:layout_constraintTop_toBottomOf="@id/infobox_aliases" />
+
+    <TextView
+        android:id="@+id/infobox_spreading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintStart_toStartOf="@+id/infobox_spreading_label"
+        app:layout_constraintTop_toBottomOf="@id/infobox_spreading_label"
+        tools:text="@string/sample_object_spreading" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/paragraph_space"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/infobox_vertical_rule"
+        app:layout_constraintTop_toBottomOf="@id/infobox_spreading" />
+
+    <android.support.constraint.Group
+        android:id="@+id/infobox_date_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="infobox_date_label,infobox_start_date,infobox_end_date" />
+
+    <TextView
+        android:id="@+id/infobox_date_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/paragraph_indent"
+        android:layout_marginTop="32dp"
+        android:text="@string/infobox_since"
+        android:textAppearance="@style/TextAppearance.Medium.Inverse"
+        app:layout_constraintStart_toStartOf="@id/infobox_vertical_rule"
+        app:layout_constraintTop_toBottomOf="@+id/infobox_spreading" />
+
+    <TextView
+        android:id="@+id/infobox_start_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        app:layout_constraintStart_toStartOf="@+id/infobox_date_label"
+        app:layout_constraintTop_toBottomOf="@id/infobox_date_label"
+        tools:text="@string/sample_object_date" />
+
+    <TextView
+        android:id="@+id/infobox_end_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        app:layout_constraintStart_toStartOf="@+id/infobox_start_date"
+        app:layout_constraintTop_toBottomOf="@id/infobox_start_date"
+        tools:text="@string/sample_object_date" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infobox_start_date" />
+</merge>

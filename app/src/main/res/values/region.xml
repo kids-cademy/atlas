@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="region_ALL">%s"</string>
+    <string name="region_CENTRAL">Central %s</string>
+    <string name="region_NORTH">Northern %s</string>
+    <string name="region_NORTH_EAST">Northeastern %s"</string>
+    <string name="region_EAST">Eastern %s</string>
+    <string name="region_SOUTH_EAST">Southeastern %s</string>
+    <string name="region_SOUTH">Southern %s</string>
+    <string name="region_SOUTH_WEST">Southwestern %s</string>
+    <string name="region_WEST">Western %s</string>
+    <string name="region_NORTH_WEST">Northwestern %s</string>
+</resources>

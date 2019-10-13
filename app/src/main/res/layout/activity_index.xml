@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009688">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/index_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/compo_objects_group" />
+
+    <com.kidscademy.atlas.view.FabMenu
+        android:id="@+id/index_fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/index_fab_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="control"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/action_add" />
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/index_fab_swap_vertical"
+            style="@style/FAB.MenuItem"
+            app:srcCompat="@drawable/action_swap_vertical"
+            tools:visibility="visible" />
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/index_fab_collapse_all"
+            style="@style/FAB.MenuItem"
+            app:srcCompat="@drawable/action_unfold_less"
+            tools:visibility="visible" />
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/index_fab_expand_all"
+            style="@style/FAB.MenuItem"
+            app:srcCompat="@drawable/action_unfold_more"
+            tools:visibility="visible" />
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/index_fab_search"
+            style="@style/FAB.MenuItem"
+            app:srcCompat="@drawable/action_search"
+            tools:visibility="visible" />
+
+        <com.kidscademy.atlas.view.RandomColorFAB
+            android:id="@+id/index_fab_main_menu"
+            style="@style/FAB.MenuItem"
+            app:srcCompat="@drawable/action_menu"
+            tools:visibility="visible" />
+    </com.kidscademy.atlas.view.FabMenu>
+
+</android.support.design.widget.CoordinatorLayout>

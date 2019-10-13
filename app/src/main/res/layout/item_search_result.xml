@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/divider_weight"
+    android:background="@drawable/click_highlight"
+    android:padding="4dp">
+
+    <ImageView
+        android:id="@+id/search_result_icon"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:contentDescription="@string/image_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_object_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/search_result_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/sample_object_name"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/search_result_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/search_result_definition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/sample_object_definition"
+        android:textAppearance="@style/TextAppearance.XSmall.Mute"
+        app:layout_constraintEnd_toEndOf="@+id/search_result_name"
+        app:layout_constraintStart_toStartOf="@+id/search_result_name"
+        app:layout_constraintTop_toBottomOf="@+id/search_result_name" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,65 @@
+.infobox {
+}
+
+.reader .section.infobox {
+	overflow: visible;	
+}
+
+.infobox .circle {
+	width: 240px;
+	height: 240px;
+	right: 0px;
+	top: 30%;
+	background-color: #FFFFFF20;
+	z-index: -10;
+}
+
+.infobox .container {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 40px;
+}
+
+.infobox .container.accent {
+	border-left: solid 1px rgba(255, 255, 255, 0.5);
+}
+
+.infobox h2 {
+	margin: 40px  0 10px 0;
+	font-weight: lighter;
+	font-size: 1.8rem;
+	color: black;
+}
+
+.infobox .taxonomy h2 {
+	margin-top: 0;
+}
+
+.infobox .body {
+	margin: 0 0 0 60px;
+}
+
+.infobox p, .infobox li {
+	white-space: nowrap;
+	font-size: 1.4rem;
+	color: yellow;
+}
+
+.infobox .name {
+	color: white;
+	text-transform: uppercase;	
+	font-size: 1.4rem;
+}
+
+.infobox .separator {
+	color: white;
+	font-size: 1.4rem;
+	padding: 0 10px;
+}
+
+.infobox .value {
+	color: white;	
+	text-transform: lowercase;	
+	font-size: 1.4rem;
+}

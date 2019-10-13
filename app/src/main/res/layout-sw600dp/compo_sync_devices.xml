@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="#00BCD4"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <ImageView
+        android:id="@+id/sync_tablet"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toBottomOf="@+id/sync_tv"
+        app:layout_constraintDimensionRatio="1.379"
+        app:layout_constraintStart_toStartOf="@+id/sync_start_guide"
+        app:layout_constraintTop_toTopOf="@+id/sync_tv"
+        app:layout_constraintWidth_percent="0.18"
+        app:srcCompat="@drawable/tablet_reader" />
+
+    <ImageView
+        android:id="@+id/sync_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1.463"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.46"
+        app:srcCompat="@drawable/tv_empty" />
+
+    <View
+        android:id="@+id/sync_connection"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="0dp"
+        android:alpha="0.2"
+        android:background="#E91E63"
+        app:layout_constraintBottom_toBottomOf="@+id/sync_tv"
+        app:layout_constraintEnd_toStartOf="@+id/sync_tv"
+        app:layout_constraintStart_toEndOf="@+id/sync_tablet"
+        app:layout_constraintTop_toTopOf="@+id/sync_tv" />
+
+    <TextView
+        android:id="@+id/sync_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_horizontal"
+        android:text="@string/sync_start_done"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/sync_connection"
+        app:layout_constraintEnd_toStartOf="@+id/sync_tv"
+        app:layout_constraintStart_toStartOf="@+id/sync_connection"
+        tools:visibility="visible" />
+
+
+</merge>

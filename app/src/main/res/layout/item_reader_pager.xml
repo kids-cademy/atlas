@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kidscademy.atlas.view.ReaderPage xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@drawable/page_bg">
+
+    <!-- an item - aka page, from view pager on reader activity in mobile mode  -->
+    <!-- this item layout is used only on mobile, on tablet there is no pager -->
+
+    <com.kidscademy.atlas.view.ReaderObjectView
+        android:id="@+id/reader_page_object_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/shape_reader_divider"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/sections_space"
+        android:showDividers="middle" />
+
+</com.kidscademy.atlas.view.ReaderPage>

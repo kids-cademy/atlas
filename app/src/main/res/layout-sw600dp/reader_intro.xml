@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:background="#2196F3">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/reader_intro_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.16" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/reader_intro_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.2" />
+
+    <TextView
+        android:id="@+id/reader_intro_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_cover_page_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/reader_intro_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/support_graphics"
+        android:tint="#2196F3"
+        app:layout_constraintBottom_toBottomOf="@+id/reader_intro_definition"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.22"
+        app:srcCompat="@drawable/shape_solid_circle" />
+
+    <ImageView
+        android:id="@+id/reader_intro_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/intro_image"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintHeight_percent="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/sample_cover_image" />
+
+    <TextView
+        android:id="@+id/reader_intro_definition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintBottom_toBottomOf="@id/reader_intro_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reader_intro_image"
+        tools:text="@string/sample_object_definition" />
+</android.support.constraint.ConstraintLayout>

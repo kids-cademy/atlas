@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#03A9F4">
+
+    <ImageView
+        android:id="@+id/help_search_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_stroke_circle"
+        android:contentDescription="@string/support_graphics"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_search" />
+
+    <TextView
+        android:id="@+id/help_search_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/help_search_description"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/help_search_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_search_p1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_search_p1"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/help_search_description"
+        app:layout_constraintTop_toBottomOf="@+id/help_search_description" />
+
+    <TextView
+        android:id="@+id/help_search_p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_search_p2"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_search_p1" />
+
+    <View
+        android:id="@+id/help_search_p2_rule"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:background="@color/rule_accent"
+        app:layout_constraintBottom_toBottomOf="@+id/help_search_p22"
+        app:layout_constraintStart_toStartOf="@+id/help_search_p2"
+        app:layout_constraintTop_toTopOf="@+id/help_search_p21" />
+
+    <TextView
+        android:id="@+id/help_search_p21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/help_search_p21"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintStart_toEndOf="@+id/help_search_p2_rule"
+        app:layout_constraintTop_toBottomOf="@+id/help_search_p2" />
+
+    <TextView
+        android:id="@+id/help_search_p22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/help_search_p22"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintStart_toEndOf="@+id/help_search_p2_rule"
+        app:layout_constraintTop_toBottomOf="@+id/help_search_p21" />
+
+    <TextView
+        android:id="@+id/help_search_p3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/help_search_p3"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toTopOf="@+id/help_search_actions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_search_p22" />
+
+    <include
+        android:id="@+id/help_search_actions"
+        layout="@layout/compo_help_search_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/help_search_p5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_search_p3" />
+
+    <TextView
+        android:id="@+id/help_search_p4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/help_search_p4"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintStart_toEndOf="@+id/help_search_actions"
+        app:layout_constraintTop_toTopOf="@+id/help_search_actions"
+        app:layout_constraintWidth_percent="0.33" />
+
+    <TextView
+        android:id="@+id/help_search_p5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/help_search_p5"
+        android:textAppearance="@style/TextAppearance.Small.Mute"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_search_actions" />
+
+</android.support.constraint.ConstraintLayout>

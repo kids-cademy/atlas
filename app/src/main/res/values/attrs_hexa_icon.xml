@@ -1,0 +1,12 @@
+<resources>
+    <declare-styleable name="HexaIcon">
+        <attr name="backgroundColor" />
+        <attr name="backgroundAlpha" format="integer" />
+        <attr name="borderSize" format="integer" />
+        <attr name="borderColor" format="color" />
+        <attr name="iconColor" format="color" />
+        <attr name="iconDrawable" format="reference" />
+        <attr name="text" format="string" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+</resources>

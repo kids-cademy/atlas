@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text">@color/white</color>
+    <color name="text_inverse">@color/black</color>
+    <color name="text_mute">@color/grey_300</color>
+    <color name="text_accent">@color/yellow_300</color>
+    <color name="text_emphasize">@color/cyan_700</color>
+
+    <!-- background color for horizontal and vertical rules -->
+    <color name="rule">@color/white_T80</color>
+    <color name="rule_accent">@color/text_accent</color>
+
+    <color name="heading_bg">#401565C0</color>
+    <color name="paragraph_bg">#4000695C</color>
+    <color name="image_bg">@color/white_T40</color>
+
+    <!-- button states -->
+
+    <color name="border">@color/white_T60</color>
+
+    <color name="image_caption_bg">@color/black_T20</color>
+    <color name="action_icon">#FFFFFF</color>
+</resources>

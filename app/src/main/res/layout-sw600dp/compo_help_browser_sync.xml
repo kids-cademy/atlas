@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#03A9F4">
+
+    <ImageView
+        android:id="@+id/help_sync_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_stroke_circle"
+        android:contentDescription="@string/support_graphics"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_sync" />
+
+    <TextView
+        android:id="@+id/help_sync_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/help_sync_description"
+        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/help_sync_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_sync_p1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/help_sync_p1"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintStart_toStartOf="@+id/help_sync_description"
+        app:layout_constraintTop_toBottomOf="@+id/help_sync_description"
+        app:layout_constraintWidth_percent="0.33" />
+
+    <TextView
+        android:id="@+id/help_sync_p2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/help_sync_p2"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/help_sync_description"
+        app:layout_constraintStart_toEndOf="@+id/help_sync_p1"
+        app:layout_constraintTop_toTopOf="@+id/help_sync_p1"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <com.kidscademy.atlas.view.HexaIcon
+        android:id="@+id/help_sync_menu"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        app:backgroundColor="#009688"
+        app:iconDrawable="@drawable/action_sync"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_sync_p2" />
+
+    <TextView
+        android:id="@+id/help_sync_p3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/help_sync_p3"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintStart_toEndOf="@+id/help_sync_menu"
+        app:layout_constraintTop_toTopOf="@+id/help_sync_menu"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <TextView
+        android:id="@+id/help_sync_p4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_sync_p4"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_sync_menu" />
+
+    <View
+        android:id="@+id/help_sync_rule"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:background="@color/rule_accent"
+        app:layout_constraintBottom_toBottomOf="@+id/help_sync_p42"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/help_sync_p41" />
+
+    <TextView
+        android:id="@+id/help_sync_p41"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/help_sync_p41"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/help_sync_rule"
+        app:layout_constraintTop_toBottomOf="@+id/help_sync_p4" />
+
+    <TextView
+        android:id="@+id/help_sync_p42"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/help_sync_p42"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/help_sync_rule"
+        app:layout_constraintTop_toBottomOf="@+id/help_sync_p41" />
+
+    <TextView
+        android:id="@+id/help_sync_p5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_sync_p5"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/help_sync_p4"
+        app:layout_constraintTop_toBottomOf="@+id/help_sync_p42" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/help_sync_p6"
+        android:textAppearance="@style/TextAppearance.Small.Inverse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_sync_p5" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#03A9F4">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/help_index_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#C40E99D8"
+            android:padding="32dp"
+            android:text="@string/help_index_description"
+            android:textAppearance="@style/TextAppearance.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/help_index_icon"
+            android:layout_width="@dimen/hexa_icon_size"
+            android:layout_height="@dimen/hexa_icon_size"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/shape_solid_circle"
+            android:padding="10dp"
+            android:tint="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/help_index_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_index_description"
+            app:srcCompat="@drawable/action_index" />
+
+        <TextView
+            android:id="@+id/help_index_p1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_index_p1"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_index_description" />
+
+        <TextView
+            android:id="@+id/help_index_p2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_index_p2"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_index_p1" />
+
+        <include
+            android:id="@+id/help_index_actions"
+            layout="@layout/compo_help_index_actions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_index_p2" />
+
+        <TextView
+            android:id="@+id/help_index_actions_h"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_index_actions_h"
+            android:textAppearance="@style/TextAppearance.Medium.Accent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_index_actions" />
+
+        <View
+            android:id="@+id/help_index_actions_rule"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:background="@color/rule_accent"
+            app:layout_constraintBottom_toBottomOf="@+id/help_index_actions_p4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/help_index_actions_p1" />
+
+        <TextView
+            android:id="@+id/help_index_actions_p1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_index_actions_p1"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_index_actions_rule"
+            app:layout_constraintTop_toBottomOf="@+id/help_index_actions_h" />
+
+        <TextView
+            android:id="@+id/help_index_actions_p2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_index_actions_p2"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_index_actions_rule"
+            app:layout_constraintTop_toBottomOf="@id/help_index_actions_p1" />
+
+        <TextView
+            android:id="@+id/help_index_actions_p3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_index_actions_p3"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_index_actions_rule"
+            app:layout_constraintTop_toBottomOf="@id/help_index_actions_p2" />
+
+        <TextView
+            android:id="@+id/help_index_actions_p4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/help_index_actions_p4"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_index_actions_rule"
+            app:layout_constraintTop_toBottomOf="@+id/help_index_actions_p3" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/accessibility_page_header"
+    tools:background="#009688"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_back"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginStart="8dp"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_back" />
+
+    <TextView
+        android:id="@+id/page_header_caption"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.Large"
+        app:layout_constraintBottom_toTopOf="@+id/page_header_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/action_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/page_header_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/action_back"
+        app:layout_editor_absoluteX="30dp" />
+
+    <TextView
+        android:id="@+id/page_header_edition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/app_edition"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/page_header_caption"
+        app:layout_constraintTop_toBottomOf="@+id/page_header_divider" />
+
+    <Space
+        android:id="@+id/page_header_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/page_header_edition" />
+
+</merge>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAction">
+        <item name="android:layout_width">@dimen/trademark_icon_size</item>
+        <item name="android:layout_height">@dimen/trademark_icon_size</item>
+        <item name="android:background">@drawable/shape_solid_circle</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lines">2</item>
+        <item name="android:rotation">45</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.Medium</item>
+    </style>
+
+    <style name="TextAction.NoAds">
+        <item name="android:text">@string/no_ads</item>
+        <item name="backgroundTint">#80E91E63</item>
+    </style>
+
+    <style name="TextAction.WePlay">
+        <item name="android:text">@string/we_play</item>
+        <item name="backgroundTint">#80135E99</item>
+    </style>
+
+</resources>

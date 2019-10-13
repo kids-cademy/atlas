@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Shape">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">@string/support_graphics</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="Shape.Circle">
+        <item name="android:alpha">0.6</item>
+        <item name="android:src">@drawable/shape_solid_circle</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="Shape.Image">
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="Shape.Text">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/shape_solid_circle</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.Medium</item>
+        <item name="layout_constraintDimensionRatio">1</item>
+    </style>
+
+</resources>

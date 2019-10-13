@@ -1,0 +1,188 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BE0E3FD3">
+
+    <com.kidscademy.atlas.view.PageHeader
+        android:id="@+id/about_page_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pageCaption="@string/app_about_caption" />
+
+    <TextView
+        android:id="@+id/about_app_logotype"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="40dp"
+        android:text="@string/app_logotype"
+        android:textAppearance="@style/TextAppearance.Large"
+        app:backgroundTint="#2196F3"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_page_header"
+        app:layout_constraintWidth_percent="0.26" />
+
+    <TextView
+        android:id="@+id/about_vision"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="24dp"
+        android:text="@string/about_vision"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.XSmall.Inverse"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="@+id/about_page_header"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.14" />
+
+    <TextView
+        android:id="@+id/about_app"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/app_about"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toStartOf="@+id/about_vision"
+        app:layout_constraintStart_toEndOf="@+id/about_app_logotype"
+        app:layout_constraintTop_toTopOf="@+id/about_app_logotype" />
+
+    <TextView
+        android:id="@+id/about_atlas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/about_atlas"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toTopOf="@+id/about_atlas_intent"
+        app:layout_constraintEnd_toEndOf="@+id/about_app"
+        app:layout_constraintStart_toStartOf="@+id/about_app" />
+
+    <TextView
+        android:id="@+id/about_atlas_intent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/about_atlas_intent"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toBottomOf="@+id/about_app_logotype"
+        app:layout_constraintEnd_toEndOf="@+id/about_atlas"
+        app:layout_constraintStart_toStartOf="@+id/about_atlas" />
+
+    <TextView
+        android:id="@+id/about_free"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="end"
+        android:text="@string/about_free"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/about_license_rule"
+        app:layout_constraintWidth_percent="0.33" />
+
+    <TextView
+        android:id="@+id/about_open_source"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/about_open_source"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintBottom_toTopOf="@+id/about_license_heading"
+        app:layout_constraintEnd_toEndOf="@+id/about_license_heading"
+        app:layout_constraintStart_toStartOf="@+id/about_license_heading" />
+
+    <TextView
+        android:id="@+id/about_license_heading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/about_license_heading"
+        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        app:layout_constraintBottom_toTopOf="@+id/about_license"
+        app:layout_constraintEnd_toEndOf="@+id/about_license"
+        app:layout_constraintStart_toStartOf="@id/about_license"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <TextView
+        android:id="@+id/about_license"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/about_license"
+        android:textAppearance="@style/TextAppearance.Small.Mute"
+        android:textSize="@dimen/xsmall_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <TextView
+        android:id="@+id/about_kids_cademy"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:text="@string/app_publisher"
+        android:textAppearance="@style/TextAppearance.XSmall.Mute"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/about_kids_cademy_icon" />
+
+    <TextView
+        android:id="@+id/about_release_version"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:text="@string/app_release"
+        android:textAppearance="@style/TextAppearance.XSmall.Mute"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_kids_cademy" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/app_update"
+        android:textAppearance="@style/TextAppearance.XSmall.Mute"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_release_version" />
+
+    <ImageView
+        android:id="@+id/about_kids_cademy_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/shape_solid_circle"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toTopOf="@+id/about_free"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toStartOf="@+id/about_license_rule"
+        app:layout_constraintTop_toTopOf="@+id/about_open_source"
+        app:srcCompat="@drawable/kids_cademy" />
+
+    <View
+        android:id="@+id/about_license_rule"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:background="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="@+id/about_license"
+        app:layout_constraintEnd_toStartOf="@+id/about_license"
+        app:layout_constraintTop_toTopOf="@+id/about_open_source" />
+
+</android.support.constraint.ConstraintLayout>

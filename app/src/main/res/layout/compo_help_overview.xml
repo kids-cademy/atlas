@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#03A9F4">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/help_overview_p1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#C40E99D8"
+            android:padding="32dp"
+            android:text="@string/help_overview_p1"
+            android:textAppearance="@style/TextAppearance.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/help_overview_p2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_overview_p2"
+            android:textAppearance="@style/TextAppearance.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/help_overview_p1" />
+
+        <TextView
+            android:id="@+id/help_overview_p3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_overview_p3"
+            android:textAppearance="@style/TextAppearance.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/help_overview_p2" />
+
+        <View
+            android:id="@+id/help_overview_rule1"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:background="@color/rule_accent"
+            app:layout_constraintBottom_toBottomOf="@+id/help_overview_p6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/help_overview_p4" />
+
+        <TextView
+            android:id="@+id/help_overview_p4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_overview_p4"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_overview_rule1"
+            app:layout_constraintTop_toBottomOf="@id/help_overview_p3" />
+
+        <TextView
+            android:id="@+id/help_overview_p5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_overview_p5"
+            android:textAppearance="@style/TextAppearance.Small.Accent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_overview_rule1"
+            app:layout_constraintTop_toBottomOf="@+id/help_overview_p4" />
+
+        <TextView
+            android:id="@+id/help_overview_p6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_overview_p6"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_overview_rule1"
+            app:layout_constraintTop_toBottomOf="@+id/help_overview_p5" />
+
+        <TextView
+            android:id="@+id/help_overview_p7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="#63009688"
+            android:padding="32dp"
+            android:text="@string/help_overview_p7"
+            android:textAppearance="@style/TextAppearance.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_overview_p6" />
+
+        <View
+            android:id="@+id/help_overview_rule2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:background="@color/rule_accent"
+            app:layout_constraintBottom_toBottomOf="@+id/help_overview_p9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/help_overview_p8" />
+
+        <TextView
+            android:id="@+id/help_overview_p8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/help_overview_p8"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_overview_rule2"
+            app:layout_constraintTop_toBottomOf="@+id/help_overview_p7" />
+
+        <TextView
+            android:id="@+id/help_overview_p9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/help_overview_p9"
+            android:textAppearance="@style/TextAppearance.Small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/help_overview_rule2"
+            app:layout_constraintTop_toBottomOf="@+id/help_overview_p8" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

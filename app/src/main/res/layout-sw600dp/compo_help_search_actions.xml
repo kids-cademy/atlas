@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/help_search_actions"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:background="#03A9F4">
+
+    <View
+        android:id="@+id/help_search_actions_rule"
+        android:layout_width="@dimen/rule_weight"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/help_search_actions_first_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/help_search_actions_first_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_search"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_search_actions_index_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_search_actions_index_label"
+        app:srcCompat="@drawable/action_index" />
+
+    <TextView
+        android:id="@+id/help_search_actions_index_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/menu_help_index"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_search_actions_rule"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_help_accessibility"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_search_actions_menu_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_search_actions_menu_label"
+        app:srcCompat="@drawable/action_menu" />
+
+    <TextView
+        android:id="@+id/help_search_actions_menu_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_main_menu"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        app:layout_constraintStart_toStartOf="@id/help_search_actions_rule"
+        app:layout_constraintTop_toBottomOf="@+id/help_search_actions_index_label" />
+
+</android.support.constraint.ConstraintLayout>

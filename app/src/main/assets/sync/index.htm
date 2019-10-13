@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<HTML lang="en">
+<HEAD>
+<META content="text/html; charset=UTF-8" http-equiv="Content-Type"></META>
+<META content="Iulian Rotaru" name="Author"></META>
+<TITLE>Atlas TV Sync / Index</TITLE>
+<META content="Atlas TV Sync / Index" name="Description"></META>
+<LINK href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"></LINK>
+<LINK href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css"></LINK>
+<LINK href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/theme-reset.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/theme-hexagon.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/theme-list.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/theme-style.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/links.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/related.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/features.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/facts.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/contextual.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/infobox.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/conservation.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/featured.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/description.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/intro.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/index-reader.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/index-cover.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/index.css" rel="stylesheet" type="text/css"></LINK>
+</HEAD>
+<BODY xmlns:w="js-lib.com/wood">
+	<DIV class="cover" data-object="."><H1 data-text="name"></H1><H2 data-text="edition"></H2><IMG src="media/index-cover_cover-page-guitar.png"></IMG><DIV class="circle c1"></DIV><DIV class="circle c2"></DIV><DIV class="circle c3"></DIV><DIV class="circle c4"></DIV><UL>
+		<LI>Published by <SPAN data-text="publisher"></SPAN></LI>
+		<LI>Release <SPAN data-text="release"></SPAN></LI>
+		<LI data-format="js.format.LongDate" data-text="date"></LI>
+		<LI data-text="license"></LI>
+	</UL></DIV>
+	<DIV class="hidden reader" data-object="." xmlns:w="js-lib.com/wood"><DIV class="top-menu">
+		<IMG class="action" src="media/asset_action-back.png"></IMG>
+		<SPAN class="title" data-text="display"></SPAN>
+		<SPAN class="right">
+			<IMG class="action" src="media/asset_action-search.png"></IMG>
+			<IMG class="action" src="media/asset_action-index.png"></IMG>
+			<IMG class="action" src="media/asset_action-previous.png"></IMG>
+			<IMG class="action" src="media/asset_action-next.png"></IMG>
+			<IMG class="action" src="media/asset_action-menu.png"></IMG>
+		</SPAN>
+	</DIV><DIV class="h-scroll">
+		<DIV class="object-view h-linear">
+			<DIV class="intro section"><DIV class="container">
+		<DIV class="bg"></DIV>
+		<DIV class="circle small"></DIV>
+		
+		<DIV class="image-container">
+			<IMG class="circle-bg" src="media/intro_circle-bg.png"></IMG>
+			<IMG class="image fit-center" data-format="sync.AbsolutePath" data-src="images.cover.path"></IMG>
+		</DIV>
+		<DIV class="text-container">
+			<P class="text" data-text="definition"></P>
+		</DIV>
+	</DIV></DIV>
+			<DIV class="description section" data-if="description"><DIV class="circle large"></DIV><DIV class="list" data-html="description">
+		<P></P>
+	</DIV></DIV>
+			<DIV class="featured section" data-if="images.featured"><DIV class="image-container">
+		<IMG class="image fit-center" data-format="sync.AbsolutePath" data-src="images.featured.path"></IMG>
+	</DIV><DIV class="paragraph-container">
+		<P data-text="images.featured.caption"></P>
+	</DIV></DIV>
+			<DIV class="conservation section" data-if="conservation"><UL class="status" data-class="sync.ConservationView" data-object="conservation">
+		<LI class="LC"><SPAN class="label">Least Concern</SPAN><SPAN class="bullet">LC</SPAN></LI>
+		<LI class="NT"><SPAN class="label">Near Threatened</SPAN><SPAN class="bullet">NT</SPAN></LI>
+		<LI class="VU"><SPAN class="label">Vulnerable</SPAN><SPAN class="bullet">VU</SPAN></LI>
+		<LI class="EN"><SPAN class="label">Endangered</SPAN><SPAN class="bullet">EN</SPAN></LI>
+		<LI class="CR"><SPAN class="label">Critically Endangered</SPAN><SPAN class="bullet">CR</SPAN></LI>
+		<LI class="EW"><SPAN class="label">Extinct in the Wild</SPAN><SPAN class="bullet">EW</SPAN></LI>
+		<LI class="EX"><SPAN class="label">Extinct</SPAN><SPAN class="bullet">EX</SPAN></LI>
+		<LI class="NA"><SPAN class="label">Not Available</SPAN><SPAN class="bullet">NA</SPAN></LI>
+	</UL></DIV>
+			<DIV class="infobox section"><DIV class="circle"></DIV><DIV class="container" data-css-class="!conservation:accent">
+		<SECTION class="taxonomy" data-if="taxonomy.length=1">
+			<H2 data-text="taxonomy.0.name"></H2>
+			<P class="body" data-text="taxonomy.0.value"></P>
+		</SECTION>
+		<SECTION class="taxonomy" data-if="taxonomy.length&gt;1">
+			<H2>Classification</H2>
+			<TABLE class="body">
+				<TBODY data-list="taxonomy">
+					<TR>
+						<TD class="name" data-text="name"></TD>
+						<TD class="separator">:</TD>
+						<TD class="value" data-text="value"></TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+		</SECTION>
+
+		<SECTION data-if="aliases">
+			<H2>Also known as</H2>
+			<UL class="body" data-list="aliases">
+				<LI class="accent upper-case"></LI>
+			</UL>
+		</SECTION>
+
+		<SECTION data-if="spreading">
+			<H2>Spreading</H2>
+			<UL class="body" data-list="spreading">
+				<LI data-format="sync.RegionFormat"></LI>
+			</UL>
+		</SECTION>
+
+		<SECTION data-if="start-date;!end-date">
+			<H2>Dates back to</H2>
+			<P class="body" data-format="sync.HDateFormat" data-text="start-date"></P>
+		</SECTION>
+		<SECTION data-if="start-date;end-date">
+			<H2>Period</H2>
+			<UL class="body">
+				<LI data-format="sync.HDateFormat" data-text="start-date"></LI>
+				<LI data-format="sync.HDateFormat" data-text="end-date"></LI>
+			</UL>
+		</SECTION>
+	</DIV></DIV>
+			<DIV class="contextual section" data-if="images.contextual"><DIV class="image-frame">
+		<IMG class="image fit-top-center" data-format="sync.AbsolutePath" data-src="images.contextual.path"></IMG>
+		<DIV data-if="sampleTitle">
+			<P class="title accent" data-text="sampleTitle"></P>
+			<IMG class="play" src="media/contextual_action-play.png"></IMG>
+		</DIV>
+	</DIV><DIV class="graphics">
+		<DIV class="group">
+			<HR class="rule h"></HR>
+			<IMG class="graphic i1" src="media/contextual_circle-1.png"></IMG>
+			<IMG class="graphic i2" src="media/contextual_circle-2.png"></IMG>
+			<IMG class="graphic i3" src="media/contextual_circle-3.png"></IMG>
+			<IMG class="graphic i4" src="media/contextual_circle-4.png"></IMG>
+			<IMG class="graphic i5" src="media/contextual_circle-5.png"></IMG>
+		</DIV>
+	</DIV></DIV>
+			<DIV class="section facts" data-if="facts" xmlns:w="js-lib.com/wood"><UL class="list" data-list="facts">
+		<LI class="item">
+			<DIV class="rule v"></DIV>
+			<DIV class="circle"></DIV>
+			<H2 class="name" data-text="name"></H2>
+			<P class="value" data-text="value"></P>
+		</LI>
+	</UL></DIV>
+			<DIV class="features xp section" data-if="features" data-map="features"><DT></DT><DD></DD></DIV>
+			<DIV class="related section" data-if="related"><DIV class="rule h"></DIV><DIV class="rule v"></DIV><DIV class="caption hexagon"></DIV><H2 class="title">Related</H2><UL class="list" data-list="related">
+		<LI class="item"><IMG class="icon" data-format="sync.AbsolutePath" data-src="icon-path"></IMG>
+			<H2 class="display" data-text="display"></H2>
+			<P class="description" data-text="definition"></P></LI>
+	</UL></DIV>
+			<DIV class="section links" data-if="links"><DIV class="rule h"></DIV><DIV class="rule v"></DIV><DIV class="caption hexagon"></DIV><H2 class="title">Sources</H2><UL class="list" data-list="links">
+		<LI class="item"><IMG class="icon" data-format="sync.AbsolutePath" data-src="icon-path"></IMG>
+			<H2 class="display" data-text="display"></H2>
+			<P class="description" data-text="description"></P></LI>
+	</UL></DIV>
+		</DIV>
+	</DIV><DIV class="scroll-mask"></DIV></DIV>
+<SCRIPT src="script/js-lib.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="script/sync.AbsolutePath.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="script/sync.HDateFormat.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="script/gen.com.kidscademy.atlas.sync.Controller.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="script/sync.App.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="script/sync.ConservationView.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="script/sync.RegionFormat.js" type="text/javascript"></SCRIPT>
+</BODY>
+</HTML>

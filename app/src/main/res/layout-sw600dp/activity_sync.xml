@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4">
+
+    <include
+        android:id="@+id/accessibility_page_header"
+        layout="@layout/compo_page_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <view
+        android:id="@+id/sync_start_fragment"
+        class="com.kidscademy.atlas.activity.SyncActivity$StartFragment"
+        layout="@layout/compo_sync_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/page_padding"
+        android:layout_marginEnd="@dimen/page_padding"
+        android:layout_marginBottom="@dimen/page_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/page_header_bottom" />
+
+    <view
+        android:id="@+id/sync_stop_fragment"
+        class="com.kidscademy.atlas.activity.SyncActivity$StopFragment"
+        layout="@layout/compo_sync_stop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/page_padding"
+        android:layout_marginEnd="@dimen/page_padding"
+        android:layout_marginBottom="@dimen/page_padding"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/page_header_bottom" />
+
+    <view
+        android:id="@+id/sync_dialog_fragment"
+        class="com.kidscademy.atlas.activity.SyncActivity$DialogFragment"
+        layout="@layout/compo_sync_dialog"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/page_padding"
+        android:layout_marginEnd="@dimen/page_padding"
+        android:layout_marginBottom="@dimen/page_padding"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/page_header_bottom" />
+
+</android.support.constraint.ConstraintLayout>

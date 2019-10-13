@@ -1,0 +1,45 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp">
+
+        <view
+            android:id="@+id/sync_start_fragment"
+            class="com.kidscademy.atlas.activity.SyncActivity$StartFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:headerBackground="#8052AF58" />
+
+        <view
+            android:id="@+id/sync_stop_fragment"
+            class="com.kidscademy.atlas.activity.SyncActivity$StopFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <view
+            android:id="@+id/sync_dialog_fragment"
+            class="com.kidscademy.atlas.activity.SyncActivity$DialogFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:paddingStart="16dp"
+        android:paddingEnd="80dp"
+        android:paddingBottom="16dp"
+        android:text="@string/sync_info"
+        android:textAppearance="@style/TextAppearance.Small.Mute" />
+
+    <com.kidscademy.atlas.view.RandomColorFAB style="@style/FAB.Back" />
+
+</android.support.design.widget.CoordinatorLayout>

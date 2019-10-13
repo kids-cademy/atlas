@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1082DD">
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_back"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginStart="8dp"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_back" />
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_search"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="24dp"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/action_index"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_search" />
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_index"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="24dp"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/action_previous"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_index" />
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_previous"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="24dp"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/action_next"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_previous" />
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_next"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="24dp"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/action_sync"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_next" />
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_sync"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="24dp"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/action_menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_sync" />
+
+    <com.kidscademy.atlas.view.ActionIcon
+        android:id="@+id/action_menu"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginEnd="16dp"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_menu" />
+
+    <TextView
+        android:id="@+id/reader_header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Large"
+        app:layout_constraintBottom_toTopOf="@+id/reader_header_divider"
+        app:layout_constraintStart_toEndOf="@id/action_back"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/sample_object_name" />
+
+    <View
+        android:id="@+id/reader_header_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/action_back" />
+
+    <com.kidscademy.atlas.view.HorizontalScrollViewEx
+        android:id="@+id/reader_page_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reader_header_divider">
+
+        <com.kidscademy.atlas.view.ReaderObjectView
+            android:id="@+id/reader_object_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:divider="@drawable/shape_reader_divider"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/page_padding"
+            android:paddingBottom="@dimen/page_padding"
+            android:showDividers="middle" />
+    </com.kidscademy.atlas.view.HorizontalScrollViewEx>
+
+</android.support.constraint.ConstraintLayout>

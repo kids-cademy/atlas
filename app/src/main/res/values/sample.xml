@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="sample_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="sample_object_name" translatable="false">Hammered Dulcimer</string>
+    <string name="sample_object_definition" translatable="false">A portable wind instrument with a small keyboard and free metal reeds that sound when air is forced past them by pleated bellows operated by the player.</string>
+    <string name="sample_object_description" translatable="false">The bansuri is a transverse flute from a single hollow shaft of bamboo with six or seven finger holes. It is a ancient musical instrument associated with cowherds and the pastoral tradition.</string>
+    <string name="sample_object_audio_title" translatable="false">Vittorio Monti - Csárdás</string>
+    <string name="sample_object_classification" translatable="false">Woodwind</string>
+    <string name="sample_object_spreading" translatable="false">India\nPakistan</string>
+    <string name="sample_object_aliases" translatable="false">Drum Set\nTrap Set</string>
+    <string name="sample_object_date" translatable="false">XVIII-th century</string>
+    <string name="sample_image_caption">There is also a variant that uses buttons to play notes.</string>
+    <string name="sample_link_display">Wikipedia</string>
+    <string name="sample_link_description">Wikipedia article about accordion.</string>
+    <string name="sample_taxon_name">Species</string>
+    <string name="sample_taxon_value">Tyrannosaurus rex</string>
+
+</resources>

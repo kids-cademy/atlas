@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="xlarge_text_size">26sp</dimen>
+    <dimen name="large_text_size">22sp</dimen>
+    <dimen name="medium_text_size">18sp</dimen>
+    <dimen name="small_text_size">14sp</dimen>
+    <dimen name="xsmall_text_size">12sp</dimen>
+
+    <dimen name="page_padding">16dp</dimen>
+
+    <!-- page header with tile and icon -->
+    <!-- magic number: top margin = header_height - half icon getObjectsCount = 120 - 48 = 72 -->
+    <!-- on pages with autohide header, body should be displayed below header and its top position should be adjusted with this value -->
+    <!-- this value need to be adjusted when modify page header height -->
+
+    <!-- a separator is displayed between two labels and usualy is colon character; this margin values applies for bot left anf right margins -->
+
+    <dimen name="sections_space">40dp</dimen>
+    <dimen name="paragraph_indent">16dp</dimen>
+    <dimen name="paragraph_space">16dp</dimen>
+
+    <dimen name="block_vertical_padding">20dp</dimen>
+    <dimen name="block_start_indent">40dp</dimen>
+
+    <dimen name="text_size_xlarge">26sp</dimen>
+
+    <!-- action_size = icon_size + action_padding -->
+    <dimen name="icon_size">48dp</dimen>
+    <dimen name="hexa_icon_size">64dp</dimen>
+    <dimen name="large_icon_size">80dp</dimen>
+
+    <dimen name="trademark_icon_size">72dp</dimen>
+    <dimen name="trademark_icon_margin">100dp</dimen>
+    <!-- trademark_icon_page_header_offset = icon_size  - trademark_icon_size / 2 -->
+    <dimen name="trademark_icon_page_header_offset">28dp</dimen>
+
+    <!-- guiding rules on user interface, mainly for design -->
+    <!-- vertical rule extends on entire parent height, similar for horizontal rule -->
+    <dimen name="vertical_rule_start_margin">40dp</dimen>
+    <dimen name="horizontal_rule_top_margin">40dp</dimen>
+    <dimen name="rule_weight">1dp</dimen>
+
+    <dimen name="divider_weight">1dp</dimen>
+    <dimen name="bullet_size">36dp</dimen>
+    <dimen name="half_bullet_size">18dp</dimen>
+
+    <!-- atlas reader on tablet has a contextual image with some spare graphics - couple circles aligned horizontally -->
+    <!-- this value is teh space between those circles -->
+    <dimen name="contextual_image_circle_space">24dp</dimen>
+
+    <dimen name="featured_image_margin">80dp</dimen>
+    <dimen name="image_caption_padding">20dp</dimen>
+
+    <dimen name="min_infobox_width">330dp</dimen>
+    <integer name="search_result_rows">1</integer>
+    <dimen name="card_width">350dp</dimen>
+    <dimen name="card_padding">10dp</dimen>
+    <dimen name="card_space">32dp</dimen>
+    <integer name="share_acitivty_rows">2</integer>
+    <dimen name="shared_card_width">400dp</dimen>
+    <dimen name="textbox_padding">16dp</dimen>
+    <dimen name="text_section_padding">32dp</dimen>
+
+    <!-- atlas reader sections width; for mobile are not used since all have match parent -->
+    <dimen name="reader_description_width"></dimen>
+    <dimen name="reader_facts_width"></dimen>
+    <dimen name="reader_features_width"></dimen>
+    <dimen name="reader_related_width"></dimen>
+    <dimen name="reader_links_width"></dimen>
+    <dimen name="heading_size">80dp</dimen>
+
+</resources>

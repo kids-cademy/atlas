@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#037D8A"
+    tools:activity="com.kidscademy.atlas.activity.MainActivity">
+
+    <com.kidscademy.atlas.view.PageHeader
+        android:id="@+id/menu_page_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout="@layout/compo_page_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_page_header">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/x00"
+            style="@style/HexaIcon.XGuide"
+            app:layout_constraintGuide_percent="0.205" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/x01"
+            style="@style/HexaIcon.XGuide"
+            app:layout_constraintGuide_percent="0.32" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/x02"
+            style="@style/HexaIcon.XGuide"
+            app:layout_constraintGuide_percent="0.435" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/x03"
+            style="@style/HexaIcon.XGuide"
+            app:layout_constraintGuide_percent="0.665" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_search"
+            style="@style/HexaIcon.Large"
+            app:backgroundColor="#53acb6"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_search"
+            app:layout_constraintBottom_toBottomOf="@id/x00"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/x00" />
+
+        <android.widget.Space
+            android:id="@+id/menu_search_guide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/menu_search"
+            app:layout_constraintDimensionRatio="1.58:2"
+            app:layout_constraintStart_toStartOf="@id/menu_search"
+            app:layout_constraintTop_toTopOf="@id/menu_search" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_reader"
+            style="@style/HexaIcon.Large"
+            app:backgroundColor="#9C27B0"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_apps"
+            app:layout_constraintBottom_toBottomOf="@id/x01"
+            app:layout_constraintStart_toEndOf="@id/menu_search_guide"
+            app:layout_constraintTop_toTopOf="@id/x01" />
+
+        <android.widget.Space
+            android:id="@+id/menu_reader_guide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/menu_reader"
+            app:layout_constraintDimensionRatio="1.58:2"
+            app:layout_constraintStart_toStartOf="@id/menu_reader"
+            app:layout_constraintTop_toTopOf="@id/menu_reader" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_index"
+            style="@style/HexaIcon.Large"
+            app:backgroundColor="#8040b5ff"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_index"
+            app:layout_constraintBottom_toBottomOf="@id/x00"
+            app:layout_constraintStart_toEndOf="@id/menu_reader_guide"
+            app:layout_constraintTop_toTopOf="@id/x00" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_sync"
+            style="@style/HexaIcon.Large"
+            app:backgroundColor="#009688"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_sync"
+            app:layout_constraintBottom_toBottomOf="@id/x02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/x02" />
+
+        <android.widget.Space
+            android:id="@+id/menu_sync_guide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="2:1.82"
+            app:layout_constraintEnd_toEndOf="@id/menu_sync"
+            app:layout_constraintStart_toStartOf="@id/menu_sync"
+            app:layout_constraintTop_toTopOf="@id/menu_sync" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_accessibility"
+            style="@style/HexaIcon.Large"
+            app:backgroundColor="#2196F3"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_accessibility"
+            app:layout_constraintBottom_toBottomOf="@id/x03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/x03" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/menu_auxiliary_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/y10"
+            style="@style/HexaIcon.YGuide"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/y11"
+            style="@style/HexaIcon.YGuide"
+            app:layout_constraintGuide_percent="0.896" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/y12"
+            style="@style/HexaIcon.YGuide"
+            app:layout_constraintGuide_percent="0.832" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/y13"
+            style="@style/HexaIcon.YGuide"
+            app:layout_constraintGuide_percent="0.768" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/y14"
+            style="@style/HexaIcon.YGuide"
+            app:layout_constraintGuide_percent="0.706" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_user_guide"
+            style="@style/HexaIcon.Small"
+            app:backgroundColor="#4CAF50"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_help"
+            app:layout_constraintBottom_toTopOf="@id/menu_about_guide"
+            app:layout_constraintEnd_toStartOf="@id/y11"
+            app:layout_constraintStart_toStartOf="@id/y11" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            style="@style/HexaIcon.Small"
+            app:backgroundColor="#8040b5ff"
+            app:borderSize="1"
+            app:layout_constraintBottom_toTopOf="@id/menu_share_guide"
+            app:layout_constraintEnd_toStartOf="@id/y10"
+            app:layout_constraintStart_toStartOf="@id/y10" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_about"
+            style="@style/HexaIcon.Small"
+            app:backgroundColor="#8040b5ff"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_about"
+            app:layout_constraintBottom_toTopOf="@id/menu_rate_guide"
+            app:layout_constraintEnd_toStartOf="@id/y11"
+            app:layout_constraintStart_toStartOf="@id/y11" />
+
+        <android.widget.Space
+            android:id="@+id/menu_about_guide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/menu_about"
+            app:layout_constraintDimensionRatio="2:1.82"
+            app:layout_constraintEnd_toEndOf="@id/menu_about"
+            app:layout_constraintStart_toStartOf="@id/menu_about" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_share"
+            style="@style/HexaIcon.Small"
+            app:backgroundColor="#8053acb6"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_share"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/y10"
+            app:layout_constraintStart_toStartOf="@id/y10" />
+
+        <android.widget.Space
+            android:id="@+id/menu_share_guide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/menu_share"
+            app:layout_constraintDimensionRatio="2:1.82"
+            app:layout_constraintEnd_toEndOf="@id/menu_share"
+            app:layout_constraintStart_toStartOf="@id/menu_share" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_rate"
+            style="@style/HexaIcon.Small"
+            android:layout_marginStart="128dp"
+            app:backgroundColor="#8069e68f"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_rate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/y12"
+            app:layout_constraintStart_toStartOf="@id/y12" />
+
+        <android.widget.Space
+            android:id="@+id/menu_rate_guide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/menu_rate"
+            app:layout_constraintDimensionRatio="2:0.9"
+            app:layout_constraintEnd_toEndOf="@id/menu_rate"
+            app:layout_constraintStart_toStartOf="@id/menu_rate" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_settings"
+            style="@style/HexaIcon.Small"
+            app:backgroundColor="#803358be"
+            app:borderSize="1"
+            app:layout_constraintBottom_toTopOf="@id/menu_rate_guide"
+            app:layout_constraintEnd_toStartOf="@id/y13"
+            app:layout_constraintStart_toStartOf="@id/y13" />
+
+        <com.kidscademy.atlas.view.HexaIcon
+            android:id="@+id/menu_close"
+            style="@style/HexaIcon.Small"
+            app:backgroundColor="#673AB7"
+            app:borderSize="1"
+            app:iconDrawable="@drawable/action_close"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/y14"
+            app:layout_constraintStart_toStartOf="@id/y14" />
+    </android.support.constraint.ConstraintLayout>
+
+    <include
+        layout="@layout/compo_menu_main_legend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <include
+        layout="@layout/compo_menu_support_legend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/menu_auxiliary_actions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80135E99">
+
+    <com.kidscademy.atlas.view.PageHeader
+        android:id="@+id/accessibility_page_header"
+        layout="@layout/compo_page_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pageCaption="@string/we_play_caption" />
+
+    <include
+        android:id="@+id/action_we_play"
+        layout="@layout/compo_we_play"
+        android:layout_width="@dimen/trademark_icon_size"
+        android:layout_height="@dimen/trademark_icon_size"
+        android:layout_marginTop="@dimen/trademark_icon_page_header_offset"
+        android:layout_marginEnd="@dimen/trademark_icon_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/we_play_message_3"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:backgroundTint="#2196F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/we_play_message_4"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
+
+    <com.kidscademy.atlas.view.SyncDevicesView
+        android:id="@+id/we_play_devices"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        app:inSync="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/we_play_logotype"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.22" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/we_play_message_5"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toTopOf="@+id/we_play_devices"
+        app:layout_constraintEnd_toEndOf="@+id/we_play_devices"
+        app:layout_constraintTop_toBottomOf="@+id/action_we_play"
+        app:layout_constraintWidth_percent="0.33" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_solid_circle"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/we_play_message_2"
+        android:textAppearance="@style/TextAppearance.Small.Inverse"
+        app:backgroundTint="#D0FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+</android.support.constraint.ConstraintLayout>

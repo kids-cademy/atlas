@@ -1,0 +1,78 @@
+@startuml
+
+class App {
+    Repository repository()
+}
+
+interface Repository {
+    int getInstrumentsCount();
+    Instrument getInstrumentByIndex(int position);
+    Instrument[] getInstruments();
+    List<SearchIndex> getSearchIndex();
+}
+
+class Instrument {
+    name
+    definition
+    thumbnail
+    picture
+    samplePath
+    ...
+}
+
+class ExplorerActivity {
+    player
+
+    onCreate()
+    onStart()
+    onStop()
+}
+
+class ViewPager {
+    setOffscreenPageLimit()
+    addOnPageChangeListener()
+    setAdapter()
+}
+
+class ExplorerAdapter {
+    ExplorerPage[] pages
+
+    instantiateItem()
+    destroyItem()
+    isViewFromObject()
+    getCount()
+}
+
+class ExplorerPage {
+    titleView
+    captionView
+    descriptionLayout
+    thumbnailView
+    pictureView
+    ...
+
+    onFinishInflate()
+    setInstrument()
+}
+
+class Player {
+    play()
+    stop()
+}
+
+App -> Repository
+Repository .> Instrument
+
+Player <-- ExplorerActivity
+ExplorerActivity ..> App
+ExplorerActivity -> ViewPager
+ExplorerActivity -> ExplorerAdapter
+
+ViewPager .> ExplorerAdapter
+
+ExplorerAdapter -> ExplorerPage
+ExplorerAdapter ..> Repository
+
+ExplorerPage ..> Instrument
+
+@enduml

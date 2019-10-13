@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text"></style>
+
+    <style name="Text.Title">
+        <item name="android:textAppearance">@style/TextAppearance.Large</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <!-- center paragraph has the same value for both start and end indent -->
+
+    <!-- justified paragraph streches on entire parent width without any start or end indent -->
+
+    <!-- A text block is a paragraph with background and padding. A block is used when a paragraph should be emphasized. For this reason its font getObjectsCount is medium. -->
+
+    <!-- a label is an inline text attached to other view -->
+
+    <!-- a block label fill entire parent width and has a top margin -->
+
+    <!-- A label title is an ordinary label that happen to be first on top and beside beeing larger it has no top margin. -->
+
+    <!-- a separator sits between two inline labels and currently is colon; it also has margin, both left and right -->
+
+</resources>

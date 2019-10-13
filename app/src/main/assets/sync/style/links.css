@@ -1,0 +1,36 @@
+.links {
+	width: 700px;
+}
+
+.links .rule {
+	position: absolute;
+}
+
+.links .rule.h {
+	top: 80px;
+}
+
+.links .rule.v {
+	left: 80px;
+}
+
+.links .caption {
+	position: absolute;
+	top: 25px;
+	left: 32px;
+	xtransform: rotate(30deg);
+}
+
+.links .title {
+	margin-top: 40px;
+	margin-left: 160px;
+	text-transform: uppercase;
+	color: yellow;
+}
+
+.links .list {
+	position: absolute;
+	width: 540px;
+	top: 160px;
+	left: 160px;
+}

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#03A9F4">
+
+    <ImageView
+        android:id="@+id/help_menu_icon"
+        android:layout_width="@dimen/hexa_icon_size"
+        android:layout_height="@dimen/hexa_icon_size"
+        android:background="@drawable/shape_stroke_circle"
+        android:contentDescription="@string/support_graphics"
+        android:padding="10dp"
+        android:tint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/action_menu" />
+
+    <TextView
+        android:id="@+id/help_menu_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/help_menu_description"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/help_menu_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_atlas_actions_h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="end"
+        android:text="@string/help_atlas_actions_h"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Large.Accent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/help_menu_main_actions"
+        app:layout_constraintTop_toTopOf="@+id/help_menu_main_actions" />
+
+    <TextView
+        android:id="@+id/help_atlas_actions_p1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="end"
+        android:text="@string/help_atlas_actions_p1"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/help_atlas_actions_h"
+        app:layout_constraintStart_toStartOf="@+id/help_atlas_actions_h"
+        app:layout_constraintTop_toBottomOf="@+id/help_atlas_actions_h" />
+
+    <TextView
+        android:id="@+id/help_atlas_actions_p2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="end"
+        android:text="@string/help_atlas_actions_p2"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/help_atlas_actions_h"
+        app:layout_constraintStart_toStartOf="@+id/help_atlas_actions_h"
+        app:layout_constraintTop_toBottomOf="@+id/help_atlas_actions_p1" />
+
+    <TextView
+        android:id="@+id/help_atlas_actions_p3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="end"
+        android:text="@string/help_atlas_actions_p3"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/help_atlas_actions_h"
+        app:layout_constraintStart_toStartOf="@+id/help_atlas_actions_h"
+        app:layout_constraintTop_toBottomOf="@+id/help_atlas_actions_p2" />
+
+    <TextView
+        android:id="@+id/help_support_actions_h"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/help_support_actions_h"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Large.Accent"
+        app:layout_constraintEnd_toStartOf="@+id/help_auxiliary_legend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/help_auxiliary_legend" />
+
+    <TextView
+        android:id="@+id/help_support_actions_p1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/help_support_actions_p1"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/help_support_actions_h"
+        app:layout_constraintStart_toStartOf="@+id/help_support_actions_h"
+        app:layout_constraintTop_toBottomOf="@+id/help_support_actions_h" />
+
+    <TextView
+        android:id="@+id/help_support_actions_p2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/help_support_actions_p2"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/help_support_actions_h"
+        app:layout_constraintStart_toStartOf="@+id/help_support_actions_h"
+        app:layout_constraintTop_toBottomOf="@+id/help_support_actions_p1" />
+
+    <TextView
+        android:id="@+id/help_support_actions_p3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/help_support_actions_p3"
+        android:textAppearance="@style/TextAppearance.Small"
+        app:layout_constraintEnd_toEndOf="@+id/help_support_actions_h"
+        app:layout_constraintStart_toStartOf="@+id/help_support_actions_h"
+        app:layout_constraintTop_toBottomOf="@+id/help_support_actions_p2" />
+
+    <include
+        android:id="@+id/help_menu_main_actions"
+        layout="@layout/compo_help_menu_main_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/help_auxiliary_legend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_menu_description" />
+
+    <include
+        android:id="@+id/help_auxiliary_legend"
+        layout="@layout/compo_help_menu_support_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
