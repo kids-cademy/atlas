@@ -20,4 +20,5 @@
 
     <color name="image_caption_bg">@color/black_T20</color>
     <color name="action_icon">#FFFFFF</color>
+    <color name="hexaicon_border">#D0D0D0</color>
 </resources>
