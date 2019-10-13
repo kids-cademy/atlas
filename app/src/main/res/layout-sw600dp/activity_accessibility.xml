@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#10BFD8">
+    android:background="#0CB3CC">
 
     <com.kidscademy.atlas.view.PageHeader
         android:id="@+id/accessibility_page_header"
@@ -32,6 +32,7 @@
         android:layout_marginTop="@dimen/trademark_icon_page_header_offset"
         android:layout_marginEnd="@dimen/trademark_icon_margin"
         app:backgroundColor="#2196F3"
+        app:borderColor="@color/hexaicon_border"
         app:borderSize="1"
         app:iconDrawable="@drawable/action_accessibility"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,13 +44,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/shape_solid_circle"
         android:gravity="center"
         android:padding="32dp"
         android:text="@string/we_do_logotype"
         android:textAppearance="@style/TextAppearance.Medium"
         app:backgroundTint="#80009688"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_vote_label"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.35"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +61,7 @@
         android:id="@+id/accessibility_we_do_vision"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="48dp"
         android:text="@string/we_do_vision"
         android:textAppearance="@style/TextAppearance.Small"
         app:layout_constraintStart_toEndOf="@+id/accessibility_we_do_logotype"
@@ -144,7 +146,7 @@
         android:textAppearance="@style/TextAppearance.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.5" />
+        app:layout_constraintWidth_percent="0.6" />
 
     <View
         android:id="@+id/accessibility_vr"
@@ -164,6 +166,7 @@
         android:layout_marginBottom="8dp"
         android:visibility="visible"
         app:backgroundColor="#2196F3"
+        app:borderColor="#FFFFFF"
         app:borderSize="1"
         app:iconDrawable="@drawable/action_accessibility"
         app:layout_constraintBottom_toBottomOf="@+id/accessibility_vr"
@@ -187,40 +190,44 @@
         android:id="@+id/accessibility_vote_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="32dp"
         android:background="#2196F3"
         android:gravity="center"
         android:padding="8dp"
         android:text="@string/accessibility_vote_label"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.XLarge"
-        app:layout_constraintBottom_toTopOf="@id/accessibility_vote_restriction"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_vote_restriction"
         app:layout_constraintEnd_toEndOf="@+id/accessibility_we_do_logotype"
-        app:layout_constraintStart_toStartOf="@+id/accessibility_we_do_logotype" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_we_do_logotype"
+        app:layout_constraintTop_toBottomOf="@+id/accessibility_we_do_logotype" />
 
     <TextView
         android:id="@+id/accessibility_vote_restriction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:text="@string/accessibility_vote_restriction"
         android:textAppearance="@style/TextAppearance.Small.Mute"
-        app:layout_constraintBottom_toTopOf="@id/accessibility_vote_value"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_vote_value"
         app:layout_constraintEnd_toEndOf="@+id/accessibility_vote_label"
-        app:layout_constraintStart_toStartOf="@+id/accessibility_vote_label" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/accessibility_vote_label"
+        app:layout_constraintTop_toBottomOf="@+id/accessibility_vote_label" />
 
     <TextView
         android:id="@+id/accessibility_vote_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:background="#80009688"
         android:gravity="center"
-        android:padding="16dp"
+        android:padding="8dp"
         android:textAppearance="@style/TextAppearance.XLarge.Accent"
-        app:layout_constraintBottom_toTopOf="@+id/accessibility_vote_minus"
+        app:layout_constraintBottom_toTopOf="@+id/accessibility_vote_plus"
         app:layout_constraintEnd_toEndOf="@+id/accessibility_vote_label"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/accessibility_vote_label"
+        app:layout_constraintTop_toBottomOf="@+id/accessibility_vote_restriction"
         tools:text="9999" />
 
     <ImageView
@@ -228,11 +235,11 @@
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="32dp"
         android:contentDescription="@string/support_graphics"
         android:tint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/accessibility_vote_value"
+        app:layout_constraintTop_toBottomOf="@+id/accessibility_vote_value"
         app:srcCompat="@drawable/action_vote_plus" />
 
     <ImageView
@@ -240,10 +247,9 @@
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
         android:contentDescription="@string/support_graphics"
         android:tint="#E91E63"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/accessibility_vote_plus"
         app:layout_constraintEnd_toEndOf="@+id/accessibility_vote_value"
         app:srcCompat="@drawable/action_vote_minus" />
 
