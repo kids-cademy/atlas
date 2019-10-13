@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#10BFD8">
+    android:background="#0CB3CC">
 
     <TextView
         android:layout_width="match_parent"
@@ -113,7 +113,7 @@
                 android:id="@+id/accessibility_we_do_vision"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="#6003A9F4"
+                android:background="#B503A9F4"
                 android:padding="@dimen/text_section_padding"
                 android:text="@string/we_do_vision"
                 android:textAppearance="@style/TextAppearance.Medium"
