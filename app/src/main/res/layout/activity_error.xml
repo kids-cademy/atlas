@@ -16,7 +16,7 @@
         android:paddingEnd="16dp"
         android:text="@string/app_name"
         android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.Medium.Mute"
+        android:textAppearance="@style/TextAppearance.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,10 +31,28 @@
         android:padding="40dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/yellow_300"
+        app:layout_constraintBottom_toTopOf="@+id/error_trace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/error_page_header"
+        tools:text="@string/sample_text" />
+
+    <TextView
+        android:id="@+id/error_trace"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="#18000000"
+        android:padding="32dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/yellow_300"
         app:layout_constraintBottom_toTopOf="@+id/error_restart"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/error_page_header"
+        app:layout_constraintTop_toBottomOf="@+id/error_message"
         tools:text="@string/sample_text" />
 
     <Button

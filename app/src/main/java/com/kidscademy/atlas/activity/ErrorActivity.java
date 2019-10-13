@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 
+import java.io.Serializable;
+
 import js.log.Log;
 import js.log.LogFactory;
 
@@ -41,11 +43,16 @@ public class ErrorActivity extends AppCompatActivity implements OnClickListener 
      * @param context    execution context,
      * @param messageRef message references.
      */
-    public static void start(@NonNull Context context, @StringRes int messageRef) {
+    public static void start(@NonNull Context context, @StringRes int messageRef, Throwable throwable) {
         log.trace("start(Context, int, Throwable...)");
         Intent intent = new Intent(context, ErrorActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(Intent.EXTRA_TEXT, context.getString(messageRef));
+
+        Bundle extras = new Bundle();
+        extras.putSerializable("throwable", throwable);
+        intent.putExtras(extras);
+
         context.startActivity(intent);
     }
 
@@ -61,11 +68,28 @@ public class ErrorActivity extends AppCompatActivity implements OnClickListener 
 
         setContentView(R.layout.activity_error);
         TextView messageText = findViewById(R.id.error_message);
+        TextView traceText = findViewById(R.id.error_trace);
 
         Intent intent = getIntent();
-        if (intent.hasExtra(Intent.EXTRA_TEXT)) {
-            messageText.setText(intent.getStringExtra(Intent.EXTRA_TEXT));
+        messageText.setText(intent.getStringExtra(Intent.EXTRA_TEXT));
+
+        Bundle extras = intent.getExtras();
+        Throwable throwable = (Throwable) extras.getSerializable("throwable");
+        if (throwable.getCause() != null) {
+            throwable = throwable.getCause();
         }
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(throwable.getClass().getCanonicalName());
+        builder.append(" : ");
+        builder.append(throwable.getMessage());
+
+        StackTraceElement[] trace = throwable.getStackTrace();
+        for (int i = 0; i < Math.min(trace.length, 5); ++i) {
+            builder.append("\r\n- ");
+            builder.append(trace[i].toString());
+        }
+        traceText.setText(builder);
 
         findViewById(R.id.error_restart).setOnClickListener(this);
     }

@@ -80,10 +80,11 @@ public abstract class AppActivity extends AppCompatActivity implements View.OnCl
     }
 
     protected boolean isFullScreen() {
-        if (!isTablet()) {
-            return false;
-        }
-        return App.instance().flags().isFullScreen();
+//        if (!isTablet()) {
+//            return false;
+//        }
+//        return App.instance().flags().isFullScreen();
+        return false;
     }
 
     public boolean isTablet() {
