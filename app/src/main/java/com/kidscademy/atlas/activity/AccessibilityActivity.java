@@ -31,7 +31,7 @@ public class AccessibilityActivity extends AppActivity implements Player.StateLi
     private TextView voteValueText;
 
     public AccessibilityActivity() {
-        super(R.layout.accessibility_activity);
+        super(R.layout.activity_accessibility);
         log.trace("AccessibilityActivity");
         this.player = new Player(this);
         this.player.setStateListener(this);
