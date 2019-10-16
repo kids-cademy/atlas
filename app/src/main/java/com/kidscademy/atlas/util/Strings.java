@@ -26,16 +26,15 @@ public final class Strings extends js.util.Strings {
         return paragraphs;
     }
 
-    public static String getSpreadingDisplay(Region[] spreading) {
+    public static String[] getSpreadingDisplay(Region[] spreading) {
         if (spreading.length == 0) {
-            return "";
+            return new String[0];
         }
-        StringBuilder builder = new StringBuilder(spreading[0].getDisplay(App.instance().getApplicationContext()));
-        for (int i = 1; i < spreading.length; ++i) {
-            builder.append('\n');
-            builder.append(spreading[i].getDisplay(App.instance().getApplicationContext()));
+        String[] strings = new String[spreading.length];
+        for (int i = 0; i < spreading.length; ++i) {
+            strings[i] = spreading[i].getDisplay(App.instance().getApplicationContext());
         }
-        return builder.toString();
+        return strings;
     }
 
     public static String getAliasesDisplay(String[] aliases) {

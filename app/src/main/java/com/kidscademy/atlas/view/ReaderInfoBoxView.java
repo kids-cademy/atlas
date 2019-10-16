@@ -20,10 +20,10 @@ public class ReaderInfoBoxView extends ConstraintLayout {
     private TaxonomyView taxonomyView;
 
     private Group aliasesGroup;
-    private TextView aliasesText;
+    private UnorderedListView aliasesListView;
 
     private Group spreadingGroup;
-    private TextView spreadingText;
+    private UnorderedListView spreadingListView;
 
     private Group dateGroup;
     private TextView dateLabel;
@@ -42,9 +42,9 @@ public class ReaderInfoBoxView extends ConstraintLayout {
         classificationText = findViewById(R.id.infobox_classification);
         taxonomyView = findViewById(R.id.infobox_taxonomy);
         aliasesGroup = findViewById(R.id.infobox_aliases_group);
-        aliasesText = findViewById(R.id.infobox_aliases);
+        aliasesListView = findViewById(R.id.infobox_aliases);
         spreadingGroup = findViewById(R.id.infobox_spreading_group);
-        spreadingText = findViewById(R.id.infobox_spreading);
+        spreadingListView = findViewById(R.id.infobox_spreading);
         dateGroup = findViewById(R.id.infobox_date_group);
         dateLabel = findViewById(R.id.infobox_date_label);
         startDateText = findViewById(R.id.infobox_start_date);
@@ -84,12 +84,12 @@ public class ReaderInfoBoxView extends ConstraintLayout {
 
         setVisibility(aliasesGroup, atlasObject.hasAliases());
         if (atlasObject.hasAliases()) {
-            aliasesText.setText(Strings.getAliasesDisplay(atlasObject.getAliases()));
+            aliasesListView.update(atlasObject.getAliases());
         }
 
         setVisibility(spreadingGroup, atlasObject.hasSpreading());
         if (atlasObject.hasSpreading()) {
-            spreadingText.setText(Strings.getSpreadingDisplay(atlasObject.getSpreading()));
+            spreadingListView.update(Strings.getSpreadingDisplay(atlasObject.getSpreading()));
         }
 
         // display dates group if atlas object has at least start date

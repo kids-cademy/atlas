@@ -29,6 +29,7 @@
             android:id="@+id/infobox_classification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:singleLine="true"
             android:text="@string/sample_object_classification"
             android:textAppearance="@style/TextAppearance.Medium.Accent" />
 
@@ -56,16 +57,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/infobox_taxonomy_frame" />
 
-    <TextView
+    <com.kidscademy.atlas.view.UnorderedListView
         android:id="@+id/infobox_aliases"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:orientation="vertical"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Medium.Accent"
         app:layout_constraintStart_toStartOf="@+id/infobox_aliases_label"
-        app:layout_constraintTop_toBottomOf="@id/infobox_aliases_label"
-        tools:text="@string/sample_object_aliases" />
+        app:layout_constraintTop_toBottomOf="@id/infobox_aliases_label" />
 
     <android.support.constraint.Group
         android:id="@+id/infobox_spreading_group"
@@ -84,15 +85,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/infobox_aliases" />
 
-    <TextView
+    <com.kidscademy.atlas.view.UnorderedListView
         android:id="@+id/infobox_spreading"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:orientation="vertical"
         android:textAppearance="@style/TextAppearance.Medium"
         app:layout_constraintStart_toStartOf="@+id/infobox_spreading_label"
-        app:layout_constraintTop_toBottomOf="@id/infobox_spreading_label"
-        tools:text="@string/sample_object_spreading" />
+        app:layout_constraintTop_toBottomOf="@id/infobox_spreading_label" />
 
     <Space
         android:layout_width="0dp"
@@ -119,9 +120,10 @@
 
     <TextView
         android:id="@+id/infobox_start_date"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:singleLine="true"
         android:textAppearance="@style/TextAppearance.Medium.Accent"
         app:layout_constraintStart_toStartOf="@+id/infobox_date_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_date_label"
@@ -129,8 +131,9 @@
 
     <TextView
         android:id="@+id/infobox_end_date"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         android:textAppearance="@style/TextAppearance.Medium.Accent"
         app:layout_constraintStart_toStartOf="@+id/infobox_start_date"
         app:layout_constraintTop_toBottomOf="@id/infobox_start_date"
