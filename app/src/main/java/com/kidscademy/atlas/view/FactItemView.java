@@ -105,7 +105,7 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        // click on fact expact toggle collapsed state
+        // click on fact expand toggle collapsed state
         // click on anything else push item reveal event
 
         if (view.getId() != R.id.item_fact_expand) {

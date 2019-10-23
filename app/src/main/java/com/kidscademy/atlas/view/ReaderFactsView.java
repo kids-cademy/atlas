@@ -11,9 +11,6 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Fact;
 
-import js.log.Log;
-import js.log.LogFactory;
-
 /**
  * Facts view is a vertical linear layout that displays a fixed number of fact item views. This custom view
  * has a single method used to initialize view facts, see {@link #update(AtlasObject)}.
@@ -21,8 +18,6 @@ import js.log.LogFactory;
  * @author Iulian Rotaru
  */
 public class ReaderFactsView extends LinearLayout {
-    private static final Log log = LogFactory.getLog(ReaderFactsView.class);
-
     private View container;
 
     public ReaderFactsView(Context context, AttributeSet attrs) {

@@ -77,7 +77,7 @@ sync.App.prototype = {
 			break;
 
 		case "FACT":
-			parent = this.getByCss(".section.facts");
+			parent = this.getByCss(".section.facts .list");
 			break;
 
 		case "FEATURE":
