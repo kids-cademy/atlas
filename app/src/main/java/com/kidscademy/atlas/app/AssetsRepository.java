@@ -7,6 +7,7 @@ import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasRepository;
 import com.kidscademy.atlas.model.SearchIndex;
 import com.kidscademy.atlas.util.AssetsBase;
+import com.kidscademy.atlas.util.Params;
 
 import java.util.ArrayList;
 import java.util.List;

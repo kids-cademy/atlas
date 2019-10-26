@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <TextView
         android:id="@+id/reader_featured_caption"
@@ -36,13 +36,13 @@
         android:layout_height="wrap_content"
         android:background="@color/image_caption_bg"
         android:ellipsize="end"
-        android:maxLines="3"
+        android:maxLines="6"
         android:padding="@dimen/image_caption_padding"
         android:textAppearance="@style/TextAppearance.Small"
         app:layout_constraintBottom_toBottomOf="@id/reader_featured_caption_guide"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/reader_featured_caption_guide"
-        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintWidth_percent="0.7"
         tools:text="@string/sample_image_caption" />
 
 </merge>

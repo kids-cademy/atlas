@@ -21,7 +21,9 @@
         android:id="@+id/reader_description_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:visibility="gone" />
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle" />
 
     <com.kidscademy.atlas.view.ReaderFeaturedView
         android:id="@+id/reader_featured_view"

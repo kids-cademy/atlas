@@ -22,10 +22,9 @@ import java.util.List;
 
 import js.lang.BugError;
 
-public class ReaderDescriptionView extends ConstraintLayout {
+public class ReaderDescriptionView extends LinearLayout {
     private final ReaderActivity readerActivity;
     private final Handler handler;
-    private LinearLayout container;
 
     public ReaderDescriptionView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -37,26 +36,20 @@ public class ReaderDescriptionView extends ConstraintLayout {
         this.readerActivity = (ReaderActivity) context;
     }
 
-    @Override
-    public void onFinishInflate() {
-        super.onFinishInflate();
-        container = findViewById(R.id.reader_description_container);
-    }
-
     public void update(AtlasObject atlasObject) {
         List<CharSequence> description = handler.getDescription(atlasObject);
 
-        for (int i = container.getChildCount(); i < description.size(); ++i) {
-            inflate(getContext(), R.layout.compo_paragraph, container);
+        for (int i = getChildCount(); i < description.size(); ++i) {
+            inflate(getContext(), R.layout.compo_paragraph, this);
         }
 
         for (int i = 0; i < description.size(); ++i) {
             handler.setText(i, description.get(i));
-            container.getChildAt(i).setVisibility(View.VISIBLE);
+            getChildAt(i).setVisibility(View.VISIBLE);
         }
 
-        for (int i = description.size(); i < container.getChildCount(); ++i) {
-            container.getChildAt(i).setVisibility(View.GONE);
+        for (int i = description.size(); i < getChildCount(); ++i) {
+            getChildAt(i).setVisibility(View.GONE);
         }
     }
 
@@ -84,7 +77,7 @@ public class ReaderDescriptionView extends ConstraintLayout {
 
         @Override
         public void setText(int childIndex, CharSequence description) {
-            ConstraintLayout layout = (ConstraintLayout) container.getChildAt(childIndex);
+            ConstraintLayout layout = (ConstraintLayout) getChildAt(childIndex);
             TextView textView = layout.findViewById(R.id.paragraph_text);
             textView.setText(description);
         }
@@ -111,7 +104,7 @@ public class ReaderDescriptionView extends ConstraintLayout {
 
         @Override
         public void setText(int childIndex, CharSequence description) {
-            TextView textView = (TextView) container.getChildAt(childIndex);
+            TextView textView = (TextView) getChildAt(childIndex);
             textView.setText(description);
             textView.setOnClickListener(this);
         }

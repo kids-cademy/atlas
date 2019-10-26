@@ -68,7 +68,6 @@ public class AtlasObject {
         return definition;
     }
 
-    @NonNull
     public HTML getDescription() {
         return description;
     }
