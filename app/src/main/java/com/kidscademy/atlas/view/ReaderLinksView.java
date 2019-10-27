@@ -9,8 +9,8 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
@@ -19,14 +19,15 @@ import com.kidscademy.atlas.app.Audit;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Link;
 import com.kidscademy.atlas.util.RandomColor;
+import com.kidscademy.atlas.util.Views;
 
 import js.util.BitmapLoader;
 
-public class ReaderLinksView extends ConstraintLayout implements View.OnClickListener {
+public class ReaderLinksView extends ConstraintLayout implements Views.ListViewBuilder<Link>, View.OnClickListener {
     private final Audit audit;
 
     private HexaIcon captionView;
-    private ViewGroup listView;
+    private LinearLayout listView;
 
     public ReaderLinksView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -53,28 +54,22 @@ public class ReaderLinksView extends ConstraintLayout implements View.OnClickLis
             return;
         }
         setVisibility(View.VISIBLE);
+        Views.resetScrollParentView(this);
 
         captionView.setBackgroundColor(ContextCompat.getColor(getContext(), RandomColor.getRandomColor()));
-        Link[] links = object.getLinks();
-
-        for (int i = listView.getChildCount(); i < links.length; ++i) {
-            inflate(getContext(), R.layout.item_link, listView);
-        }
-
-        for (int i = 0; i < links.length; ++i) {
-            View view = listView.getChildAt(i);
-            view.setOnClickListener(this);
-            view.setVisibility(View.VISIBLE);
-            setObject(listView.getChildAt(i), links[i]);
-        }
-
-        for (int i = links.length; i < listView.getChildCount(); ++i) {
-            listView.getChildAt(i).setVisibility(View.GONE);
-        }
+        Views.populateListView(listView, object.getLinks(), this);
     }
 
-    private void setObject(View view, Link link) {
+    @Override
+    public void inflateChild(LinearLayout listView) {
+        inflate(getContext(), R.layout.item_link, listView);
+    }
+
+    @Override
+    public void setObject(int index, Link link) {
+        View view = listView.getChildAt(index);
         view.setTag(link);
+        view.setOnClickListener(this);
 
         ImageView iconView = view.findViewById(R.id.link_icon);
         BitmapLoader loader = new BitmapLoader(getContext(), link.getIconPath(), iconView, 1);

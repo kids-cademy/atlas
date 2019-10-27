@@ -7,8 +7,8 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
@@ -16,13 +16,14 @@ import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.ReaderAction;
 import com.kidscademy.atlas.model.RelatedObject;
 import com.kidscademy.atlas.util.RandomColor;
+import com.kidscademy.atlas.util.Views;
 
 import js.util.BitmapLoader;
 
-public class ReaderRelatedView extends ConstraintLayout implements View.OnClickListener {
+public class ReaderRelatedView extends ConstraintLayout implements Views.ListViewBuilder<RelatedObject>, View.OnClickListener {
     private final ReaderAction.Listener listener;
     private HexaIcon captionView;
-    protected ViewGroup listView;
+    protected LinearLayout listView;
 
     public ReaderRelatedView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -49,28 +50,22 @@ public class ReaderRelatedView extends ConstraintLayout implements View.OnClickL
             return;
         }
         setVisibility(View.VISIBLE);
+        Views.resetScrollParentView(this);
 
         captionView.setBackgroundColor(ContextCompat.getColor(getContext(), RandomColor.getRandomColor()));
-        RelatedObject[] related = object.getRelated();
-
-        for (int i = listView.getChildCount(); i < related.length; ++i) {
-            inflate(getContext(), R.layout.item_related_object, listView);
-        }
-
-        for (int i = 0; i < related.length; ++i) {
-            View view = listView.getChildAt(i);
-            view.setOnClickListener(this);
-            view.setVisibility(View.VISIBLE);
-            setObject(listView.getChildAt(i), related[i]);
-        }
-
-        for (int i = related.length; i < listView.getChildCount(); ++i) {
-            listView.getChildAt(i).setVisibility(View.GONE);
-        }
+        Views.populateListView(listView, object.getRelated(), this);
     }
 
-    private void setObject(View view, RelatedObject object) {
+    @Override
+    public void inflateChild(LinearLayout listView) {
+        inflate(getContext(), R.layout.item_related_object, listView);
+    }
+
+    @Override
+    public void setObject(int index, RelatedObject object) {
+        View view = listView.getChildAt(index);
         view.setTag(object.getIndex());
+        view.setOnClickListener(this);
 
         ImageView iconView = view.findViewById(R.id.related_object_icon);
         BitmapLoader loader = new BitmapLoader(getContext(), object.getIconPath(), iconView, 1);

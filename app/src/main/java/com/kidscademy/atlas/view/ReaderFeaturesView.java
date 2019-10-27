@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
+import com.kidscademy.atlas.util.Views;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -30,11 +31,11 @@ public class ReaderFeaturesView extends LinearLayout {
             return;
         }
         setVisibility(View.VISIBLE);
+        Views.resetScrollParentView(this);
 
         Iterator<Map.Entry<String, String>> featuresIterator = features.entrySet().iterator();
-        int i = 0;
 
-        for (; i < getChildCount(); ++i) {
+        for (int i = 0; i < getChildCount(); ++i) {
             FeatureItemView view = (FeatureItemView) getChildAt(i);
             if (featuresIterator.hasNext()) {
                 view.setVisibility(View.VISIBLE);

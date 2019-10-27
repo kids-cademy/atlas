@@ -3,13 +3,13 @@ package com.kidscademy.atlas.view;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Fact;
+import com.kidscademy.atlas.util.Views;
 
 /**
  * Facts view is a vertical linear layout that displays a fixed number of fact item views. This custom view
@@ -36,30 +36,26 @@ public class ReaderFactsView extends LinearLayout {
      * @param atlasObject atlas object to display facts for.
      * @see FactItemView
      */
-    public void update(@NonNull AtlasObject atlasObject) {
+    public void update(@NonNull final AtlasObject atlasObject) {
         if (!atlasObject.hasFacts()) {
             setVisibility(View.GONE);
             return;
         }
         setVisibility(View.VISIBLE);
+        Views.resetScrollParentView(this);
 
-        Fact[] facts = atlasObject.getFacts();
-        int index = 0;
-        for (; index < getChildCount(); ++index) {
-            FactItemView view = (FactItemView) getChildAt(index);
-            if (index < facts.length) {
-                view.setVisibility(View.VISIBLE);
-                view.setFact(atlasObject.getName(), facts[index]);
-            } else {
-                view.setVisibility(View.GONE);
+        Views.populateListView(this, atlasObject.getFacts(), new Views.ListViewBuilder<Fact>() {
+            @Override
+            public void inflateChild(LinearLayout listView) {
+                inflate(getContext(), R.layout.item_fact, listView);
             }
-        }
 
-        for (; index < facts.length; ++index) {
-            FactItemView view = (FactItemView) LayoutInflater.from(getContext()).inflate(R.layout.item_fact, this, false);
-            view.setFact(atlasObject.getName(), facts[index]);
-            addView(view);
-        }
+            @Override
+            public void setObject(int index, Fact fact) {
+                FactItemView factView = (FactItemView) getChildAt(index);
+                factView.setFact(atlasObject.getName(), fact);
+            }
+        });
     }
 
     public void setVisibility(int visibility) {
