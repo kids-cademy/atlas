@@ -15,7 +15,7 @@ import com.kidscademy.atlas.util.Views;
 import java.util.Iterator;
 import java.util.Map;
 
-public class ReaderFeaturesView extends LinearLayout {
+public class ReaderFeaturesView extends LinearLayout implements Views.ListViewBuilder<Map.Entry<String, String>> {
     public ReaderFeaturesView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         inflate(context, R.layout.reader_features, this);
@@ -32,24 +32,18 @@ public class ReaderFeaturesView extends LinearLayout {
         }
         setVisibility(View.VISIBLE);
         Views.resetScrollParentView(this);
+        Views.populateListView(this, features.entrySet(), this);
+    }
 
-        Iterator<Map.Entry<String, String>> featuresIterator = features.entrySet().iterator();
+    @Override
+    public void createChild(LinearLayout listView) {
+        inflate(getContext(), R.layout.item_feature, this);
+    }
 
-        for (int i = 0; i < getChildCount(); ++i) {
-            FeatureItemView view = (FeatureItemView) getChildAt(i);
-            if (featuresIterator.hasNext()) {
-                view.setVisibility(View.VISIBLE);
-                view.setFeature(featuresIterator.next());
-            } else {
-                view.setVisibility(View.GONE);
-            }
-        }
-
-        while (featuresIterator.hasNext()) {
-            FeatureItemView view = (FeatureItemView) LayoutInflater.from(getContext()).inflate(R.layout.item_feature, this, false);
-            view.setFeature(featuresIterator.next());
-            addView(view);
-        }
+    @Override
+    public void setObject(int index, Map.Entry<String, String> feature) {
+        FeatureItemView featureView = (FeatureItemView) getChildAt(index);
+        featureView.setFeature(feature);
     }
 
     public void setContainer(View container) {

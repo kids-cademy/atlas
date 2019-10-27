@@ -18,6 +18,7 @@ import com.kidscademy.atlas.sync.ItemRevealEvent;
 import com.kidscademy.atlas.util.Views;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import js.lang.BugError;
@@ -42,7 +43,7 @@ public class ReaderDescriptionView extends LinearLayout implements Views.ListVie
     }
 
     @Override
-    public void inflateChild(LinearLayout listView) {
+    public void createChild(LinearLayout listView) {
         inflate(getContext(), R.layout.compo_paragraph, this);
     }
 
@@ -51,10 +52,10 @@ public class ReaderDescriptionView extends LinearLayout implements Views.ListVie
         handler.setText(index, description);
     }
 
-    private static CharSequence[] getDescription(AtlasObject atlasObject) {
+    private static List<CharSequence> getDescription(AtlasObject atlasObject) {
         HTML content = atlasObject.getDescription();
         if (content == null) {
-            return new CharSequence[0];
+            return Collections.emptyList();
         }
         List<CharSequence> description = new ArrayList<>();
         for (HTML.Element element : content.getElements()) {
@@ -62,7 +63,7 @@ public class ReaderDescriptionView extends LinearLayout implements Views.ListVie
                 description.add(((HTML.Paragraph) element).getText());
             }
         }
-        return description.toArray(new CharSequence[description.size()]);
+        return description;
     }
 
     public interface Handler {

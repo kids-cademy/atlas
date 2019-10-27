@@ -1,12 +1,13 @@
 package com.kidscademy.atlas.util;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import com.kidscademy.atlas.R;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 
 public class Views {
     /**
@@ -23,23 +24,36 @@ public class Views {
     }
 
     public static <T> void populateListView(LinearLayout listView, T[] items, ListViewBuilder<T> builder) {
-        for (int i = listView.getChildCount(); i < items.length; ++i) {
-            builder.inflateChild(listView);
-        }
+        populateListView(listView, Arrays.asList(items), builder);
+    }
 
-        for (int i = 0; i < items.length; ++i) {
+    public static <T> void populateListView(LinearLayout listView, Collection<T> items, ListViewBuilder<T> builder) {
+        Iterator<T> iterator = items.iterator();
+        int i = 0;
+
+        for (; i < listView.getChildCount(); ++i) {
             View view = listView.getChildAt(i);
-            view.setVisibility(View.VISIBLE);
-            builder.setObject(i, items[i]);
+            if (iterator.hasNext()) {
+                view.setVisibility(View.VISIBLE);
+                builder.setObject(i, iterator.next());
+            } else {
+                view.setVisibility(View.GONE);
+            }
         }
 
-        for (int i = items.length; i < listView.getChildCount(); ++i) {
-            listView.getChildAt(i).setVisibility(View.GONE);
+        while (iterator.hasNext()) {
+            builder.createChild(listView);
+            builder.setObject(i++, iterator.next());
         }
     }
 
     public interface ListViewBuilder<T> {
-        void inflateChild(LinearLayout listView);
+        /**
+         * Create new child view and append it to given list view.
+         *
+         * @param listView parent list view.
+         */
+        void createChild(LinearLayout listView);
 
         void setObject(int index, T item);
     }

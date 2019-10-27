@@ -46,7 +46,7 @@ public class ReaderFactsView extends LinearLayout {
 
         Views.populateListView(this, atlasObject.getFacts(), new Views.ListViewBuilder<Fact>() {
             @Override
-            public void inflateChild(LinearLayout listView) {
+            public void createChild(LinearLayout listView) {
                 inflate(getContext(), R.layout.item_fact, listView);
             }
 

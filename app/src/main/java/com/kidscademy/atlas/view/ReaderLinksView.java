@@ -61,7 +61,7 @@ public class ReaderLinksView extends ConstraintLayout implements Views.ListViewB
     }
 
     @Override
-    public void inflateChild(LinearLayout listView) {
+    public void createChild(LinearLayout listView) {
         inflate(getContext(), R.layout.item_link, listView);
     }
 

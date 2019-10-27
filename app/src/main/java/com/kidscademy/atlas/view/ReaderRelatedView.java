@@ -57,7 +57,7 @@ public class ReaderRelatedView extends ConstraintLayout implements Views.ListVie
     }
 
     @Override
-    public void inflateChild(LinearLayout listView) {
+    public void createChild(LinearLayout listView) {
         inflate(getContext(), R.layout.item_related_object, listView);
     }
 
