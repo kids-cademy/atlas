@@ -101,12 +101,11 @@ public class MobileReaderTest {
     @Test
     public void quickNavigateAllPages() {
         for (int i = 0; i < repository.getObjectsCount(); ++i) {
-            // wait for object picture to be loaded as a signal of page complete
-            waitView(withTagValue(is((Object) repository.getObjectByIndex(i).getCoverPath()))).check(matches(isDisplayed()));
+            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
             onView(withId(R.id.activity_atlas_reader_pager)).perform(swipeLeft());
         }
         for (int i = repository.getObjectsCount() - 1; i >= 0; --i) {
-            waitView(withTagValue(is((Object) repository.getObjectByIndex(i).getCoverPath()))).check(matches(isDisplayed()));
+            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
             onView(withId(R.id.activity_atlas_reader_pager)).perform(swipeRight());
         }
     }
@@ -114,7 +113,6 @@ public class MobileReaderTest {
     @Test
     public void pagesBrowsing() {
         for (int i = 0; i < repository.getObjectsCount(); ++i) {
-            System.out.println("---------------------------------------------------------");
             final AtlasObject atlasObject = repository.getObjectByIndex(i);
 
             // all three statements are variants for the same reader object view, for code demo purpose
@@ -122,9 +120,12 @@ public class MobileReaderTest {
             onView(allOf(withClassName(endsWith("ReaderObjectView")), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
             onView(allOf(withId(R.id.reader_page_object_view), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
 
-            // object name and pictures path are used to signal page loaded
+            // object name s used to signal page loaded
             waitView(withText(atlasObject.getDisplay())).check(matches(isDisplayed()));
-            waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
+            // also check if cover and contextual images are loaded, if object has them
+            if(atlasObject.hasCoverImage()) {
+                waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
+            }
             if (atlasObject.hasContextualImage()) {
                 waitView(withTagValue(is((Object) atlasObject.getContextualPath())));
                 // instrument picture is not on visible area but should be loaded

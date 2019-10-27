@@ -98,14 +98,13 @@ public class TabletReaderTest {
     @Test
     public void quickNavigateAllPages() {
         for (int i = 0; i < repository.getObjectsCount(); ++i) {
-            // wait for object picture to be loaded as a signal of page complete
             sleep(200);
-            waitView(withTagValue(is((Object) repository.getObjectByIndex(i).getCoverPath()))).check(matches(isDisplayed()));
+            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
             onView(withId(R.id.action_next)).perform(click());
         }
         for (int i = repository.getObjectsCount() - 1; i >= 0; --i) {
             sleep(200);
-            waitView(withTagValue(is((Object) repository.getObjectByIndex(i).getCoverPath()))).check(matches(isDisplayed()));
+            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
             onView(withId(R.id.action_previous)).perform(click());
         }
     }

@@ -15,14 +15,14 @@ import com.kidscademy.atlas.activity.ReaderActivity;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.HTML;
 import com.kidscademy.atlas.sync.ItemRevealEvent;
+import com.kidscademy.atlas.util.Views;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import js.lang.BugError;
 
-public class ReaderDescriptionView extends LinearLayout {
+public class ReaderDescriptionView extends LinearLayout implements Views.ListViewBuilder<CharSequence> {
     private final ReaderActivity readerActivity;
     private final Handler handler;
 
@@ -37,44 +37,39 @@ public class ReaderDescriptionView extends LinearLayout {
     }
 
     public void update(AtlasObject atlasObject) {
-        List<CharSequence> description = handler.getDescription(atlasObject);
-
-        for (int i = getChildCount(); i < description.size(); ++i) {
-            inflate(getContext(), R.layout.compo_paragraph, this);
-        }
-
-        for (int i = 0; i < description.size(); ++i) {
-            handler.setText(i, description.get(i));
-            getChildAt(i).setVisibility(View.VISIBLE);
-        }
-
-        for (int i = description.size(); i < getChildCount(); ++i) {
-            getChildAt(i).setVisibility(View.GONE);
-        }
+        Views.resetScrollParentView(this);
+        Views.populateListView(this, getDescription(atlasObject), this);
     }
 
-    private interface Handler {
-        List<CharSequence> getDescription(AtlasObject atlasObject);
+    @Override
+    public void inflateChild(LinearLayout listView) {
+        inflate(getContext(), R.layout.compo_paragraph, this);
+    }
 
+    @Override
+    public void setObject(int index, CharSequence description) {
+        handler.setText(index, description);
+    }
+
+    private static CharSequence[] getDescription(AtlasObject atlasObject) {
+        HTML content = atlasObject.getDescription();
+        if (content == null) {
+            return new CharSequence[0];
+        }
+        List<CharSequence> description = new ArrayList<>();
+        for (HTML.Element element : content.getElements()) {
+            if (element instanceof HTML.Paragraph) {
+                description.add(((HTML.Paragraph) element).getText());
+            }
+        }
+        return description.toArray(new CharSequence[description.size()]);
+    }
+
+    public interface Handler {
         void setText(int childIndex, CharSequence description);
     }
 
     private class MobileHandler implements Handler {
-        @Override
-        public List<CharSequence> getDescription(AtlasObject atlasObject) {
-            HTML content = atlasObject.getDescription();
-            if(content == null) {
-                return Collections.emptyList();
-            }
-            List<CharSequence> description = new ArrayList<>();
-            for (HTML.Element element : content.getElements()) {
-                if (element instanceof HTML.Paragraph) {
-                    description.add(((HTML.Paragraph) element).getText());
-                }
-            }
-            return description;
-        }
-
         @Override
         public void setText(int childIndex, CharSequence description) {
             ConstraintLayout layout = (ConstraintLayout) getChildAt(childIndex);
@@ -84,24 +79,6 @@ public class ReaderDescriptionView extends LinearLayout {
     }
 
     private class TabletHandler implements Handler, View.OnClickListener {
-        @Override
-        public List<CharSequence> getDescription(AtlasObject atlasObject) {
-            HTML content = atlasObject.getDescription();
-            if(content == null) {
-                return Collections.emptyList();
-            }
-            List<CharSequence> description = new ArrayList<>();
-            for (HTML.Element element : content.getElements()) {
-                if (element instanceof HTML.Paragraph) {
-                    description.add(((HTML.Paragraph) element).getText());
-                }
-            }
-            // there is a not understood behaviour when scrolling to description bottom: last line from last
-            // paragraph is not displayed; workaround is to add an empty paragraph
-            description.add("");
-            return description;
-        }
-
         @Override
         public void setText(int childIndex, CharSequence description) {
             TextView textView = (TextView) getChildAt(childIndex);
