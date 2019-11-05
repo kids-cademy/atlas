@@ -34,7 +34,7 @@ public class SearchResultActivity extends AppActivity {
         log.trace("start(Activity)");
         Intent intent = new Intent(activity, SearchResultActivity.class);
         intent.putExtra(ARGS_KEYWORD, index.getKeyword());
-        intent.putExtra(ARGS_OBJECTS, index.getObjectIds());
+        intent.putExtra(ARGS_OBJECTS, index.getObjectKeys());
         activity.startActivity(intent);
     }
 

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.kidscademy.atlas.app.App;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +31,7 @@ public class AtlasObject {
      */
     private Map<String, Image> images;
 
+    private Date lastUpdated;
     private Taxon[] taxonomy;
     private String[] aliases;
     private Region[] spreading;
@@ -143,6 +145,10 @@ public class AtlasObject {
     }
 
     // ---------------------------------------------------------------------------------------------
+
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
 
     public boolean hasTaxonomy() {
         return taxonomy != null && taxonomy.length > 0;

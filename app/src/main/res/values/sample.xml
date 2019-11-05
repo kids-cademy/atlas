@@ -15,5 +15,6 @@
     <string name="sample_link_description">Wikipedia article about accordion.</string>
     <string name="sample_taxon_name">Species</string>
     <string name="sample_taxon_value">Tyrannosaurus rex</string>
+    <string name="sample_last_updated">5 November 2019, 21:56:00</string>
 
 </resources>

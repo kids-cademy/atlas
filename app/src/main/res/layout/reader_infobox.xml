@@ -2,21 +2,43 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#2196F3"
     tools:layout_height="wrap_content"
     tools:layout_width="wrap_content"
     tools:parentTag="android.support.constraint.ConstraintLayout">
+
+
+    <TextView
+        android:id="@+id/infobox_last_updated_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/infobox_last_updated"
+        android:textAppearance="@style/TextAppearance.Medium.Inverse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/infobox_last_updated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/sample_last_updated"
+        android:textAppearance="@style/TextAppearance.Medium"
+        app:layout_constraintStart_toStartOf="@+id/infobox_last_updated_label"
+        app:layout_constraintTop_toBottomOf="@+id/infobox_last_updated_label" />
 
     <TextView
         android:id="@+id/infobox_classification_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_classification"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/infobox_last_updated" />
 
     <FrameLayout
         android:id="@+id/infobox_taxonomy_frame"

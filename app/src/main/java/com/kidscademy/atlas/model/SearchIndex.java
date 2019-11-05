@@ -20,7 +20,7 @@ public class SearchIndex implements Keyword {
     /**
      * Objects related to keyword.
      */
-    private int[] objectIds;
+    private int[] objectKeys;
 
     public SearchIndex() {
     }
@@ -30,12 +30,12 @@ public class SearchIndex implements Keyword {
      *
      * @param keyword          keyword is used as search criterion,
      * @param keywordRelevance keyword relevance,
-     * @param objectIds        variable number of objects related to keyword.
+     * @param objectKeys        variable number of objects related to keyword.
      */
-    public SearchIndex(String keyword, int keywordRelevance, int... objectIds) {
+    public SearchIndex(String keyword, int keywordRelevance, int... objectKeys) {
         this.keyword = keyword;
         this.keywordRelevance = keywordRelevance;
-        this.objectIds = objectIds;
+        this.objectKeys = objectKeys;
     }
 
     @Override
@@ -47,8 +47,8 @@ public class SearchIndex implements Keyword {
         return keywordRelevance;
     }
 
-    public int[] getObjectIds() {
-        return objectIds;
+    public int[] getObjectKeys() {
+        return objectKeys;
     }
 
     @Override

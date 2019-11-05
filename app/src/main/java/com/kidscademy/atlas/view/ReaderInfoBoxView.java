@@ -13,7 +13,14 @@ import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Taxon;
 import com.kidscademy.atlas.util.Strings;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import js.format.LongDateTime;
+
 public class ReaderInfoBoxView extends ConstraintLayout {
+    private TextView lastUpdatedText;
+
     private TextView classificationLabel;
     private TextView classificationText;
 
@@ -38,6 +45,7 @@ public class ReaderInfoBoxView extends ConstraintLayout {
     public void onFinishInflate() {
         super.onFinishInflate();
 
+        lastUpdatedText = findViewById(R.id.infobox_last_updated);
         classificationLabel = findViewById(R.id.infobox_classification_label);
         classificationText = findViewById(R.id.infobox_classification);
         taxonomyView = findViewById(R.id.infobox_taxonomy);
@@ -62,6 +70,9 @@ public class ReaderInfoBoxView extends ConstraintLayout {
         // if conservation status view is displayed do not display info box vertical rule
         View rule = findViewById(R.id.reader_infobox_vr);
         rule.setVisibility(atlasObject.hasConservation() ? View.GONE : View.VISIBLE);
+
+        DateFormat format = new SimpleDateFormat("MMMM d, yyyy HH:mm:ss");
+        lastUpdatedText.setText(format.format(atlasObject.getLastUpdated()));
 
         if (atlasObject.hasTaxonomy()) {
             Taxon[] taxonomy = atlasObject.getTaxonomy();

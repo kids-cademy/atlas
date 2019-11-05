@@ -45,7 +45,7 @@ sync.App.prototype = {
 	},
 
 	_onPageLoadEvent : function(event) {
-		var data = JSON.parse(event.data);
+		var data = js.lang.JSON.parse(event.data);
 		this.setObject(data.atlasObject);
 	},
 
@@ -69,19 +69,19 @@ sync.App.prototype = {
 
 	_onItemRevealEvent : function(event) {
 		var data = JSON.parse(event.data);
-		var parent, child;
+		var listView;
 
 		switch (data.type) {
 		case "DESCRIPTION":
-			parent = this.getByCss(".section.description .list");
+			listView = this.getByCss(".section.description .list");
 			break;
 
 		case "FACT":
-			parent = this.getByCss(".section.facts .list");
+			listView = this.getByCss(".section.facts .list");
 			break;
 
 		case "FEATURE":
-			parent = this.getByCss(".section.features");
+			listView = this.getByCss(".section.features");
 			break;
 
 		default:
@@ -89,8 +89,8 @@ sync.App.prototype = {
 			return;
 		}
 
-		child = parent.getByIndex(data.index);
-		child.scrollIntoView();
+		var itemView = listView.getByIndex(data.index);
+		itemView.scrollIntoView();
 	},
 
 	_onDisconnectEvent : function(event) {
