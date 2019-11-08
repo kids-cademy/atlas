@@ -14,6 +14,7 @@ public class ReaderObjectView extends LinearLayout {
     private ReaderIntroView introView;
     private ReaderDescriptionView descriptionView;
     private ReaderFeaturedView featuredImageView;
+    private ReaderDescriptionView descriptionViewEx;
     private ReaderConservationView conservationView;
     private ReaderInfoBoxView infoBoxView;
     private ReaderContextualView contextualView;
@@ -42,6 +43,7 @@ public class ReaderObjectView extends LinearLayout {
 
         introView = findViewById(R.id.reader_intro_view);
         descriptionView = findViewById(R.id.reader_description_view);
+        descriptionViewEx = findViewById(R.id.reader_description_view_ex);
         featuredImageView = findViewById(R.id.reader_featured_view);
 
         conservationView = findViewById(R.id.reader_conservation_view);
@@ -60,7 +62,7 @@ public class ReaderObjectView extends LinearLayout {
         linksView = findViewById(R.id.reader_links_view);
     }
 
-    public void setAtlasObject(@NonNull AtlasObject atlasObject) {
+    public void setAtlasObject(@NonNull final AtlasObject atlasObject) {
         this.atlasObject = atlasObject;
         // this tag is used by espresso tests
         setTag(atlasObject.getTag());
@@ -72,14 +74,17 @@ public class ReaderObjectView extends LinearLayout {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                featuredImageView.update(ReaderObjectView.this.atlasObject);
-                conservationView.update(ReaderObjectView.this.atlasObject);
-                infoBoxView.update(ReaderObjectView.this.atlasObject);
-                contextualView.update(ReaderObjectView.this.atlasObject);
-                factsView.update(ReaderObjectView.this.atlasObject);
-                featuresView.update(ReaderObjectView.this.atlasObject);
-                relatedView.update(ReaderObjectView.this.atlasObject);
-                linksView.update(ReaderObjectView.this.atlasObject);
+                featuredImageView.update(atlasObject);
+                if (descriptionViewEx != null) {
+                    descriptionViewEx.update(atlasObject);
+                }
+                conservationView.update(atlasObject);
+                infoBoxView.update(atlasObject);
+                contextualView.update(atlasObject);
+                factsView.update(atlasObject);
+                featuresView.update(atlasObject);
+                relatedView.update(atlasObject);
+                linksView.update(atlasObject);
             }
         }, 50);
     }

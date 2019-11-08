@@ -24,11 +24,18 @@ import java.util.List;
 import js.lang.BugError;
 
 public class ReaderDescriptionView extends LinearLayout implements Views.ListViewBuilder<CharSequence> {
+    /**
+     * On tablet description is divided in two parts. First is of fixed height and contains 4 paragraphs.
+     * The second part is displayed after featured image view and contains remaining atlas object description paragraphs.
+     * This flag is true if this view is for teh second part, named extension. It is detected based on  view ID.
+     */
+    private final boolean descriptionExtension;
     private final ReaderActivity readerActivity;
     private final Handler handler;
 
     public ReaderDescriptionView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        descriptionExtension = this.getId() == R.id.reader_description_view_ex;
         handler = ((AppActivity) context).isTablet() ? new TabletHandler() : new MobileHandler();
         inflate(context, R.layout.reader_description, this);
         if (!(context instanceof ReaderActivity)) {
@@ -39,7 +46,7 @@ public class ReaderDescriptionView extends LinearLayout implements Views.ListVie
 
     public void update(AtlasObject atlasObject) {
         Views.resetScrollParentView(this);
-        Views.populateListView(this, getDescription(atlasObject), this);
+        Views.populateListView(this, handler.getDescription(atlasObject), this);
     }
 
     @Override
@@ -52,25 +59,47 @@ public class ReaderDescriptionView extends LinearLayout implements Views.ListVie
         handler.setText(index, description);
     }
 
-    private static List<CharSequence> getDescription(AtlasObject atlasObject) {
-        HTML content = atlasObject.getDescription();
-        if (content == null) {
-            return Collections.emptyList();
-        }
-        List<CharSequence> description = new ArrayList<>();
-        for (HTML.Element element : content.getElements()) {
-            if (element instanceof HTML.Paragraph) {
-                description.add(((HTML.Paragraph) element).getText());
-            }
-        }
-        return description;
-    }
-
     public interface Handler {
+        List<CharSequence> getDescription(AtlasObject atlasObject);
+
         void setText(int childIndex, CharSequence description);
     }
 
     private class MobileHandler implements Handler {
+        @Override
+        public List<CharSequence> getDescription(AtlasObject atlasObject) {
+            HTML content = atlasObject.getDescription();
+            if (content == null) {
+                return Collections.emptyList();
+            }
+            List<CharSequence> description = new ArrayList<>();
+
+            // atlas object description on mobile phone is divided into two parts
+            // first part always contains 4 paragraphs
+            // extension part contains the rest of them
+            int skip = 0;
+            int count = 4;
+            int index = -1;
+            if (descriptionExtension) {
+                skip = 4;
+                count = Integer.MAX_VALUE;
+            }
+
+            for (HTML.Element element : content.getElements()) {
+                if (element instanceof HTML.Paragraph) {
+                    index++;
+                    if (index < skip) {
+                        continue;
+                    }
+                    if (index == count) {
+                        break;
+                    }
+                    description.add(((HTML.Paragraph) element).getText());
+                }
+            }
+            return description;
+        }
+
         @Override
         public void setText(int childIndex, CharSequence description) {
             ConstraintLayout layout = (ConstraintLayout) getChildAt(childIndex);
@@ -80,6 +109,21 @@ public class ReaderDescriptionView extends LinearLayout implements Views.ListVie
     }
 
     private class TabletHandler implements Handler, View.OnClickListener {
+        @Override
+        public List<CharSequence> getDescription(AtlasObject atlasObject) {
+            HTML content = atlasObject.getDescription();
+            if (content == null) {
+                return Collections.emptyList();
+            }
+            List<CharSequence> description = new ArrayList<>();
+            for (HTML.Element element : content.getElements()) {
+                if (element instanceof HTML.Paragraph) {
+                    description.add(((HTML.Paragraph) element).getText());
+                }
+            }
+            return description;
+        }
+
         @Override
         public void setText(int childIndex, CharSequence description) {
             TextView textView = (TextView) getChildAt(childIndex);
