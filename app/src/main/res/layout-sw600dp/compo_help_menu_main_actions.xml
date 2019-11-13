@@ -58,14 +58,13 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/paragraph_space"
         android:contentDescription="@string/menu_help_accessibility"
         android:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_accessibility_label"
+        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_user_guide_label"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/menu_main_actions_accessibility_label"
-        app:srcCompat="@drawable/action_accessibility" />
+        app:layout_constraintTop_toTopOf="@id/menu_main_actions_user_guide_label"
+        app:srcCompat="@drawable/action_help" />
 
     <TextView
         android:id="@+id/menu_main_actions_reader_label"
@@ -115,12 +114,12 @@
         app:layout_constraintTop_toBottomOf="@id/menu_main_actions_index_label" />
 
     <TextView
-        android:id="@+id/menu_main_actions_accessibility_label"
+        android:id="@+id/menu_main_actions_user_guide_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/menu_help_accessibility"
+        android:text="@string/menu_help_user_guide"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Medium.Mute"
         app:layout_constraintStart_toEndOf="@id/menu_main_actions_rule"

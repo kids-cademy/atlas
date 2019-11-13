@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.adapter.AtlasIndexAdapter;
-import com.kidscademy.atlas.app.Audit;
 
 import js.log.Log;
 import js.log.LogFactory;
@@ -23,14 +22,11 @@ public class IndexActivity extends AppActivity implements AtlasIndexAdapter.OnOb
         activity.startActivity(intent);
     }
 
-    private final Audit audit;
-
     private AtlasIndexAdapter adapter;
 
     public IndexActivity() {
         super(R.layout.activity_index);
         log.trace("IndexActivity()");
-        this.audit = app.audit();
     }
 
     @Override
@@ -71,13 +67,10 @@ public class IndexActivity extends AppActivity implements AtlasIndexAdapter.OnOb
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.action_unfold_less || id == R.id.index_fab_collapse_all) {
-            audit.collapseIndex();
             adapter.collapseAll();
         } else if (id == R.id.action_unfold_more || id == R.id.index_fab_expand_all) {
-            audit.expandIndex();
             adapter.expandAll();
         } else if (id == R.id.action_swap_horizontal || id == R.id.index_fab_swap_vertical) {
-            audit.swapIndex();
             adapter.swapVertical();
         } else if (id == R.id.action_back) {
             onBackPressed();

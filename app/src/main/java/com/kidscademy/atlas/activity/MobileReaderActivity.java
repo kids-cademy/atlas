@@ -46,10 +46,8 @@ public class MobileReaderActivity extends ReaderActivity implements View.OnClick
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.activity_reader_fab_search) {
-            audit.readerSearch();
             SearchActivity.start(this);
         } else if (id == R.id.activity_reader_fab_index) {
-            audit.readerIndex();
             IndexActivity.start(this);
         } else if (id == R.id.activity_reader_fab_sync) {
             SyncActivity.start(this);
@@ -78,7 +76,6 @@ public class MobileReaderActivity extends ReaderActivity implements View.OnClick
         log.trace("updateUserInterface(int)");
         pager.setCurrentItem(objectIndex, false);
         AtlasObject atlasObject = app.repository().getObjectByIndex(objectIndex);
-        audit.openArticle(atlasObject.getName());
         pushEvent(new PageLoadEvent(atlasObject));
     }
 }

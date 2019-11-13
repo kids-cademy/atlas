@@ -11,9 +11,8 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
-import com.kidscademy.atlas.adapter.SearchKeywordsAdapter;
-import com.kidscademy.atlas.app.Audit;
 import com.kidscademy.atlas.R;
+import com.kidscademy.atlas.adapter.SearchKeywordsAdapter;
 import com.kidscademy.atlas.model.AtlasRepository;
 import com.kidscademy.atlas.model.CharTree;
 import com.kidscademy.atlas.model.SearchIndex;
@@ -37,7 +36,6 @@ public class SearchActivity extends AppActivity implements SearchKeywordsAdapter
     }
 
     private final AtlasRepository repository;
-    private final Audit audit;
 
     private CharTree<SearchIndex> searchIndex;
 
@@ -58,7 +56,6 @@ public class SearchActivity extends AppActivity implements SearchKeywordsAdapter
         super(R.layout.activity_search);
         log.trace("SearchActivity()");
         this.repository = app.repository();
-        this.audit = app.audit();
     }
 
     @Override
@@ -123,7 +120,6 @@ public class SearchActivity extends AppActivity implements SearchKeywordsAdapter
     @Override
     public void onKeywordSelect(SearchIndex index) {
         log.debug("Search for |%s|.", index.getKeyword());
-        audit.searchKeyword(index.getKeyword());
         SearchResultActivity.start(this, index);
     }
 

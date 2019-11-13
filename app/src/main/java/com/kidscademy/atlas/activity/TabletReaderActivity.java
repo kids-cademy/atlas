@@ -56,10 +56,8 @@ public class TabletReaderActivity extends ReaderActivity implements View.OnClick
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.action_search) {
-            audit.openSearch();
             SearchActivity.start(this);
         } else if (id == R.id.action_index) {
-            audit.openIndex();
             IndexActivity.start(this);
         } else if (id == R.id.action_sync) {
             SyncActivity.start(this);

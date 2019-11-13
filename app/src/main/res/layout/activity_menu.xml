@@ -101,12 +101,12 @@
             app:layout_constraintTop_toTopOf="@id/menu_sync" />
 
         <com.kidscademy.atlas.view.HexaIcon
-            android:id="@+id/menu_accessibility"
+            android:id="@+id/menu_user_guide"
             style="@style/HexaIcon.Large"
             app:backgroundColor="#2196F3"
             app:borderColor="@color/hexaicon_border"
             app:borderSize="1"
-            app:iconDrawable="@drawable/action_accessibility"
+            app:iconDrawable="@drawable/action_help"
             app:layout_constraintEnd_toEndOf="@id/y02"
             app:layout_constraintStart_toStartOf="@id/y02"
             app:layout_constraintTop_toBottomOf="@id/menu_sync_guide" />
@@ -143,12 +143,10 @@
             app:layout_constraintGuide_percent="0.827" />
 
         <com.kidscademy.atlas.view.HexaIcon
-            android:id="@+id/menu_user_guide"
             style="@style/HexaIcon.Small"
             app:backgroundColor="#4CAF50"
             app:borderColor="@color/hexaicon_border"
             app:borderSize="1"
-            app:iconDrawable="@drawable/action_help"
             app:layout_constraintBottom_toTopOf="@id/menu_about_guide"
             app:layout_constraintEnd_toStartOf="@id/y11"
             app:layout_constraintStart_toStartOf="@id/y11" />

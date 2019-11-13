@@ -10,17 +10,6 @@
         android:id="@+id/help_menu_support_actions_first_icon"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/menu_help_reader"
-        android:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_guide_label"
-        app:layout_constraintDimensionRatio="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/help_menu_support_actions_guide_label"
-        app:srcCompat="@drawable/action_help" />
-
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
         android:contentDescription="@string/menu_help_search"
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_about_label"
@@ -63,17 +52,6 @@
         app:srcCompat="@drawable/action_close" />
 
     <TextView
-        android:id="@+id/help_menu_support_actions_guide_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/menu_help_user_guide"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.Small.Mute"
-        app:layout_constraintStart_toEndOf="@id/help_menu_support_actions_rule"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/help_menu_support_actions_about_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,7 +61,7 @@
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Small.Mute"
         app:layout_constraintStart_toStartOf="@id/help_menu_support_actions_rule"
-        app:layout_constraintTop_toBottomOf="@id/help_menu_support_actions_guide_label" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/help_menu_support_actions_share_label"

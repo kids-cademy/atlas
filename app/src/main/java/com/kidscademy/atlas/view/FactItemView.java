@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.activity.ReaderActivity;
-import com.kidscademy.atlas.app.App;
 import com.kidscademy.atlas.model.Fact;
 import com.kidscademy.atlas.sync.ItemRevealEvent;
 
@@ -30,7 +29,7 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
     private static final Log log = LogFactory.getLog(FactItemView.class);
 
     private static final int[] BULLET_COLORS = new int[]{
-            R.color.red_500, R.color.green_500, R.color.blue_700, R.color.purple_500,
+            R.color.red_500, R.color.green_500, R.color.blue_300, R.color.purple_500,
             R.color.indigo_500, R.color.orange_500, R.color.brown_500, R.color.grey_500,
             R.color.deep_orange_500, R.color.pink_500, R.color.deep_purple_500, R.color.blue_grey_500,
             R.color.teal_500
@@ -39,7 +38,6 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
     private static int bulletColorIndex;
 
     private ReaderActivity readerActivity;
-    private TextView keyView;
     private TextView valueView;
     private int valueViewHeight;
     private ImageView expandButton;
@@ -69,7 +67,7 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
         ImageView bulletView = findViewById(R.id.item_fact_bullet);
         bulletView.setColorFilter(ContextCompat.getColor(getContext(), BULLET_COLORS[bulletColorIndex++ % BULLET_COLORS.length]));
 
-        keyView = findViewById(R.id.item_fact_name);
+        TextView keyView = findViewById(R.id.item_fact_name);
         keyView.setText(fact.getName());
         keyView.setTag(objectName);
 
@@ -117,10 +115,6 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
         collapsed = !collapsed;
         int start = collapsed ? valueViewHeight : 0;
         int end = !collapsed ? valueViewHeight : 0;
-
-        if (!collapsed) {
-            App.instance().audit().expandFact(keyView.getTag().toString(), keyView.getText().toString());
-        }
 
         ValueAnimator anim = ValueAnimator.ofInt(start, end);
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

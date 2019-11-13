@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 
 import com.kidscademy.atlas.R;
-import com.kidscademy.atlas.app.Audit;
 import com.kidscademy.atlas.app.Flags;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasRepository;
@@ -76,8 +75,6 @@ public abstract class ReaderActivity extends AppActivity implements ServiceConne
 
     protected final Flags flags;
 
-    protected final Audit audit;
-
     protected final Player player;
 
     /**
@@ -104,7 +101,6 @@ public abstract class ReaderActivity extends AppActivity implements ServiceConne
         this.player = new Player(this);
         this.player.setStateListener(this);
         this.flags = app.flags();
-        this.audit = app.audit();
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -233,9 +229,10 @@ public abstract class ReaderActivity extends AppActivity implements ServiceConne
         TYPES.add(Player.StateListener.class);
     }
 
-    private Map<Class<?>, List<?>> listenersRegistry = new HashMap<>();
+    private  Map<Class<?>, List<?>> listenersRegistry = new HashMap<>();
 
     @Override
+    @SuppressWarnings("unchecked")
     public <I> void registerListener(Class<I> type, I listener) {
         Params.validType(TYPES, type);
         List<I> listeners = (List<I>) listenersRegistry.get(type);
@@ -247,6 +244,7 @@ public abstract class ReaderActivity extends AppActivity implements ServiceConne
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public <I> Iterable<I> getListeners(Class<I> type) {
         Params.validType(TYPES, type);
         List listeners = listenersRegistry.get(type);

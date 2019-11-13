@@ -11,6 +11,7 @@
         android:layout_height="80dp"
         android:background="@drawable/shape_stroke_circle"
         android:padding="10dp"
+        android:tint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/action_index" />

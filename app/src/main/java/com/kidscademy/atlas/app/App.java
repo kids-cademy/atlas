@@ -9,8 +9,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 
-import com.kidscademy.atlas.activity.ErrorActivity;
 import com.kidscademy.atlas.R;
+import com.kidscademy.atlas.activity.ErrorActivity;
 import com.kidscademy.atlas.model.AtlasRepository;
 
 import java.io.PrintWriter;
@@ -21,7 +21,6 @@ import js.log.Log;
 import js.log.LogFactory;
 import js.log.LogLevel;
 import js.log.LogManager;
-import js.util.Net;
 
 /**
  * Application singleton holds global state, generates crash report and implements application active detection logic.
@@ -58,9 +57,6 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
 
     private AtlasRepository repository;
     private Flags flags;
-    private Audit audit;
-
-    private HubService hubService;
 
     @SuppressLint("HardwareIds")
     @Override
@@ -78,15 +74,6 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
         log.trace("onCreate()");
 
         Thread.setDefaultUncaughtExceptionHandler(this);
-
-        hubService = new HubService();
-
-        // create active audit instance only if WIFI connected
-        if (Net.isWiFiConnected(getApplicationContext())) {
-            audit = new Audit(getPackageName(), hubService);
-        } else {
-            audit = new Audit();
-        }
 
         try {
             instance = this;
@@ -114,14 +101,6 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
 
     public Flags flags() {
         return flags;
-    }
-
-    public Audit audit() {
-        return audit;
-    }
-
-    public HubService hubService() {
-        return hubService;
     }
 
     // --------------------------------------------------------------------------------------------
@@ -157,7 +136,6 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
     private void dumpStackTrace(@NonNull Throwable throwable) {
         StringWriter stackTrace = new StringWriter();
         throwable.printStackTrace(new PrintWriter(stackTrace));
-        hubService.dumpStackTrace(getPackageName(), stackTrace.toString());
     }
 
     // ------------------------------------------------------
@@ -181,7 +159,7 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
     public void onActivityStarted(Activity activity) {
         log.trace("onActivityStarted(Activity) - %s %d", activity.getClass().getName(), startIndex);
         if (startIndex++ == 0) {
-            audit.openApplication();
+            log.debug("Start application.");
         }
     }
 
@@ -193,7 +171,7 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
         --startIndex;
         log.trace("onActivityStopped(Activity) - %s %d", activity.getClass().getName(), startIndex);
         if (startIndex == 0) {
-            audit.closeApplication();
+            log.debug("Stop application.");
         }
     }
 

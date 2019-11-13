@@ -256,7 +256,6 @@ public class AtlasObject {
 
     @NonNull
     public String toString() {
-        // toString is used by Audit to print object; leave it as it is
         return name;
     }
 }

@@ -14,8 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
-import com.kidscademy.atlas.app.App;
-import com.kidscademy.atlas.app.Audit;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Link;
 import com.kidscademy.atlas.util.RandomColor;
@@ -24,14 +22,11 @@ import com.kidscademy.atlas.util.Views;
 import js.util.BitmapLoader;
 
 public class ReaderLinksView extends ConstraintLayout implements Views.ListViewBuilder<Link>, View.OnClickListener {
-    private final Audit audit;
-
     private HexaIcon captionView;
     private LinearLayout listView;
 
     public ReaderLinksView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        this.audit = App.instance().audit();
         inflate(context, R.layout.reader_links, this);
     }
 
@@ -85,7 +80,6 @@ public class ReaderLinksView extends ConstraintLayout implements Views.ListViewB
     @Override
     public void onClick(View view) {
         final Link link = (Link) view.getTag();
-        audit.openLink(link.getUrl());
         final Intent browser = new Intent();
         browser.setAction(Intent.ACTION_VIEW);
         browser.setData(Uri.parse(link.getUrl().toExternalForm()));

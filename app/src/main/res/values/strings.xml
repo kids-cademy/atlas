@@ -89,7 +89,7 @@
     <string name="help_atlas_actions_h">Core Atlas Actions</string>
     <string name="help_atlas_actions_p1">Core atlas icons are bigger. This group is the main actions group containing links to atlas related pages.</string>
     <string name="help_atlas_actions_p2">Usually use search page to locate atlas article but index page can be handy to browse all items from collection.</string>
-    <string name="help_atlas_actions_p3">See related user guide sections for main atlas actions. Accessibility mode is described in its own page.</string>
+    <string name="help_atlas_actions_p3">See related user guide sections for main atlas actions.</string>
     <string name="help_support_actions_h">Support Actions</string>
     <string name="help_support_actions_p1">Support icons group are on page bottom side and are smaller.</string>
     <string name="help_support_actions_p2">This actions group is auxiliary and has links to this user guide and support pages.</string>

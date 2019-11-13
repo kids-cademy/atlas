@@ -114,22 +114,21 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/paragraph_space"
         android:contentDescription="@string/menu_help_accessibility"
         android:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_accessibility_label"
+        app:layout_constraintBottom_toBottomOf="@id/menu_main_actions_user_guide_label"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/menu_main_actions_accessibility_label"
-        app:srcCompat="@drawable/action_accessibility" />
+        app:layout_constraintTop_toTopOf="@id/menu_main_actions_user_guide_label"
+        app:srcCompat="@drawable/action_help" />
 
     <TextView
-        android:id="@+id/menu_main_actions_accessibility_label"
+        android:id="@+id/menu_main_actions_user_guide_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/paragraph_space"
         android:layout_marginTop="@dimen/paragraph_space"
-        android:text="@string/menu_help_accessibility"
+        android:text="@string/menu_help_user_guide"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Large.Accent"
         app:layout_constraintStart_toEndOf="@id/menu_main_actions_rule"

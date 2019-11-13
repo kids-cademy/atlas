@@ -11,9 +11,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.kidscademy.atlas.adapter.SharingAdapter;
-import com.kidscademy.atlas.app.Audit;
 import com.kidscademy.atlas.R;
+import com.kidscademy.atlas.adapter.SharingAdapter;
 import com.kidscademy.atlas.model.SharingApp;
 import com.kidscademy.atlas.view.SpacesItemDecoration;
 
@@ -40,14 +39,11 @@ public class ShareActivity extends AppActivity implements SharingAdapter.Listene
         activity.startActivity(intent);
     }
 
-    private final Audit audit;
-
     private TwitterShare twitterShare;
 
     public ShareActivity() {
         super(R.layout.activity_share);
         log.trace("ShareActivity()");
-        this.audit = app.audit();
     }
 
     @Override
@@ -117,7 +113,6 @@ public class ShareActivity extends AppActivity implements SharingAdapter.Listene
     @Override
     public void onSharingAppSelected(SharingApp sharingApp) {
         log.trace("onSharingAppSelected(SharingApp) - %s", sharingApp.getAppName());
-        audit.shareApp(sharingApp.getAppName());
 
         switch (sharingApp.getType()) {
             case TWITTER:

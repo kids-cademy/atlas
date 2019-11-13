@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 
 import com.kidscademy.atlas.R;
-import com.kidscademy.atlas.app.Audit;
 import com.kidscademy.atlas.sync.SyncService;
 import com.kidscademy.atlas.view.HexaIcon;
 
@@ -60,11 +59,9 @@ public class MenuActivity extends AppActivity implements ServiceConnection {
         setClickListener(R.id.menu_main_actions_index_label);
         setClickListener(R.id.menu_sync);
         setClickListener(R.id.menu_main_actions_sync_label);
-        setClickListener(R.id.menu_accessibility);
-        setClickListener(R.id.menu_main_actions_accessibility_label);
-
         setClickListener(R.id.menu_user_guide);
-        setClickListener(R.id.menu_user_guide_label);
+        setClickListener(R.id.menu_main_actions_user_guide_label);
+
         setClickListener(R.id.menu_about);
         setClickListener(R.id.menu_about_label);
         setClickListener(R.id.menu_share);
@@ -90,40 +87,27 @@ public class MenuActivity extends AppActivity implements ServiceConnection {
 
     @Override
     public void onClick(View view) {
-        final Audit audit = app.audit();
-
         int id = view.getId();
         if (id == R.id.action_back) {
             MainActivity.start(this);
         } else if (id == R.id.menu_search || id == R.id.menu_main_actions_search_label) {
-            audit.openSearch();
             SearchActivity.start(this);
         } else if (id == R.id.menu_reader || id == R.id.menu_main_actions_reader_label) {
-            audit.openReader();
             ReaderActivity.start(this);
         } else if (id == R.id.menu_index || id == R.id.menu_main_actions_index_label) {
-            audit.openIndex();
             IndexActivity.start(this);
         } else if (id == R.id.menu_sync || id == R.id.menu_main_actions_sync_label) {
-            audit.openSync();
             SyncActivity.start(this);
-        } else if (id == R.id.menu_accessibility || id == R.id.menu_main_actions_accessibility_label) {
-            audit.openAccessibility();
-            AccessibilityActivity.start(this);
         } else if (id == R.id.menu_about || id == R.id.menu_about_label) {
-            audit.openAbout();
             AboutActivity.start(this);
-        } else if (id == R.id.menu_user_guide || id == R.id.menu_user_guide_label) {
-            audit.openHelp();
+        } else if (id == R.id.menu_user_guide || id == R.id.menu_main_actions_user_guide_label) {
             HelpActivity.start(this);
         } else if (id == R.id.menu_share || id == R.id.menu_share_label) {
-            audit.openShare();
             ShareActivity.start(this);
         } else if (id == R.id.menu_rate || id == R.id.menu_rate_label) {
-            app.audit().openRate();
             RateActivity.start(this);
         } else if (id == R.id.menu_settings) {
-            audit.openSettings();
+            log.debug("Menu settings.");
         } else if (id == R.id.menu_close || id == R.id.menu_close_label) {
             ExitActivity.exit(this);
         } else {

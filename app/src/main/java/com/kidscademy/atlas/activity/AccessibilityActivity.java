@@ -18,8 +18,6 @@ import js.util.Player;
 public class AccessibilityActivity extends AppActivity implements Player.StateListener {
     private static final Log log = LogFactory.getLog(AccessibilityActivity.class);
 
-    private static final String PROJECT_NAME = "accessibility";
-
     public static void start(Activity activity) {
         log.trace("start(Activity)");
         Intent intent = new Intent(activity, AccessibilityActivity.class);
@@ -76,9 +74,9 @@ public class AccessibilityActivity extends AppActivity implements Player.StateLi
                 player.play(this, Uri.parse("http://kids-cademy.com/sample/accordion.mp3"));
             }
         } else if (id == R.id.accessibility_vote_plus) {
-            app.hubService().votePlus(app.getPackageName(), PROJECT_NAME);
+            log.debug("vote plus");
         } else if (id == R.id.accessibility_vote_minus) {
-            app.hubService().voteMinus(app.getPackageName(), PROJECT_NAME);
+            log.debug("vote minus");
         } else {
             super.onClick(view);
         }
