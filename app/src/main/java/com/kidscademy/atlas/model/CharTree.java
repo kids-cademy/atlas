@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.TreeMap;
 
 import js.lang.BugError;
@@ -24,11 +23,6 @@ public class CharTree<V extends Keyword> {
 
     public CharTree() {
         root = new Node();
-    }
-
-    public CharTree(Map<String, V> values) {
-        this();
-
     }
 
     public CharTree(List<V> values) {
@@ -217,11 +211,6 @@ public class CharTree<V extends Keyword> {
         V getValue() {
             assert value != null;
             return value;
-        }
-
-        void removeValue() {
-            children = new TreeMap<>();
-            this.value = null;
         }
 
         void putChildValue(char key, V value) {

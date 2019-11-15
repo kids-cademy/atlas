@@ -58,7 +58,6 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
     private AtlasRepository repository;
     private Flags flags;
 
-    @SuppressLint("HardwareIds")
     @Override
     public void onCreate() {
         boolean debug = false;
@@ -70,7 +69,6 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
 
         LogManager.activateInAppLogging(this, debug ? LogLevel.TRACE : LogLevel.OFF, debug);
         log = LogFactory.getLog(App.class);
-        log.debug("Create application instance in %s mode.", debug ? "debug" : "RELEASE");
         log.trace("onCreate()");
 
         Thread.setDefaultUncaughtExceptionHandler(this);

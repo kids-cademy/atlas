@@ -7,12 +7,11 @@ import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasRepository;
 import com.kidscademy.atlas.model.SearchIndex;
 import com.kidscademy.atlas.util.AssetsBase;
-import com.kidscademy.atlas.util.Params;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import js.lang.AsyncTask;
 import js.lang.GType;
 import js.log.Log;
 import js.log.LogFactory;
@@ -33,24 +32,18 @@ class AssetsRepository extends AssetsBase implements AtlasRepository {
 
     private List<SearchIndex> searchIndex;
 
-    AssetsRepository(Context context) {
+    AssetsRepository(Context context) throws IOException {
         super(context);
         log.trace("AssetsRepository(Context context)");
 
-        AsyncTask<Void> task = new AsyncTask<Void>() {
-            @Override
-            protected Void execute() throws Throwable {
-                String[] names = loadObject(getAssetReader("atlas/objects-list.json"), String[].class);
-                objects = new ArrayList<>();
-                for (String name : names) {
-                    final AtlasObject atlasObject = loadObject(getAssetReader(getObjectPath(name)), AtlasObject.class);
-                    objects.add(atlasObject);
-                }
-                searchIndex = loadObject(getAssetReader("atlas/search-index.json"), new GType(List.class, SearchIndex.class));
-                return null;
-            }
-        };
-        task.start();
+        String[] names = loadObject(getAssetReader("atlas/objects-list.json"), String[].class);
+        objects = new ArrayList<>();
+        for (String name : names) {
+            final AtlasObject atlasObject = loadObject(getAssetReader(getObjectPath(name)), AtlasObject.class);
+            objects.add(atlasObject);
+        }
+
+        searchIndex = loadObject(getAssetReader("atlas/search-index.json"), new GType(List.class, SearchIndex.class));
     }
 
     @Override

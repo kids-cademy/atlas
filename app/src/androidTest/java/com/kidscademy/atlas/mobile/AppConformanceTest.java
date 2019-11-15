@@ -58,7 +58,7 @@ public class AppConformanceTest {
         onView(withId(R.id.menu_search)).perform(click());
         // need a back to hide keyboard
         pressBack();
-        onView(withId(R.id.search_fab_control)).perform(click());
+        waitView(withId(R.id.search_fab_control)).perform(click());
         onView(withId(R.id.search_fab_main_menu)).perform(click());
 
         onView(withId(R.id.menu_search)).perform(click());
