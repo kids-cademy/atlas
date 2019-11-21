@@ -1,6 +1,5 @@
 package com.kidscademy.atlas.app;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.pm.PackageManager;
@@ -79,9 +78,8 @@ public class App extends Application implements Thread.UncaughtExceptionHandler,
             registerActivityLifecycleCallbacks(this);
             super.onCreate();
 
-            repository = new AssetsRepository(getApplicationContext());
             flags = new Flags(getApplicationContext());
-
+            repository = new AssetsRepository(getApplicationContext());
         } catch (Throwable throwable) {
             log.dump("App start fatal error: ", throwable);
             dumpStackTrace(throwable);

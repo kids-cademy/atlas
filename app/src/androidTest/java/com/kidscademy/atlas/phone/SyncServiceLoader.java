@@ -1,4 +1,4 @@
-package com.kidscademy.atlas.mobile;
+package com.kidscademy.atlas.phone;
 
 import android.view.View;
 

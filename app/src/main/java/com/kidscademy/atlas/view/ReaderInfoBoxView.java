@@ -19,6 +19,8 @@ import java.text.SimpleDateFormat;
 import js.format.LongDateTime;
 
 public class ReaderInfoBoxView extends ConstraintLayout {
+    private static final DateFormat LAST_UPDATED_FORMAT = new SimpleDateFormat("MMMM d, yyyy");
+
     private TextView lastUpdatedText;
 
     private TextView classificationLabel;
@@ -71,8 +73,7 @@ public class ReaderInfoBoxView extends ConstraintLayout {
         View rule = findViewById(R.id.reader_infobox_vr);
         rule.setVisibility(atlasObject.hasConservation() ? View.GONE : View.VISIBLE);
 
-        DateFormat format = new SimpleDateFormat("MMMM d, yyyy HH:mm:ss");
-        lastUpdatedText.setText(format.format(atlasObject.getLastUpdated()));
+        lastUpdatedText.setText(LAST_UPDATED_FORMAT.format(atlasObject.getLastUpdated()));
 
         if (atlasObject.hasTaxonomy()) {
             Taxon[] taxonomy = atlasObject.getTaxonomy();

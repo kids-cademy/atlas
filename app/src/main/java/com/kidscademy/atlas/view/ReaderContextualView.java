@@ -3,6 +3,7 @@ package com.kidscademy.atlas.view;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Group;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,9 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
 
     private ViewGroup textLayout;
     private TextView textView;
+
+    private Group graphicsGroup;
+    private ImageView waveformView;
 
     private final ReaderAction.Listener listener;
     private AtlasObject atlasObject;
@@ -71,24 +75,32 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
         if (textLayout != null) {
             textView = textLayout.findViewById(R.id.paragraph_text);
         }
+
+        graphicsGroup = findViewById(R.id.contextual_graphics);
+        waveformView = findViewById(R.id.contextual_waveform);
     }
 
     public void update(@NonNull AtlasObject atlasObject) {
-        if(!atlasObject.hasContextualImage()) {
+        if (!atlasObject.hasContextualImage()) {
             setVisibility(View.GONE);
             return;
         }
         this.atlasObject = atlasObject;
         setVisibility(View.VISIBLE);
 
-        BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getContextualPath(), imageView, 1);
-        loader.start();
+        new BitmapLoader(getContext(), atlasObject.getContextualPath(), imageView, 1).start();
         // this image view tag is used by espresso tests
         imageView.setTag(atlasObject.getContextualPath());
 
+        setVisibility(graphicsGroup, View.VISIBLE);
         if (atlasObject.hasAudioSample()) {
             sampleTitle.setText(atlasObject.getAudioSampleTitle());
             playButton.setVisibility(View.VISIBLE);
+            if (waveformView != null) {
+                new BitmapLoader(getContext(), atlasObject.getWaveformPath(), waveformView, 1).start();
+                setVisibility(waveformView, View.VISIBLE);
+                setVisibility(graphicsGroup, View.GONE);
+            }
         } else {
             sampleTitle.setText(null);
             playButton.setVisibility(View.INVISIBLE);
@@ -119,6 +131,12 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
         if (state == Player.State.IDLE) {
             playing = false;
             playButton.setImageResource(R.drawable.action_play_sample);
+        }
+    }
+
+    private static void setVisibility(View view, int visibility) {
+        if (view != null) {
+            view.setVisibility(visibility);
         }
     }
 }

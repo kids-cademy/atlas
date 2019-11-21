@@ -1,7 +1,7 @@
-package com.kidscademy.atlas.tablet;
+package com.kidscademy.atlas.phone;
 
+import android.support.v4.widget.NestedScrollView;
 import android.view.View;
-import android.widget.HorizontalScrollView;
 
 import androidx.test.espresso.PerformException;
 import androidx.test.espresso.UiController;
@@ -18,7 +18,7 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasRepository;
 import com.kidscademy.atlas.model.RelatedObject;
-import com.kidscademy.atlas.view.HorizontalScrollViewEx;
+import com.kidscademy.atlas.view.ReaderPage;
 
 import org.hamcrest.Matcher;
 import org.junit.After;
@@ -33,12 +33,16 @@ import java.util.Random;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.swipeDown;
 import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.action.ViewActions.swipeRight;
+import static androidx.test.espresso.action.ViewActions.swipeUp;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -47,17 +51,20 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.kidscademy.atlas.Util.assertVisibility;
 import static com.kidscademy.atlas.Util.childAtPosition;
 import static com.kidscademy.atlas.Util.findFirstParentLayoutOfClass;
+import static com.kidscademy.atlas.Util.isFactExpand;
 import static com.kidscademy.atlas.Util.isFactValue;
 import static com.kidscademy.atlas.Util.sleep;
+import static com.kidscademy.atlas.Util.unconstrainedClick;
 import static com.kidscademy.atlas.Util.waitView;
 import static com.kidscademy.atlas.Util.withPageId;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class TabletReaderTest {
+public class ReaderTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
@@ -65,8 +72,8 @@ public class TabletReaderTest {
 
     @BeforeClass
     public static void beforeClass() {
-        // file location: /sdcard/MobileReaderTest.trace
-        //Debug.startMethodTracing("MobileReaderTest");
+        // file location: /sdcard/ReaderTest.trace
+        //Debug.startMethodTracing("ReaderTest");
     }
 
     @AfterClass
@@ -80,52 +87,45 @@ public class TabletReaderTest {
         // explorer pages save current page; ensure test starts always from first page
         App.instance().flags().setExplorerPosition(0);
 
-        sleep(500);
         onView(withId(R.id.main_picture)).perform(click());
         onView(withId(R.id.menu_reader)).perform(click());
-
-        // on slow devices need to wait a little for reader to open
-        sleep(500);
     }
 
     @After
     public void afterTest() {
-//        onView(withId(R.id.activity_atlas_reader_fab_control)).perform(click());
-//        waitView(withId(R.id.activity_atlas_reader_fab_close)).perform(click());
+        onView(withId(R.id.activity_reader_fab_control)).perform(click());
+        waitView(withId(R.id.activity_reader_fab_main_menu)).perform(click());
         //onView(withId(R.id.main_close)).perform(pressBack());
     }
 
     @Test
     public void quickNavigateAllPages() {
         for (int i = 0; i < repository.getObjectsCount(); ++i) {
-            sleep(200);
             waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
-            onView(withId(R.id.action_next)).perform(click());
+            onView(withId(R.id.activity_atlas_reader_pager)).perform(swipeLeft());
         }
         for (int i = repository.getObjectsCount() - 1; i >= 0; --i) {
-            sleep(200);
             waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
-            onView(withId(R.id.action_previous)).perform(click());
+            onView(withId(R.id.activity_atlas_reader_pager)).perform(swipeRight());
         }
     }
 
     @Test
     public void pagesBrowsing() {
         for (int i = 0; i < repository.getObjectsCount(); ++i) {
-            System.out.println("---------------------------------------------------------");
             final AtlasObject atlasObject = repository.getObjectByIndex(i);
-
-            // for slow devices allow time to render object view
-            sleep(500);
 
             // all three statements are variants for the same reader object view, for code demo purpose
             onView(withTagValue(is((Object) atlasObject.getTag()))).check(matches(isDisplayed()));
             onView(allOf(withClassName(endsWith("ReaderObjectView")), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
-            onView(allOf(withId(R.id.reader_object_view), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
+            onView(allOf(withId(R.id.reader_page_object_view), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
 
-            // object name and pictures path are used to signal page loaded
+            // object name s used to signal page loaded
             waitView(withText(atlasObject.getDisplay())).check(matches(isDisplayed()));
-            waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
+            // also check if cover and contextual images are loaded, if object has them
+            if(atlasObject.hasCoverImage()) {
+                waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
+            }
             if (atlasObject.hasContextualImage()) {
                 waitView(withTagValue(is((Object) atlasObject.getContextualPath())));
                 // instrument picture is not on visible area but should be loaded
@@ -137,14 +137,15 @@ public class TabletReaderTest {
             onView(withPageId(atlasObject.getTag(), R.id.reader_related_view)).check(assertVisibility(atlasObject.hasRelated()));
             onView(withPageId(atlasObject.getTag(), R.id.reader_links_view)).check(assertVisibility(atlasObject.hasLinks()));
 
-            // swipe horizontally right and back on left
-            sleep(1000);
-            onView(withId(R.id.reader_page_scroll)).perform(swipeLeft());
-            sleep(1000);
-            onView(withId(R.id.reader_page_scroll)).perform(swipeRight());
+            // swipe vertically down and back on top
+            sleep(200);
+            onView(withId(R.id.activity_atlas_reader_pager)).perform(swipeUp());
+            sleep(200);
+            onView(withId(R.id.activity_atlas_reader_pager)).perform(swipeDown());
 
-            sleep(500);
-            onView(withId(R.id.action_next)).perform(click());
+            // need to wait 2 seconds for above swipe down animation to finish otherwise next swipe left is not performed and page is not changed
+            sleep(2000);
+            onView(withId(R.id.activity_atlas_reader_pager)).perform(swipeLeft());
         }
     }
 
@@ -156,23 +157,23 @@ public class TabletReaderTest {
         waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
 
         // scroll to facts section
-        onView(withPageId(atlasObject.getTag(), R.id.reader_facts)).perform(horizontalScrollTo());
+        onView(withPageId(atlasObject.getTag(), R.id.reader_facts_view)).perform(nestedScrollTo());
 
         // check that first fact value is not displayed
-        onView(isFactValue(atlasObject.getTag())).check(matches(isDisplayed()));
+        onView(isFactValue(atlasObject.getTag())).check(matches(not(isDisplayed())));
 
         // expand first fact
-        //onView(isFactView(atlasObject.getTag())).check(matches(isDisplayed())).perform(click());
+        onView(isFactExpand(atlasObject.getTag())).check(matches(allOf(isDisplayed(), isEnabled(), isClickable()))).perform(click());
 
         // after fact expanded value should be displayed
         onView(isFactValue(atlasObject.getTag())).check(matches(isDisplayed()));
 
         // click again the first fact will collapse it
-        //onView(isFactView(atlasObject.getTag())).check(matches(isDisplayed())).perform(click());
+        onView(isFactExpand(atlasObject.getTag())).check(matches(allOf(isDisplayed(), isEnabled(), isClickable()))).perform(unconstrainedClick());
 
-        // on a collapsed fact value is not displayed; not really clear why but need to wait till animation end
-        //sleep(700);
-        //onView(isFactValue(atlasObject.getTag())).check(matches(not(isDisplayed())));
+        // on a collapsed fact value is not displayed; not really clear why but need to wait till animation ends
+        sleep(700);
+        onView(isFactValue(atlasObject.getTag())).check(matches(not(isDisplayed())));
     }
 
     @Test
@@ -183,7 +184,7 @@ public class TabletReaderTest {
         waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
 
         // scroll to related objects section
-        onView(withPageId(atlasObject.getTag(), R.id.reader_related_view)).perform(horizontalScrollTo());
+        onView(withPageId(atlasObject.getTag(), R.id.reader_related_view)).perform(nestedScrollTo());
 
         // related objects list should be displayed
         onView(withPageId(atlasObject.getTag(), R.id.reader_related_view, R.id.reader_related_caption)).check(matches(isDisplayed()));
@@ -197,7 +198,7 @@ public class TabletReaderTest {
         waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
 
         // scroll to external sources links section
-        onView(withPageId(atlasObject.getTag(), R.id.reader_links_view)).perform(horizontalScrollTo());
+        onView(withPageId(atlasObject.getTag(), R.id.reader_links_view)).perform(nestedScrollTo());
 
         // links list should be displayed
         onView(withPageId(atlasObject.getTag(), R.id.reader_links_view, R.id.reader_links_caption)).check(matches(isDisplayed()));
@@ -216,7 +217,7 @@ public class TabletReaderTest {
             waitView(withTagValue(is((Object) atlasObject.getContextualPath())));
 
             // scroll to related objects section
-            onView(withPageId(atlasObject.getTag(), R.id.reader_related_view)).perform(horizontalScrollTo());
+            onView(withPageId(atlasObject.getTag(), R.id.reader_related_view)).perform(nestedScrollTo());
 
             // click on related object from current position - position is random generated couple lines below
             waitView(childAtPosition(withPageId(atlasObject.getTag(), R.id.reader_related_view, R.id.reader_related_objects), position)).perform(click());
@@ -229,31 +230,32 @@ public class TabletReaderTest {
         }
     }
 
-    // ---------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+    // UTILITY METHODS
 
-    private static ViewAction horizontalScrollTo() {
+    private static ViewAction nestedScrollTo() {
         return new ViewAction() {
 
             @Override
             public Matcher<View> getConstraints() {
                 return allOf(
-                        isDescendantOfA(isAssignableFrom(HorizontalScrollViewEx.class)),
+                        isDescendantOfA(isAssignableFrom(NestedScrollView.class)),
                         withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE));
             }
 
             @Override
             public String getDescription() {
-                return "View is not HorizontalScrollView";
+                return "View is not NestedScrollView";
             }
 
             @Override
             public void perform(UiController uiController, View view) {
                 try {
-                    HorizontalScrollView horizontalScrollView = (HorizontalScrollView) findFirstParentLayoutOfClass(view, HorizontalScrollViewEx.class);
-                    if (horizontalScrollView != null) {
-                        horizontalScrollView.scrollTo(view.getLeft(), 0);
+                    NestedScrollView nestedScrollView = (NestedScrollView) findFirstParentLayoutOfClass(view, ReaderPage.class);
+                    if (nestedScrollView != null) {
+                        nestedScrollView.scrollTo(0, view.getTop());
                     } else {
-                        throw new Exception("Unable to find HorizontalScrollView parent.");
+                        throw new Exception("Unable to find NestedScrollView parent.");
                     }
                 } catch (Exception e) {
                     throw new PerformException.Builder()

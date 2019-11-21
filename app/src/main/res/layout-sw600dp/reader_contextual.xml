@@ -13,12 +13,12 @@
         android:layout_height="0dp"
         android:contentDescription="@string/image_description"
         android:scaleType="centerCrop"
-        tools:src="@drawable/sample_contextual_image"
         app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/sample_contextual_image" />
 
     <TextView
         android:id="@+id/contextual_sample_title"
@@ -52,6 +52,24 @@
         app:layout_constraintEnd_toEndOf="@id/contextual_sample_title"
         app:layout_constraintTop_toTopOf="@+id/contextual_sample_title" />
 
+    <ImageView
+        android:id="@+id/contextual_waveform"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/support_graphics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/contextual_circle1"
+        app:layout_constraintTop_toBottomOf="@+id/contextual_sample_title"
+        app:srcCompat="@drawable/sample_waveform" />
+
+    <android.support.constraint.Group
+        android:id="@+id/contextual_graphics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="contextual_hr,contextual_circle1,contextual_circle2,contextual_circle3,contextual_circle4,contextual_circle5" />
+
     <View
         android:id="@+id/contextual_hr"
         android:layout_width="0dp"
@@ -72,7 +90,7 @@
         android:contentDescription="@string/support_graphics"
         android:tint="#009688"
         app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
-        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/contextual_hr"
@@ -87,7 +105,7 @@
         android:contentDescription="@string/support_graphics"
         android:tint="#9C27B0"
         app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
-        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.16"
         app:layout_constraintStart_toEndOf="@id/contextual_circle1"
         app:layout_constraintTop_toTopOf="@id/contextual_hr"
@@ -101,7 +119,7 @@
         android:alpha="0.8"
         android:contentDescription="@string/support_graphics"
         app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
-        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.12"
         app:layout_constraintStart_toEndOf="@id/contextual_circle2"
         app:layout_constraintTop_toTopOf="@id/contextual_hr"
@@ -116,13 +134,14 @@
         android:contentDescription="@string/support_graphics"
         android:tint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
-        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintStart_toEndOf="@id/contextual_circle3"
         app:layout_constraintTop_toTopOf="@id/contextual_hr"
         app:srcCompat="@drawable/shape_solid_circle" />
 
     <ImageView
+        android:id="@+id/contextual_circle5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/contextual_image_circle_space"
@@ -130,7 +149,7 @@
         android:contentDescription="@string/support_graphics"
         android:tint="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="@id/contextual_hr"
-        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.04"
         app:layout_constraintStart_toEndOf="@id/contextual_circle4"
         app:layout_constraintTop_toTopOf="@id/contextual_hr"

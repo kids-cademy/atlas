@@ -41,6 +41,7 @@ public class AtlasObject {
 
     private String sampleTitle;
     private String samplePath;
+    private String waveformPath;
 
     private Fact[] facts;
     private Map<String, String> features;
@@ -142,6 +143,11 @@ public class AtlasObject {
     @NonNull
     public String getAudioSampleTitle() {
         return sampleTitle;
+    }
+
+    @NonNull
+    public String getWaveformPath() {
+        return waveformPath;
     }
 
     // ---------------------------------------------------------------------------------------------

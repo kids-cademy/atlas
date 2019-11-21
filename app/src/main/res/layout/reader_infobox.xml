@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:text="@string/infobox_last_updated"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
         app:layout_constraintStart_toStartOf="parent"
