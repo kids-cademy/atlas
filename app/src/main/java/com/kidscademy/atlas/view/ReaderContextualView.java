@@ -6,7 +6,6 @@ import android.support.constraint.ConstraintLayout;
 import android.support.constraint.Group;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,7 +31,6 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
     private TextView sampleTitle;
     private ImageView playButton;
 
-    private ViewGroup textLayout;
     private TextView textView;
 
     private Group graphicsGroup;
@@ -71,10 +69,7 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
         playButton = findViewById(R.id.contextual_play_button);
         playButton.setOnClickListener(this);
 
-        textLayout = findViewById(R.id.contextual_text);
-        if (textLayout != null) {
-            textView = textLayout.findViewById(R.id.paragraph_text);
-        }
+        textView = findViewById(R.id.contextual_text);
 
         graphicsGroup = findViewById(R.id.contextual_graphics);
         waveformView = findViewById(R.id.contextual_waveform);
@@ -106,12 +101,12 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
             playButton.setVisibility(View.INVISIBLE);
         }
 
-        if (textLayout != null) {
+        if (textView != null) {
             if (atlasObject.hasContextualText()) {
-                textLayout.setVisibility(View.VISIBLE);
+                textView.setVisibility(View.VISIBLE);
                 textView.setText(atlasObject.getContextualText());
             } else {
-                textLayout.setVisibility(View.GONE);
+                textView.setVisibility(View.GONE);
             }
         }
     }

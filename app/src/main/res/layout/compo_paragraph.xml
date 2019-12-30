@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/paragraph_text"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/paragraph_bg">
+    android:paddingStart="@dimen/vertical_rule_start_margin"
+    android:paddingEnd="@dimen/paragraph_indent"
+    android:textAppearance="@style/TextAppearance.Small"
+    tools:background="#2196F3"
+    tools:text="@string/sample_object_description">
 
-    <View
-        android:id="@+id/paragraph_vr"
-        android:layout_width="@dimen/rule_weight"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/vertical_rule_start_margin"
-        android:background="@color/rule"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/paragraph_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/paragraph_indent"
-        android:paddingTop="@dimen/paragraph_space"
-        android:paddingEnd="@dimen/paragraph_indent"
-        android:paddingBottom="@dimen/paragraph_space"
-        android:text="@string/sample_object_description"
-        android:textAppearance="@style/TextAppearance.Medium"
-        app:layout_constraintLeft_toRightOf="@id/paragraph_vr"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+</TextView>

@@ -19,7 +19,7 @@ public class ReaderObjectView extends LinearLayout {
     private ReaderInfoBoxView infoBoxView;
     private ReaderContextualView contextualView;
     private ReaderFactsView factsView;
-    private ReaderFeaturesViewXp featuresView;
+    private ReaderFeaturesView featuresView;
     private ReaderRelatedView relatedView;
     private ReaderLinksView linksView;
 

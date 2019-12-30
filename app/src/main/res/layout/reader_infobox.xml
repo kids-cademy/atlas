@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#2196F3"
     tools:layout_height="wrap_content"
-    tools:layout_width="wrap_content"
+    tools:layout_width="match_parent"
     tools:parentTag="android.support.constraint.ConstraintLayout">
 
 
@@ -12,7 +12,7 @@
         android:id="@+id/infobox_last_updated_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="@dimen/vertical_rule_start_margin"
         android:text="@string/infobox_last_updated"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:id="@+id/infobox_classification_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="@dimen/vertical_rule_start_margin"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_classification"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
@@ -72,8 +72,7 @@
         android:id="@+id/infobox_aliases_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="@dimen/vertical_rule_start_margin"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_alias"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
@@ -86,8 +85,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="vertical"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.Small.Accent"
         app:layout_constraintStart_toStartOf="@+id/infobox_aliases_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_aliases_label" />
 
@@ -101,8 +98,7 @@
         android:id="@+id/infobox_spreading_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="@dimen/vertical_rule_start_margin"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_spreading"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
@@ -115,7 +111,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="vertical"
-        android:textAppearance="@style/TextAppearance.Small"
         app:layout_constraintStart_toStartOf="@+id/infobox_spreading_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_spreading_label" />
 
@@ -135,8 +130,7 @@
         android:id="@+id/infobox_date_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="@dimen/vertical_rule_start_margin"
         android:layout_marginTop="32dp"
         android:text="@string/infobox_since"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"

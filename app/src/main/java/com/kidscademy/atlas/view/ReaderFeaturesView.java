@@ -4,19 +4,16 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Feature;
 import com.kidscademy.atlas.util.Views;
 
-import java.util.Iterator;
-import java.util.Map;
-
-public class ReaderFeaturesView extends LinearLayout implements Views.ListViewBuilder<Feature> {
+public class ReaderFeaturesView extends TableLayout implements Views.ListViewBuilder<Feature> {
     public ReaderFeaturesView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         inflate(context, R.layout.reader_features, this);

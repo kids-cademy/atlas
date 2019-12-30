@@ -3,33 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/divider_weight"
-    android:minHeight="56dp"
-    android:orientation="horizontal">
+    android:background="#401565C0">
 
     <TextView
         android:id="@+id/item_feature_name"
-        android:layout_width="140dp"
-        android:layout_height="match_parent"
-        android:background="#401565C0"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:lines="1"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#40C62828"
+        android:paddingStart="@dimen/vertical_rule_start_margin"
+        android:paddingTop="12dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="12dp"
         android:textAllCaps="true"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.Small"
         tools:text="Conservation" />
 
     <TextView
         android:id="@+id/item_feature_value"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#40C62828"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="12dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/white"
         tools:text="Least Concern" />

@@ -102,8 +102,7 @@ public class ReaderDescriptionView extends LinearLayout implements Views.ListVie
 
         @Override
         public void setText(int childIndex, CharSequence description) {
-            ConstraintLayout layout = (ConstraintLayout) getChildAt(childIndex);
-            TextView textView = layout.findViewById(R.id.paragraph_text);
+            TextView textView = (TextView) getChildAt(childIndex);
             textView.setText(description);
         }
     }

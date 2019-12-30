@@ -17,19 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.kidscademy.atlas.view.HexaIcon
-        android:id="@+id/reader_intro_caption"
-        android:layout_width="@dimen/icon_size"
-        android:layout_height="@dimen/icon_size"
-        app:borderColor="@color/border"
-        app:borderSize="1"
-        app:layout_constraintBottom_toBottomOf="@id/reader_intro_hr"
-        app:layout_constraintEnd_toEndOf="@id/reader_intro_vr"
-        app:layout_constraintStart_toStartOf="@id/reader_intro_vr"
-        app:layout_constraintTop_toTopOf="@id/reader_intro_hr"
-        app:textColor="@color/text_inverse"
-        tools:text="A" />
-
     <View
         android:id="@+id/reader_intro_hr"
         android:layout_width="match_parent"
@@ -47,6 +34,19 @@
         app:layout_constraintBottom_toBottomOf="@id/reader_intro_definition"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.kidscademy.atlas.view.HexaIcon
+        android:id="@+id/reader_intro_caption"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        app:borderColor="@color/border"
+        app:borderSize="1"
+        app:layout_constraintBottom_toBottomOf="@id/reader_intro_hr"
+        app:layout_constraintEnd_toEndOf="@id/reader_intro_vr"
+        app:layout_constraintStart_toStartOf="@id/reader_intro_vr"
+        app:layout_constraintTop_toTopOf="@id/reader_intro_hr"
+        app:textColor="@color/text_inverse"
+        tools:text="A" />
 
     <TextView
         android:id="@+id/reader_intro_title"
@@ -75,13 +75,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/sections_space"
         android:adjustViewBounds="true"
+        android:background="@color/image_bg"
         android:contentDescription="@string/support_graphics"
         android:paddingStart="@dimen/block_start_indent"
         android:paddingTop="@dimen/paragraph_space"
         android:paddingEnd="@dimen/block_start_indent"
         android:paddingBottom="@dimen/paragraph_space"
         android:scaleType="fitCenter"
-        tools:src="@drawable/sample_cover_image"
-        app:layout_constraintTop_toBottomOf="@+id/reader_intro_definition" />
+        app:layout_constraintTop_toBottomOf="@+id/reader_intro_definition"
+        tools:src="@drawable/sample_cover_image" />
 
 </android.support.constraint.ConstraintLayout>

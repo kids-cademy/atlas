@@ -16,6 +16,6 @@ public class Image {
     }
 
     public String getCaption() {
-        return Strings.join(caption.getText(), "\n\n");
+        return caption != null ? Strings.join(caption.getText(), "\n\n") : null;
     }
 }
