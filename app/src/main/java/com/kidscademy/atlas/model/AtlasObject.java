@@ -44,7 +44,7 @@ public class AtlasObject {
     private String waveformPath;
 
     private Fact[] facts;
-    private Map<String, String> features;
+    private Feature[] features;
     private RelatedObject[] related;
     private Link[] links;
 
@@ -218,7 +218,7 @@ public class AtlasObject {
         return features != null;
     }
 
-    public Map<String, String> getFeatures() {
+    public Feature[] getFeatures() {
         return features;
     }
 

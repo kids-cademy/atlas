@@ -12,8 +12,7 @@
         android:id="@+id/reader_featured_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="80dp"
         android:contentDescription="@string/featured_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1"
@@ -21,7 +20,7 @@
         app:layout_constraintHeight_percent="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_bias="0.2"
         tools:srcCompat="@drawable/sample_cover_image" />
 
     <android.support.constraint.Guideline
@@ -37,9 +36,9 @@
         android:layout_height="wrap_content"
         android:background="@color/image_caption_bg"
         android:ellipsize="end"
-        android:maxLines="8"
+        android:maxLines="10"
         android:padding="@dimen/image_caption_padding"
-        android:textAppearance="@style/TextAppearance.Small"
+        android:textAppearance="@style/TextAppearance.XSmall"
         app:layout_constraintBottom_toBottomOf="@id/reader_featured_caption_guide"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/reader_featured_caption_guide"

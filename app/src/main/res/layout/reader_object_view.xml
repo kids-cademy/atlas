@@ -17,6 +17,12 @@
         android:layout_height="wrap_content"
         tools:visibility="gone" />
 
+    <com.kidscademy.atlas.view.ReaderFeaturesView
+        android:id="@+id/reader_features_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
     <com.kidscademy.atlas.view.ReaderDescriptionView
         android:id="@+id/reader_description_view"
         android:layout_width="match_parent"
@@ -89,12 +95,6 @@
 
     <com.kidscademy.atlas.view.ReaderFactsView
         android:id="@+id/reader_facts_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
-
-    <com.kidscademy.atlas.view.ReaderFeaturesView
-        android:id="@+id/reader_features_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" />

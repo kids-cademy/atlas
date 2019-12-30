@@ -16,5 +16,6 @@
     <string name="sample_taxon_name">Species</string>
     <string name="sample_taxon_value">Tyrannosaurus rex</string>
     <string name="sample_last_updated">November 5, 2019</string>
+    <string name="sample_habitat">Peregrine falcons are among the world\'s most common birds of prey and live on all continents except Antarctica.\n\nThey prefer wide-open spaces, and thrive near coasts where shorebirds are common, but they can be found everywhere from tundra to deserts.\n\nPeregrines are even known to live on bridges and skyscrapers in major cities.</string>
 
 </resources>

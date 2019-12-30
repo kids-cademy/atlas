@@ -1,11 +1,15 @@
 package com.kidscademy.atlas.util;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+
 import com.kidscademy.atlas.app.App;
 import com.kidscademy.atlas.model.Region;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import js.lang.BugError;
 import js.log.Log;
 import js.log.LogFactory;
 import js.util.Paragraph;
@@ -35,6 +39,14 @@ public final class Strings extends js.util.Strings {
             strings[i] = spreading[i].getDisplay(App.instance().getApplicationContext());
         }
         return strings;
+    }
+
+    public static String getString(@NonNull Context context, @NonNull String resName) {
+        int resId = context.getResources().getIdentifier(resName, "string", context.getPackageName());
+        if (resId == 0) {
+            throw new BugError("Missing string resource |%s|.", resName);
+        }
+        return context.getString(resId);
     }
 
     public static String getAliasesDisplay(String[] aliases) {

@@ -72,7 +72,7 @@ public class HexaIcon extends View implements ValueAnimator.AnimatorUpdateListen
 
         backgroundPaint = new Paint();
         backgroundPaint.setStyle(Paint.Style.FILL);
-        backgroundPaint.setColor(backgroundColor != null ? backgroundColor : ContextCompat.getColor(context, RandomColor.getRandomColor()));
+        backgroundPaint.setColor(backgroundColor != null ? backgroundColor : RandomColor.getColor(context));
         backgroundPaint.setAlpha(backgroundAlpha);
 
         if (borderSize != 0) {

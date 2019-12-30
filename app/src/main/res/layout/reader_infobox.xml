@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/sample_last_updated"
-        android:textAppearance="@style/TextAppearance.Medium"
+        android:textAppearance="@style/TextAppearance.Small"
         app:layout_constraintStart_toStartOf="@+id/infobox_last_updated_label"
         app:layout_constraintTop_toBottomOf="@+id/infobox_last_updated_label" />
 
@@ -87,7 +87,7 @@
         android:layout_marginStart="16dp"
         android:orientation="vertical"
         android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
         app:layout_constraintStart_toStartOf="@+id/infobox_aliases_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_aliases_label" />
 
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="vertical"
-        android:textAppearance="@style/TextAppearance.Medium"
+        android:textAppearance="@style/TextAppearance.Small"
         app:layout_constraintStart_toStartOf="@+id/infobox_spreading_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_spreading_label" />
 
@@ -149,7 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
         app:layout_constraintStart_toStartOf="@+id/infobox_date_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_date_label"
         tools:text="@string/sample_object_date" />
@@ -159,7 +159,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"
-        android:textAppearance="@style/TextAppearance.Medium.Accent"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
         app:layout_constraintStart_toStartOf="@+id/infobox_start_date"
         app:layout_constraintTop_toBottomOf="@id/infobox_start_date"
         tools:text="@string/sample_object_date" />

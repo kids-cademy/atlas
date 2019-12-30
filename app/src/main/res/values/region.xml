@@ -10,4 +10,5 @@
     <string name="region_SOUTH_WEST">Southwestern %s</string>
     <string name="region_WEST">Western %s</string>
     <string name="region_NORTH_WEST">Northwestern %s</string>
+    <string name="region_less">less</string>
 </resources>

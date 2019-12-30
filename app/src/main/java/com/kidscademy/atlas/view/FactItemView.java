@@ -15,6 +15,7 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.activity.ReaderActivity;
 import com.kidscademy.atlas.model.Fact;
 import com.kidscademy.atlas.sync.ItemRevealEvent;
+import com.kidscademy.atlas.util.RandomColor;
 
 import js.log.Log;
 import js.log.LogFactory;
@@ -27,15 +28,6 @@ import js.log.LogFactory;
  */
 public class FactItemView extends ConstraintLayout implements View.OnClickListener {
     private static final Log log = LogFactory.getLog(FactItemView.class);
-
-    private static final int[] BULLET_COLORS = new int[]{
-            R.color.red_500, R.color.green_500, R.color.blue_300, R.color.purple_500,
-            R.color.indigo_500, R.color.orange_500, R.color.brown_500, R.color.grey_500,
-            R.color.deep_orange_500, R.color.pink_500, R.color.deep_purple_500, R.color.blue_grey_500,
-            R.color.teal_500
-    };
-
-    private static int bulletColorIndex;
 
     private ReaderActivity readerActivity;
     private TextView valueView;
@@ -65,7 +57,7 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
 
     public void setFact(String objectName, Fact fact) {
         ImageView bulletView = findViewById(R.id.item_fact_bullet);
-        bulletView.setColorFilter(ContextCompat.getColor(getContext(), BULLET_COLORS[bulletColorIndex++ % BULLET_COLORS.length]));
+        bulletView.setColorFilter(RandomColor.getColor(getContext()));
 
         TextView keyView = findViewById(R.id.item_fact_name);
         keyView.setText(fact.getName());

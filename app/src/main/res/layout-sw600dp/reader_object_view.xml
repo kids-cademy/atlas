@@ -16,7 +16,44 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/page_padding"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
+
+    <!--    <ScrollView
+            android:id="@+id/reader_features"
+            android:layout_width="@dimen/reader_features_width"
+            android:layout_height="match_parent"
+            android:visibility="visible">-->
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/reader_features"
+        android:layout_width="450dp"
+        android:layout_height="match_parent">
+
+        <com.kidscademy.atlas.view.ReaderFeaturesViewXp
+            android:id="@+id/reader_features_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/shape_divider_horizontal"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></com.kidscademy.atlas.view.ReaderFeaturesViewXp>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white_T20"
+            android:gravity="fill_horizontal"
+            android:text="@string/sample_habitat"
+            android:textAppearance="@style/TextAppearance.XSmall.Accent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reader_features_view" />
+    </android.support.constraint.ConstraintLayout>
+    <!--</ScrollView>-->
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="@dimen/reader_description_width"
@@ -133,19 +170,6 @@
 
         <com.kidscademy.atlas.view.ReaderFactsView
             android:id="@+id/reader_facts_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-    <ScrollView
-        android:id="@+id/reader_features"
-        android:layout_width="@dimen/reader_features_width"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <com.kidscademy.atlas.view.ReaderFeaturesView
-            android:id="@+id/reader_features_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />

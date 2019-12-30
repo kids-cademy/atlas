@@ -52,7 +52,7 @@ public class ReaderRelatedView extends ConstraintLayout implements Views.ListVie
         setVisibility(View.VISIBLE);
         Views.resetScrollParentView(this);
 
-        captionView.setBackgroundColor(ContextCompat.getColor(getContext(), RandomColor.getRandomColor()));
+        captionView.setBackgroundColor(RandomColor.getColor(getContext()));
         Views.populateListView(listView, object.getRelated(), this);
     }
 

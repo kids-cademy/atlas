@@ -137,7 +137,7 @@ public class AtlasIndexAdapter extends RecyclerView.Adapter<AtlasIndexAdapter.Ho
         void bindPosition(int position) {
             group = groups.get(position);
 
-            captionView.setBackgroundColor(ContextCompat.getColor(context, RandomColor.getRandomColor()));
+            captionView.setBackgroundColor(RandomColor.getColor(context));
             captionView.setText(group.getCaption());
 
             final List<AtlasObject> objects = group.getObjects();

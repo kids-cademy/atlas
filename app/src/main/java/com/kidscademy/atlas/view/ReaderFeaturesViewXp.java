@@ -4,22 +4,19 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Feature;
 import com.kidscademy.atlas.util.Views;
 
-import java.util.Iterator;
-import java.util.Map;
-
-public class ReaderFeaturesView extends LinearLayout implements Views.ListViewBuilder<Feature> {
-    public ReaderFeaturesView(Context context, @Nullable AttributeSet attrs) {
+public class ReaderFeaturesViewXp extends TableLayout implements Views.ListViewBuilder<Feature> {
+    public ReaderFeaturesViewXp(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        inflate(context, R.layout.reader_features, this);
+        inflate(context, R.layout.reader_features_xp, this);
     }
 
     private View container;
@@ -36,12 +33,12 @@ public class ReaderFeaturesView extends LinearLayout implements Views.ListViewBu
 
     @Override
     public void createChild(LinearLayout listView) {
-        inflate(getContext(), R.layout.item_feature, this);
+        inflate(getContext(), R.layout.item_feature_xp, this);
     }
 
     @Override
     public void setObject(int index, Feature feature) {
-        FeatureItemView featureView = (FeatureItemView) getChildAt(index);
+        FeatureItemViewXp featureView = (FeatureItemViewXp) getChildAt(index);
         featureView.setFeature(feature);
     }
 

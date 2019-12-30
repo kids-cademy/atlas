@@ -29,8 +29,8 @@
     <dimen name="card_width">400dp</dimen>
 
     <dimen name="reader_description_width">450dp</dimen>
-    <dimen name="reader_facts_width">600dp</dimen>
-    <dimen name="reader_features_width">600dp</dimen>
+    <dimen name="reader_facts_width">500dp</dimen>
+    <dimen name="reader_features_width">550dp</dimen>
     <dimen name="reader_related_width">550dp</dimen>
     <dimen name="reader_links_width">550dp</dimen>
 </resources>

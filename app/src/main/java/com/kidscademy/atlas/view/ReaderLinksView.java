@@ -51,7 +51,7 @@ public class ReaderLinksView extends ConstraintLayout implements Views.ListViewB
         setVisibility(View.VISIBLE);
         Views.resetScrollParentView(this);
 
-        captionView.setBackgroundColor(ContextCompat.getColor(getContext(), RandomColor.getRandomColor()));
+        captionView.setBackgroundColor(RandomColor.getColor(getContext()));
         Views.populateListView(listView, object.getLinks(), this);
     }
 

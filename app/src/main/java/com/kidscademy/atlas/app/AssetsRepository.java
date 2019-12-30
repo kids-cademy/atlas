@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import js.lang.AsyncTask;
+import js.lang.BugError;
 import js.lang.GType;
 import js.log.Log;
 import js.log.LogFactory;
@@ -28,37 +30,86 @@ class AssetsRepository extends AssetsBase implements AtlasRepository {
      */
     private static final Log log = LogFactory.getLog(AssetsRepository.class);
 
-    private List<AtlasObject> objects;
+    private final String[] names;
+    private final AtlasObject[] objects;
 
+    private final Object searchIndexLock = new Object();
     private List<SearchIndex> searchIndex;
 
     AssetsRepository(Context context) throws IOException {
         super(context);
         log.trace("AssetsRepository(Context context)");
 
-        String[] names = loadObject(getAssetReader("atlas/objects-list.json"), String[].class);
-        objects = new ArrayList<>();
-        for (String name : names) {
-            final AtlasObject atlasObject = loadObject(getAssetReader(getObjectPath(name)), AtlasObject.class);
-            objects.add(atlasObject);
-        }
+        names = loadObject(getAssetReader("atlas/objects-list.json"), String[].class);
 
-        searchIndex = loadObject(getAssetReader("atlas/search-index.json"), new GType(List.class, SearchIndex.class));
+        AsyncTask<Void> searchIndexLoader = new AsyncTask<Void>() {
+            @Override
+            protected Void execute() throws Throwable {
+                searchIndex = loadObject(getAssetReader("atlas/search-index.json"), new GType(List.class, SearchIndex.class));
+                synchronized (searchIndexLock) {
+                    searchIndexLock.notify();
+                }
+                return null;
+            }
+        };
+        searchIndexLoader.start();
+
+        objects = new AtlasObject[names.length];
+        AsyncTask<Void> objectsLoader = new AsyncTask<Void>() {
+            @Override
+            protected Void execute() throws Throwable {
+                for (int index = 0; index < objects.length; ++index) {
+                    if (objects[index] == null) {
+                        synchronized (this) {
+                            if (objects[index] == null) {
+                                objects[index] = loadObject(getAssetReader(getObjectPath(names[index])), AtlasObject.class);
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+        };
+        objectsLoader.start();
     }
 
     @Override
     public int getObjectsCount() {
-        return objects.size();
+        return names.length;
     }
 
     @NonNull
     @Override
     public AtlasObject getObjectByIndex(int index) {
-        return objects.get(index);
+        AtlasObject object = objects[index];
+        if (object == null) {
+            synchronized (this) {
+                if (object == null) {
+                    try {
+                        object = loadObject(getAssetReader(getObjectPath(names[index])), AtlasObject.class);
+                    } catch (IOException e) {
+                        throw new BugError(e);
+                    }
+                    objects[index] = object;
+                }
+            }
+        }
+        return object;
     }
 
     @Override
     public List<SearchIndex> getSearchIndices() {
+        if (searchIndex == null) {
+            synchronized (searchIndexLock) {
+                while (searchIndex == null) {
+                    try {
+                        searchIndexLock.wait();
+                    } catch (InterruptedException e) {
+                        log.debug(e);
+                    }
+                }
+            }
+        }
         return searchIndex;
     }
 

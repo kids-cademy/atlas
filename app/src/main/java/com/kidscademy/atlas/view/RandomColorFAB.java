@@ -16,7 +16,7 @@ import com.kidscademy.atlas.util.RandomColor;
 public class RandomColorFAB extends android.support.design.widget.FloatingActionButton {
     public RandomColorFAB(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(context, RandomColor.getRandomColor())));
+        setBackgroundTintList(ColorStateList.valueOf(RandomColor.getColor(context)));
         setRippleColor(ContextCompat.getColor(context, R.color.white_T40));
     }
 }

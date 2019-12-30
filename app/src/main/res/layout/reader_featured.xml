@@ -46,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:maxLines="8"
+        android:maxLines="10"
         android:padding="@dimen/paragraph_space"
         android:textAppearance="@style/TextAppearance.Medium"
         app:layout_constraintEnd_toEndOf="parent"

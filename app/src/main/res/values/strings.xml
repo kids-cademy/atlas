@@ -14,6 +14,19 @@
     <string name="app_rate_caption">Rate Atlas</string>
     <string name="app_share_caption">Share Atlas</string>
 
+    <!-- atlas reader features -->
+    <string name="feature_lifespan">Lifespan</string>
+    <string name="feature_lifespan_captivity">Lifespan in Captivity</string>
+    <string name="feature_wingspan">Wingspan</string>
+    <string name="feature_length">Length</string>
+    <string name="feature_length_bill">Bill Size</string>
+    <string name="feature_length_tail">Tail Length</string>
+    <string name="feature_height">Height</string>
+    <string name="feature_weight">Weight</string>
+    <string name="feature_speed">Speed</string>
+    <string name="feature_speed_gliding">Gliding Speed</string>
+    <string name="feature_speed_diving">Diving Speed</string>
+
     <!-- atlas reader activity -->
     <string name="reader_column_separator">:</string>
     <string name="conservation_label_LC">Least Concern</string>
@@ -148,7 +161,7 @@
     <string name="menu_help_about">About Atlas</string>
     <string name="menu_help_share">Share Atlas</string>
     <string name="menu_help_rate">Rate Atlas</string>
-    <string name="menu_help_close">Close Application</string>
+    <string name="menu_help_close">Close Atlas</string>
 
     <!-- sync activity -->
     <string name="sync_start_button">Sync</string>
