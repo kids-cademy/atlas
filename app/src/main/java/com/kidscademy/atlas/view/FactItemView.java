@@ -79,14 +79,11 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
             public void onGlobalLayout() {
                 valueView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 valueViewHeight = valueView.getMeasuredHeight();
-                //log.debug("valueViewHeight=%d", valueViewHeight);
 
-                if (expandButton != null) {
-                    ViewGroup.LayoutParams layoutParams = valueView.getLayoutParams();
-                    layoutParams.height = 0;
-                    valueView.setLayoutParams(layoutParams);
-                    collapsed = true;
-                }
+                ViewGroup.LayoutParams layoutParams = valueView.getLayoutParams();
+                layoutParams.height = 0;
+                valueView.setLayoutParams(layoutParams);
+                collapsed = true;
             }
         });
 
@@ -98,11 +95,8 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
         // click on fact expand toggle collapsed state
         // click on anything else push item reveal event
 
-        if (view.getId() != R.id.item_fact_expand) {
-            ViewGroup parent = (ViewGroup) view.getParent();
-            readerActivity.pushEvent(new ItemRevealEvent(ItemRevealEvent.Type.FACT, parent.indexOfChild(view)));
-            return;
-        }
+        ViewGroup parent = (ViewGroup) view.getParent();
+        readerActivity.pushEvent(new ItemRevealEvent(ItemRevealEvent.Type.FACT, parent.indexOfChild(view)));
 
         collapsed = !collapsed;
         int start = collapsed ? valueViewHeight : 0;
@@ -120,6 +114,8 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
         anim.setDuration(400);
         anim.start();
 
-        expandButton.animate().setDuration(400).rotation(collapsed ? 0 : 180);
+        if (expandButton != null) {
+            expandButton.animate().setDuration(400).rotation(collapsed ? 0 : 180);
+        }
     }
 }
