@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:divider="?android:dividerHorizontal"
-    android:showDividers="middle"
-    tools:parentTag="android.widget.TableLayout">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <include
-        layout="@layout/item_feature"
-        android:visibility="gone"
-        tools:visibility="visible" />
-
-    <include
-        layout="@layout/item_feature"
-        android:visibility="gone"
-        tools:visibility="visible" />
-
-    <include
-        layout="@layout/item_feature"
-        android:visibility="gone"
-        tools:visibility="visible" />
-
-</merge>
+</android.support.constraint.ConstraintLayout>

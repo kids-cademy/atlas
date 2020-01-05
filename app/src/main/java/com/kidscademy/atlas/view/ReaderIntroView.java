@@ -3,6 +3,7 @@ package com.kidscademy.atlas.view;
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,6 +44,10 @@ public class ReaderIntroView extends ConstraintLayout {
             loader.start();
             // this image view tag is used by espresso tests
             imageView.setTag(atlasObject.getCoverPath());
+            imageView.setVisibility(View.VISIBLE);
+        }
+        else {
+            imageView.setVisibility(View.INVISIBLE);
         }
 
         definitionView.setText(atlasObject.getDefinition());

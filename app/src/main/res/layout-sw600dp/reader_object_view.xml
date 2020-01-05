@@ -16,48 +16,40 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/page_padding"
+        tools:visibility="visible" />
+
+    <com.kidscademy.atlas.view.DescriptionColumnView
+        android:id="@+id/reader_description_column1"
+        android:layout_width="@dimen/reader_description_width"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/page_padding"
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
         tools:visibility="gone" />
 
-    <!--    <ScrollView
-            android:id="@+id/reader_features"
-            android:layout_width="@dimen/reader_features_width"
-            android:layout_height="match_parent"
-            android:visibility="visible">-->
-
-    <android.support.constraint.ConstraintLayout
+    <com.kidscademy.atlas.view.ReaderFeaturesView
         android:id="@+id/reader_features"
-        android:layout_width="450dp"
-        android:layout_height="match_parent">
+        android:layout_width="@dimen/reader_features_width"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:visibility="visible" />
 
-        <com.kidscademy.atlas.view.ReaderFeaturesView
-            android:id="@+id/reader_features_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="@drawable/shape_divider_horizontal"
-            android:orientation="vertical"
-            android:showDividers="middle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></com.kidscademy.atlas.view.ReaderFeaturesView>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white_T20"
-            android:gravity="fill_horizontal"
-            android:text="@string/sample_habitat"
-            android:textAppearance="@style/TextAppearance.XSmall.Accent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reader_features_view" />
-    </android.support.constraint.ConstraintLayout>
-    <!--</ScrollView>-->
+    <com.kidscademy.atlas.view.DescriptionColumnView
+        android:id="@+id/reader_description_column2"
+        android:layout_width="@dimen/reader_description_width"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/page_padding"
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        tools:visibility="gone" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="@dimen/reader_description_width"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/imageView"
@@ -94,6 +86,16 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:visibility="gone" />
+
+    <com.kidscademy.atlas.view.DescriptionColumnView
+        android:id="@+id/reader_description_column3"
+        android:layout_width="@dimen/reader_description_width"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/page_padding"
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        tools:visibility="gone" />
 
     <com.kidscademy.atlas.view.ReaderConservationView
         android:id="@+id/reader_conservation_view"

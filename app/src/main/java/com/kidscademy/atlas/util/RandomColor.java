@@ -24,24 +24,7 @@ public class RandomColor {
             R.color.amber_500,
             R.color.orange_500,
             R.color.deep_orange_500,
-            R.color.brown_500,
-            R.color.red_300,
-            R.color.pink_300,
-            R.color.purple_300,
-            R.color.deep_purple_300,
-            R.color.indigo_300,
-            R.color.blue_300,
-            R.color.light_blue_300,
-            R.color.cyan_300,
-            R.color.teal_300,
-            R.color.green_300,
-            R.color.light_green_300,
-            R.color.lime_300,
-            R.color.yellow_300,
-            R.color.amber_300,
-            R.color.orange_300,
-            R.color.deep_orange_300,
-            R.color.brown_300
+            R.color.brown_500
     };
     private static int index = (int) ((System.currentTimeMillis() / 1000) % COLORS.length);
 

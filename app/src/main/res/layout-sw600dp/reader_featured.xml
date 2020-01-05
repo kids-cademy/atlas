@@ -37,12 +37,15 @@
         android:background="@color/image_caption_bg"
         android:ellipsize="end"
         android:maxLines="10"
-        android:padding="@dimen/image_caption_padding"
+        android:paddingStart="@dimen/featured_caption_padding_x"
+        android:paddingTop="@dimen/featured_caption_padding_y"
+        android:paddingEnd="@dimen/featured_caption_padding_x"
+        android:paddingBottom="@dimen/featured_caption_padding_y"
         android:textAppearance="@style/TextAppearance.XSmall"
         app:layout_constraintBottom_toBottomOf="@id/reader_featured_caption_guide"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/reader_featured_caption_guide"
-        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintWidth_percent="0.8"
         tools:text="@string/sample_image_caption" />
 
 </merge>

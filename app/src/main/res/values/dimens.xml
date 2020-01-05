@@ -44,12 +44,32 @@
     <dimen name="bullet_size">36dp</dimen>
     <dimen name="half_bullet_size">18dp</dimen>
 
+    <!-- ....................................................................................... -->
+    <!-- ATLAS READER -->
+
+    <!-- atlas reader sections width; for mobile are not used since all have match parent -->
+    <dimen name="reader_description_width"></dimen>
+    <dimen name="reader_facts_width"></dimen>
+    <dimen name="reader_features_width"></dimen>
+    <dimen name="reader_featured_width"></dimen>
+    <dimen name="reader_related_width"></dimen>
+    <dimen name="reader_links_width"></dimen>
+    <dimen name="heading_size">80dp</dimen>
+
+    <!-- top margin for description column from features section  -->
+    <dimen name="features_description_margin_top"></dimen>
+
     <!-- atlas reader on tablet has a contextual image with some spare graphics - couple circles aligned horizontally -->
     <!-- this value is teh space between those circles -->
     <dimen name="contextual_image_circle_space">24dp</dimen>
 
+    <!-- featured image -->
     <dimen name="featured_image_margin">80dp</dimen>
-    <dimen name="image_caption_padding">20dp</dimen>
+    <dimen name="featured_caption_padding_x">16dp</dimen>
+    <dimen name="featured_caption_padding_y">16dp</dimen>
+
+    <!-- conservation status -->
+    <dimen name="conservation_bullets_space">8dp</dimen>
 
     <dimen name="min_infobox_width">330dp</dimen>
     <integer name="search_result_rows">1</integer>
@@ -60,13 +80,5 @@
     <dimen name="shared_card_width">400dp</dimen>
     <dimen name="textbox_padding">16dp</dimen>
     <dimen name="text_section_padding">32dp</dimen>
-
-    <!-- atlas reader sections width; for mobile are not used since all have match parent -->
-    <dimen name="reader_description_width"></dimen>
-    <dimen name="reader_facts_width"></dimen>
-    <dimen name="reader_features_width"></dimen>
-    <dimen name="reader_related_width"></dimen>
-    <dimen name="reader_links_width"></dimen>
-    <dimen name="heading_size">80dp</dimen>
 
 </resources>

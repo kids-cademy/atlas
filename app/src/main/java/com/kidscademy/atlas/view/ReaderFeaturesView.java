@@ -2,55 +2,80 @@ package com.kidscademy.atlas.view;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
-import com.kidscademy.atlas.model.Feature;
-import com.kidscademy.atlas.util.Views;
 
-public class ReaderFeaturesView extends TableLayout implements Views.ListViewBuilder<Feature> {
-    public ReaderFeaturesView(Context context, @Nullable AttributeSet attrs) {
+import js.log.Log;
+import js.log.LogFactory;
+import js.util.BitmapLoader;
+
+public class ReaderFeaturesView extends ConstraintLayout {
+    private static final Log log = LogFactory.getLog(ReaderFactsView.class);
+
+    private FeaturesTableView featuresTableView;
+    private ImageView triviaImage;
+    private TextView triviaText;
+    private DescriptionColumnView descriptionView;
+    private int descriptionMarginTop;
+
+    public ReaderFeaturesView(Context context, AttributeSet attrs) {
         super(context, attrs);
         inflate(context, R.layout.reader_features, this);
     }
 
-    private View container;
+    @Override
+    public void onFinishInflate() {
+        super.onFinishInflate();
+        log.trace("onFinishInflate()");
+        featuresTableView = findViewById(R.id.features_table);
+        triviaImage = findViewById(R.id.trivia_image);
+        triviaText = findViewById(R.id.trivia_caption);
 
-    public void update(@NonNull AtlasObject object) {
-        if (!object.hasFeatures()) {
+        descriptionView = findViewById(R.id.features_description);
+        ViewGroup.MarginLayoutParams params = (MarginLayoutParams) descriptionView.getLayoutParams();
+        descriptionMarginTop = params.topMargin;
+
+        log.debug("on finish inflate: features view: table view height=%d", featuresTableView.getMeasuredHeight());
+    }
+
+    public void update(@NonNull final AtlasObject atlasObject, final Runnable drawCompleteListener) {
+        if (!atlasObject.hasFeatures()) {
             setVisibility(View.GONE);
+            drawCompleteListener.run();
             return;
         }
         setVisibility(View.VISIBLE);
-        Views.resetScrollParentView(this);
-        Views.populateListView(this, object.getFeatures(), this);
-    }
 
-    @Override
-    public void createChild(LinearLayout listView) {
-        inflate(getContext(), R.layout.item_feature, this);
-    }
+        featuresTableView.update(atlasObject, new Runnable() {
+            @Override
+            public void run() {
+                if (!atlasObject.hasTriviaImage()) {
+                    triviaImage.setVisibility(View.GONE);
+                    triviaText.setVisibility(View.GONE);
+                    descriptionView.setVisibility(View.VISIBLE);
 
-    @Override
-    public void setObject(int index, Feature feature) {
-        FeatureItemView featureView = (FeatureItemView) getChildAt(index);
-        featureView.setFeature(feature);
-    }
+                    descriptionView.setWidth(getWidth());
+                    descriptionView.setHeight(getHeight() - featuresTableView.getHeight() - descriptionMarginTop);
+                    descriptionView.update(atlasObject);
+                } else {
+                    descriptionView.setVisibility(View.GONE);
 
-    public void setContainer(View container) {
-        this.container = container;
-    }
+                    BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getTriviaPath(), triviaImage);
+                    loader.start();
 
-    public void setVisibility(int visibility) {
-        if (container != null) {
-            container.setVisibility(visibility);
-        } else {
-            super.setVisibility(visibility);
-        }
+                    triviaText.setText(atlasObject.getTriviaText());
+                    triviaImage.setVisibility(View.VISIBLE);
+                    triviaText.setVisibility(View.VISIBLE);
+                }
+                drawCompleteListener.run();
+            }
+        });
     }
 }

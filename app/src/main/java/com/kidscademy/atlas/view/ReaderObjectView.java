@@ -1,7 +1,6 @@
 package com.kidscademy.atlas.view;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -12,18 +11,18 @@ import com.kidscademy.atlas.model.AtlasObject;
 
 public class ReaderObjectView extends LinearLayout {
     private ReaderIntroView introView;
-    private ReaderDescriptionView descriptionView;
+    private DescriptionColumnView descriptionColumn1;
+    private ReaderFeaturesView featuresView;
+    private DescriptionColumnView descriptionColumn2;
     private ReaderFeaturedView featuredImageView;
+    private DescriptionColumnView descriptionColumn3;
     private ReaderDescriptionView descriptionViewEx;
     private ReaderConservationView conservationView;
     private ReaderInfoBoxView infoBoxView;
     private ReaderContextualView contextualView;
     private ReaderFactsView factsView;
-    private ReaderFeaturesView featuresView;
     private ReaderRelatedView relatedView;
     private ReaderLinksView linksView;
-
-    private AtlasObject atlasObject;
 
     public ReaderObjectView(Context context) {
         super(context);
@@ -42,7 +41,10 @@ public class ReaderObjectView extends LinearLayout {
         super.onFinishInflate();
 
         introView = findViewById(R.id.reader_intro_view);
-        descriptionView = findViewById(R.id.reader_description_view);
+        descriptionColumn1 = findViewById(R.id.reader_description_column1);
+        descriptionColumn2 = findViewById(R.id.reader_description_column2);
+        descriptionColumn3 = findViewById(R.id.reader_description_column3);
+
         descriptionViewEx = findViewById(R.id.reader_description_view_ex);
         featuredImageView = findViewById(R.id.reader_featured_view);
 
@@ -55,37 +57,36 @@ public class ReaderObjectView extends LinearLayout {
         factsView = findViewById(R.id.reader_facts_view);
         factsView.setContainer(findViewById(R.id.reader_facts));
 
-        featuresView = findViewById(R.id.reader_features_view);
-        featuresView.setContainer(findViewById(R.id.reader_features));
+        featuresView = findViewById(R.id.reader_features);
 
         relatedView = findViewById(R.id.reader_related_view);
         linksView = findViewById(R.id.reader_links_view);
     }
 
     public void setAtlasObject(@NonNull final AtlasObject atlasObject) {
-        this.atlasObject = atlasObject;
         // this tag is used by espresso tests
         setTag(atlasObject.getTag());
+        atlasObject.updateDescriptionParagraphOffset(0);
 
         introView.update(atlasObject);
-        descriptionView.update(atlasObject);
+        descriptionColumn1.update(atlasObject);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        featuresView.update(atlasObject, new Runnable() {
             @Override
             public void run() {
                 featuredImageView.update(atlasObject);
                 if (descriptionViewEx != null) {
                     descriptionViewEx.update(atlasObject);
                 }
+                descriptionColumn2.update(atlasObject);
+                descriptionColumn3.update(atlasObject);
                 conservationView.update(atlasObject);
                 infoBoxView.update(atlasObject);
                 contextualView.update(atlasObject);
                 factsView.update(atlasObject);
-                featuresView.update(atlasObject);
                 relatedView.update(atlasObject);
                 linksView.update(atlasObject);
             }
-        }, 50);
+        });
     }
 }

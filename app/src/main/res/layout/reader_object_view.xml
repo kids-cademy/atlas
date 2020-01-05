@@ -17,8 +17,8 @@
         android:layout_height="wrap_content"
         tools:visibility="gone" />
 
-    <com.kidscademy.atlas.view.ReaderFeaturesView
-        android:id="@+id/reader_features_view"
+    <com.kidscademy.atlas.view.FeaturesTableView
+        android:id="@+id/features_table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@drawable/shape_divider_horizontal"

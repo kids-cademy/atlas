@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#2196F3"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
+
+    <ImageView
+        android:id="@+id/trivia_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/features_table"
+        app:srcCompat="@drawable/sample_trivia_image" />
+
+    <com.kidscademy.atlas.view.FeaturesTableView
+        android:id="@+id/features_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/shape_divider_horizontal"
+        android:showDividers="middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></com.kidscademy.atlas.view.FeaturesTableView>
+
+    <TextView
+        android:id="@+id/trivia_caption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black_T60"
+        android:gravity="fill_horizontal"
+        android:paddingStart="@dimen/featured_caption_padding_x"
+        android:paddingTop="@dimen/featured_caption_padding_y"
+        android:paddingEnd="@dimen/featured_caption_padding_x"
+        android:paddingBottom="@dimen/featured_caption_padding_y"
+        android:text="@string/sample_habitat"
+        android:textAppearance="@style/TextAppearance.XSmall.Accent"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.kidscademy.atlas.view.DescriptionColumnView
+        android:id="@+id/features_description"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/features_description_margin_top"
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/features_table"
+        tools:visibility="visible">
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/compo_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.kidscademy.atlas.view.DescriptionColumnView>
+
+</merge>

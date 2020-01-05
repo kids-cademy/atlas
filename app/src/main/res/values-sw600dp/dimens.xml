@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="page_padding">24dp</dimen>
-    <dimen name="sections_space">60dp</dimen>
+    <dimen name="sections_space">80dp</dimen>
     <dimen name="paragraph_space">24dp</dimen>
     <dimen name="divider_weight">2dp</dimen>
     <dimen name="textbox_padding">16dp</dimen>
     <dimen name="icon_size">64dp</dimen>
 
-    <dimen name="reader_description_width">400dp</dimen>
-    <dimen name="reader_facts_width">450dp</dimen>
-    <dimen name="reader_features_width">500dp</dimen>
-    <dimen name="reader_related_width">450dp</dimen>
-    <dimen name="reader_links_width">450dp</dimen>
+    <!-- top margin for description column from features section  -->
+    <dimen name="features_description_margin_top">60dp</dimen>
+
+    <dimen name="reader_description_width">350dp</dimen>
+    <dimen name="reader_features_width">350dp</dimen>
+    <dimen name="reader_featured_width">350</dimen>
+    <dimen name="reader_facts_width">400dp</dimen>
+    <dimen name="reader_related_width">400dp</dimen>
+    <dimen name="reader_links_width">400dp</dimen>
 </resources>

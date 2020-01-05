@@ -79,7 +79,7 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
             public void onGlobalLayout() {
                 valueView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 valueViewHeight = valueView.getMeasuredHeight();
-                log.debug("valueViewHeight=%d", valueViewHeight);
+                //log.debug("valueViewHeight=%d", valueViewHeight);
 
                 if (expandButton != null) {
                     ViewGroup.LayoutParams layoutParams = valueView.getLayoutParams();

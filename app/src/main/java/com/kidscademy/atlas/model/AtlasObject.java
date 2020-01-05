@@ -18,6 +18,7 @@ public class AtlasObject {
     private String display;
     private String definition;
     private HTML description;
+    private int descriptionParagraphOffset;
 
     /**
      * Atlas object images are named to help identifying the context where they are used. Supported
@@ -72,10 +73,20 @@ public class AtlasObject {
     }
 
     public HTML getDescription() {
+        if(description == null || descriptionParagraphOffset >= description.getText().size()) {
+            return null;
+        }
         return description;
     }
 
-    // ---------------------------------------------------------------------------------------------
+    public int getDescriptionParagraphOffset() {
+        return descriptionParagraphOffset;
+    }
+
+    public void updateDescriptionParagraphOffset(int descriptionParagraphOffset) {
+        this.descriptionParagraphOffset = descriptionParagraphOffset;
+    }
+// ---------------------------------------------------------------------------------------------
 
     public boolean hasIcon() {
         return images.containsKey(Image.KEY_ICON);
@@ -103,6 +114,18 @@ public class AtlasObject {
 
     public String getFeaturedCaption() {
         return getImageCaption(Image.KEY_FEATURED);
+    }
+
+    public boolean hasTriviaImage() {
+        return images.containsKey(Image.KEY_TRIVIA);
+    }
+
+    public String getTriviaPath() {
+        return getImagePath(Image.KEY_TRIVIA);
+    }
+
+    public String getTriviaText() {
+        return getImageCaption(Image.KEY_TRIVIA);
     }
 
     public boolean hasContextualImage() {
@@ -215,7 +238,7 @@ public class AtlasObject {
     }
 
     public boolean hasFeatures() {
-        return features != null;
+        return features.length > 0;
     }
 
     public Feature[] getFeatures() {

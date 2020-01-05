@@ -5,6 +5,7 @@ import js.util.Strings;
 public class Image {
     public static final String KEY_ICON = "icon";
     public static final String KEY_COVER = "cover";
+    public static final String KEY_TRIVIA = "trivia";
     public static final String KEY_FEATURED = "featured";
     public static final String KEY_CONTEXTUAL = "contextual";
 

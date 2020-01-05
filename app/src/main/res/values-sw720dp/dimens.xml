@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="page_padding">32dp</dimen>
-    <dimen name="sections_space">80dp</dimen>
+    <dimen name="sections_space">100dp</dimen>
     <dimen name="paragraph_indent">32dp</dimen>
     <dimen name="paragraph_space">32dp</dimen>
     <dimen name="bullet_size">48dp</dimen>
@@ -23,14 +23,26 @@
     <dimen name="medium_text_size">24sp</dimen>
     <dimen name="small_text_size">20sp</dimen>
     <dimen name="xsmall_text_size">18sp</dimen>
-    <dimen name="featured_image_margin">100dp</dimen>
     <integer name="share_acitivty_rows">3</integer>
     <dimen name="shared_card_width">500dp</dimen>
     <dimen name="card_width">400dp</dimen>
 
+
+    <!-- top margin for description column from features section  -->
+    <dimen name="features_description_margin_top">80dp</dimen>
+
+    <!-- featured image -->
+    <dimen name="featured_image_margin">100dp</dimen>
+    <dimen name="featured_caption_padding_x">32dp</dimen>
+    <dimen name="featured_caption_padding_y">32dp</dimen>
+
+    <!-- conservation status -->
+    <dimen name="conservation_bullets_space">16dp</dimen>
+
     <dimen name="reader_description_width">450dp</dimen>
+    <dimen name="reader_features_width">450dp</dimen>
+    <dimen name="reader_featured_width">450dp</dimen>
     <dimen name="reader_facts_width">500dp</dimen>
-    <dimen name="reader_features_width">550dp</dimen>
-    <dimen name="reader_related_width">550dp</dimen>
-    <dimen name="reader_links_width">550dp</dimen>
+    <dimen name="reader_related_width">500dp</dimen>
+    <dimen name="reader_links_width">500dp</dimen>
 </resources>
