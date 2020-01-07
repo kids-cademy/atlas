@@ -1,9 +1,12 @@
 package com.kidscademy.atlas.util;
 
+import android.text.Layout;
+import android.text.StaticLayout;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -45,6 +48,30 @@ public class Views {
             builder.createChild(listView);
             builder.setObject(i++, iterator.next());
         }
+    }
+
+    /**
+     * Measure the height of a multi-lines text view required to accommodate a given text. Text view
+     * instance is not yet measured and has no dimensions set. For this reason desired width is
+     * provided as separated parameter.
+     * <p>
+     * Text alignment is always normal, that is left to right and text view padding is included.
+     *
+     * @param textView text view instance,
+     * @param width    desired width,
+     * @param text     string to fit into text view.
+     * @return text view height necessary to display given text.
+     */
+    public static int getMeasuredHeight(TextView textView, int width, String text) {
+        final boolean includePadding = true;
+        Layout layout = new StaticLayout(text,
+                textView.getPaint(),
+                width,
+                Layout.Alignment.ALIGN_NORMAL,
+                textView.getLineSpacingMultiplier(),
+                textView.getLineSpacingExtra(),
+                includePadding);
+        return layout.getHeight();
     }
 
     public interface ListViewBuilder<T> {

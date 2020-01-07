@@ -14,7 +14,7 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasObjectsGroup;
 import com.kidscademy.atlas.model.AtlasRepository;
-import com.kidscademy.atlas.util.RandomColor;
+import com.kidscademy.atlas.util.Colors;
 import com.kidscademy.atlas.view.HexaIcon;
 
 import java.util.ArrayList;
@@ -137,7 +137,7 @@ public class AtlasIndexAdapter extends RecyclerView.Adapter<AtlasIndexAdapter.Ho
         void bindPosition(int position) {
             group = groups.get(position);
 
-            captionView.setBackgroundColor(RandomColor.getColor(context));
+            captionView.setBackgroundColor(Colors.getColor(context));
             captionView.setText(group.getCaption());
 
             final List<AtlasObject> objects = group.getObjects();

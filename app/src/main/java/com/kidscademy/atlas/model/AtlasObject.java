@@ -1,6 +1,7 @@
 package com.kidscademy.atlas.model;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.kidscademy.atlas.app.App;
 
@@ -9,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import js.lang.BugError;
 import js.util.Strings;
 
 public class AtlasObject {
@@ -26,6 +28,7 @@ public class AtlasObject {
      * <ul>
      * <li>{@link Image#KEY_ICON}</li>
      * <li>{@link Image#KEY_COVER}</li>
+     * <li>{@link Image#KEY_TRIVIA}</li>
      * <li>{@link Image#KEY_FEATURED}</li>
      * <li>{@link Image#KEY_CONTEXTUAL}</li>
      * </ul>
@@ -72,9 +75,14 @@ public class AtlasObject {
         return definition;
     }
 
+    public boolean hasDescription() {
+        return description != null && descriptionParagraphOffset < description.getText().size();
+    }
+
+    @NonNull
     public HTML getDescription() {
-        if(description == null || descriptionParagraphOffset >= description.getText().size()) {
-            return null;
+        if (description == null || descriptionParagraphOffset >= description.getText().size()) {
+            throw new BugError("Attempt to retrive not existing description.");
         }
         return description;
     }
@@ -86,7 +94,8 @@ public class AtlasObject {
     public void updateDescriptionParagraphOffset(int descriptionParagraphOffset) {
         this.descriptionParagraphOffset = descriptionParagraphOffset;
     }
-// ---------------------------------------------------------------------------------------------
+
+    // ---------------------------------------------------------------------------------------------
 
     public boolean hasIcon() {
         return images.containsKey(Image.KEY_ICON);

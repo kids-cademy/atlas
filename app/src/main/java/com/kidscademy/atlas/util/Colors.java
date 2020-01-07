@@ -6,7 +6,7 @@ import android.support.v4.content.ContextCompat;
 
 import com.kidscademy.atlas.R;
 
-public class RandomColor {
+public class Colors {
     private static final int[] COLORS = new int[]{
             R.color.red_500,
             R.color.pink_500,

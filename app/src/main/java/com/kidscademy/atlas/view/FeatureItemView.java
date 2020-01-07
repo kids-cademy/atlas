@@ -5,18 +5,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
-import com.kidscademy.atlas.activity.ReaderActivity;
 import com.kidscademy.atlas.model.Feature;
-import com.kidscademy.atlas.sync.ItemRevealEvent;
-import com.kidscademy.atlas.util.RandomColor;
-
-import js.lang.BugError;
+import com.kidscademy.atlas.util.Colors;
 
 public class FeatureItemView extends TableRow {
     private TextView nameView;
@@ -39,7 +33,7 @@ public class FeatureItemView extends TableRow {
         nameView.setText(feature.getNameDisplay());
         valueView.setText(feature.getValueDisplay());
         if (separatorView != null) {
-            separatorView.setBackgroundColor(RandomColor.getColor(getContext()));
+            separatorView.setBackgroundColor(Colors.getColor(getContext()));
         }
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,7 +14,7 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.ReaderAction;
 import com.kidscademy.atlas.model.RelatedObject;
-import com.kidscademy.atlas.util.RandomColor;
+import com.kidscademy.atlas.util.Colors;
 import com.kidscademy.atlas.util.Views;
 
 import js.util.BitmapLoader;
@@ -52,7 +51,7 @@ public class ReaderRelatedView extends ConstraintLayout implements Views.ListVie
         setVisibility(View.VISIBLE);
         Views.resetScrollParentView(this);
 
-        captionView.setBackgroundColor(RandomColor.getColor(getContext()));
+        captionView.setBackgroundColor(Colors.getColor(getContext()));
         Views.populateListView(listView, object.getRelated(), this);
     }
 

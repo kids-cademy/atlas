@@ -13,13 +13,12 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.kidscademy.atlas.R;
-import com.kidscademy.atlas.util.RandomColor;
+import com.kidscademy.atlas.util.Colors;
 
 /**
  * Hexagonal icon.
@@ -72,7 +71,7 @@ public class HexaIcon extends View implements ValueAnimator.AnimatorUpdateListen
 
         backgroundPaint = new Paint();
         backgroundPaint.setStyle(Paint.Style.FILL);
-        backgroundPaint.setColor(backgroundColor != null ? backgroundColor : RandomColor.getColor(context));
+        backgroundPaint.setColor(backgroundColor != null ? backgroundColor : Colors.getColor(context));
         backgroundPaint.setAlpha(backgroundAlpha);
 
         if (borderSize != 0) {

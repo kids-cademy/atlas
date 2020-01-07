@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="#2196F3"
+    tools:parentTag="android.support.constraint.ConstraintLayout">
 
-</android.support.constraint.ConstraintLayout>
+    <com.kidscademy.atlas.view.FeaturesTableView
+        android:id="@+id/features_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/shape_divider_horizontal"
+        android:showDividers="middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/trivia_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sections_space"
+        android:adjustViewBounds="true"
+        android:background="@color/image_bg"
+        android:contentDescription="@string/support_graphics"
+        android:paddingStart="@dimen/block_start_indent"
+        android:paddingTop="@dimen/paragraph_space"
+        android:paddingEnd="@dimen/block_start_indent"
+        android:paddingBottom="@dimen/paragraph_space"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/features_table"
+        tools:srcCompat="@drawable/sample_trivia_image" />
+
+    <TextView
+        android:id="@+id/trivia_caption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black_T60"
+        android:gravity="fill_horizontal"
+        android:paddingStart="@dimen/vertical_rule_start_margin"
+        android:paddingTop="@dimen/featured_caption_padding_y"
+        android:paddingEnd="@dimen/featured_caption_padding_x"
+        android:paddingBottom="@dimen/featured_caption_padding_y"
+        android:textAppearance="@style/TextAppearance.XSmall.Accent"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trivia_image"
+        tools:text="@string/sample_habitat" />
+</merge>

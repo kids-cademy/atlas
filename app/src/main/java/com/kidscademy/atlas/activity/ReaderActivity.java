@@ -172,11 +172,9 @@ public abstract class ReaderActivity extends AppActivity implements ServiceConne
     }
 
     public void pushEvent(Event event) {
-        log.trace("pushEvent(Event)");
         if (syncService == null) {
             synchronized (syncMutex) {
                 if (syncService == null) {
-                    log.debug("Sync service down. Event |%s| lost.", event.getClass());
                     return;
                 }
                 // if syncService is not null continue with next logic
@@ -229,7 +227,7 @@ public abstract class ReaderActivity extends AppActivity implements ServiceConne
         TYPES.add(Player.StateListener.class);
     }
 
-    private  Map<Class<?>, List<?>> listenersRegistry = new HashMap<>();
+    private Map<Class<?>, List<?>> listenersRegistry = new HashMap<>();
 
     @Override
     @SuppressWarnings("unchecked")

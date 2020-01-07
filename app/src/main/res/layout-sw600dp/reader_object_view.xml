@@ -18,7 +18,7 @@
         android:layout_marginStart="@dimen/page_padding"
         tools:visibility="visible" />
 
-    <com.kidscademy.atlas.view.DescriptionColumnView
+    <com.kidscademy.atlas.view.DescriptionTabletView
         android:id="@+id/reader_description_column1"
         android:layout_width="@dimen/reader_description_width"
         android:layout_height="match_parent"
@@ -26,7 +26,7 @@
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
         android:showDividers="middle"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <com.kidscademy.atlas.view.ReaderFeaturesView
         android:id="@+id/reader_features"
@@ -36,7 +36,7 @@
         android:layout_marginEnd="20dp"
         android:visibility="visible" />
 
-    <com.kidscademy.atlas.view.DescriptionColumnView
+    <com.kidscademy.atlas.view.DescriptionTabletView
         android:id="@+id/reader_description_column2"
         android:layout_width="@dimen/reader_description_width"
         android:layout_height="match_parent"
@@ -46,48 +46,13 @@
         android:showDividers="middle"
         tools:visibility="gone" />
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="@dimen/reader_description_width"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:alpha="0.2"
-            android:contentDescription="@string/support_graphics"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25"
-            app:layout_constraintWidth_percent="0.6"
-            app:srcCompat="@drawable/shape_solid_circle" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:visibility="visible">
-
-            <com.kidscademy.atlas.view.ReaderDescriptionView
-                android:id="@+id/reader_description_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:divider="@drawable/shape_paragraph_divider"
-                android:orientation="vertical"
-                android:showDividers="middle" />
-        </ScrollView>
-    </android.support.constraint.ConstraintLayout>
-
     <com.kidscademy.atlas.view.ReaderFeaturedView
         android:id="@+id/reader_featured_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:visibility="gone" />
 
-    <com.kidscademy.atlas.view.DescriptionColumnView
+    <com.kidscademy.atlas.view.DescriptionTabletView
         android:id="@+id/reader_description_column3"
         android:layout_width="@dimen/reader_description_width"
         android:layout_height="match_parent"

@@ -22,7 +22,7 @@ public class ReaderFeaturesView extends ConstraintLayout {
     private FeaturesTableView featuresTableView;
     private ImageView triviaImage;
     private TextView triviaText;
-    private DescriptionColumnView descriptionView;
+    private DescriptionTabletView descriptionView;
     private int descriptionMarginTop;
 
     public ReaderFeaturesView(Context context, AttributeSet attrs) {
@@ -39,8 +39,10 @@ public class ReaderFeaturesView extends ConstraintLayout {
         triviaText = findViewById(R.id.trivia_caption);
 
         descriptionView = findViewById(R.id.features_description);
-        ViewGroup.MarginLayoutParams params = (MarginLayoutParams) descriptionView.getLayoutParams();
-        descriptionMarginTop = params.topMargin;
+        if (descriptionView != null) {
+            ViewGroup.MarginLayoutParams params = (MarginLayoutParams) descriptionView.getLayoutParams();
+            descriptionMarginTop = params.topMargin;
+        }
 
         log.debug("on finish inflate: features view: table view height=%d", featuresTableView.getMeasuredHeight());
     }
@@ -59,13 +61,16 @@ public class ReaderFeaturesView extends ConstraintLayout {
                 if (!atlasObject.hasTriviaImage()) {
                     triviaImage.setVisibility(View.GONE);
                     triviaText.setVisibility(View.GONE);
-                    descriptionView.setVisibility(View.VISIBLE);
-
-                    descriptionView.setWidth(getWidth());
-                    descriptionView.setHeight(getHeight() - featuresTableView.getHeight() - descriptionMarginTop);
-                    descriptionView.update(atlasObject);
+                    if (descriptionView != null) {
+                        descriptionView.setVisibility(View.VISIBLE);
+                        descriptionView.setColumnWidth(getWidth());
+                        descriptionView.setColumnHeight(getHeight() - featuresTableView.getHeight() - descriptionMarginTop);
+                        descriptionView.update(atlasObject);
+                    }
                 } else {
-                    descriptionView.setVisibility(View.GONE);
+                    if (descriptionView != null) {
+                        descriptionView.setVisibility(View.GONE);
+                    }
 
                     BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getTriviaPath(), triviaImage);
                     loader.start();

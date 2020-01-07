@@ -99,7 +99,9 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
         } else {
             sampleTitle.setText(null);
             playButton.setVisibility(View.INVISIBLE);
-            waveformView.setVisibility(View.INVISIBLE);
+            if (waveformView != null) {
+                waveformView.setVisibility(View.INVISIBLE);
+            }
         }
 
         if (textView != null) {
