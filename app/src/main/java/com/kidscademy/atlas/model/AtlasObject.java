@@ -133,7 +133,11 @@ public class AtlasObject {
         return getImagePath(Image.KEY_TRIVIA);
     }
 
-    public String getTriviaText() {
+    public boolean hasTriviaCaption() {
+        return getImageCaption(Image.KEY_TRIVIA) != null;
+    }
+
+    public String getTriviaCaption() {
         return getImageCaption(Image.KEY_TRIVIA);
     }
 

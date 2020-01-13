@@ -65,6 +65,7 @@ public class ReaderFeaturesView extends ConstraintLayout {
                         descriptionView.setVisibility(View.VISIBLE);
                         descriptionView.setColumnWidth(getWidth());
                         descriptionView.setColumnHeight(getHeight() - featuresTableView.getHeight() - descriptionMarginTop);
+                        descriptionView.setTextColor(R.color.text_accent);
                         descriptionView.update(atlasObject);
                     }
                 } else {
@@ -74,10 +75,14 @@ public class ReaderFeaturesView extends ConstraintLayout {
 
                     BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getTriviaPath(), triviaImage);
                     loader.start();
-
-                    triviaText.setText(atlasObject.getTriviaText());
                     triviaImage.setVisibility(View.VISIBLE);
-                    triviaText.setVisibility(View.VISIBLE);
+
+                    if (atlasObject.hasTriviaCaption()) {
+                        triviaText.setText(atlasObject.getTriviaCaption());
+                        triviaText.setVisibility(View.VISIBLE);
+                    } else {
+                        triviaText.setVisibility(View.GONE);
+                    }
                 }
                 drawCompleteListener.run();
             }

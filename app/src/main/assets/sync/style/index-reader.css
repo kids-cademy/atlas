@@ -64,7 +64,7 @@
 	vertical-align: top;
 	position: relative;
 	height: 100%;
-	margin-left: 100px;
+	margin-left: 120px;
 	xborder: dashed 1px cyan;
 	white-space: normal;
 	overflow: hidden;
@@ -80,4 +80,9 @@
 
 .reader .section:last-child {
 	padding-right: 32px;
+}
+
+.reader .paragraphs-cache {
+	position: absolute;
+	top: 1000px;
 }

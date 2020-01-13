@@ -926,112 +926,6 @@ $e = js.lang.Operator.$element;
 $l = js.lang.Operator.$list;
 
 // dollar name is used by jQuery; it can be configured to not but is not adviseable
-// refrain to use $package operator since is not yet defined
-(function () {
-    if (typeof js === "undefined") {
-        js = {};
-    }
-    if (typeof js.ua === "undefined") {
-        js.ua = {};
-    }
-})();
-
-js.ua.System = {
-    _ERROR_MESSAGE : "Temporary failure. Please refresh the page.",
-
-    print : function (message) {
-        if (typeof console !== "undefined") {
-            console.log(message.replace(/<br \/>/g, " "));
-        }
-    },
-
-    error : function (er) {
-        js.ua.System.print(js.ua.System._getErrorMessage(arguments));
-        js.ua.System.alert(this._ERROR_MESSAGE);
-    },
-
-    alert : function (message) {
-        if (arguments.length > 0) {
-            if (arguments.length > 1) {
-                message = $format(arguments);
-            }
-            window.setTimeout(function () {
-                window.alert(message);
-            }, 1);
-        }
-    },
-
-    toast : function (message) {
-        if (arguments.length > 0) {
-            if (arguments.length > 1) {
-                message = $format(arguments);
-            }
-            window.setTimeout(function () {
-                window.alert(message);
-            }, 1);
-        }
-    },
-
-    prompt : function (message, callback, scope) {
-        if (arguments.length > 0) {
-            if (arguments.length > 1) {
-                message = $format(arguments);
-            }
-            window.setTimeout(function () {
-                var prompt = window.prompt(message);
-                if (prompt === null) {
-                    // user cancel; convert to undefined
-                    prompt = undefined;
-                }
-                else {
-                    // user pressed OK
-                    if (prompt.length === 0) {
-                        // user OK but no input; convert to null
-                        prompt = null;
-                    }
-                }
-                callback.call(scope || window, prompt);
-            }, 1);
-        }
-    },
-
-    confirm : function (message, callback, scope) {
-        if (arguments.length > 0) {
-            if (arguments.length > 1) {
-                message = $format(arguments);
-            }
-            window.setTimeout(function () {
-                callback.call(scope || window, window.confirm(message));
-            }, 1);
-        }
-    },
-
-    _getErrorMessage : function (args) {
-        if (args[0] instanceof Error) {
-            var er = args[0];
-            var s = er.name;
-            if (er.message) {
-                s += ("\r\n" + er.message);
-            }
-            if(er.stack) {
-            	s += ("\r\n\r\n" + er.stack);
-            }
-            return s;
-        }
-        return $format(args);
-    }
-};
-
-(function () {
-    // Replace global error handler with with a more explicit one, if debugging active.
-    if (typeof __js_debug__ !== "undefined") {
-        js.ua.System.error = function (er) {
-            var s = js.ua.System._getErrorMessage(arguments);
-            js.ua.System.print(s);
-            js.ua.System.alert(s);
-        };
-    }
-})();
 $package("js.ua");
 
 js.ua.Engine = {
@@ -1522,8 +1416,6 @@ js.ua.Window = function(nativeWindow, properties) {
 js.ua.Window._index = 0;
 
 js.ua.Window.prototype = {
-	_DESTROY_CONFIRM : "Please confirm you want to leave the page.",
-
 	open : function(url, parameters, features) {
 		if (parameters) { // if parameters are not undefined or null
 			url += js.net.URL.formatQuery(parameters);
@@ -1730,15 +1622,19 @@ js.ua.Window.prototype = {
 		this._removeEventListener("beforeunload", js.ua.Window.prototype._beforeUnloadHandler);
 
 		var results = this._events.fire("pre-unload", this);
+		var message = "";
 		var preventUnload = false;
 		for (var i = 0; i < results.length; ++i) {
-			// event listener should return explicit false boolean in order to prevent unload
-			preventUnload |= (results[i] === false);
+			if(typeof results[i] === "string") {
+				preventUnload = true;
+				message += results[i];
+				message += "\r\n";
+			}
 		}
 
 		this._state = js.ua.Window.State.BEFORE_UNLOADED;
 		if (preventUnload) {
-			return this._DESTROY_CONFIRM;
+			return message;
 		}
 	},
 
@@ -1979,6 +1875,112 @@ $legacy(js.ua.Engine.TRIDENT, function() {
 		}
 	};
 });
+// refrain to use $package operator since is not yet defined
+(function () {
+    if (typeof js === "undefined") {
+        js = {};
+    }
+    if (typeof js.ua === "undefined") {
+        js.ua = {};
+    }
+})();
+
+js.ua.System = {
+    _ERROR_MESSAGE : "Temporary failure. Please refresh the page.",
+
+    print : function (message) {
+        if (typeof console !== "undefined") {
+            console.log(message.replace(/<br \/>/g, " "));
+        }
+    },
+
+    error : function (er) {
+        js.ua.System.print(js.ua.System._getErrorMessage(arguments));
+        js.ua.System.alert(this._ERROR_MESSAGE);
+    },
+
+    alert : function (message) {
+        if (arguments.length > 0) {
+            if (arguments.length > 1) {
+                message = $format(arguments);
+            }
+            window.setTimeout(function () {
+                window.alert(message);
+            }, 1);
+        }
+    },
+
+    toast : function (message) {
+        if (arguments.length > 0) {
+            if (arguments.length > 1) {
+                message = $format(arguments);
+            }
+            window.setTimeout(function () {
+                window.alert(message);
+            }, 1);
+        }
+    },
+
+    prompt : function (message, callback, scope) {
+        if (arguments.length > 0) {
+            if (arguments.length > 1) {
+                message = $format(arguments);
+            }
+            window.setTimeout(function () {
+                var prompt = window.prompt(message);
+                if (prompt === null) {
+                    // user cancel; convert to undefined
+                    prompt = undefined;
+                }
+                else {
+                    // user pressed OK
+                    if (prompt.length === 0) {
+                        // user OK but no input; convert to null
+                        prompt = null;
+                    }
+                }
+                callback.call(scope || window, prompt);
+            }, 1);
+        }
+    },
+
+    confirm : function (message, callback, scope) {
+        if (arguments.length > 0) {
+            if (arguments.length > 1) {
+                message = $format(arguments);
+            }
+            window.setTimeout(function () {
+                callback.call(scope || window, window.confirm(message));
+            }, 1);
+        }
+    },
+
+    _getErrorMessage : function (args) {
+        if (args[0] instanceof Error) {
+            var er = args[0];
+            var s = er.name;
+            if (er.message) {
+                s += ("\r\n" + er.message);
+            }
+            if(er.stack) {
+            	s += ("\r\n\r\n" + er.stack);
+            }
+            return s;
+        }
+        return $format(args);
+    }
+};
+
+(function () {
+    // Replace global error handler with with a more explicit one, if debugging active.
+    if (typeof __js_debug__ !== "undefined") {
+        js.ua.System.error = function (er) {
+            var s = js.ua.System._getErrorMessage(arguments);
+            js.ua.System.print(s);
+            js.ua.System.alert(s);
+        };
+    }
+})();
 $include = function () {
 };
 
@@ -2435,6 +2437,29 @@ js.dom.Element.prototype = {
 		});
 	},
 
+	copyToClipboard : function() {
+		this._node.select();
+		document.execCommand('copy');
+
+		var sel;
+		if ((sel = document.selection) && sel.empty) {
+			sel.empty();
+		}
+		else {
+			if (window.getSelection) {
+				window.getSelection().removeAllRanges();
+			}
+			var activeEl = document.activeElement;
+			if (activeEl) {
+				var tagName = activeEl.nodeName.toLowerCase();
+				if (tagName == "textarea" || (tagName == "input" && activeEl.type == "text")) {
+					// Collapse the selection to the end
+					activeEl.selectionStart = activeEl.selectionEnd;
+				}
+			}
+		}
+	},
+
 	// ------------------------------------------------------------------------
 
 	setValue : function(value) {
@@ -2458,6 +2483,25 @@ js.dom.Element.prototype = {
 
 	setObject : function(value) {
 		this._ownerDoc._template.injectElement(this, value);
+		return this;
+	},
+
+	addObject : function(value) {
+		// uses private field
+		var TEMPLATE_USER_DATA = js.dom.template.ListOperator.prototype._ITEM_TEMPLATE;
+
+		var templateElement = this.getUserData(TEMPLATE_USER_DATA);
+		if (templateElement == null) {
+			templateElement = this.getFirstChild();
+			templateElement.remove(false);
+			templateElement._ownerDoc = this._ownerDoc;
+			this.setUserData(TEMPLATE_USER_DATA, templateElement);
+		}
+
+		var element = templateElement.clone(true);
+		element.setUserData("value", value);
+		element.setObject(value);
+		this.addChild(element);
 		return this;
 	},
 
@@ -5088,12 +5132,22 @@ js.dom.template.ConditionalExpression = function (content, scope, expression) {
     // parse expression and store statements
     this._parse(expression);
 
-    for (var i = 0, statement; i < this._statements.length; ++i) {
+    for (var i = 0, statement, value; i < this._statements.length; ++i) {
         statement = this._statements[i];
         if (statement.opcode === js.dom.template.ConditionalExpression.Opcode.NONE) {
             continue;
         }
-        this._value = this._evaluate(statement, content.getValue(scope, statement.propertyPath));
+        // HACK: bugfix
+        // content.getValue() return null if object property is null but throws exception if object property is undefined
+        // this logic need to handle both null and undefined conditions the same way 
+        try {
+        	value = content.getValue(scope, statement.propertyPath);
+        }
+        catch(exception) {
+        	value = null;
+        }
+
+        this._value = this._evaluate(statement, value);
         if (!this._value) {
             break;
         }
@@ -5109,7 +5163,7 @@ js.dom.template.ConditionalExpression.prototype = {
         var State = js.dom.template.ConditionalExpression.State;
         var Opcode = js.dom.template.ConditionalExpression.Opcode;
 
-        var builder; // leave builder undefined since it is prepared on every new statement 
+        var builder; // leave builder undefined since it is prepared on every new statement
         var statement; // reference to current statement from this._statements[statementsIndex]
         var statementsIndex = -1; // on every new statement index is incremented so -1 prepares for first increment
         var state = State.STATEMENT;
@@ -7029,11 +7083,15 @@ js.event.Event.prototype = {
 	},
 
 	getData : function() {
-		if (typeof this._domEvent.dataTransfer === "undefined") {
-			return undefined;
+		if (typeof this._domEvent.dataTransfer !== "undefined") {
+			var value = this._domEvent.dataTransfer.getData("text/plain");
+			return value ? js.lang.JSON.parse(value) : null;
 		}
-		var value = this._domEvent.dataTransfer.getData("text/plain");
-		return value ? js.lang.JSON.parse(value) : null;
+		if (typeof this._domEvent.clipboardData !== "undefined") {
+			var value = this._domEvent.clipboardData.getData("text/plain");
+			return value ? value : null;
+		}
+		return undefined;
 	},
 
 	toString : function() {
@@ -7327,6 +7385,8 @@ js.event.Types = {
 	change : "HTMLEvents",
 
 	click : "MouseEvents",
+
+	contextmenu : "MouseEvents",
 
 	dblclick : "MouseEvents",
 
@@ -9706,6 +9766,7 @@ js.net.XHR.prototype = {
 		// 200 - success, redirect with X-JSLIB-Location or text/html content
 		// 204 - success with not content, that is, void remote method
 		// 400 - client request fail to obey a business constrain, e.g. employee SSN is not unique
+		// 401 - authorization required
 		// 500 - internal server error
 
 		if (this._request.status === 500) {
@@ -9728,6 +9789,13 @@ js.net.XHR.prototype = {
 			return undefined;
 		}
 
+		if (this._request.status === 401) {
+			$debug("js.net.XHR#_processResponse", "Authentication required on URL: %s", this._url);
+			WinMain.page.onAuthenticationRequired(this._url);
+			this._state = js.net.XHR.StateMachine.ERROR;
+			return undefined;
+		}
+		
 		if (this._request.status === 400) {
 			if (contentType.indexOf("application/json") !== -1) {
 				er = js.lang.JSON.parse(this._request.responseText);
@@ -10047,6 +10115,10 @@ js.ua.Page.prototype = {
 		text += "\n";
 		text += er.message;
 		js.ua.System.error(text);
+	},
+
+	onAuthenticationRequired : function(url) {
+		throw new js.lang.Exception("Authentication required for %s", url);
 	},
 
 	onBusinessFail : function(er) {

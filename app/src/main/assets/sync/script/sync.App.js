@@ -18,6 +18,7 @@ sync.App = function() {
 	this._readerSection = this.getByCssClass("reader");
 	this._scrollView = this.getByCssClass("h-scroll");
 	this._objectView = this.getByCssClass("object-view");
+	this._paragraphsCache = this.getByCss(".paragraphs-cache");
 
 	this._events = new EventSource("/events");
 	this._events.addEventListener("PageLoadEvent", this._onPageLoadEvent.bind(this));
@@ -50,6 +51,9 @@ sync.App.prototype = {
 	},
 
 	setObject : function(atlasObject) {
+		this._paragraphsCache.setHTML(atlasObject.description);
+		atlasObject.paragraphs = this._paragraphsCache;
+
 		this._coverSection.hide();
 		this._readerSection.show();
 

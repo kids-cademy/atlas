@@ -93,3 +93,13 @@ li {
 	width: 1px;
 	height: 100%;
 }
+
+.flex-v {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.flex-fit, .spare-v {
+	flex-grow: 1;
+}

@@ -25,43 +25,67 @@
 }
 
 .facts .item:nth-child(1) .circle {
-	background-color: #80deea;
+	background-color: #F44336;
 }
 
 .facts .item:nth-child(2) .circle {
-	background-color: #228B22;
+	background-color: #E91E63;
 }
 
 .facts .item:nth-child(3) .circle {
-	background-color: #B22222;
+	background-color: #9C27B0;
 }
 
 .facts .item:nth-child(4) .circle {
-	background-color: #DAA520;
+	background-color: #673AB7;
 }
 
 .facts .item:nth-child(5) .circle {
-	background-color: #4664b2;
+	background-color: #3F51B5;
 }
 
 .facts .item:nth-child(6) .circle {
-	background-color: #83b246;
+	background-color: #1976D2;
 }
 
 .facts .item:nth-child(7) .circle {
-	background-color: #b27e46;
+	background-color: #03A9F4;
 }
 
 .facts .item:nth-child(8) .circle {
-	background-color: #B39DDB;
+	background-color: #00BCD4;
 }
 
 .facts .item:nth-child(9) .circle {
-	background-color: #f0eb95;
+	background-color: #009688;
 }
 
 .facts .item:nth-child(10) .circle {
-	background-color: #6495ED;
+	background-color: #4CAF50;
+}
+
+.facts .item:nth-child(11) .circle {
+	background-color: #8BC34A;
+}
+
+.facts .item:nth-child(12) .circle {
+	background-color: #CDDC39;
+}
+
+.facts .item:nth-child(13) .circle {
+	background-color: #FFEB3B;
+}
+
+.facts .item:nth-child(14) .circle {
+	background-color: #FFC107;
+}
+
+.facts .item:nth-child(15) .circle {
+	background-color: #FF9800;
+}
+
+.facts .item:nth-child(16) .circle {
+	background-color: #FF5722;
 }
 
 .facts .item .name {

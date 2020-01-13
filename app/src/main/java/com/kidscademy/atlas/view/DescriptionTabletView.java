@@ -1,7 +1,11 @@
 package com.kidscademy.atlas.view;
 
 import android.content.Context;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.Dimension;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,17 +38,22 @@ public class DescriptionTabletView extends LinearLayout implements DescriptionCo
     /**
      * Description column width, in pixels.
      */
+    @Dimension
     private int columnWidth = UNSPECIFIED;
 
     /**
      * Description column height, in pixels.
      */
+    @Dimension
     private int columnHeight = UNSPECIFIED;
 
     /**
      * Paragraph vertical space, in pixels.
      */
     private int dividerHeight;
+
+    @ColorRes
+    private int textColor = R.color.text;
 
     private AtlasObject atlasObject;
 
@@ -59,12 +68,16 @@ public class DescriptionTabletView extends LinearLayout implements DescriptionCo
         dividerHeight = getDividerDrawable().getIntrinsicHeight();
     }
 
-    public void setColumnWidth(int columnWidth) {
+    public void setColumnWidth(@Dimension int columnWidth) {
         this.columnWidth = columnWidth;
     }
 
-    public void setColumnHeight(int columnHeight) {
+    public void setColumnHeight(@Dimension int columnHeight) {
         this.columnHeight = columnHeight;
+    }
+
+    public void setTextColor(@ColorRes int textColor) {
+        this.textColor = textColor;
     }
 
     /**
@@ -132,6 +145,7 @@ public class DescriptionTabletView extends LinearLayout implements DescriptionCo
                 paragraphView = (TextView) inflater.inflate(R.layout.compo_paragraph, this, false);
                 recycledChild = false;
             }
+            paragraphView.setTextColor(ContextCompat.getColor(getContext(), textColor));
 
             int paragraphHeight = Views.getMeasuredHeight(paragraphView, columnWidth, paragraph);
             currentHeight += paragraphHeight;

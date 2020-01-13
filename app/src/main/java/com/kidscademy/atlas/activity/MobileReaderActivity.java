@@ -50,7 +50,7 @@ public class MobileReaderActivity extends ReaderActivity implements View.OnClick
         } else if (id == R.id.activity_reader_fab_index) {
             IndexActivity.start(this);
         } else if (id == R.id.activity_reader_fab_sync) {
-            SyncActivity.start(this);
+            SyncActivity.startFromReader(this);
         } else if (id == R.id.activity_reader_fab_main_menu) {
             MenuActivity.start(this);
         }

@@ -26,14 +26,14 @@
         android:background="#40C62828"
         android:ellipsize="end"
         android:lines="1"
-        android:paddingLeft="10dp"
+        android:paddingStart="@dimen/vertical_rule_start_margin"
         android:paddingTop="26dp"
-        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
         android:paddingBottom="26dp"
-        tools:text="@string/sample_object_audio_title"
         android:textAppearance="@style/TextAppearance.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contextual_image" />
+        app:layout_constraintTop_toBottomOf="@+id/contextual_image"
+        tools:text="@string/sample_object_audio_title" />
 
     <ImageView
         android:id="@+id/contextual_play_button"
@@ -53,7 +53,9 @@
         layout="@layout/compo_paragraph"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/sections_space"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contextual_sample_title" />

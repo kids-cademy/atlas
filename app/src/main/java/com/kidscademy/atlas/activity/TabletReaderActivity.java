@@ -60,7 +60,7 @@ public class TabletReaderActivity extends ReaderActivity implements View.OnClick
         } else if (id == R.id.action_index) {
             IndexActivity.start(this);
         } else if (id == R.id.action_sync) {
-            SyncActivity.start(this);
+            SyncActivity.startFromReader(this);
         } else if (id == R.id.action_next) {
             if (objectIndex < repository.getObjectsCount() - 1) {
                 objectIndex++;

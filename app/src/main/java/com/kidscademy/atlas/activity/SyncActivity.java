@@ -35,6 +35,13 @@ public class SyncActivity extends AppActivity implements ServiceConnection {
         activity.startActivity(intent);
     }
 
+    public static void startFromReader(Activity activity) {
+        log.trace("startFromReader(Activity)");
+        Intent intent = new Intent(activity, SyncActivity.class);
+        intent.putExtra("START_FROM_READER", true);
+        activity.startActivity(intent);
+    }
+
     private static final BrowserHandler browserHandler = new BrowserHandler();
 
     public static Handler getBrowserHandler() {
@@ -47,6 +54,7 @@ public class SyncActivity extends AppActivity implements ServiceConnection {
     private StartFragment startFragment;
     private StopFragment stopFragment;
     private DialogFragment dialogFragment;
+    private boolean startFromReader;
 
     public SyncActivity() {
         super(R.layout.activity_sync);
@@ -61,6 +69,8 @@ public class SyncActivity extends AppActivity implements ServiceConnection {
         startFragment = findViewById(R.id.sync_start_fragment);
         stopFragment = findViewById(R.id.sync_stop_fragment);
         dialogFragment = findViewById(R.id.sync_dialog_fragment);
+
+        startFromReader = getIntent().getBooleanExtra("START_FROM_READER", false);
 
         setClickListener(R.id.sync_start_we_play);
         setClickListener(R.id.sync_stop_we_play);
@@ -158,7 +168,12 @@ public class SyncActivity extends AppActivity implements ServiceConnection {
 
             synchronized (syncActivityMutex) {
                 if (syncActivity != null) {
-                    syncActivity.get().startFragment.onPageLoaded(browserSupported);
+                    SyncActivity syncActivity = SyncActivity.syncActivity.get();
+                    if (syncActivity.startFromReader) {
+                        syncActivity.onBackPressed();
+                    } else {
+                        syncActivity.startFragment.onPageLoaded(browserSupported);
+                    }
                 }
             }
         }

@@ -41,11 +41,11 @@
         android:paddingTop="@dimen/featured_caption_padding_y"
         android:paddingEnd="@dimen/featured_caption_padding_x"
         android:paddingBottom="@dimen/featured_caption_padding_y"
-        android:textAppearance="@style/TextAppearance.XSmall"
+        android:textAppearance="@style/TextAppearance.XSmall.Accent"
         app:layout_constraintBottom_toBottomOf="@id/reader_featured_caption_guide"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/reader_featured_caption_guide"
-        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintWidth_percent="0.9"
         tools:text="@string/sample_image_caption" />
 
 </merge>

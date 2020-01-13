@@ -9,9 +9,11 @@
 <LINK href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css"></LINK>
 <LINK href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/theme-reset.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/theme-column-text.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/theme-hexagon.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/theme-list.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/theme-style.css" rel="stylesheet" type="text/css"></LINK>
+<LINK href="style/theme-text.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/links.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/related.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/facts.css" rel="stylesheet" type="text/css"></LINK>
@@ -19,7 +21,6 @@
 <LINK href="style/infobox.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/conservation.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/featured.css" rel="stylesheet" type="text/css"></LINK>
-<LINK href="style/description.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/features.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/intro.css" rel="stylesheet" type="text/css"></LINK>
 <LINK href="style/index-reader.css" rel="stylesheet" type="text/css"></LINK>
@@ -57,15 +58,39 @@
 			<P class="text" data-text="definition"></P>
 		</DIV>
 	</DIV></DIV>
-			<DIV class="features xp section" data-if="features" data-map="features"><DT></DT><DD></DD></DIV>
-			<DIV class="description section" data-if="description"><DIV class="circle large"></DIV><DIV class="list" data-html="description">
-		<P></P>
+			<DIV class="section column-text">
+				<DIV class="column" data-class="sync.TextColumn" data-text="."></DIV>
+			</DIV>	
+			<DIV class="features section" data-if="features"><DIV class="flex-v">
+		<TABLE>
+			<TBODY data-list="features">
+				<TR>
+					<TD class="name" data-text="name-display"></TD>
+					<TD class="value" data-text="value-display"></TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+
+		<DIV class="image-frame" data-if="images.trivia">
+			<IMG class="image fit-center" data-format="sync.AbsolutePath" data-src="images.trivia.path"></IMG>
+			<DIV class="caption" data-html="images.trivia.caption" data-if="images.trivia.caption"></DIV>
+		</DIV>
+
+		<DIV class="column-text flex-fit" data-if="!images.trivia">
+			<DIV class="column" data-class="sync.TextColumn" data-text="."></DIV>
+		</DIV>	
 	</DIV></DIV>
+			<DIV class="section column-text">
+				<DIV class="column" data-class="sync.TextColumn" data-text="."></DIV>
+			</DIV>	
 			<DIV class="featured section" data-if="images.featured"><DIV class="image-container">
 		<IMG class="image fit-center" data-format="sync.AbsolutePath" data-src="images.featured.path"></IMG>
 	</DIV><DIV class="paragraph-container">
-		<P data-text="images.featured.caption"></P>
+		<P data-html="images.featured.caption"></P>
 	</DIV></DIV>
+			<DIV class="section column-text">
+				<DIV class="column" data-class="sync.TextColumn" data-text="."></DIV>
+			</DIV>	
 			<DIV class="conservation section" data-if="conservation"><UL class="status" data-class="sync.ConservationView" data-object="conservation">
 		<LI class="LC"><SPAN class="label">Least Concern</SPAN><SPAN class="bullet">LC</SPAN></LI>
 		<LI class="NT"><SPAN class="label">Near Threatened</SPAN><SPAN class="bullet">NT</SPAN></LI>
@@ -160,7 +185,9 @@
 			<P class="description" data-text="description"></P></LI>
 	</UL></DIV>
 		</DIV>
-	</DIV><DIV class="scroll-mask"></DIV></DIV>
+	</DIV><DIV class="scroll-mask hidden"></DIV><DIV class="section column-text">
+		<DIV class="paragraphs-cache column"></DIV>
+	</DIV></DIV>
 <SCRIPT src="script/js-lib.js" type="text/javascript"></SCRIPT>
 <SCRIPT src="script/sync.AbsolutePath.js" type="text/javascript"></SCRIPT>
 <SCRIPT src="script/sync.HDateFormat.js" type="text/javascript"></SCRIPT>
@@ -168,5 +195,6 @@
 <SCRIPT src="script/sync.App.js" type="text/javascript"></SCRIPT>
 <SCRIPT src="script/sync.ConservationView.js" type="text/javascript"></SCRIPT>
 <SCRIPT src="script/sync.RegionFormat.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="script/sync.TextColumn.js" type="text/javascript"></SCRIPT>
 </BODY>
 </HTML>

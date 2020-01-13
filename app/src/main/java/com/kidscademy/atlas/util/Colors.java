@@ -23,8 +23,7 @@ public class Colors {
             R.color.yellow_500,
             R.color.amber_500,
             R.color.orange_500,
-            R.color.deep_orange_500,
-            R.color.brown_500
+            R.color.deep_orange_500
     };
     private static int index = (int) ((System.currentTimeMillis() / 1000) % COLORS.length);
 
