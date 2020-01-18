@@ -4,10 +4,12 @@ import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.ConservationStatus;
+import com.kidscademy.atlas.util.Strings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +20,7 @@ public class ReaderConservationView extends ConstraintLayout {
     private final Map<ConservationStatus, View[]> views = new HashMap<>();
 
     private ConservationStatus conservation;
+    private TextView valueText;
 
     public ReaderConservationView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -35,6 +38,7 @@ public class ReaderConservationView extends ConstraintLayout {
         views.put(ConservationStatus.EW, views(R.id.reader_conservation_label_EW, R.id.reader_conservation_bullet_EW));
         views.put(ConservationStatus.EX, views(R.id.reader_conservation_label_EX, R.id.reader_conservation_bullet_EX));
         views.put(ConservationStatus.NA, views(R.id.reader_conservation_label_NA, R.id.reader_conservation_bullet_NA));
+        valueText = findViewById(R.id.reader_conservation_value);
     }
 
     /**
@@ -55,6 +59,10 @@ public class ReaderConservationView extends ConstraintLayout {
         }
         conservation = atlasObject.getConservation();
         setConservationAlpha(conservation, 1.0F);
+
+        if (valueText != null) {
+            valueText.setText(Strings.getString(getContext(), "conservation_label_%s", conservation.name()));
+        }
     }
 
     /**
@@ -70,7 +78,10 @@ public class ReaderConservationView extends ConstraintLayout {
             throw new BugError("Missing views for conservation status |%s|.", conservation);
         }
         for (View view : views) {
-            view.setAlpha(alpha);
+            // on phone labels are missing
+            if (view != null) {
+                view.setAlpha(alpha);
+            }
         }
     }
 

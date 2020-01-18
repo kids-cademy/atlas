@@ -18,56 +18,6 @@
         android:layout_marginStart="@dimen/page_padding"
         tools:visibility="visible" />
 
-    <com.kidscademy.atlas.view.DescriptionTabletView
-        android:id="@+id/reader_description_column1"
-        android:layout_width="@dimen/reader_description_width"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/page_padding"
-        android:divider="@drawable/shape_paragraph_divider"
-        android:orientation="vertical"
-        android:showDividers="middle"
-        tools:visibility="visible" />
-
-    <com.kidscademy.atlas.view.ReaderFeaturesView
-        android:id="@+id/reader_features"
-        android:layout_width="@dimen/reader_features_width"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:visibility="visible" />
-
-    <com.kidscademy.atlas.view.DescriptionTabletView
-        android:id="@+id/reader_description_column2"
-        android:layout_width="@dimen/reader_description_width"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/page_padding"
-        android:divider="@drawable/shape_paragraph_divider"
-        android:orientation="vertical"
-        android:showDividers="middle"
-        tools:visibility="gone" />
-
-    <com.kidscademy.atlas.view.ReaderFeaturedView
-        android:id="@+id/reader_featured_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
-
-    <com.kidscademy.atlas.view.DescriptionTabletView
-        android:id="@+id/reader_description_column3"
-        android:layout_width="@dimen/reader_description_width"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/page_padding"
-        android:divider="@drawable/shape_paragraph_divider"
-        android:orientation="vertical"
-        android:showDividers="middle"
-        tools:visibility="gone" />
-
-    <com.kidscademy.atlas.view.ReaderConservationView
-        android:id="@+id/reader_conservation_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:visibility="gone" />
-
     <com.kidscademy.atlas.view.ReaderInfoBoxView
         android:id="@+id/reader_infobox_view"
         android:layout_width="wrap_content"
@@ -122,6 +72,56 @@
         </ScrollView>
 
     </com.kidscademy.atlas.view.ReaderInfoBoxView>
+
+    <com.kidscademy.atlas.view.DescriptionTabletView
+        android:id="@+id/reader_description_column1"
+        android:layout_width="@dimen/reader_description_width"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/page_padding"
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        tools:visibility="visible" />
+
+    <com.kidscademy.atlas.view.ReaderConservationView
+        android:id="@+id/reader_conservation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="visible" />
+
+    <com.kidscademy.atlas.view.ReaderFeaturesView
+        android:id="@+id/reader_features"
+        android:layout_width="@dimen/reader_features_width"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:visibility="visible" />
+
+    <com.kidscademy.atlas.view.DescriptionTabletView
+        android:id="@+id/reader_description_column2"
+        android:layout_width="@dimen/reader_description_width"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/page_padding"
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        tools:visibility="gone" />
+
+    <com.kidscademy.atlas.view.ReaderFeaturedView
+        android:id="@+id/reader_featured_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.kidscademy.atlas.view.DescriptionTabletView
+        android:id="@+id/reader_description_column3"
+        android:layout_width="@dimen/reader_description_width"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/page_padding"
+        android:divider="@drawable/shape_paragraph_divider"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        tools:visibility="gone" />
 
     <com.kidscademy.atlas.view.ReaderContextualView
         android:id="@+id/reader_contextual_view"

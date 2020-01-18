@@ -41,7 +41,8 @@ public final class Strings extends js.util.Strings {
         return strings;
     }
 
-    public static String getString(@NonNull Context context, @NonNull String resName) {
+    public static String getString(@NonNull Context context, @NonNull String resNameFormat, Object... args) {
+        String resName = String.format(resNameFormat, args);
         int resId = context.getResources().getIdentifier(resName, "string", context.getPackageName());
         if (resId == 0) {
             throw new BugError("Missing string resource |%s|.", resName);

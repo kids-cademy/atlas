@@ -46,6 +46,7 @@ public class AtlasObject {
     private String sampleTitle;
     private String samplePath;
     private String waveformPath;
+    private String waveformSrc;
 
     private Fact[] facts;
     private Feature[] features;

@@ -75,7 +75,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/sections_space"
         android:adjustViewBounds="true"
-        android:background="@color/image_bg"
         android:contentDescription="@string/support_graphics"
         android:paddingStart="@dimen/block_start_indent"
         android:paddingTop="@dimen/paragraph_space"
