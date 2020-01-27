@@ -61,6 +61,8 @@ import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -123,7 +125,7 @@ public class ReaderTest {
             // object name s used to signal page loaded
             waitView(withText(atlasObject.getDisplay())).check(matches(isDisplayed()));
             // also check if cover and contextual images are loaded, if object has them
-            if(atlasObject.hasCoverImage()) {
+            if (atlasObject.hasCoverImage()) {
                 waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
             }
             if (atlasObject.hasContextualImage()) {
@@ -151,7 +153,20 @@ public class ReaderTest {
 
     @Test
     public void toggleFactValue() {
-        final AtlasObject atlasObject = repository.getObjectByIndex(0);
+        AtlasObject atlasObject = null;
+
+        // browse till found an object with facts
+        for (int i = 0; i < repository.getObjectsCount(); ++i) {
+            atlasObject = repository.getObjectByIndex(i);
+            if (atlasObject.hasFacts()) {
+                break;
+            }
+            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
+            onView(withId(R.id.activity_atlas_reader_pager)).perform(swipeLeft());
+        }
+
+        assertNotNull(atlasObject);
+        assertTrue(atlasObject.hasFacts());
 
         // object picture signals page loaded
         waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));

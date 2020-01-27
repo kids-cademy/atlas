@@ -12,9 +12,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 
-import com.kidscademy.atlas.app.App;
-import com.kidscademy.atlas.activity.MainActivity;
 import com.kidscademy.atlas.R;
+import com.kidscademy.atlas.activity.MainActivity;
+import com.kidscademy.atlas.app.App;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasRepository;
 import com.kidscademy.atlas.model.RelatedObject;
@@ -48,12 +48,16 @@ import static com.kidscademy.atlas.Util.assertVisibility;
 import static com.kidscademy.atlas.Util.childAtPosition;
 import static com.kidscademy.atlas.Util.findFirstParentLayoutOfClass;
 import static com.kidscademy.atlas.Util.isFactValue;
+import static com.kidscademy.atlas.Util.isFactView;
 import static com.kidscademy.atlas.Util.sleep;
 import static com.kidscademy.atlas.Util.waitView;
 import static com.kidscademy.atlas.Util.withPageId;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -150,7 +154,21 @@ public class ReaderTest {
 
     @Test
     public void toggleFactValue() {
-        final AtlasObject atlasObject = repository.getObjectByIndex(0);
+        AtlasObject atlasObject = null;
+
+        // browse till found an object with facts
+        for (int i = 0; i < repository.getObjectsCount(); ++i) {
+            atlasObject = repository.getObjectByIndex(i);
+            if (atlasObject.hasFacts()) {
+                break;
+            }
+            sleep(200);
+            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
+            onView(withId(R.id.action_next)).perform(click());
+        }
+
+        assertNotNull(atlasObject);
+        assertTrue(atlasObject.hasFacts());
 
         // object picture signals page loaded
         waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
@@ -159,20 +177,48 @@ public class ReaderTest {
         onView(withPageId(atlasObject.getTag(), R.id.reader_facts)).perform(horizontalScrollTo());
 
         // check that first fact value is not displayed
-        onView(isFactValue(atlasObject.getTag())).check(matches(isDisplayed()));
+        onView(isFactValue(atlasObject.getTag())).check(matches(not(isDisplayed())));
 
         // expand first fact
-        //onView(isFactView(atlasObject.getTag())).check(matches(isDisplayed())).perform(click());
+        onView(isFactView(atlasObject.getTag())).check(matches(isDisplayed())).perform(click());
 
         // after fact expanded value should be displayed
         onView(isFactValue(atlasObject.getTag())).check(matches(isDisplayed()));
 
         // click again the first fact will collapse it
-        //onView(isFactView(atlasObject.getTag())).check(matches(isDisplayed())).perform(click());
+        onView(isFactView(atlasObject.getTag())).check(matches(isDisplayed())).perform(click());
 
         // on a collapsed fact value is not displayed; not really clear why but need to wait till animation end
-        //sleep(700);
-        //onView(isFactValue(atlasObject.getTag())).check(matches(not(isDisplayed())));
+        sleep(700);
+        onView(isFactValue(atlasObject.getTag())).check(matches(not(isDisplayed())));
+    }
+
+    @Test
+    public void scrollToFacts() {
+        AtlasObject atlasObject = null;
+
+        // browse till found an object with facts
+        for (int i = 0; i < repository.getObjectsCount(); ++i) {
+            atlasObject = repository.getObjectByIndex(i);
+            if (atlasObject.hasFacts()) {
+                break;
+            }
+            sleep(200);
+            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
+            onView(withId(R.id.action_next)).perform(click());
+        }
+
+        assertNotNull(atlasObject);
+        assertTrue(atlasObject.hasFacts());
+
+        // object picture signals page loaded
+        waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
+
+        // scroll to related objects section
+        onView(withPageId(atlasObject.getTag(), R.id.reader_facts)).perform(horizontalScrollTo());
+
+        // related objects list should be displayed
+        onView(withPageId(atlasObject.getTag(), R.id.reader_facts_view)).check(matches(isDisplayed()));
     }
 
     @Test
@@ -243,7 +289,7 @@ public class ReaderTest {
 
             @Override
             public String getDescription() {
-                return "View is not HorizontalScrollView";
+                return "Ancestor view is not HorizontalScrollView or target view is not visible";
             }
 
             @Override

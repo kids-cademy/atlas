@@ -48,6 +48,10 @@
 	cursor: default;
 }
 
+.conservation .status li.active .bullet {
+	border-top-right-radius: 0;
+}
+
 .conservation .status .LC .bullet {
 	background-color: #007060;
 }

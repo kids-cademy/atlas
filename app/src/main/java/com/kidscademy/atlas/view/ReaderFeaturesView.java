@@ -77,11 +77,13 @@ public class ReaderFeaturesView extends ConstraintLayout {
                     loader.start();
                     triviaImage.setVisibility(View.VISIBLE);
 
-                    if (atlasObject.hasTriviaCaption()) {
-                        triviaText.setText(atlasObject.getTriviaCaption());
-                        triviaText.setVisibility(View.VISIBLE);
-                    } else {
-                        triviaText.setVisibility(View.GONE);
+                    if(triviaText != null) {
+                        if (atlasObject.hasTriviaCaption()) {
+                            triviaText.setText(atlasObject.getTriviaCaption());
+                            triviaText.setVisibility(View.VISIBLE);
+                        } else {
+                            triviaText.setVisibility(View.GONE);
+                        }
                     }
                 }
                 drawCompleteListener.run();

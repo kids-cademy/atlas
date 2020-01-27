@@ -7,6 +7,7 @@ import androidx.test.rule.ActivityTestRule;
 import com.kidscademy.atlas.app.App;
 import com.kidscademy.atlas.activity.MainActivity;
 import com.kidscademy.atlas.R;
+import com.kidscademy.atlas.model.SearchIndex;
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,10 +15,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.List;
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.kidscademy.atlas.Util.childAtPosition;
@@ -25,6 +29,7 @@ import static com.kidscademy.atlas.Util.onDisplayView;
 import static com.kidscademy.atlas.Util.sleep;
 import static com.kidscademy.atlas.Util.waitView;
 import static com.kidscademy.atlas.Util.withIdPath;
+import static org.hamcrest.Matchers.allOf;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -142,19 +147,22 @@ public class AppConformanceTest {
 
     @Test
     public void searchAtlasObject() {
+        List<SearchIndex> indices = App.instance().repository().getSearchIndices();
+        String keyword = indices.get(0).getKeyword();
+
         onView(withId(R.id.action_forward)).perform(click());
 
         // open search activity
         sleep(500);
         onView(withId(R.id.menu_search)).perform(click());
 
-        // type letter 'a' to search input
+        // type keyword to search input
         sleep(500);
-        onView(withId(R.id.search_input)).perform(typeText("accord"));
+        onView(withId(R.id.search_input)).perform(typeText(keyword));
 
-        // wait for keywords to load and click on item 'accordion'
+        // wait for keywords to load and click on item displaying that keyword
         sleep(500);
-        onDisplayView(withText("accordion")).perform(click());
+        onDisplayView(allOf(isDescendantOfA(withId(R.id.search_keywords)), withText(keyword))).perform(click());
 
         // press on first item from result
         sleep(500);

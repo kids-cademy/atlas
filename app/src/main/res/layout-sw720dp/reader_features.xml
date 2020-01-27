@@ -33,6 +33,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/trivia_caption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/black_T60"
+        android:gravity="fill_horizontal"
+        android:paddingStart="@dimen/featured_caption_padding_x"
+        android:paddingTop="@dimen/featured_caption_padding_y"
+        android:paddingEnd="@dimen/featured_caption_padding_x"
+        android:paddingBottom="@dimen/featured_caption_padding_y"
+        android:text="@string/sample_habitat"
+        android:textAppearance="@style/TextAppearance.XSmall.Accent"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <com.kidscademy.atlas.view.DescriptionTabletView
         android:id="@+id/features_description"
         android:layout_width="0dp"

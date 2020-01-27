@@ -36,6 +36,9 @@ public class HTML implements Converter {
             if (element instanceof Paragraph) {
                 text.add(((Paragraph) element).text);
             }
+            if (element instanceof ListItem) {
+                text.add("- " + ((ListItem) element).getText());
+            }
         }
         return text;
     }
@@ -57,16 +60,19 @@ public class HTML implements Converter {
     }
 
     public interface Element {
-
+        @NonNull
+        String getText();
     }
 
     public static class Paragraph implements Element {
         private final String text;
 
-        public Paragraph(String text) {
+        public Paragraph(@NonNull String text) {
             this.text = text;
         }
 
+        @Override
+        @NonNull
         public String getText() {
             return text;
         }
@@ -82,11 +88,13 @@ public class HTML implements Converter {
     public static class Image implements Element {
         private final String path;
 
-        Image(String path) {
+        public Image(@NonNull String path) {
             this.path = path;
         }
 
-        public String getPath() {
+        @Override
+        @NonNull
+        public String getText() {
             return path;
         }
 
@@ -95,6 +103,27 @@ public class HTML implements Converter {
         public String toString() {
             // <img src='path' />
             return Strings.concat("<img src='", path, "' />");
+        }
+    }
+
+    public static class ListItem implements Element {
+        private final String text;
+
+        public ListItem(@NonNull String text) {
+            this.text = text;
+        }
+
+        @Override
+        @NonNull
+        public String getText() {
+            return "- " + text;
+        }
+
+        @Override
+        @NonNull
+        public String toString() {
+            // <li>text</li>
+            return Strings.concat("<li>", text, "</li>");
         }
     }
 
@@ -143,7 +172,12 @@ public class HTML implements Converter {
                         state = State.ATTR;
                         break;
                     } else if (c == '>') {
+                        if (ignore(tagBuilder)) {
+                            state = State.TAG;
+                            break;
+                        }
                         state = State.TEXT;
+                        tagBuilder.setLength(0);
                         break;
                     } else {
                         tagBuilder.append(c);
@@ -152,8 +186,15 @@ public class HTML implements Converter {
 
                 case END_TAG:
                     if (c == '>') {
+                        if (ignore(tagBuilder)) {
+                            state = State.TAG;
+                            break;
+                        }
                         elements.add(getElementForTag(tagBuilder.toString(), attributesBuilder.getAttributes(), textBuilder.toString()));
                         state = State.SYN;
+                        tagBuilder.setLength(0);
+                    } else {
+                        tagBuilder.append(c);
                     }
                     break;
 
@@ -178,6 +219,10 @@ public class HTML implements Converter {
         }
 
         return elements;
+    }
+
+    private static boolean ignore(StringBuilder tagBuilder) {
+        return tagBuilder.toString().equals("ul");
     }
 
     private enum State {
@@ -257,7 +302,13 @@ public class HTML implements Converter {
             case "p":
                 return new Paragraph(text);
             case "img":
-                return new Image(attributes.get("src"));
+                String src = attributes.get("src");
+                if (src == null) {
+                    throw new BugError("Invalid object description. Image without source.");
+                }
+                return new Image(src);
+            case "li":
+                return new ListItem(text);
             default:
                 throw new BugError("Not handled tag |%s|.", tag);
         }

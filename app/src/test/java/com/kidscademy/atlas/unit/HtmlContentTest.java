@@ -37,12 +37,20 @@ public class HtmlContentTest {
     }
 
     @Test
+    public void parseListItem() throws Exception {
+        String html = "<ul><li>text1</li><li>text2</li></ul>";
+        List<HTML.Element> elements = parse(html);
+        assertThat(elements, hasSize(2));
+
+    }
+
+    @Test
     public void parseImage() throws Exception {
         String html = "<img src='accordion.png' />";
         List<HTML.Element> elements = parse(html);
         assertThat(elements, hasSize(1));
         assertThat(elements.get(0), instanceOf(HTML.Image.class));
-        assertThat(((HTML.Image) elements.get(0)).getPath(), equalTo("accordion.png"));
+        assertThat(elements.get(0).getText(), equalTo("accordion.png"));
     }
 
     @Test
@@ -51,7 +59,7 @@ public class HtmlContentTest {
         List<HTML.Element> elements = parse(html);
         assertThat(elements, hasSize(1));
         assertThat(elements.get(0), instanceOf(HTML.Image.class));
-        assertThat(((HTML.Image) elements.get(0)).getPath(), equalTo("atlas/accordion.png"));
+        assertThat(elements.get(0).getText(), equalTo("atlas/accordion.png"));
     }
 
     @Test
@@ -62,7 +70,7 @@ public class HtmlContentTest {
         assertThat(elements.get(0), instanceOf(HTML.Paragraph.class));
         assertThat(elements.get(1), instanceOf(HTML.Image.class));
         assertThat(((HTML.Paragraph) elements.get(0)).getText(), equalTo("text"));
-        assertThat(((HTML.Image) elements.get(1)).getPath(), equalTo("accordion.png"));
+        assertThat(elements.get(1).getText(), equalTo("accordion.png"));
     }
 
     @Test
@@ -81,9 +89,9 @@ public class HtmlContentTest {
         assertThat(elements.get(6), instanceOf(HTML.Paragraph.class));
 
         assertThat(((HTML.Paragraph) elements.get(0)).getText(), startsWith("The accordion is a musical"));
-        assertThat(((HTML.Image) elements.get(1)).getPath(), equalTo("atlas/accordion/piano-accordion.png"));
+        assertThat(elements.get(1).getText(), equalTo("atlas/accordion/piano-accordion.png"));
         assertThat(((HTML.Paragraph) elements.get(2)).getText(), startsWith("The bellows are the section"));
-        assertThat(((HTML.Image) elements.get(3)).getPath(), equalTo("atlas/accordion/button-accordion.png"));
+        assertThat(elements.get(3).getText(), equalTo("atlas/accordion/button-accordion.png"));
         assertThat(((HTML.Paragraph) elements.get(4)).getText(), startsWith("The bellows are expanded"));
         assertThat(((HTML.Paragraph) elements.get(5)).getText(), startsWith("The accordion is used"));
         assertThat(((HTML.Paragraph) elements.get(6)).getText(), startsWith("The accordion has also"));
@@ -107,9 +115,9 @@ public class HtmlContentTest {
         assertThat(body.get(6), instanceOf(HTML.Paragraph.class));
 
         assertThat(((HTML.Paragraph) body.get(0)).getText(), startsWith("The accordion is a musical"));
-        assertThat(((HTML.Image) body.get(1)).getPath(), equalTo("atlas/accordion/piano-accordion.png"));
+        assertThat(body.get(1).getText(), equalTo("atlas/accordion/piano-accordion.png"));
         assertThat(((HTML.Paragraph) body.get(2)).getText(), startsWith("The bellows are the section"));
-        assertThat(((HTML.Image) body.get(3)).getPath(), equalTo("atlas/accordion/button-accordion.png"));
+        assertThat(body.get(3).getText(), equalTo("atlas/accordion/button-accordion.png"));
         assertThat(((HTML.Paragraph) body.get(4)).getText(), startsWith("The bellows are expanded"));
         assertThat(((HTML.Paragraph) body.get(5)).getText(), startsWith("The accordion is used"));
         assertThat(((HTML.Paragraph) body.get(6)).getText(), startsWith("The accordion has also"));
