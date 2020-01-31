@@ -2,6 +2,7 @@ package com.kidscademy.atlas.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
@@ -16,7 +17,6 @@ import com.kidscademy.atlas.model.Fact;
 import com.kidscademy.atlas.sync.ItemRevealEvent;
 import com.kidscademy.atlas.util.Colors;
 
-import js.lang.BugError;
 import js.log.Log;
 import js.log.LogFactory;
 
@@ -29,7 +29,8 @@ import js.log.LogFactory;
 public class FactItemView extends ConstraintLayout implements View.OnClickListener {
     private static final Log log = LogFactory.getLog(FactItemView.class);
 
-    private final ReaderActivity readerActivity;
+    @Nullable
+    private ReaderActivity readerActivity;
 
     private TextView valueView;
     private int valueViewHeight;
@@ -40,10 +41,9 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
     public FactItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
         log.trace("FactItemView(Context,AttributeSet)");
-        if (!(context instanceof ReaderActivity)) {
-            throw new BugError("Fact item should be created on reader activity context.");
+        if (context instanceof ReaderActivity) {
+            this.readerActivity = (ReaderActivity) context;
         }
-        this.readerActivity = (ReaderActivity) context;
     }
 
     @Override
@@ -100,7 +100,9 @@ public class FactItemView extends ConstraintLayout implements View.OnClickListen
     public void onClick(View view) {
         // push item reveal event to synchronized browser, if any connected
         ViewGroup parent = (ViewGroup) view.getParent();
-        readerActivity.pushEvent(new ItemRevealEvent(ItemRevealEvent.Type.FACT, parent.indexOfChild(view)));
+        if (readerActivity != null) {
+            readerActivity.pushEvent(new ItemRevealEvent(ItemRevealEvent.Type.FACT, parent.indexOfChild(view)));
+        }
 
         collapsed = !collapsed;
         int start = collapsed ? valueViewHeight : 0;

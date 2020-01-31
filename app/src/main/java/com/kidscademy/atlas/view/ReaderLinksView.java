@@ -43,24 +43,18 @@ public class ReaderLinksView extends ConstraintLayout implements Views.ListViewB
     }
 
     public void update(@NonNull AtlasObject object) {
-        if (!object.hasLinks()) {
-            setVisibility(View.GONE);
-            return;
-        }
-        setVisibility(View.VISIBLE);
         Views.resetScrollParentView(this);
-
         captionView.setBackgroundColor(Colors.getColor(getContext()));
         Views.populateListView(listView, object.getLinks(), this);
     }
 
     @Override
-    public void createChild(LinearLayout listView) {
+    public void createChild(@NonNull LinearLayout listView) {
         inflate(getContext(), R.layout.item_link, listView);
     }
 
     @Override
-    public void setObject(int index, Link link) {
+    public void setObject(int index, @NonNull Link link) {
         View view = listView.getChildAt(index);
         view.setTag(link);
         view.setOnClickListener(this);

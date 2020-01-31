@@ -15,7 +15,7 @@
         android:id="@+id/reader_intro_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <com.kidscademy.atlas.view.ReaderInfoBoxView
         android:id="@+id/reader_infobox_view"
@@ -38,6 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/reader_infobox_vr"
@@ -60,6 +61,7 @@
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
         android:showDividers="middle"
+        android:visibility="gone"
         app:paragraphsCount="5"
         tools:visibility="visible" />
 
@@ -68,12 +70,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white_T40"
-        tools:visibility="gone" />
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <com.kidscademy.atlas.view.ReaderFeaturesView
         android:id="@+id/reader_features"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <com.kidscademy.atlas.view.DescriptionPhoneView
         android:id="@+id/reader_description_column2"
@@ -82,6 +87,7 @@
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
         android:showDividers="middle"
+        android:visibility="gone"
         app:paragraphsCount="5"
         tools:visibility="visible" />
 
@@ -89,7 +95,8 @@
         android:id="@+id/reader_featured_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:visibility="gone" />
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <com.kidscademy.atlas.view.DescriptionPhoneView
         android:id="@+id/reader_description_column3"
@@ -98,29 +105,34 @@
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
         android:showDividers="middle"
+        android:visibility="gone"
         tools:visibility="visible" />
 
     <com.kidscademy.atlas.view.ReaderContextualView
         android:id="@+id/reader_contextual_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <com.kidscademy.atlas.view.ReaderFactsView
         android:id="@+id/reader_facts_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:visibility="visible"
         tools:visibility="gone" />
 
     <com.kidscademy.atlas.view.ReaderRelatedView
         android:id="@+id/reader_related_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
 
     <com.kidscademy.atlas.view.ReaderLinksView
         android:id="@+id/reader_links_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
 
 </merge>

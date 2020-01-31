@@ -34,7 +34,6 @@ public class ReaderInfoBoxView extends ConstraintLayout {
     private Group spreadingGroup;
     private UnorderedListView spreadingListView;
 
-    private Group dateGroup;
     private TextView dateLabel;
     private TextView startDateText;
     private TextView endDateText;
@@ -55,30 +54,18 @@ public class ReaderInfoBoxView extends ConstraintLayout {
         aliasesListView = findViewById(R.id.infobox_aliases);
         spreadingGroup = findViewById(R.id.infobox_spreading_group);
         spreadingListView = findViewById(R.id.infobox_spreading);
-        dateGroup = findViewById(R.id.infobox_date_group);
         dateLabel = findViewById(R.id.infobox_date_label);
         startDateText = findViewById(R.id.infobox_start_date);
         endDateText = findViewById(R.id.infobox_end_date);
     }
 
     public void update(@NonNull AtlasObject atlasObject) {
-        if (!hasInfoBox(atlasObject)) {
-            setVisibility(View.GONE);
-            return;
-        }
-        setVisibility(View.VISIBLE);
-
-        // in current reader layout info box comes after conservation status view
-        // if conservation status view is displayed do not display info box vertical rule
-        View rule = findViewById(R.id.reader_infobox_vr);
-        rule.setVisibility(atlasObject.hasConservation() ? View.GONE : View.VISIBLE);
-
         lastUpdatedText.setText(LAST_UPDATED_FORMAT.format(atlasObject.getLastUpdated()));
 
         if (atlasObject.hasTaxonomy()) {
             Taxon[] taxonomy = atlasObject.getTaxonomy();
             if (taxonomy.length == 1) {
-                classificationLabel.setText(taxonomy[0].getName());
+                classificationLabel.setText(Strings.capitalize(taxonomy[0].getName()));
                 classificationText.setText(atlasObject.getTaxonomy()[0].getValue());
                 taxonomyView.setVisibility(View.GONE);
                 classificationText.setVisibility(View.VISIBLE);
@@ -105,26 +92,27 @@ public class ReaderInfoBoxView extends ConstraintLayout {
         }
 
         // display dates group if atlas object has at least start date
-        setVisibility(dateGroup, atlasObject.hasStartDate());
         if (atlasObject.hasStartDate()) {
+            dateLabel.setVisibility(View.VISIBLE);
+            startDateText.setVisibility(View.VISIBLE);
+
             if (atlasObject.hasEndDate()) {
                 // if atlas object has end date we have a dates range and need update dates group label
                 dateLabel.setText(R.string.infobox_period);
                 endDateText.setText(atlasObject.getEndDate().toString());
                 endDateText.setVisibility(View.VISIBLE);
             } else {
-                // if end date is null takes care to restore default dates group label and remove end date view
+                // if end date is null takes care to restore default dates group label and hide end date view
                 dateLabel.setText(R.string.infobox_since);
-                // for unknown reasons is not enough to set GONE; need also to nullify text view content
-                endDateText.setText(null);
                 endDateText.setVisibility(View.GONE);
             }
-            startDateText.setText(atlasObject.getStartDate().toString());
-        }
-    }
 
-    private static boolean hasInfoBox(AtlasObject object) {
-        return object.hasTaxonomy() || object.hasAliases() || object.hasStartDate() || object.hasSpreading();
+            startDateText.setText(atlasObject.getStartDate().toString());
+        } else {
+            dateLabel.setVisibility(View.GONE);
+            startDateText.setVisibility(View.GONE);
+            endDateText.setVisibility(View.GONE);
+        }
     }
 
     private static void setVisibility(View view, boolean visible) {

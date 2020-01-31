@@ -7,7 +7,6 @@
     tools:layout_width="match_parent"
     tools:parentTag="android.support.constraint.ConstraintLayout">
 
-
     <TextView
         android:id="@+id/infobox_last_updated_label"
         android:layout_width="wrap_content"
@@ -25,8 +24,8 @@
         android:layout_marginStart="16dp"
         android:text="@string/sample_last_updated"
         android:textAppearance="@style/TextAppearance.Small"
-        app:layout_constraintStart_toStartOf="@+id/infobox_last_updated_label"
-        app:layout_constraintTop_toBottomOf="@+id/infobox_last_updated_label" />
+        app:layout_constraintStart_toStartOf="@id/infobox_last_updated_label"
+        app:layout_constraintTop_toBottomOf="@id/infobox_last_updated_label" />
 
     <TextView
         android:id="@+id/infobox_classification_label"
@@ -37,15 +36,15 @@
         android:text="@string/infobox_classification"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infobox_last_updated" />
+        app:layout_constraintTop_toBottomOf="@id/infobox_last_updated" />
 
     <FrameLayout
         android:id="@+id/infobox_taxonomy_frame"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="@+id/infobox_classification_label"
-        app:layout_constraintTop_toBottomOf="@+id/infobox_classification_label">
+        app:layout_constraintStart_toStartOf="@id/infobox_classification_label"
+        app:layout_constraintTop_toBottomOf="@id/infobox_classification_label">
 
         <TextView
             android:id="@+id/infobox_classification"
@@ -85,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@+id/infobox_aliases_label"
+        app:layout_constraintStart_toStartOf="@id/infobox_aliases_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_aliases_label" />
 
     <android.support.constraint.Group
@@ -111,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@+id/infobox_spreading_label"
+        app:layout_constraintStart_toStartOf="@id/infobox_spreading_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_spreading_label" />
 
     <Space
@@ -120,11 +119,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/infobox_spreading" />
 
+    <!--
     <android.support.constraint.Group
         android:id="@+id/infobox_date_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="infobox_date_label,infobox_start_date,infobox_end_date" />
+-->
 
     <TextView
         android:id="@+id/infobox_date_label"
@@ -135,7 +136,7 @@
         android:text="@string/infobox_since"
         android:textAppearance="@style/TextAppearance.Medium.Inverse"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infobox_spreading" />
+        app:layout_constraintTop_toBottomOf="@id/infobox_spreading" />
 
     <TextView
         android:id="@+id/infobox_start_date"
@@ -144,7 +145,7 @@
         android:layout_marginStart="16dp"
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.Small.Accent"
-        app:layout_constraintStart_toStartOf="@+id/infobox_date_label"
+        app:layout_constraintStart_toStartOf="@id/infobox_date_label"
         app:layout_constraintTop_toBottomOf="@id/infobox_date_label"
         tools:text="@string/sample_object_date" />
 
@@ -154,14 +155,8 @@
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.Small.Accent"
-        app:layout_constraintStart_toStartOf="@+id/infobox_start_date"
+        app:layout_constraintStart_toStartOf="@id/infobox_start_date"
         app:layout_constraintTop_toBottomOf="@id/infobox_start_date"
         tools:text="@string/sample_object_date" />
 
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/infobox_end_date" />
 </merge>

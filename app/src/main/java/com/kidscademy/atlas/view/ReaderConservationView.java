@@ -19,7 +19,7 @@ import js.lang.BugError;
 public class ReaderConservationView extends ConstraintLayout {
     private final Map<ConservationStatus, View[]> views = new HashMap<>();
 
-    private ConservationStatus conservation;
+    private ConservationStatus conservationStatus;
     private TextView valueText;
 
     public ReaderConservationView(Context context, AttributeSet attrs) {
@@ -42,40 +42,34 @@ public class ReaderConservationView extends ConstraintLayout {
     }
 
     /**
-     * Update current atlas object conservation status. Conservation view displays all available states but dimmed, that is,
+     * Update current atlas object conservationStatus status. Conservation view displays all available states but dimmed, that is,
      * with alpha set to 0.5F. Current value is emphasized by setting alpha to 1.0F, i.e. full opacity.
      *
      * @param atlasObject atlas object.
      */
     public void update(AtlasObject atlasObject) {
-        if (!atlasObject.hasConservation()) {
-            setVisibility(View.GONE);
-            return;
+        if (conservationStatus != null) {
+            setConservationAlpha(conservationStatus, 0.5F);
         }
-        setVisibility(View.VISIBLE);
-
-        if (conservation != null) {
-            setConservationAlpha(conservation, 0.5F);
-        }
-        conservation = atlasObject.getConservation();
-        setConservationAlpha(conservation, 1.0F);
+        conservationStatus = atlasObject.getConservation();
+        setConservationAlpha(conservationStatus, 1.0F);
 
         if (valueText != null) {
-            valueText.setText(Strings.getString(getContext(), "conservation_label_%s", conservation.name()));
+            valueText.setText(Strings.getString(getContext(), "conservation_label_%s", conservationStatus.name()));
         }
     }
 
     /**
-     * Set color alpha value for label and bullet views attached to given conservation status. Color alpha is
-     * used to emphasized current conservation status.
+     * Set color alpha value for label and bullet views attached to given conservationStatus status. Color alpha is
+     * used to emphasized current conservationStatus status.
      *
-     * @param conservation conservation status.
+     * @param conservation conservationStatus status.
      * @param alpha        color alpha value.
      */
     private void setConservationAlpha(ConservationStatus conservation, float alpha) {
         View[] views = this.views.get(conservation);
         if (views == null) {
-            throw new BugError("Missing views for conservation status |%s|.", conservation);
+            throw new BugError("Missing views for conservationStatus status |%s|.", conservation);
         }
         for (View view : views) {
             // on phone labels are missing
@@ -86,7 +80,7 @@ public class ReaderConservationView extends ConstraintLayout {
     }
 
     /**
-     * Get conservation status label and bullet views.
+     * Get conservationStatus status label and bullet views.
      *
      * @param labelId  label view ID,
      * @param bulletId bullet view ID.

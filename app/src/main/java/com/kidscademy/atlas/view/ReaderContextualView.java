@@ -2,6 +2,7 @@ package com.kidscademy.atlas.view;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.Group;
 import android.util.AttributeSet;
@@ -31,12 +32,11 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
     private TextView sampleTitle;
     private ImageView playButton;
 
-    private TextView textView;
-
     private Group graphicsGroup;
     private ImageView waveformView;
 
-    private final ReaderAction.Listener listener;
+    @Nullable
+    private ReaderAction.Listener listener;
     private AtlasObject atlasObject;
     private boolean playing;
 
@@ -50,13 +50,13 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
      */
     public ReaderContextualView(Context context, AttributeSet attrs) throws ClassCastException {
         super(context, attrs);
-
-        listener = (ReaderAction.Listener) context;
+        if (context instanceof ReaderAction.Listener) {
+            listener = (ReaderAction.Listener) context;
+        }
         if (context instanceof EventsTree) {
             ((EventsTree) context).registerListener(Player.StateListener.class, this);
         }
-
-        inflate(context, R.layout.reader_contextual, this);
+        inflate(getContext(), R.layout.reader_contextual, this);
     }
 
     @Override
@@ -69,48 +69,35 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
         playButton = findViewById(R.id.contextual_play_button);
         playButton.setOnClickListener(this);
 
-        textView = findViewById(R.id.contextual_text);
-
         graphicsGroup = findViewById(R.id.contextual_graphics);
         waveformView = findViewById(R.id.contextual_waveform);
     }
 
     public void update(@NonNull AtlasObject atlasObject) {
-        if (!atlasObject.hasContextualImage()) {
-            setVisibility(View.GONE);
-            return;
-        }
         this.atlasObject = atlasObject;
-        setVisibility(View.VISIBLE);
-
-        new BitmapLoader(getContext(), atlasObject.getContextualPath(), imageView, 1).start();
+        BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getContextualPath(), imageView);
+        loader.start();
         // this image view tag is used by espresso tests
         imageView.setTag(atlasObject.getContextualPath());
 
-        setVisibility(graphicsGroup, View.VISIBLE);
-        if (atlasObject.hasAudioSample()) {
-            sampleTitle.setText(atlasObject.getAudioSampleTitle());
-            playButton.setVisibility(View.VISIBLE);
-            if (waveformView != null) {
-                new BitmapLoader(getContext(), atlasObject.getWaveformPath(), waveformView, 1).start();
-                setVisibility(waveformView, View.VISIBLE);
-                setVisibility(graphicsGroup, View.GONE);
-            }
-        } else {
+        if (!atlasObject.hasAudioSample()) {
             sampleTitle.setText(null);
             playButton.setVisibility(View.INVISIBLE);
-            if (waveformView != null) {
-                waveformView.setVisibility(View.INVISIBLE);
+            waveformView.setVisibility(View.INVISIBLE);
+
+            if (graphicsGroup != null) {
+                graphicsGroup.setVisibility(View.VISIBLE);
             }
+            return;
         }
 
-        if (textView != null) {
-            if (atlasObject.hasContextualText()) {
-                textView.setVisibility(View.VISIBLE);
-                textView.setText(atlasObject.getContextualText());
-            } else {
-                textView.setVisibility(View.GONE);
-            }
+        sampleTitle.setText(atlasObject.getAudioSampleTitle());
+        playButton.setVisibility(View.VISIBLE);
+        waveformView.setVisibility(View.VISIBLE);
+
+        new BitmapLoader(getContext(), atlasObject.getWaveformPath(), waveformView, 1).start();
+        if (graphicsGroup != null) {
+            graphicsGroup.setVisibility(View.GONE);
         }
     }
 
@@ -119,7 +106,9 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
         if (v.getId() == R.id.contextual_play_button) {
             playButton.setImageResource(playing ? R.drawable.action_play_sample : R.drawable.action_stop_sample);
             playing = !playing;
-            listener.onReaderAction(playing ? ReaderAction.PLAY_SAMPLE : ReaderAction.STOP_SAMPLE, atlasObject.getIndex());
+            if (listener != null) {
+                listener.onReaderAction(playing ? ReaderAction.PLAY_SAMPLE : ReaderAction.STOP_SAMPLE, atlasObject.getIndex());
+            }
         }
     }
 
@@ -129,12 +118,6 @@ public class ReaderContextualView extends ConstraintLayout implements View.OnCli
         if (state == Player.State.IDLE) {
             playing = false;
             playButton.setImageResource(R.drawable.action_play_sample);
-        }
-    }
-
-    private static void setVisibility(View view, int visibility) {
-        if (view != null) {
-            view.setVisibility(visibility);
         }
     }
 }

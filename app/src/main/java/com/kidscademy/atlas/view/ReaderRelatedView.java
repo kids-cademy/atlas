@@ -20,13 +20,17 @@ import com.kidscademy.atlas.util.Views;
 import js.util.BitmapLoader;
 
 public class ReaderRelatedView extends ConstraintLayout implements Views.ListViewBuilder<RelatedObject>, View.OnClickListener {
-    private final ReaderAction.Listener listener;
+    @Nullable
+    private ReaderAction.Listener listener;
+
     private HexaIcon captionView;
     protected LinearLayout listView;
 
     public ReaderRelatedView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        listener = (ReaderAction.Listener) context;
+        if (context instanceof ReaderAction.Listener) {
+            listener = (ReaderAction.Listener) context;
+        }
         inflate(context, R.layout.reader_related, this);
     }
 
@@ -44,19 +48,13 @@ public class ReaderRelatedView extends ConstraintLayout implements Views.ListVie
     }
 
     public void update(@NonNull AtlasObject object) {
-        if (!object.hasRelated()) {
-            setVisibility(View.GONE);
-            return;
-        }
-        setVisibility(View.VISIBLE);
         Views.resetScrollParentView(this);
-
         captionView.setBackgroundColor(Colors.getColor(getContext()));
         Views.populateListView(listView, object.getRelated(), this);
     }
 
     @Override
-    public void createChild(LinearLayout listView) {
+    public void createChild(@NonNull LinearLayout listView) {
         inflate(getContext(), R.layout.item_related_object, listView);
     }
 
@@ -79,6 +77,8 @@ public class ReaderRelatedView extends ConstraintLayout implements Views.ListVie
 
     @Override
     public void onClick(View view) {
-        listener.onReaderAction(ReaderAction.LOAD_OBJECT, (Integer) view.getTag());
+        if (listener != null) {
+            listener.onReaderAction(ReaderAction.LOAD_OBJECT, (Integer) view.getTag());
+        }
     }
 }

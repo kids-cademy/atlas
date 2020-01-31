@@ -1,13 +1,8 @@
 package com.kidscademy.atlas.model;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
-import com.kidscademy.atlas.app.App;
-
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import js.lang.BugError;
@@ -23,8 +18,8 @@ public class AtlasObject {
     private int descriptionParagraphOffset;
 
     /**
-     * Atlas object images are named to help identifying the context where they are used. Supported
-     * names are:
+     * Atlas object images are named to help identifying the context where they are used.
+     * Supported names are:
      * <ul>
      * <li>{@link Image#KEY_ICON}</li>
      * <li>{@link Image#KEY_COVER}</li>
@@ -35,6 +30,7 @@ public class AtlasObject {
      */
     private Map<String, Image> images;
 
+    @NonNull
     private Date lastUpdated;
     private Taxon[] taxonomy;
     private String[] aliases;
@@ -83,7 +79,7 @@ public class AtlasObject {
     @NonNull
     public HTML getDescription() {
         if (description == null || descriptionParagraphOffset >= description.getText().size()) {
-            throw new BugError("Attempt to retrive not existing description.");
+            throw new BugError("Attempt to retrieve not existing description for object |%s|.", name);
         }
         return description;
     }
@@ -150,14 +146,6 @@ public class AtlasObject {
         return getImagePath(Image.KEY_CONTEXTUAL);
     }
 
-    public boolean hasContextualText() {
-        return getImageCaption(Image.KEY_CONTEXTUAL) != null;
-    }
-
-    public String getContextualText() {
-        return getImageCaption(Image.KEY_CONTEXTUAL);
-    }
-
     private String getImagePath(String imageName) {
         Image image = images.get(imageName);
         return image != null ? image.getPath() : null;
@@ -189,7 +177,7 @@ public class AtlasObject {
 
     // ---------------------------------------------------------------------------------------------
 
-    public Date getLastUpdated() {
+    public @NonNull Date getLastUpdated() {
         return lastUpdated;
     }
 

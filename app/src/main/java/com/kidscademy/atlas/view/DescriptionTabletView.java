@@ -105,10 +105,6 @@ public class DescriptionTabletView extends LinearLayout implements DescriptionCo
     }
 
     public void update(AtlasObject atlasObject) {
-        if (!atlasObject.hasDescription()) {
-            setVisibility(View.GONE);
-            return;
-        }
         this.atlasObject = atlasObject;
         if (columnWidth != UNSPECIFIED) {
             render(atlasObject);
@@ -129,6 +125,10 @@ public class DescriptionTabletView extends LinearLayout implements DescriptionCo
      * @param atlasObject object to display description. It state is altered.
      */
     private void render(AtlasObject atlasObject) {
+        if (!atlasObject.hasDescription()) {
+            setVisibility(View.GONE);
+            return;
+        }
         setVisibility(View.VISIBLE);
 
         List<String> description = atlasObject.getDescription().getText();

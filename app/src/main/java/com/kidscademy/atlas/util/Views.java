@@ -1,5 +1,6 @@
 package com.kidscademy.atlas.util;
 
+import android.support.annotation.NonNull;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.view.View;
@@ -80,8 +81,8 @@ public class Views {
          *
          * @param listView parent list view.
          */
-        void createChild(LinearLayout listView);
+        void createChild(@NonNull LinearLayout listView);
 
-        void setObject(int index, T item);
+        void setObject(int index, @NonNull T item);
     }
 }

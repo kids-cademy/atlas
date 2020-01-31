@@ -48,15 +48,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />
 
-    <include
-        android:id="@+id/contextual_text"
-        layout="@layout/compo_paragraph"
-        android:layout_width="0dp"
+    <ImageView
+        android:id="@+id/contextual_waveform"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/sections_space"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/support_graphics"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contextual_sample_title" />
+        app:layout_constraintTop_toBottomOf="@+id/contextual_sample_title"
+        app:srcCompat="@drawable/sample_waveform" />
+
 </merge>

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,15 +29,8 @@ public class ReaderFeaturedView extends ConstraintLayout {
     }
 
     public void update(@NonNull AtlasObject atlasObject) {
-        if (!atlasObject.hasFeaturedImage()) {
-            setVisibility(View.GONE);
-            return;
-        }
-        setVisibility(View.VISIBLE);
-
         BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getFeaturedPath(), imageView);
         loader.start();
-
         captionView.setText(atlasObject.getFeaturedCaption());
     }
 }
