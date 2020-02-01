@@ -12,11 +12,10 @@ import android.widget.TextView;
 import com.kidscademy.atlas.activity.ReaderActivity;
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
+import com.kidscademy.atlas.util.BitmapLoader;
 import com.kidscademy.atlas.util.Strings;
 
 import java.util.List;
-
-import js.util.BitmapLoader;
 
 public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.Holder> {
     private final Activity activity;

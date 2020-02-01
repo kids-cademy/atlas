@@ -9,8 +9,7 @@ import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
-
-import js.util.BitmapLoader;
+import com.kidscademy.atlas.util.BitmapLoader;
 
 public class ReaderFeaturedView extends ConstraintLayout {
     private ImageView imageView;

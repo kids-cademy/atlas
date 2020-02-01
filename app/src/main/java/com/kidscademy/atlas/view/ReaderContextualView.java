@@ -14,9 +14,8 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.EventsTree;
 import com.kidscademy.atlas.model.ReaderAction;
-
-import js.util.BitmapLoader;
-import js.util.Player;
+import com.kidscademy.atlas.util.BitmapLoader;
+import com.kidscademy.atlas.util.Player;
 
 /**
  * View for atlas object contextual data, specifically contextual image. Every atlas object has an image that represent the object in its

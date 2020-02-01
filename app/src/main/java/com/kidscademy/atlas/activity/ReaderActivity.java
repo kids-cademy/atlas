@@ -16,6 +16,7 @@ import com.kidscademy.atlas.model.ReaderAction;
 import com.kidscademy.atlas.sync.PageLoadEvent;
 import com.kidscademy.atlas.sync.SyncService;
 import com.kidscademy.atlas.util.Params;
+import com.kidscademy.atlas.util.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +28,6 @@ import js.lang.BugError;
 import js.lang.Event;
 import js.log.Log;
 import js.log.LogFactory;
-import js.util.Player;
 
 /**
  * Base class for reader activities, both mobile and tablet variants.

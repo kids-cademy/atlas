@@ -14,6 +14,8 @@ import android.view.View;
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.adapter.SharingAdapter;
 import com.kidscademy.atlas.model.SharingApp;
+import com.kidscademy.atlas.util.BluetoothShare;
+import com.kidscademy.atlas.util.TwitterShare;
 import com.kidscademy.atlas.view.SpacesItemDecoration;
 
 import java.util.ArrayList;
@@ -22,8 +24,6 @@ import java.util.TreeSet;
 
 import js.log.Log;
 import js.log.LogFactory;
-import js.util.BluetoothShare;
-import js.util.TwitterShare;
 
 /**
  * Share application using device installed senders.

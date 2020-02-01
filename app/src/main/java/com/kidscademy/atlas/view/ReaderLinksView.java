@@ -15,10 +15,9 @@ import android.widget.TextView;
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.Link;
+import com.kidscademy.atlas.util.BitmapLoader;
 import com.kidscademy.atlas.util.Colors;
 import com.kidscademy.atlas.util.Views;
-
-import js.util.BitmapLoader;
 
 public class ReaderLinksView extends ConstraintLayout implements Views.ListViewBuilder<Link>, View.OnClickListener {
     private HexaIcon captionView;
@@ -60,7 +59,7 @@ public class ReaderLinksView extends ConstraintLayout implements Views.ListViewB
         view.setOnClickListener(this);
 
         ImageView iconView = view.findViewById(R.id.link_icon);
-        BitmapLoader loader = new BitmapLoader(getContext(), link.getIconPath(), iconView, 1);
+        BitmapLoader loader = new BitmapLoader(getContext(), link.getIconPath(), iconView);
         loader.start();
 
         TextView displayView = view.findViewById(R.id.link_display);

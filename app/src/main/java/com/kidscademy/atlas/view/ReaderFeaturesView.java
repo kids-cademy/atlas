@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
+import com.kidscademy.atlas.util.BitmapLoader;
 
 import js.log.Log;
 import js.log.LogFactory;
-import js.util.BitmapLoader;
 
 public class ReaderFeaturesView extends ConstraintLayout {
     private static final Log log = LogFactory.getLog(ReaderFactsView.class);

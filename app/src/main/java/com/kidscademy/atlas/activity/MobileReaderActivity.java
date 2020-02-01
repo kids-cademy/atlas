@@ -8,11 +8,11 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.adapter.MobileReaderAdapter;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.sync.PageLoadEvent;
+import com.kidscademy.atlas.util.Player;
 import com.kidscademy.atlas.view.FabMenu;
 
 import js.log.Log;
 import js.log.LogFactory;
-import js.util.Player;
 
 public class MobileReaderActivity extends ReaderActivity implements View.OnClickListener, Player.StateListener, ViewPager.OnPageChangeListener {
     private static final Log log = LogFactory.getLog(MobileReaderActivity.class);

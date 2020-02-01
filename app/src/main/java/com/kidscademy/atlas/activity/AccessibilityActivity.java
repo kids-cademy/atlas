@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
+import com.kidscademy.atlas.util.Player;
 import com.kidscademy.atlas.util.Strings;
 
 import js.log.Log;
 import js.log.LogFactory;
-import js.util.Player;
 
 public class AccessibilityActivity extends AppActivity implements Player.StateListener {
     private static final Log log = LogFactory.getLog(AccessibilityActivity.class);

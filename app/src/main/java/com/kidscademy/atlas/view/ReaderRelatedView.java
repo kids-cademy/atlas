@@ -14,10 +14,9 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.ReaderAction;
 import com.kidscademy.atlas.model.RelatedObject;
+import com.kidscademy.atlas.util.BitmapLoader;
 import com.kidscademy.atlas.util.Colors;
 import com.kidscademy.atlas.util.Views;
-
-import js.util.BitmapLoader;
 
 public class ReaderRelatedView extends ConstraintLayout implements Views.ListViewBuilder<RelatedObject>, View.OnClickListener {
     @Nullable

@@ -7,12 +7,11 @@ import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasRepository;
 import com.kidscademy.atlas.model.SearchIndex;
 import com.kidscademy.atlas.util.AssetsBase;
+import com.kidscademy.atlas.util.AsyncTask;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-import js.lang.AsyncTask;
 import js.lang.BugError;
 import js.lang.GType;
 import js.log.Log;
@@ -84,6 +83,7 @@ class AssetsRepository extends AssetsBase implements AtlasRepository {
         AtlasObject object = objects[index];
         if (object == null) {
             synchronized (this) {
+                object = objects[index];
                 if (object == null) {
                     try {
                         object = loadObject(getAssetReader(getObjectPath(names[index])), AtlasObject.class);

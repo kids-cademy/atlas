@@ -226,4 +226,5 @@
     <string name="accessibility_vote_label">Vote</string>
     <string name="accessibility_vote_restriction">A device can vote only once.</string>
 
+    <string name="image_description">image</string>
 </resources>

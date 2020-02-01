@@ -17,11 +17,11 @@ import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.sync.SyncService;
+import com.kidscademy.atlas.util.AsyncTask;
 import com.kidscademy.atlas.view.SyncDevicesView;
 
 import java.lang.ref.WeakReference;
 
-import js.lang.AsyncTask;
 import js.lang.BugError;
 import js.log.Log;
 import js.log.LogFactory;

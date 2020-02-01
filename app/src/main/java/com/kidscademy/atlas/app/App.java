@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.activity.ErrorActivity;
 import com.kidscademy.atlas.model.AtlasRepository;
+import com.kidscademy.atlas.util.LogManager;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -19,7 +20,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import js.log.Log;
 import js.log.LogFactory;
 import js.log.LogLevel;
-import js.log.LogManager;
 
 /**
  * Application singleton holds global state, generates crash report and implements application active detection logic.

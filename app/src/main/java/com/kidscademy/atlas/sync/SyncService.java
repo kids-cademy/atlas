@@ -9,12 +9,12 @@ import android.os.Binder;
 import android.os.IBinder;
 
 import com.kidscademy.atlas.http.HttpServer;
+import com.kidscademy.atlas.util.AsyncTask;
 
 import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import js.lang.AsyncTask;
 import js.lang.Event;
 import js.log.Log;
 import js.log.LogFactory;

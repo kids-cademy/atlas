@@ -9,8 +9,7 @@ import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
-
-import js.util.BitmapLoader;
+import com.kidscademy.atlas.util.BitmapLoader;
 
 public class ReaderIntroView extends ConstraintLayout {
     private TextView titleView;
@@ -45,8 +44,7 @@ public class ReaderIntroView extends ConstraintLayout {
             // this image view tag is used by espresso tests
             imageView.setTag(atlasObject.getCoverPath());
             imageView.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             imageView.setVisibility(View.INVISIBLE);
         }
 

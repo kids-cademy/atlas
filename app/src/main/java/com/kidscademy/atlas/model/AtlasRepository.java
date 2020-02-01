@@ -4,8 +4,6 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
-import js.lang.BugError;
-
 /**
  * Atlas repository holds atlas objects and search indices. It allows for random access by object name
  * or by repository index. Repository index behaves like implementation has and indexed storage and objects

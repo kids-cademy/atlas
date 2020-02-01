@@ -42,7 +42,7 @@ public class SharingApp implements Comparable<SharingApp> {
         try {
             this.version = packageManager.getPackageInfo(packageName, 0).versionName;
         } catch (NameNotFoundException unused) {
-            this.version = context.getString(R.string.unknown);
+            this.version = "unknown";
         }
         this.icon = resolveInfo.loadIcon(packageManager);
         this.type = type;

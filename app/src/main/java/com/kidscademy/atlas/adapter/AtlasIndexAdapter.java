@@ -14,6 +14,7 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasObjectsGroup;
 import com.kidscademy.atlas.model.AtlasRepository;
+import com.kidscademy.atlas.util.BitmapLoader;
 import com.kidscademy.atlas.util.Colors;
 import com.kidscademy.atlas.view.HexaIcon;
 
@@ -27,7 +28,6 @@ import java.util.TreeMap;
 
 import js.log.Log;
 import js.log.LogFactory;
-import js.util.BitmapLoader;
 
 public class AtlasIndexAdapter extends RecyclerView.Adapter<AtlasIndexAdapter.Holder> {
     private static final Log log = LogFactory.getLog(AtlasIndexAdapter.class);
