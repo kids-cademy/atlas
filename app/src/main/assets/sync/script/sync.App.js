@@ -53,7 +53,7 @@ sync.App.prototype = {
 	setObject : function(atlasObject) {
 		this._paragraphsCache.setHTML(atlasObject.description);
 		atlasObject.paragraphs = this._paragraphsCache;
-
+				
 		this._coverSection.hide();
 		this._readerSection.show();
 
@@ -64,6 +64,25 @@ sync.App.prototype = {
 		this._readerSection.setObject(atlasObject);
 		// object view should be visible when measure scrollable width
 		this._scrollableWidth = parseInt(this._objectView._node.scrollWidth) - WinMain.getWidth();
+
+		// adjust position of the featured image section, if is visible
+		var featuredSection = this.getByCss(".section.featured");
+		if (featuredSection.isVisible()) {
+			// find first visible section before contextual image section and move featured image there
+			// the point is to have a visible section between featured and contextual images to avoid having two images in sequence
+			// do nothing if there is no visible section before contextual image, that is, leave featured image where it is
+			var section = this.getByCss(".section.contextual");
+			while ((section = section.getPreviousSibling()) != null) {
+				if (section === featuredSection) {
+					// takes care to skip featured section itself
+					continue;
+				}
+				if (section.isVisible()) {
+					section.insertBefore(featuredSection);
+					break;
+				}
+			}
+		}
 	},
 
 	_onPageScrollEvent : function(event) {

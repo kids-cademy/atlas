@@ -13,6 +13,6 @@ public class HDateTest {
         HDate hdate = new HDate(1770, HDate.Format.YEAR);
         assertThat(hdate.toString(), equalTo("1770 CE"));
         hdate.roundToCenturies();
-        assertThat(hdate.toString(), equalTo("XVIII-th Century, CE"));
+        assertThat(hdate.toString(), equalTo("18th Century, CE"));
     }
 }

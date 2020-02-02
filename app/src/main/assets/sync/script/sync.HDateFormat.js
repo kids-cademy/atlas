@@ -1,83 +1,70 @@
 $package("sync");
 
-sync.HDateFormat = function() {
+sync.HDateFormat = function () {
 };
 
-sync.HDateFormat.Format = [ "DATE", "YEAR", "DECADE", "CENTURY", "MILLENNIA", "KYA", "MYA", "BYA" ];
+sync.HDateFormat.Format = ["DATE", "YEAR", "DECADE", "CENTURY", "MILLENNIA", "KYA", "MYA", "BYA"];
 
-sync.HDateFormat.Period = [ "FULL", "BEGINNING", "MIDDLE", "END" ];
+sync.HDateFormat.Period = ["FULL", "BEGINNING", "MIDDLE", "END"];
 
-sync.HDateFormat.Era = [ "CE", "BCE" ];
+sync.HDateFormat.Era = ["CE", "BCE"];
 
 sync.HDateFormat.RomanSymbols = {
-	M : 1000,
-	CM : 900,
-	D : 500,
-	CD : 400,
-	C : 100,
-	XC : 90,
-	L : 50,
-	XL : 40,
-	X : 10,
-	IX : 9,
-	V : 5,
-	IV : 4,
-	I : 1
+	M: 1000,
+	CM: 900,
+	D: 500,
+	CD: 400,
+	C: 100,
+	XC: 90,
+	L: 50,
+	XL: 40,
+	X: 10,
+	IX: 9,
+	V: 5,
+	IV: 4,
+	I: 1
 };
 
 sync.HDateFormat.prototype = {
-	format : function(hdate) {
-
+	format: function (hdate) {
 		switch (this.getFormat(hdate)) {
-		case "YEAR":
-			return $format("%d %s", hdate.value, this.getEra(hdate));
+			case "YEAR":
+				return $format("%d %s", hdate.value, this.getEra(hdate));
 
-		case "CENTURY":
-			return $format("%d %s", (hdate.value - 1) * 100, this.getEra(hdate));
+			case "DECADE":
+				return $format("%d0s %s", hdate.value, this.getEra(hdate));
 
-		default:
-			break;
-		}
+			case "CENTURY":
+				const value = hdate.value;
+				const era = this.getEra(hdate);
+				const suffix = this.suffix(hdate.value);
 
-		return "";
+				switch (this.getPeriod(hdate)) {
+					case "BEGINNING":
+						return $format("Beginning of %d%s Century, %s", value, suffix, era);
 
-		return "date";
+					case "MIDDLE":
+						return $format("Middle of %d%s Century, %s", value, suffix, era);
 
-		switch (this.getFormat(hdate)) {
-		case "YEAR":
-			return $format("%d %s", hdate.value, this.getEra(hdate));
+					case "END":
+						return $format("End of %d%s Century, %s", value, suffix, era);
 
-		case "CENTURY":
-			const value = this.roman(hdate.value);
-			const era = this.getEra(hdate);
-			const suffix = this.suffix(hdate.value);
+					default:
+						return $format("%d%s Century, %s", value, suffix, era);
+				}
+				break;
 
-			switch (this.getPeriod(hdate)) {
-			case "BEGINNING":
-				return $format("Beginning of %d-%s Century, %s", value, suffix, era);
+			case "KYA":
+				return $format("%d kilo years ago", hdate.value);
 
-			case "MIDDLE":
-				return $format("Middle of %d-%s Century, %s", value, suffix, era);
+			case "MYA":
+				return $format("%d million years ago", hdate.value);
 
-			case "END":
-				return $format("End of %d-%s Century, %s", value, suffix, era);
+			case "BYA":
+				return $format("%d billion years ago", hdate.value);
 
 			default:
-				return $format("%d-%s Century, %s", value, suffix, era);
-			}
-			break;
-
-		case "KYA":
-			return $format("%d kilo years ago", hdate.value);
-
-		case "MYA":
-			return $format("%d million years ago", hdate.value);
-
-		case "BYA":
-			return $format("%d billion years ago", hdate.value);
-
-		default:
-			break;
+				break;
 		}
 
 		return "";
@@ -97,45 +84,52 @@ sync.HDateFormat.prototype = {
 		return value;
 	},
 
-	suffix : function(value) {
+	suffix: function (value) {
 		switch (value) {
-		case 1:
-			return "st";
+			case 1:
+				return "st";
 
-		case 2:
-			return "nd";
+			case 2:
+				return "nd";
 
-		case 3:
-			return "rd";
+			case 3:
+				return "rd";
 
-		default:
-			return "th";
+			default:
+				return "th";
 		}
 	},
 
-	getFormat : function(hdate) {
+	getFormat: function (hdate) {
 		if (!hdate.mask) {
 			return null;
 		}
 		return sync.HDateFormat.Format[hdate.mask & 0x000000FF];
 	},
 
-	getEra : function(hdate) {
+	getPeriod: function (hdate) {
+		if (!hdate.mask) {
+			return null;
+		}
+		return sync.HDateFormat.Period[(hdate.mask & 0x0000FF00) >> 8];
+	},
+
+	getEra: function (hdate) {
 		if (!hdate.mask) {
 			return null;
 		}
 		return sync.HDateFormat.Era[(hdate.mask & 0x00FF0000) >> 16];
 	},
 
-	parse : function(value) {
+	parse: function (value) {
 		return null;
 	},
 
-	test : function(value) {
+	test: function (value) {
 		return !!value;
 	},
 
-	toString : function() {
+	toString: function () {
 		return "sync.HDateFormat";
 	}
 };

@@ -6,12 +6,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 
-public class ReaderObjectView extends LinearLayout {
+import js.log.Log;
+import js.log.LogFactory;
+
+public class ReaderObjectView extends LinearLayout implements ViewTreeObserver.OnPreDrawListener {
+    private static final Log log = LogFactory.getLog(ReaderObjectView.class);
+
     private ReaderIntroView introView;
     private DescriptionColumnView descriptionColumn1;
     private ReaderFeaturesView featuresView;
@@ -25,7 +31,7 @@ public class ReaderObjectView extends LinearLayout {
     private ReaderRelatedView relatedView;
     private ReaderLinksView linksView;
 
-    private int descriptionColumnsCount;
+    private AtlasObject atlasObject;
 
     public ReaderObjectView(Context context) {
         this(context, null);
@@ -47,7 +53,6 @@ public class ReaderObjectView extends LinearLayout {
         descriptionColumn1 = findViewById(R.id.reader_description_column1);
         featuresView = findViewById(R.id.reader_features);
         descriptionColumn2 = findViewById(R.id.reader_description_column2);
-        featuredImageView = findViewById(R.id.reader_featured_view);
         descriptionColumn3 = findViewById(R.id.reader_description_column3);
         conservationView = findViewById(R.id.reader_conservation_view);
         contextualView = findViewById(R.id.reader_contextual_view);
@@ -55,26 +60,23 @@ public class ReaderObjectView extends LinearLayout {
         factsView.setContainer(findViewById(R.id.reader_facts));
         relatedView = findViewById(R.id.reader_related_view);
         linksView = findViewById(R.id.reader_links_view);
+
+        featuredImageView = findViewById(R.id.reader_featured_view);
     }
 
     public void setAtlasObject(@NonNull final AtlasObject atlasObject) {
+        log.trace("setAtlasObject(@NonNull final AtlasObject atlasObject)");
+        this.atlasObject = atlasObject;
+
         // this tag is used by espresso tests
         setTag(atlasObject.getTag());
         // since reader object view is reused
         // takes care to reset description paragraph offset and description column index
         atlasObject.updateDescriptionParagraphOffset(0);
-        descriptionColumnsCount = 0;
 
         introView.update(atlasObject);
         infoBoxView.update(atlasObject);
-
-        if (atlasObject.hasDescription()) {
-            descriptionColumn1.update(atlasObject);
-            descriptionColumn1.setVisibility(View.VISIBLE);
-            descriptionColumnsCount++;
-        } else {
-            descriptionColumn1.setVisibility(View.GONE);
-        }
+        descriptionColumn1.update(atlasObject);
 
         if (atlasObject.hasConservation()) {
             conservationView.update(atlasObject);
@@ -108,10 +110,11 @@ public class ReaderObjectView extends LinearLayout {
     }
 
     private void setAtlasObjectEx(@NonNull AtlasObject atlasObject) {
+        log.trace("setAtlasObjectEx(@NonNull AtlasObject atlasObject)");
+
         if (atlasObject.hasDescription()) {
             descriptionColumn2.update(atlasObject);
             descriptionColumn2.setVisibility(View.VISIBLE);
-            descriptionColumnsCount++;
         } else {
             descriptionColumn2.setVisibility(View.GONE);
         }
@@ -119,33 +122,11 @@ public class ReaderObjectView extends LinearLayout {
         if (atlasObject.hasDescription()) {
             descriptionColumn3.update(atlasObject);
             descriptionColumn3.setVisibility(View.VISIBLE);
-            descriptionColumnsCount++;
         } else {
             descriptionColumn3.setVisibility(View.GONE);
         }
 
-        if (atlasObject.hasFeaturedImage()) {
-            removeView(featuredImageView);
-            switch (descriptionColumnsCount) {
-                case 0:
-                    addView(featuredImageView, indexOfChild(infoBoxView));
-                    break;
-
-                case 1:
-                    addView(featuredImageView, indexOfChild((View) descriptionColumn1));
-                    break;
-
-                default:
-                    addView(featuredImageView, indexOfChild((View) descriptionColumn2));
-                    break;
-            }
-
-            featuredImageView.update(atlasObject);
-            featuredImageView.setVisibility(View.VISIBLE);
-
-        } else {
-            featuredImageView.setVisibility(View.GONE);
-        }
+        getViewTreeObserver().addOnPreDrawListener(this);
 
         if (atlasObject.hasContextualImage()) {
             contextualView.update(atlasObject);
@@ -174,5 +155,34 @@ public class ReaderObjectView extends LinearLayout {
         } else {
             linksView.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public boolean onPreDraw() {
+        getViewTreeObserver().removeOnPreDrawListener(this);
+        removeView(featuredImageView);
+        if (!atlasObject.hasFeaturedImage()) {
+            return true;
+        }
+
+        // find first visible section before contextual view and move featured image there
+        // the point is to have a visible section between featured and contextual images to avoid having two images in sequence
+        // if there is no visible section before contextual image do nothing, that is, leave featured image where it is
+
+        for (int index = indexOfChild(contextualView) - 1; index >= 0; --index) {
+            if (index == indexOfChild(featuredImageView)) {
+                // skip featured image itself
+                continue;
+            }
+            View section = getChildAt(index);
+            if (section.getVisibility() == View.VISIBLE) {
+                addView(featuredImageView, index);
+                break;
+            }
+        }
+
+        featuredImageView.update(atlasObject);
+        featuredImageView.setVisibility(View.VISIBLE);
+        return true;
     }
 }

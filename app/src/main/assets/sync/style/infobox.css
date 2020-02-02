@@ -37,6 +37,10 @@
 	margin-top: 0;
 }
 
+.infobox .taxonomy h2 {
+	text-transform: capitalize;
+}
+
 .infobox .body {
 	margin: 0 0 0 60px;
 }
@@ -45,6 +49,14 @@
 	white-space: nowrap;
 	font-size: 1.4rem;
 	color: yellow;
+}
+
+.infobox li {
+	text-transform: uppercase;	
+}
+
+.infobox .last-updated p {
+	color: white;
 }
 
 .infobox .name {

@@ -6,9 +6,13 @@ import java.util.Date;
 import java.util.Map;
 
 import js.lang.BugError;
+import js.log.Log;
+import js.log.LogFactory;
 import js.util.Strings;
 
 public class AtlasObject {
+    private static final Log log = LogFactory.getLog(AtlasObject.class);
+
     private int index;
     private int rank;
     private String name;
@@ -73,6 +77,7 @@ public class AtlasObject {
     }
 
     public boolean hasDescription() {
+        log.debug("descriptionParagraphOffset=%d description.getText().size()=%d", descriptionParagraphOffset, description.getText().size());
         return description != null && descriptionParagraphOffset < description.getText().size();
     }
 
@@ -177,7 +182,8 @@ public class AtlasObject {
 
     // ---------------------------------------------------------------------------------------------
 
-    public @NonNull Date getLastUpdated() {
+    public @NonNull
+    Date getLastUpdated() {
         return lastUpdated;
     }
 

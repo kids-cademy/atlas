@@ -25,9 +25,7 @@ sync.TextColumn.prototype = {
 			}
 			this.addChild(paragraphElement);
 		}
-		if (this.getChildrenCount() === 0) {
-			this.getParent().hide();
-		}
+		this.getParent().show(this.getChildrenCount());
 	},
 
 	/**

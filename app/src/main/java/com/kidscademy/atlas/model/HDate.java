@@ -1,5 +1,7 @@
 package com.kidscademy.atlas.model;
 
+import android.support.annotation.NonNull;
+
 import com.kidscademy.atlas.util.Strings;
 
 import java.util.Calendar;
@@ -104,6 +106,7 @@ public class HDate implements Comparable<HDate> {
     }
 
     @Override
+    @NonNull
     public String toString() {
         switch (getFormat()) {
             case YEAR:
@@ -115,16 +118,16 @@ public class HDate implements Comparable<HDate> {
             case CENTURY:
                 switch (getPeriod()) {
                     case BEGINNING:
-                        return Strings.format("Beginning of %s-%s Century, %s", toRoman(value), suffix(), getEra());
+                        return Strings.format("Beginning of %d%s Century, %s", value.intValue(), suffix(), getEra());
 
                     case MIDDLE:
-                        return Strings.format("Middle of %s-%s Century, %s", toRoman(value), suffix(), getEra());
+                        return Strings.format("Middle of %d%s Century, %s", value.intValue(), suffix(), getEra());
 
                     case END:
-                        return Strings.format("End of %s-%s Century, %s", toRoman(value), suffix(), getEra());
+                        return Strings.format("End of %d%s Century, %s", value.intValue(), suffix(), getEra());
 
                     default:
-                        return Strings.format("%s-%s Century, %s", toRoman(value), suffix(), getEra());
+                        return Strings.format("%d%s Century, %s", value.intValue(), suffix(), getEra());
                 }
 
             case KYA:
