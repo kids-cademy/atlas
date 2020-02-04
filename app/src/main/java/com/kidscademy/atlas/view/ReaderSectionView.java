@@ -2,7 +2,7 @@ package com.kidscademy.atlas.view;
 
 import com.kidscademy.atlas.model.AtlasObject;
 
-public interface DescriptionColumnView {
+public interface ReaderSectionView {
     void setVisibility(int visibility);
 
     void update(AtlasObject atlasObject);

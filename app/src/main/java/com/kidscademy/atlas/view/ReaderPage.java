@@ -12,14 +12,10 @@ import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.sync.PageScrollEvent;
 
 import js.lang.BugError;
-import js.log.Log;
-import js.log.LogFactory;
 
 public class ReaderPage extends NestedScrollView implements NestedScrollView.OnScrollChangeListener {
-    private static final Log log = LogFactory.getLog(ReaderPage.class);
-
     private final ReaderActivity readerActivity;
-    private ReaderObjectView objectView;
+    private ReaderObjectLayout objectLayout;
 
     public ReaderPage(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -32,13 +28,13 @@ public class ReaderPage extends NestedScrollView implements NestedScrollView.OnS
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        objectView = findViewById(R.id.reader_page_object_view);
+        objectLayout = findViewById(R.id.reader_page_object_view);
         setOnScrollChangeListener(this);
     }
 
     public void setAtlasObject(AtlasObject atlasObject) {
         scrollTo(0, 0);
-        objectView.setAtlasObject(atlasObject);
+        objectLayout.setAtlasObject(atlasObject);
     }
 
     @Override

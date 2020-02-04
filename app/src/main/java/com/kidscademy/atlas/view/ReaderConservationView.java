@@ -16,7 +16,7 @@ import java.util.Map;
 
 import js.lang.BugError;
 
-public class ReaderConservationView extends ConstraintLayout {
+public class ReaderConservationView extends ConstraintLayout implements ReaderSectionView {
     private final Map<ConservationStatus, View[]> views = new HashMap<>();
 
     private ConservationStatus conservationStatus;

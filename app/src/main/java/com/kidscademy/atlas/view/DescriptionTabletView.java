@@ -1,7 +1,6 @@
 package com.kidscademy.atlas.view;
 
 import android.content.Context;
-import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Dimension;
 import android.support.annotation.Nullable;
@@ -30,7 +29,7 @@ import java.util.List;
  *
  * @author Iulian Rotaru
  */
-public class DescriptionTabletView extends LinearLayout implements DescriptionColumnView {
+public class DescriptionTabletView extends LinearLayout implements ReaderSectionView {
     private static final int UNSPECIFIED = -1;
 
     private final LayoutInflater inflater;
@@ -125,12 +124,6 @@ public class DescriptionTabletView extends LinearLayout implements DescriptionCo
      * @param atlasObject object to display description. It state is altered.
      */
     private void render(AtlasObject atlasObject) {
-        if (!atlasObject.hasDescription()) {
-            setVisibility(View.GONE);
-            return;
-        }
-        setVisibility(View.VISIBLE);
-
         List<String> description = atlasObject.getDescription().getText();
         int paragraphIndex = atlasObject.getDescriptionParagraphOffset();
         int currentHeight = 0;

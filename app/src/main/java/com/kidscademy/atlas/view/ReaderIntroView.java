@@ -11,7 +11,7 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.util.BitmapLoader;
 
-public class ReaderIntroView extends ConstraintLayout {
+public class ReaderIntroView extends ConstraintLayout implements ReaderSectionView {
     private TextView titleView;
     private HexaIcon captionView;
     private TextView definitionView;

@@ -14,7 +14,7 @@ import com.kidscademy.atlas.model.AtlasObject;
 
 import java.util.List;
 
-public class DescriptionPhoneView extends LinearLayout implements DescriptionColumnView {
+public class DescriptionPhoneView extends LinearLayout implements ReaderSectionView {
     private final LayoutInflater inflater;
 
     private final int paragraphsCount;
@@ -32,12 +32,6 @@ public class DescriptionPhoneView extends LinearLayout implements DescriptionCol
     }
 
     public void update(AtlasObject atlasObject) {
-        if (!atlasObject.hasDescription()) {
-            setVisibility(View.GONE);
-            return;
-        }
-        setVisibility(View.VISIBLE);
-
         List<String> description = atlasObject.getDescription().getText();
         int paragraphIndex = atlasObject.getDescriptionParagraphOffset();
         int paragraphsCount = Math.min(this.paragraphsCount, description.size() - paragraphIndex);

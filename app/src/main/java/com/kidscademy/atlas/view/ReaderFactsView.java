@@ -17,7 +17,7 @@ import com.kidscademy.atlas.util.Views;
  *
  * @author Iulian Rotaru
  */
-public class ReaderFactsView extends LinearLayout {
+public class ReaderFactsView extends LinearLayout implements ReaderSectionView {
     private View container;
 
     public ReaderFactsView(Context context, AttributeSet attrs) {

@@ -13,7 +13,7 @@ import com.kidscademy.atlas.sync.PageLoadEvent;
 import com.kidscademy.atlas.sync.PageScrollEvent;
 import com.kidscademy.atlas.view.ActionIcon;
 import com.kidscademy.atlas.view.HorizontalScrollViewEx;
-import com.kidscademy.atlas.view.ReaderObjectView;
+import com.kidscademy.atlas.view.ReaderObjectLayout;
 
 import js.log.Log;
 import js.log.LogFactory;
@@ -23,7 +23,7 @@ public class TabletReaderActivity extends ReaderActivity implements View.OnClick
 
     private TextView titleView;
     private HorizontalScrollViewEx scrollView;
-    private ReaderObjectView objectView;
+    private ReaderObjectLayout objectLayout;
     private ActionIcon actionSync;
 
     @Override
@@ -34,7 +34,7 @@ public class TabletReaderActivity extends ReaderActivity implements View.OnClick
         titleView = findViewById(R.id.reader_header_title);
         scrollView = findViewById(R.id.reader_page_scroll);
         scrollView.setOnScrollChangedListener(this);
-        objectView = findViewById(R.id.reader_object_view);
+        objectLayout = findViewById(R.id.reader_object_view);
         actionSync = findViewById(R.id.action_sync);
 
         setClickListener(R.id.action_back);
@@ -87,7 +87,7 @@ public class TabletReaderActivity extends ReaderActivity implements View.OnClick
         pushEvent(new PageLoadEvent(atlasObject));
 
         titleView.setText(atlasObject.getDisplay());
-        objectView.setAtlasObject(atlasObject);
+        objectLayout.setAtlasObject(atlasObject);
     }
 
     @Override

@@ -6,7 +6,7 @@
     <!-- an item - aka page, from view pager on reader activity in mobile mode  -->
     <!-- this item layout is used only on mobile, on tablet there is no pager -->
 
-    <com.kidscademy.atlas.view.ReaderObjectView
+    <com.kidscademy.atlas.view.ReaderObjectLayout
         android:id="@+id/reader_page_object_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

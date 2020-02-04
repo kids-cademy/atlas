@@ -18,7 +18,7 @@ import com.kidscademy.atlas.util.BitmapLoader;
 import com.kidscademy.atlas.util.Colors;
 import com.kidscademy.atlas.util.Views;
 
-public class ReaderRelatedView extends ConstraintLayout implements Views.ListViewBuilder<RelatedObject>, View.OnClickListener {
+public class ReaderRelatedView extends ConstraintLayout implements ReaderSectionView, Views.ListViewBuilder<RelatedObject>, View.OnClickListener {
     @Nullable
     private ReaderAction.Listener listener;
 

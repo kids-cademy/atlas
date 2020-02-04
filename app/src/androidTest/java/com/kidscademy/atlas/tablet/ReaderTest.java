@@ -19,6 +19,7 @@ import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasRepository;
 import com.kidscademy.atlas.model.RelatedObject;
 import com.kidscademy.atlas.view.HorizontalScrollViewEx;
+import com.kidscademy.atlas.view.ReaderObjectLayout;
 
 import org.hamcrest.Matcher;
 import org.junit.After;
@@ -124,7 +125,7 @@ public class ReaderTest {
 
             // all three statements are variants for the same reader object view, for code demo purpose
             onView(withTagValue(is((Object) atlasObject.getTag()))).check(matches(isDisplayed()));
-            onView(allOf(withClassName(endsWith("ReaderObjectView")), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
+            onView(allOf(withClassName(endsWith(ReaderObjectLayout.class.getSimpleName())), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
             onView(allOf(withId(R.id.reader_object_view), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
 
             // object name and pictures path are used to signal page loaded

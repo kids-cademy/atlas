@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 
 import js.format.LongDateTime;
 
-public class ReaderInfoBoxView extends ConstraintLayout {
+public class ReaderInfoBoxView extends ConstraintLayout implements ReaderSectionView {
     private static final DateFormat LAST_UPDATED_FORMAT = new SimpleDateFormat("MMMM d, yyyy");
 
     private TextView lastUpdatedText;

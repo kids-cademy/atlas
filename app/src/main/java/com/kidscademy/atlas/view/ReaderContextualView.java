@@ -26,7 +26,7 @@ import com.kidscademy.atlas.util.Player;
  *
  * @author Iulian Rotaru
  */
-public class ReaderContextualView extends ConstraintLayout implements View.OnClickListener, Player.StateListener {
+public class ReaderContextualView extends ConstraintLayout implements ReaderSectionView, View.OnClickListener, Player.StateListener {
     private ImageView imageView;
     private TextView sampleTitle;
     private ImageView playButton;

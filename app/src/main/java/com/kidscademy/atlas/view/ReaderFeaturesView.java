@@ -16,7 +16,7 @@ import com.kidscademy.atlas.util.BitmapLoader;
 import js.log.Log;
 import js.log.LogFactory;
 
-public class ReaderFeaturesView extends ConstraintLayout {
+public class ReaderFeaturesView extends ConstraintLayout implements ReaderSectionView {
     private static final Log log = LogFactory.getLog(ReaderFactsView.class);
 
     private FeaturesTableView featuresTableView;
@@ -47,7 +47,7 @@ public class ReaderFeaturesView extends ConstraintLayout {
         log.debug("on finish inflate: features view: table view height=%d", featuresTableView.getMeasuredHeight());
     }
 
-    public void update(@NonNull final AtlasObject atlasObject, final Runnable drawCompleteListener) {
+    public void update(@NonNull final AtlasObject atlasObject) {
         featuresTableView.update(atlasObject, new Runnable() {
             @Override
             public void run() {
@@ -61,25 +61,25 @@ public class ReaderFeaturesView extends ConstraintLayout {
                         descriptionView.setTextColor(R.color.text_accent);
                         descriptionView.update(atlasObject);
                     }
-                } else {
-                    if (descriptionView != null) {
-                        descriptionView.setVisibility(View.GONE);
-                    }
+                    return;
+                }
 
-                    BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getTriviaPath(), triviaImage);
-                    loader.start();
-                    triviaImage.setVisibility(View.VISIBLE);
+                if (descriptionView != null) {
+                    descriptionView.setVisibility(View.GONE);
+                }
 
-                    if (triviaText != null) {
-                        if (atlasObject.hasTriviaCaption()) {
-                            triviaText.setText(atlasObject.getTriviaCaption());
-                            triviaText.setVisibility(View.VISIBLE);
-                        } else {
-                            triviaText.setVisibility(View.GONE);
-                        }
+                BitmapLoader loader = new BitmapLoader(getContext(), atlasObject.getTriviaPath(), triviaImage);
+                loader.start();
+                triviaImage.setVisibility(View.VISIBLE);
+
+                if (triviaText != null) {
+                    if (atlasObject.hasTriviaCaption()) {
+                        triviaText.setText(atlasObject.getTriviaCaption());
+                        triviaText.setVisibility(View.VISIBLE);
+                    } else {
+                        triviaText.setVisibility(View.GONE);
                     }
                 }
-                drawCompleteListener.run();
             }
         });
     }

@@ -19,7 +19,7 @@ import com.kidscademy.atlas.util.BitmapLoader;
 import com.kidscademy.atlas.util.Colors;
 import com.kidscademy.atlas.util.Views;
 
-public class ReaderLinksView extends ConstraintLayout implements Views.ListViewBuilder<Link>, View.OnClickListener {
+public class ReaderLinksView extends ConstraintLayout implements ReaderSectionView, Views.ListViewBuilder<Link>, View.OnClickListener {
     private HexaIcon captionView;
     private LinearLayout listView;
 
