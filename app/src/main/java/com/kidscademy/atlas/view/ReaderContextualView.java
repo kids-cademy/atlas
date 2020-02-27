@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
+import com.kidscademy.atlas.activity.ReaderActivity;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.EventsTree;
 import com.kidscademy.atlas.model.ReaderAction;
@@ -38,6 +39,7 @@ public class ReaderContextualView extends ConstraintLayout implements ReaderSect
     private ReaderAction.Listener listener;
     private AtlasObject atlasObject;
     private boolean playing;
+    private boolean tablet;
 
     /**
      * Create reader contextual view instance. This custom view should be created only from activities
@@ -54,6 +56,9 @@ public class ReaderContextualView extends ConstraintLayout implements ReaderSect
         }
         if (context instanceof EventsTree) {
             ((EventsTree) context).registerListener(Player.StateListener.class, this);
+        }
+        if(context instanceof ReaderActivity) {
+            tablet = ((ReaderActivity)context).isTablet();
         }
         inflate(getContext(), R.layout.reader_contextual, this);
     }
@@ -80,9 +85,14 @@ public class ReaderContextualView extends ConstraintLayout implements ReaderSect
         imageView.setTag(atlasObject.getContextualPath());
 
         if (!atlasObject.hasAudioSample()) {
-            sampleTitle.setText(null);
+            if(tablet) {
+                sampleTitle.setText(null);
+            }
+            else {
+                sampleTitle.setVisibility(View.GONE);
+            }
             playButton.setVisibility(View.INVISIBLE);
-            waveformView.setVisibility(View.INVISIBLE);
+            waveformView.setVisibility(tablet? View.INVISIBLE: View.GONE);
 
             if (graphicsGroup != null) {
                 graphicsGroup.setVisibility(View.VISIBLE);
@@ -91,6 +101,7 @@ public class ReaderContextualView extends ConstraintLayout implements ReaderSect
         }
 
         sampleTitle.setText(atlasObject.getAudioSampleTitle());
+        sampleTitle.setVisibility(View.VISIBLE);
         playButton.setVisibility(View.VISIBLE);
         waveformView.setVisibility(View.VISIBLE);
 
