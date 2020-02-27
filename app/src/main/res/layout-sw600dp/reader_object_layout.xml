@@ -15,14 +15,12 @@
         android:id="@+id/reader_intro_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/page_padding"
-        tools:visibility="visible" />
+        android:layout_marginStart="@dimen/page_padding" />
 
     <com.kidscademy.atlas.view.ReaderInfoBoxView
         android:id="@+id/reader_infobox_view"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        tools:visibility="visible">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/reader_infobox_circle"
@@ -80,25 +78,19 @@
         android:layout_marginStart="@dimen/page_padding"
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
-        android:showDividers="middle"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:showDividers="middle" />
 
     <com.kidscademy.atlas.view.ReaderConservationView
         android:id="@+id/reader_conservation_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:layout_height="match_parent" />
 
     <com.kidscademy.atlas.view.ReaderFeaturesView
         android:id="@+id/reader_features"
         android:layout_width="@dimen/reader_features_width"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:layout_marginEnd="20dp" />
 
     <com.kidscademy.atlas.view.DescriptionTabletView
         android:id="@+id/reader_description_column2"
@@ -107,16 +99,12 @@
         android:layout_marginStart="@dimen/page_padding"
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
-        android:showDividers="middle"
-        android:visibility="visible"
-        tools:visibility="gone" />
+        android:showDividers="middle" />
 
     <com.kidscademy.atlas.view.ReaderFeaturedView
         android:id="@+id/reader_featured_view"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:layout_height="match_parent" />
 
     <com.kidscademy.atlas.view.DescriptionTabletView
         android:id="@+id/reader_description_column3"
@@ -125,23 +113,17 @@
         android:layout_marginStart="@dimen/page_padding"
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
-        android:showDividers="middle"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:showDividers="middle" />
 
     <com.kidscademy.atlas.view.ReaderContextualView
         android:id="@+id/reader_contextual_view"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:layout_height="match_parent" />
 
     <ScrollView
         android:id="@+id/reader_facts"
         android:layout_width="@dimen/reader_facts_width"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        tools:visibility="visible">
+        android:layout_height="match_parent">
 
         <com.kidscademy.atlas.view.ReaderFactsView
             android:id="@+id/reader_facts_view"
@@ -153,16 +135,12 @@
     <com.kidscademy.atlas.view.ReaderRelatedView
         android:id="@+id/reader_related_view"
         android:layout_width="@dimen/reader_related_width"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:layout_height="match_parent" />
 
     <com.kidscademy.atlas.view.ReaderLinksView
         android:id="@+id/reader_links_view"
         android:layout_width="@dimen/reader_links_width"
         android:layout_height="match_parent"
-        android:layout_marginEnd="40dp"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:layout_marginEnd="40dp" />
 
 </merge>

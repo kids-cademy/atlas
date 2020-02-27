@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
@@ -44,10 +45,12 @@ public class ReaderObjectLayout extends LinearLayout {
      */
     private Runnable[] sectionGroups = new Runnable[6];
 
+    private AtlasObject atlasObject;
+
     public ReaderObjectLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         log.trace("ReaderObjectView(Context context, @Nullable AttributeSet attrs)");
-        inflate(context, R.layout.reader_object_view, this);
+        inflate(context, R.layout.reader_object_layout, this);
     }
 
     @Override
@@ -82,6 +85,7 @@ public class ReaderObjectLayout extends LinearLayout {
      */
     public void setAtlasObject(@NonNull final AtlasObject atlasObject) {
         log.trace("setAtlasObject(@NonNull final AtlasObject atlasObject)");
+        this.atlasObject = atlasObject;
 
         // this tag is used by espresso tests
         setTag(atlasObject.getTag());
@@ -173,7 +177,7 @@ public class ReaderObjectLayout extends LinearLayout {
      * @param groupIndex index of the current sections group to update.
      */
     private void updateSectionsGroup(final int groupIndex) {
-        log.trace("updateSectionsGroup(final int groupIndex): %d", groupIndex);
+        log.trace("updateSectionsGroup(final int groupIndex): %d.", groupIndex);
         if (groupIndex == sectionGroups.length) {
             return;
         }
@@ -182,6 +186,7 @@ public class ReaderObjectLayout extends LinearLayout {
                 @Override
                 public boolean onPreDraw() {
                     getViewTreeObserver().removeOnPreDrawListener(this);
+                    log.debug("Create handler for sections group: %d.", groupIndex);
                     Handler handler = new Handler();
                     handler.post(new Runnable() {
                         @Override
@@ -193,6 +198,7 @@ public class ReaderObjectLayout extends LinearLayout {
                 }
             });
         }
+        log.debug("Run sections group |%d| for atlas object |%s|.", groupIndex, atlasObject.getTag());
         sectionGroups[groupIndex].run();
     }
 
