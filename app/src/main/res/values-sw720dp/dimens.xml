@@ -12,7 +12,7 @@
     <dimen name="horizontal_rule_top_margin">60dp</dimen>
     <dimen name="min_infobox_width">430dp</dimen>
     <integer name="search_result_rows">2</integer>
-    <dimen name="divider_weight">4dp</dimen>
+    <dimen name="divider_size">4dp</dimen>
     <dimen name="trademark_icon_size">96dp</dimen>
     <dimen name="trademark_icon_margin">120dp</dimen>
     <!-- trademark_icon_page_header_offset = icon_size  - trademark_icon_size / 2 -->

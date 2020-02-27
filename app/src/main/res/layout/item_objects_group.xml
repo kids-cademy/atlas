@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/divider_weight"
+    android:layout_marginBottom="@dimen/divider_size"
     android:background="@drawable/click_highlight"
     android:padding="4dp"
     tools:showIn="@layout/compo_objects_group">

@@ -3,7 +3,7 @@
     <dimen name="page_padding">24dp</dimen>
     <dimen name="sections_space">80dp</dimen>
     <dimen name="paragraph_space">24dp</dimen>
-    <dimen name="divider_weight">2dp</dimen>
+    <dimen name="divider_size">2dp</dimen>
     <dimen name="textbox_padding">16dp</dimen>
     <dimen name="icon_size">64dp</dimen>
 

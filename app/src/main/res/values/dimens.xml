@@ -40,7 +40,7 @@
     <dimen name="horizontal_rule_top_margin">40dp</dimen>
     <dimen name="rule_weight">1dp</dimen>
 
-    <dimen name="divider_weight">1dp</dimen>
+    <dimen name="divider_size">1dp</dimen>
     <dimen name="bullet_size">36dp</dimen>
     <dimen name="half_bullet_size">18dp</dimen>
 
@@ -55,6 +55,7 @@
     <dimen name="reader_related_width"></dimen>
     <dimen name="reader_links_width"></dimen>
     <dimen name="heading_size">80dp</dimen>
+    <integer name="reader_paragraphs_count">6</integer>
 
     <!-- top margin for description column from features section  -->
     <dimen name="features_description_margin_top"></dimen>
