@@ -19,6 +19,68 @@
         tools:src="@drawable/sample_contextual_image" />
 
     <TextView
+        android:id="@+id/contextual_caption_eol"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/image_caption_bg"
+        android:paddingStart="@dimen/featured_caption_padding_x"
+        android:paddingTop="@dimen/featured_caption_padding_y"
+        android:paddingEnd="@dimen/featured_caption_padding_x"
+        android:paddingBottom="@dimen/featured_caption_padding_y"
+        android:text="@string/sample_image_caption"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contextual_image" />
+
+    <android.support.constraint.Group
+        android:id="@+id/contextual_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="contextual_caption_bg,contextual_caption_vr,contextual_caption_text" />
+
+    <TextView
+        android:id="@+id/contextual_caption_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/heading_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/contextual_caption_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/contextual_caption_text" />
+
+    <TextView
+        android:id="@+id/contextual_caption_vr"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/vertical_rule_start_margin"
+        android:background="@color/rule"
+        app:layout_constraintBottom_toBottomOf="@+id/contextual_caption_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/contextual_caption_text" />
+
+    <TextView
+        android:id="@+id/contextual_caption_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="10"
+        android:padding="@dimen/paragraph_space"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/contextual_caption_vr"
+        app:layout_constraintTop_toBottomOf="@id/contextual_image"
+        tools:text="@string/sample_image_caption" />
+
+    <android.support.constraint.Group
+        android:id="@+id/contextual_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="contextual_sample_title,contextual_play_button,contextual_waveform" />
+
+    <TextView
         android:id="@+id/contextual_sample_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

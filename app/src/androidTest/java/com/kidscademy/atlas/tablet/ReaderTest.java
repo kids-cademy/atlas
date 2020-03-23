@@ -1,13 +1,6 @@
 package com.kidscademy.atlas.tablet;
 
-import android.view.View;
-import android.widget.HorizontalScrollView;
-
-import androidx.test.espresso.PerformException;
-import androidx.test.espresso.UiController;
-import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.matcher.ViewMatchers;
-import androidx.test.espresso.util.HumanReadables;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
@@ -18,10 +11,8 @@ import com.kidscademy.atlas.app.App;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.model.AtlasRepository;
 import com.kidscademy.atlas.model.RelatedObject;
-import com.kidscademy.atlas.view.HorizontalScrollViewEx;
 import com.kidscademy.atlas.view.ReaderObjectLayout;
 
-import org.hamcrest.Matcher;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,8 +28,6 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.action.ViewActions.swipeRight;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
-import static androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
@@ -47,7 +36,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withTagValue;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.kidscademy.atlas.Util.assertVisibility;
 import static com.kidscademy.atlas.Util.childAtPosition;
-import static com.kidscademy.atlas.Util.findFirstParentLayoutOfClass;
+import static com.kidscademy.atlas.Util.horizontalScrollTo;
 import static com.kidscademy.atlas.Util.isFactValue;
 import static com.kidscademy.atlas.Util.isFactView;
 import static com.kidscademy.atlas.Util.sleep;
@@ -71,12 +60,12 @@ public class ReaderTest {
     @BeforeClass
     public static void beforeClass() {
         // file location: /sdcard/ReaderTest.trace
-        //Debug.startMethodTracing("ReaderTest");
+        // Debug.startMethodTracing("ReaderTest");
     }
 
     @AfterClass
     public static void afterClass() {
-        //Debug.stopMethodTracing();
+        // Debug.stopMethodTracing();
     }
 
     @Before
@@ -95,21 +84,21 @@ public class ReaderTest {
 
     @After
     public void afterTest() {
-//        onView(withId(R.id.activity_atlas_reader_fab_control)).perform(click());
-//        waitView(withId(R.id.activity_atlas_reader_fab_close)).perform(click());
-        //onView(withId(R.id.main_close)).perform(pressBack());
+        // onView(withId(R.id.activity_atlas_reader_fab_control)).perform(click());
+        // waitView(withId(R.id.activity_atlas_reader_fab_close)).perform(click());
+        // onView(withId(R.id.main_close)).perform(pressBack());
     }
 
     @Test
     public void quickNavigateAllPages() {
         for (int i = 0; i < repository.getObjectsCount(); ++i) {
             sleep(200);
-            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
+            onView(allOf(withId(R.id.reader_header_title), withText(repository.getObjectByIndex(i).getDisplay()))).check(matches(isDisplayed()));
             onView(withId(R.id.action_next)).perform(click());
         }
         for (int i = repository.getObjectsCount() - 1; i >= 0; --i) {
             sleep(200);
-            waitView(withText(repository.getObjectByIndex(i).getDisplay())).check(matches(isDisplayed()));
+            onView(allOf(withId(R.id.reader_header_title), withText(repository.getObjectByIndex(i).getDisplay()))).check(matches(isDisplayed()));
             onView(withId(R.id.action_previous)).perform(click());
         }
     }
@@ -117,23 +106,21 @@ public class ReaderTest {
     @Test
     public void pagesBrowsing() {
         for (int i = 0; i < repository.getObjectsCount(); ++i) {
-            System.out.println("---------------------------------------------------------");
             final AtlasObject atlasObject = repository.getObjectByIndex(i);
 
-            // for slow devices allow time to render object view
-            sleep(500);
+            onView(allOf(withId(R.id.reader_header_title), withText(atlasObject.getDisplay()))).check(matches(isDisplayed()));
+            onView(withId(R.id.reader_page_scroll)).perform(swipeLeft());
 
             // all three statements are variants for the same reader object view, for code demo purpose
             onView(withTagValue(is((Object) atlasObject.getTag()))).check(matches(isDisplayed()));
             onView(allOf(withClassName(endsWith(ReaderObjectLayout.class.getSimpleName())), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
             onView(allOf(withId(R.id.reader_object_view), withTagValue(is((Object) atlasObject.getTag())))).check(matches(isDisplayed()));
 
-            // object name and pictures path are used to signal page loaded
-            waitView(withText(atlasObject.getDisplay())).check(matches(isDisplayed()));
-            waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
+            // check if cover and contextual images are loaded, if object has them
+            if (atlasObject.hasCoverImage()) {
+                onView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
+            }
             if (atlasObject.hasContextualImage()) {
-                waitView(withTagValue(is((Object) atlasObject.getContextualPath())));
-                // instrument picture is not on visible area but should be loaded
                 onView(withTagValue(is((Object) atlasObject.getContextualPath()))).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));
             }
 
@@ -142,13 +129,10 @@ public class ReaderTest {
             onView(withPageId(atlasObject.getTag(), R.id.reader_related_view)).check(assertVisibility(atlasObject.hasRelated()));
             onView(withPageId(atlasObject.getTag(), R.id.reader_links_view)).check(assertVisibility(atlasObject.hasLinks()));
 
-            // swipe horizontally right and back on left
-            sleep(1000);
-            onView(withId(R.id.reader_page_scroll)).perform(swipeLeft());
-            sleep(1000);
+            // swipe horizontally back on page start
             onView(withId(R.id.reader_page_scroll)).perform(swipeRight());
 
-            sleep(500);
+            //sleep(500);
             onView(withId(R.id.action_next)).perform(click());
         }
     }
@@ -259,9 +243,6 @@ public class ReaderTest {
         waitView(withTagValue(is((Object) atlasObject.getCoverPath()))).check(matches(isDisplayed()));
 
         for (int i = 0, position = 0; i < 20; ++i) {
-            // wait for reader page active, signaled by picture loaded
-            waitView(withTagValue(is((Object) atlasObject.getContextualPath())));
-
             // scroll to related objects section
             onView(withPageId(atlasObject.getTag(), R.id.reader_related_view)).perform(horizontalScrollTo());
 
@@ -271,47 +252,8 @@ public class ReaderTest {
             // prepare current object and next random related object position
             RelatedObject relatedObject = atlasObject.getRelated()[position];
             atlasObject = repository.getObjectByIndex(relatedObject.getIndex());
-            // limit related object position to not exceed surface display
-            position = random.nextInt(Math.min(atlasObject.getRelated().length, 6));
+            // hard coded magic value!!! limit related object position to not exceed surface display
+            position = random.nextInt(Math.min(atlasObject.getRelated().length, 5));
         }
-    }
-
-    // ---------------------------------------------------------------------------------------------
-
-    private static ViewAction horizontalScrollTo() {
-        return new ViewAction() {
-
-            @Override
-            public Matcher<View> getConstraints() {
-                return allOf(
-                        isDescendantOfA(isAssignableFrom(HorizontalScrollViewEx.class)),
-                        withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE));
-            }
-
-            @Override
-            public String getDescription() {
-                return "Ancestor view is not HorizontalScrollView or target view is not visible";
-            }
-
-            @Override
-            public void perform(UiController uiController, View view) {
-                try {
-                    HorizontalScrollView horizontalScrollView = (HorizontalScrollView) findFirstParentLayoutOfClass(view, HorizontalScrollViewEx.class);
-                    if (horizontalScrollView != null) {
-                        horizontalScrollView.scrollTo(view.getLeft(), 0);
-                    } else {
-                        throw new Exception("Unable to find HorizontalScrollView parent.");
-                    }
-                } catch (Exception e) {
-                    throw new PerformException.Builder()
-                            .withActionDescription(this.getDescription())
-                            .withViewDescription(HumanReadables.describe(view))
-                            .withCause(e)
-                            .build();
-                }
-                uiController.loopMainThreadUntilIdle();
-            }
-
-        };
     }
 }

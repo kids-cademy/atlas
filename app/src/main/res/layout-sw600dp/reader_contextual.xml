@@ -20,6 +20,39 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/sample_contextual_image" />
 
+    <android.support.constraint.Group
+        android:id="@+id/contextual_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="contextual_caption_text" />
+
+    <TextView
+        android:id="@+id/contextual_caption_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="@color/image_caption_bg"
+        android:paddingStart="@dimen/featured_caption_padding_x"
+        android:paddingTop="@dimen/featured_caption_padding_y"
+        android:paddingEnd="@dimen/featured_caption_padding_x"
+        android:paddingBottom="@dimen/featured_caption_padding_y"
+        android:text="@string/sample_image_caption"
+        android:textAppearance="@style/TextAppearance.Small.Accent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/contextual_image"
+        app:layout_constraintStart_toStartOf="@id/contextual_image"
+        app:layout_constraintTop_toBottomOf="@id/contextual_image" />
+
+    <android.support.constraint.Group
+        android:id="@+id/contextual_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="contextual_sample_title,contextual_play_button,contextual_waveform"
+        tools:visibility="visible" />
+
     <TextView
         android:id="@+id/contextual_sample_title"
         android:layout_width="0dp"
@@ -33,12 +66,12 @@
         android:paddingRight="10dp"
         android:paddingBottom="26dp"
         android:singleLine="false"
-        tools:text="@string/sample_object_audio_title"
         android:textAppearance="@style/TextAppearance.Medium.Accent"
         app:layout_constraintBottom_toBottomOf="@id/contextual_image"
         app:layout_constraintEnd_toEndOf="@id/contextual_image"
         app:layout_constraintStart_toStartOf="@id/contextual_image"
-        app:layout_constraintTop_toBottomOf="@+id/contextual_image" />
+        app:layout_constraintTop_toBottomOf="@+id/contextual_image"
+        tools:text="@string/sample_object_audio_title" />
 
     <ImageView
         android:id="@+id/contextual_play_button"

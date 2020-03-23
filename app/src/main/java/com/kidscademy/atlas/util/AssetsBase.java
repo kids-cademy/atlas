@@ -10,11 +10,15 @@ import java.util.Arrays;
 
 import js.json.Json;
 import js.lang.GType;
+import js.log.Log;
+import js.log.LogFactory;
 import js.util.Classes;
 import js.util.Files;
 import js.util.Types;
 
 public abstract class AssetsBase {
+    protected static final Log log = LogFactory.getLog(AssetsBase.class);
+
     protected final Context context;
 
     public AssetsBase(Context context) {
@@ -32,6 +36,7 @@ public abstract class AssetsBase {
             Json json = Classes.loadService(Json.class);
             return json.parse(reader, type);
         } catch (Throwable t) {
+            log.error(t);
             return (T) Types.getEmptyValue(type);
         } finally {
             Files.close(reader);

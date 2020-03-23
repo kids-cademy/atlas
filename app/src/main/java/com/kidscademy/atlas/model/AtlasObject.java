@@ -14,7 +14,6 @@ public class AtlasObject {
     private static final Log log = LogFactory.getLog(AtlasObject.class);
 
     private int index;
-    private int rank;
     private String name;
     private String display;
     private String definition;
@@ -55,10 +54,6 @@ public class AtlasObject {
 
     public int getIndex() {
         return index;
-    }
-
-    public int getRank() {
-        return rank;
     }
 
     @NonNull
@@ -149,6 +144,14 @@ public class AtlasObject {
 
     public String getContextualPath() {
         return getImagePath(Image.KEY_CONTEXTUAL);
+    }
+
+    public boolean hasContextualCaption() {
+        return getImageCaption(Image.KEY_CONTEXTUAL) != null;
+    }
+
+    public String getContextualCaption() {
+        return getImageCaption(Image.KEY_CONTEXTUAL);
     }
 
     private String getImagePath(String imageName) {

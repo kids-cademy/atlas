@@ -29,9 +29,12 @@ import com.kidscademy.atlas.util.Player;
  */
 public class ReaderContextualView extends ConstraintLayout implements ReaderSectionView, View.OnClickListener, Player.StateListener {
     private ImageView imageView;
+    private TextView captionText;
     private TextView sampleTitle;
     private ImageView playButton;
 
+    private Group captionGroup;
+    private Group audioGroup;
     private Group graphicsGroup;
     private ImageView waveformView;
 
@@ -57,8 +60,8 @@ public class ReaderContextualView extends ConstraintLayout implements ReaderSect
         if (context instanceof EventsTree) {
             ((EventsTree) context).registerListener(Player.StateListener.class, this);
         }
-        if(context instanceof ReaderActivity) {
-            tablet = ((ReaderActivity)context).isTablet();
+        if (context instanceof ReaderActivity) {
+            tablet = ((ReaderActivity) context).isTablet();
         }
         inflate(getContext(), R.layout.reader_contextual, this);
     }
@@ -68,11 +71,14 @@ public class ReaderContextualView extends ConstraintLayout implements ReaderSect
         super.onFinishInflate();
 
         imageView = findViewById(R.id.contextual_image);
+        captionText = findViewById(R.id.contextual_caption_text);
         sampleTitle = findViewById(R.id.contextual_sample_title);
 
         playButton = findViewById(R.id.contextual_play_button);
         playButton.setOnClickListener(this);
 
+        captionGroup = findViewById(R.id.contextual_caption);
+        audioGroup = findViewById(R.id.contextual_audio);
         graphicsGroup = findViewById(R.id.contextual_graphics);
         waveformView = findViewById(R.id.contextual_waveform);
     }
@@ -84,30 +90,27 @@ public class ReaderContextualView extends ConstraintLayout implements ReaderSect
         // this image view tag is used by espresso tests
         imageView.setTag(atlasObject.getContextualPath());
 
-        if (!atlasObject.hasAudioSample()) {
-            if(tablet) {
-                sampleTitle.setText(null);
-            }
-            else {
-                sampleTitle.setVisibility(View.GONE);
-            }
-            playButton.setVisibility(View.INVISIBLE);
-            waveformView.setVisibility(tablet? View.INVISIBLE: View.GONE);
+        audioGroup.setVisibility(View.GONE);
+        captionGroup.setVisibility(View.GONE);
+        if (graphicsGroup != null) {
+            graphicsGroup.setVisibility(View.GONE);
+        }
 
-            if (graphicsGroup != null) {
-                graphicsGroup.setVisibility(View.VISIBLE);
-            }
+        if (atlasObject.hasAudioSample()) {
+            audioGroup.setVisibility(View.VISIBLE);
+            sampleTitle.setText(atlasObject.getAudioSampleTitle());
+            new BitmapLoader(getContext(), atlasObject.getWaveformPath(), waveformView, 1).start();
             return;
         }
 
-        sampleTitle.setText(atlasObject.getAudioSampleTitle());
-        sampleTitle.setVisibility(View.VISIBLE);
-        playButton.setVisibility(View.VISIBLE);
-        waveformView.setVisibility(View.VISIBLE);
+        if (atlasObject.hasContextualCaption()) {
+            captionGroup.setVisibility(View.VISIBLE);
+            captionText.setText(atlasObject.getContextualCaption());
+            return;
+        }
 
-        new BitmapLoader(getContext(), atlasObject.getWaveformPath(), waveformView, 1).start();
         if (graphicsGroup != null) {
-            graphicsGroup.setVisibility(View.GONE);
+            graphicsGroup.setVisibility(View.VISIBLE);
         }
     }
 

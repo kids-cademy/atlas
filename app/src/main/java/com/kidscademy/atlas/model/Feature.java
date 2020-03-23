@@ -72,6 +72,6 @@ public class Feature {
     }
 
     public enum Quantity {
-        MASS, TIME, LENGTH, SPEED
+        MASS, TIME, LENGTH, SPEED, FOOD_ENERGY
     }
 }

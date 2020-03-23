@@ -1,20 +1,29 @@
 package com.kidscademy.atlas;
 
 import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.v4.widget.NestedScrollView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 
 import androidx.test.espresso.IdlingResource;
+import androidx.test.espresso.PerformException;
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.ViewAssertion;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.matcher.ViewMatchers;
+import androidx.test.espresso.util.HumanReadables;
 import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 
-import com.kidscademy.atlas.R;
+import com.kidscademy.atlas.model.AtlasObject;
+import com.kidscademy.atlas.view.HorizontalScrollViewEx;
+import com.kidscademy.atlas.view.ReaderPage;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -24,6 +33,7 @@ import java.util.Collection;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility;
@@ -107,7 +117,7 @@ public class Util {
     public static ViewInteraction waitView(Matcher<View> matcher) {
         for (int j = 0; ; j++) {
             if (j == 200) {
-                throw new AssertionError("View not loaded: " + matcher.toString());
+                throw new AssertionError("View not visible: " + matcher.toString());
             }
             try {
                 return onView(allOf(matcher, isDisplayed()));
@@ -241,6 +251,79 @@ public class Util {
         };
     }
 
+    public static ViewAction nestedScrollTo() {
+        return new ViewAction() {
+
+            @Override
+            public Matcher<View> getConstraints() {
+                return allOf(
+                        isDescendantOfA(isAssignableFrom(NestedScrollView.class)),
+                        withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE));
+            }
+
+            @Override
+            public String getDescription() {
+                return "View is not NestedScrollView";
+            }
+
+            @Override
+            public void perform(UiController uiController, View view) {
+                try {
+                    NestedScrollView nestedScrollView = (NestedScrollView) findFirstParentLayoutOfClass(view, ReaderPage.class);
+                    if (nestedScrollView != null) {
+                        nestedScrollView.scrollTo(0, view.getTop());
+                    } else {
+                        throw new Exception("Unable to find NestedScrollView parent.");
+                    }
+                } catch (Exception e) {
+                    throw new PerformException.Builder()
+                            .withActionDescription(this.getDescription())
+                            .withViewDescription(HumanReadables.describe(view))
+                            .withCause(e)
+                            .build();
+                }
+                uiController.loopMainThreadUntilIdle();
+            }
+        };
+    }
+
+    public static ViewAction horizontalScrollTo() {
+        return new ViewAction() {
+
+            @Override
+            public Matcher<View> getConstraints() {
+                return allOf(
+                        isDescendantOfA(isAssignableFrom(HorizontalScrollViewEx.class)),
+                        withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE));
+            }
+
+            @Override
+            public String getDescription() {
+                return "Ancestor view is not HorizontalScrollView or target view is not visible";
+            }
+
+            @Override
+            public void perform(UiController uiController, View view) {
+                try {
+                    HorizontalScrollView horizontalScrollView = (HorizontalScrollView) findFirstParentLayoutOfClass(view, HorizontalScrollViewEx.class);
+                    if (horizontalScrollView != null) {
+                        horizontalScrollView.scrollTo(view.getLeft(), 0);
+                    } else {
+                        throw new Exception("Unable to find HorizontalScrollView parent.");
+                    }
+                } catch (Exception e) {
+                    throw new PerformException.Builder()
+                            .withActionDescription(this.getDescription())
+                            .withViewDescription(HumanReadables.describe(view))
+                            .withCause(e)
+                            .build();
+                }
+                uiController.loopMainThreadUntilIdle();
+            }
+
+        };
+    }
+
     // ---------------------------------------------------------------------------------------------
 
     public static class ViewVisibilityIdlingResource implements IdlingResource {
@@ -270,6 +353,38 @@ public class Util {
                 }
             }
 
+            return idle;
+        }
+
+        @Override
+        public void registerIdleTransitionCallback(ResourceCallback resourceCallback) {
+            this.resourceCallback = resourceCallback;
+        }
+    }
+
+    public static class ElapsedTimeIdlingResource implements IdlingResource {
+        private final long startTime;
+        private final long waitingTime;
+        private ResourceCallback resourceCallback;
+
+        public ElapsedTimeIdlingResource(long waitingTime) {
+            this.startTime = System.currentTimeMillis();
+            this.waitingTime = waitingTime;
+        }
+
+        @Override
+        public String getName() {
+            return ElapsedTimeIdlingResource.class.getName();
+        }
+
+        @Override
+        public boolean isIdleNow() {
+            long elapsed = System.currentTimeMillis() - startTime;
+            Log.d("isIdleNow", "elapsed: " + elapsed);
+            boolean idle = (elapsed >= waitingTime);
+            if (idle) {
+                resourceCallback.onTransitionToIdle();
+            }
             return idle;
         }
 
