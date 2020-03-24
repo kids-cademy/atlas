@@ -38,7 +38,7 @@
         android:paddingEnd="@dimen/featured_caption_padding_x"
         android:paddingBottom="@dimen/featured_caption_padding_y"
         android:text="@string/sample_image_caption"
-        android:textAppearance="@style/TextAppearance.Small.Accent"
+        android:textAppearance="@style/TextAppearance.XSmall.Accent"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/contextual_image"
