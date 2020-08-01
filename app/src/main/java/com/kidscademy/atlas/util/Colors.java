@@ -13,7 +13,7 @@ public class Colors {
             R.color.purple_500,
             R.color.deep_purple_500,
             R.color.indigo_500,
-            R.color.blue_500,
+            R.color.blue_300,
             R.color.light_blue_500,
             R.color.cyan_500,
             R.color.teal_500,

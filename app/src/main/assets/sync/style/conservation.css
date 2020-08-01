@@ -19,6 +19,10 @@
 	opacity: 0.4;
 }
 
+.conservation .status li:first-child {
+	margin-top: 6px;
+}
+
 .conservation .status li.active {
 	opacity: 1;
 }

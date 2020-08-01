@@ -10,17 +10,15 @@
 
     <ImageView
         android:id="@+id/reader_featured_image"
+        style="?reader_featured_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="80dp"
         android:contentDescription="@string/featured_image"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
         tools:srcCompat="@drawable/sample_cover_image" />
 
     <android.support.constraint.Guideline

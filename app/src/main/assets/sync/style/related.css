@@ -26,6 +26,7 @@
 	margin-left: 160px;
 	text-transform: uppercase;
 	color: yellow;
+	font-size: 1.8rem;
 }
 
 .related .list {
@@ -33,4 +34,8 @@
 	width: 540px;
 	top: 160px;
 	left: 160px;
+}
+
+.related .item .display {
+	color: white;
 }

@@ -1,57 +1,60 @@
 .intro {
-	width: 560px;
+	min-width: 500px;
 }
 
 .intro .bg {
 	position: absolute;
-	width: 84%;
+	width: 410px;
 	height: 100%;
 	background: rgba(255, 255, 255, 0.2);
 	border-radius: 0 0 100px 0;
-	right: 0;
+	left: 90px;
+	z-index: -1;
+}
+
+.intro .circle {
+	z-index: -1;
 }
 
 .intro .circle.large {
-	width: 380px;
-	height: 380px;
-	top: 38px;
-	background-color: rgba(255,255,255,0.4);	
+	width: 370px;
+	height: 370px;
+	top: 40px;
+	left: 8px;
+	background-color: rgba(255,255,255,0.25);
 }
 
 .intro .circle.small {
-	width: 96px;
-	height: 96px;
-	right: 20px;
+	width: 140px;
+	height: 140px;
+	right: 30px;
 	bottom: 25%;	
-	background-color: rgba(2,25,111,0.3);	
-}
-
-.intro .container {
-	width: 100%;
-	height: 100%;
-	white-space: normal;
-}
-
-.intro .image-container {
-	display: block;
-	position: relative;
-	height: 50%;
-	margin-right: 10%;
-}
-
-.intro .circle-bg {
-	height: 100%;
-	margin: 10% 0 0 5%;	
+	background-color: rgba(2,25,111,0.2);	
 }
 
 .intro .image {
-	top: 10%;	
+	max-height: 38vh;
+	max-width: 700px;
+	margin-left: 2vh;
+	margin-top: 8vh;	
+}
+
+.intro.narrow-image .image {
+	max-height: 50vh;
+	margin-top: 2vh;
+	margin-left: 4vh;
+}
+
+.intro.square-image .image {
+	max-height: 46vh;
+	margin-left: 0;
+	margin-top: 2vh;
 }
 
 .intro .text-container {
 	position: absolute;
-	width: 100%;
-	top: 33%;
+	width: 500px;
+	top: 50%;
 	bottom: 0;
 	margin: auto;
 }
@@ -60,10 +63,40 @@
 	position: absolute;
 	box-sizing: border-box;
 	width: 100%;
-	top: 50%;
+	top: 30%;
 	margin: 0;
 	padding-right: 30px;
-	line-height: 40px;
-	font-size: 1.6rem;
+	font-size: 1.3rem;
 	color: white;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* MODERN THEME */
+
+.reader.modern .intro .bg {
+	border-radius: 0;
+}
+
+.reader.modern .intro .circle {
+	border-radius: 0;
+}
+
+.reader.modern .intro .circle.small {
+	width: 260px;
+	right: -60px;
+}
+
+.reader.modern .intro .circle.large {
+	display: none;
+}
+
+.reader.modern .intro .image {
+	max-height: 48vh;
+	max-width: 700px;
+	margin-left: 0;
+	margin-top: 8vh;	
+}
+
+.reader.modern .intro .text-container {
+	top: 60%;
 }

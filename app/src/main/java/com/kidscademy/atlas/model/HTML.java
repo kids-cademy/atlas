@@ -3,6 +3,7 @@ package com.kidscademy.atlas.model;
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +19,8 @@ public class HTML implements Converter {
     /**
      * Default constructor used by JSON deserializer.
      */
-    @SuppressWarnings("unused")
     public HTML() {
+        this.elements = Collections.emptyList();
     }
 
     public HTML(String html) {

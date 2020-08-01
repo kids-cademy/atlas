@@ -26,6 +26,9 @@ public class ReaderInfoBoxView extends ConstraintLayout implements ReaderSection
     private TextView classificationLabel;
     private TextView classificationText;
 
+    private TextView progenitorLabel;
+    private TextView progenitorText;
+
     private TaxonomyView taxonomyView;
 
     private Group aliasesGroup;
@@ -49,6 +52,8 @@ public class ReaderInfoBoxView extends ConstraintLayout implements ReaderSection
         lastUpdatedText = findViewById(R.id.infobox_last_updated);
         classificationLabel = findViewById(R.id.infobox_classification_label);
         classificationText = findViewById(R.id.infobox_classification);
+        progenitorLabel = findViewById(R.id.infobox_progenitor_label);
+        progenitorText = findViewById(R.id.infobox_progenitor);
         taxonomyView = findViewById(R.id.infobox_taxonomy);
         aliasesGroup = findViewById(R.id.infobox_aliases_group);
         aliasesListView = findViewById(R.id.infobox_aliases);
@@ -63,6 +68,7 @@ public class ReaderInfoBoxView extends ConstraintLayout implements ReaderSection
         lastUpdatedText.setText(LAST_UPDATED_FORMAT.format(atlasObject.getLastUpdated()));
 
         if (atlasObject.hasTaxonomy()) {
+            classificationLabel.setVisibility(View.VISIBLE);
             Taxon[] taxonomy = atlasObject.getTaxonomy();
             if (taxonomy.length == 1) {
                 classificationLabel.setText(Strings.capitalize(taxonomy[0].getName()));
@@ -79,6 +85,15 @@ public class ReaderInfoBoxView extends ConstraintLayout implements ReaderSection
             classificationLabel.setVisibility(View.GONE);
             classificationText.setVisibility(View.GONE);
             taxonomyView.setVisibility(View.GONE);
+        }
+
+        if (atlasObject.hasProgenitor()) {
+            this.progenitorLabel.setVisibility(View.VISIBLE);
+            this.progenitorText.setVisibility(View.VISIBLE);
+            this.progenitorText.setText(atlasObject.getProgenitor());
+        } else {
+            this.progenitorLabel.setVisibility(View.GONE);
+            this.progenitorText.setVisibility(View.GONE);
         }
 
         setVisibility(aliasesGroup, atlasObject.hasAliases());

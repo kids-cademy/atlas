@@ -9,11 +9,11 @@
 
     <ImageView
         android:id="@+id/item_fact_bullet"
+        style="?attr/reader_item_fact_bullet"
         android:layout_width="@dimen/bullet_size"
         android:layout_height="@dimen/bullet_size"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/support_graphics"
-        android:src="@drawable/facts_bullet"
         app:layout_constraintEnd_toEndOf="@id/item_fact_vr"
         app:layout_constraintStart_toStartOf="@id/item_fact_vr"
         app:layout_constraintTop_toTopOf="parent" />

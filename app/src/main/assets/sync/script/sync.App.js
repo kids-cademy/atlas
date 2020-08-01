@@ -56,6 +56,7 @@ sync.App.prototype = {
 				
 		this._coverSection.hide();
 		this._readerSection.show();
+		this._readerSection.addCssClass(atlasObject.theme);
 
 		// reset scroll events queue and move page at beginning when load a new object
 		this._scrollEventsQueue.length = 0;

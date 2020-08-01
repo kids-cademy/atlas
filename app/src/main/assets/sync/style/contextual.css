@@ -77,7 +77,8 @@
 .contextual .graphic {
 	display: inline-block;
 	vertical-align: middle;
-	margin-left: 10px;
+	margin-left: 20px;
+	border-radius: 50%;
 }
 
 .contextual .graphic.i1 {
@@ -98,4 +99,11 @@
 
 .contextual .graphic.i5 {
 	height: 20%;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* MODERN THEME */
+
+.reader.modern .contextual .graphic {
+	border-radius: 0;
 }

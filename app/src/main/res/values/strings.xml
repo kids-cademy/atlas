@@ -47,6 +47,7 @@
     <string name="conservation_bullet_NA">NA</string>
     <string name="infobox_last_updated">Last updated</string>
     <string name="infobox_classification">Classification</string>
+    <string name="infobox_progenitor">Manufacturer</string>
     <string name="infobox_alias">Also known as</string>
     <string name="infobox_since">Dates back to</string>
     <string name="infobox_period">Period</string>

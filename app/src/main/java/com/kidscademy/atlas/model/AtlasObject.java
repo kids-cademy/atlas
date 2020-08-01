@@ -2,6 +2,7 @@ package com.kidscademy.atlas.model;
 
 import android.support.annotation.NonNull;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 
@@ -40,6 +41,7 @@ public class AtlasObject {
     private Region[] spreading;
     private HDate startDate;
     private HDate endDate;
+    private String progenitor;
     private ConservationStatus conservation;
 
     private String sampleTitle;
@@ -51,6 +53,8 @@ public class AtlasObject {
     private Feature[] features;
     private RelatedObject[] related;
     private Link[] links;
+
+    private String theme;
 
     public int getIndex() {
         return index;
@@ -230,6 +234,14 @@ public class AtlasObject {
         return endDate;
     }
 
+    public boolean hasProgenitor() {
+        return progenitor != null;
+    }
+
+    public String getProgenitor() {
+        return progenitor;
+    }
+
     public boolean hasConservation() {
         return conservation != null;
     }
@@ -297,5 +309,36 @@ public class AtlasObject {
     @NonNull
     public String toString() {
         return name;
+    }
+
+    public static AtlasObject getEmptyInstance() {
+        AtlasObject object = new AtlasObject();
+        object.index = 0;
+        object.name = "empty";
+        object.display = "Empty";
+        object.definition = "";
+        object.description = new HTML();
+        object.descriptionParagraphOffset = 0;
+        object.images = Collections.emptyMap();
+        object.lastUpdated = new Date();
+        object.taxonomy = new Taxon[0];
+        object.aliases = new String[0];
+        object.spreading = new Region[0];
+        // all next null values have predicate for null test
+        object.startDate = null;
+        object.endDate = null;
+        object.progenitor = null;
+        object.conservation = null;
+        object.sampleTitle = null;
+        object.samplePath = null;
+        object.waveformPath = null;
+        object.waveformSrc = null;
+        object.facts = new Fact[0];
+        object.features = new Feature[0];
+        object.related = new RelatedObject[0];
+        object.links = new Link[0];
+        // not used
+        object.theme = null;
+        return object;
     }
 }

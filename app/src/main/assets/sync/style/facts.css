@@ -2,6 +2,12 @@
 	width: 750px;	
 }
 
+.facts .list {
+	position: absolute;
+	width: 100%;
+	top: 0;	
+}
+
 .facts .item {
 	list-style: none;
 	position: relative;
@@ -103,9 +109,21 @@
 }
 
 .facts .item .value {
+	display: none;
 	margin: 0;
 	padding-left: 90.0px;
 	color: #E0E0E0;
 	font-size: 1.4rem;
 	text-align: left;
+}
+
+.facts .item.opened .value {
+	display: block;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* MODERN THEME */
+
+.reader.modern .facts .item .circle {
+	border-radius: 0;
 }

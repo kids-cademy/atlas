@@ -17,4 +17,40 @@
         <item name="android:windowAnimationStyle">@style/CustomAnimationActivity</item>
     </style>
 
+    <!-- THEME SUPPORT -->
+
+    <attr name="reader_intro_bg" format="reference" />
+    <attr name="reader_intro_large_shape" format="reference" />
+    <attr name="reader_intro_small_shape" format="reference" />
+    <attr name="reader_intro_image" format="reference" />
+    <attr name="reader_infobox_shape" format="reference" />
+    <attr name="reader_featured_image" format="reference" />
+    <attr name="reader_trivia_image" format="reference" />
+    <attr name="reader_item_fact_bullet" format="reference" />
+    <attr name="reader_contextual_shape" format="reference" />
+
+    <style name="AtlasTheme.Classic">
+        <item name="reader_intro_bg">@style/reader_intro_bg_classic</item>
+        <item name="reader_intro_large_shape">@style/reader_intro_large_shape_classic</item>
+        <item name="reader_intro_small_shape">@style/reader_intro_small_shape_classic</item>
+        <item name="reader_intro_image">@style/reader_intro_image_classic</item>
+        <item name="reader_infobox_shape">@style/reader_infobox_shape_classic</item>
+        <item name="reader_featured_image">@style/reader_featured_image_classic</item>
+        <item name="reader_trivia_image">@style/reader_trivia_image_classic</item>
+        <item name="reader_item_fact_bullet">@style/reader_item_fact_bullet_classic</item>
+        <item name="reader_contextual_shape">@style/reader_contextual_shape_classic</item>
+    </style>
+
+    <style name="AtlasTheme.Modern">
+        <item name="reader_intro_bg">@style/reader_intro_bg_modern</item>
+        <item name="reader_intro_large_shape">@style/reader_intro_large_shape_modern</item>
+        <item name="reader_intro_small_shape">@style/reader_intro_small_shape_modern</item>
+        <item name="reader_intro_image">@style/reader_intro_image_modern</item>
+        <item name="reader_infobox_shape">@style/reader_infobox_shape_modern</item>
+        <item name="reader_featured_image">@style/reader_featured_image_modern</item>
+        <item name="reader_trivia_image">@style/reader_trivia_image_modern</item>
+        <item name="reader_item_fact_bullet">@style/reader_item_fact_bullet_modern</item>
+        <item name="reader_contextual_shape">@style/reader_contextual_shape_modern</item>
+    </style>
+
 </resources>

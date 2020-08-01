@@ -21,7 +21,7 @@ public class ReaderFeaturesView extends ConstraintLayout implements ReaderSectio
 
     private FeaturesTableView featuresTableView;
     private ImageView triviaImage;
-    private TextView triviaText;
+    private TextView triviaCaption;
     private DescriptionTabletView descriptionView;
     private int descriptionMarginTop;
 
@@ -36,7 +36,7 @@ public class ReaderFeaturesView extends ConstraintLayout implements ReaderSectio
         log.trace("onFinishInflate()");
         featuresTableView = findViewById(R.id.features_table);
         triviaImage = findViewById(R.id.trivia_image);
-        triviaText = findViewById(R.id.trivia_caption);
+        triviaCaption = findViewById(R.id.trivia_caption);
 
         descriptionView = findViewById(R.id.features_description);
         if (descriptionView != null) {
@@ -53,7 +53,7 @@ public class ReaderFeaturesView extends ConstraintLayout implements ReaderSectio
             public void run() {
                 if (!atlasObject.hasTriviaImage()) {
                     triviaImage.setVisibility(View.GONE);
-                    triviaText.setVisibility(View.GONE);
+                    triviaCaption.setVisibility(View.GONE);
                     if (descriptionView != null) {
                         descriptionView.setVisibility(View.VISIBLE);
                         descriptionView.setColumnWidth(getWidth());
@@ -72,12 +72,12 @@ public class ReaderFeaturesView extends ConstraintLayout implements ReaderSectio
                 loader.start();
                 triviaImage.setVisibility(View.VISIBLE);
 
-                if (triviaText != null) {
+                if (triviaCaption != null) {
                     if (atlasObject.hasTriviaCaption()) {
-                        triviaText.setText(atlasObject.getTriviaCaption());
-                        triviaText.setVisibility(View.VISIBLE);
+                        triviaCaption.setText(atlasObject.getTriviaCaption());
+                        triviaCaption.setVisibility(View.VISIBLE);
                     } else {
-                        triviaText.setVisibility(View.GONE);
+                        triviaCaption.setVisibility(View.GONE);
                     }
                 }
             }

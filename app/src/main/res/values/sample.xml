@@ -11,6 +11,7 @@
     <string name="sample_object_aliases" translatable="false">Drum Set\nTrap Set</string>
     <string name="sample_object_date" translatable="false">XVIII-th century</string>
     <string name="sample_image_caption">There is also a variant that uses buttons to play notes.</string>
+    <string name="sample_progenitor">Bell Helicopter</string>
     <string name="sample_conservation">Critically Endangered</string>
     <string name="sample_link_display">Wikipedia</string>
     <string name="sample_link_description">Wikipedia article about accordion.</string>

@@ -70,16 +70,13 @@
         tools:text="@string/sample_object_definition" />
 
     <ImageView
+        style="?reader_intro_image"
         android:id="@+id/reader_intro_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/sections_space"
         android:adjustViewBounds="true"
         android:contentDescription="@string/support_graphics"
-        android:paddingStart="@dimen/block_start_indent"
-        android:paddingTop="@dimen/paragraph_space"
-        android:paddingEnd="@dimen/block_start_indent"
-        android:paddingBottom="@dimen/paragraph_space"
         android:scaleType="fitCenter"
         app:layout_constraintTop_toBottomOf="@+id/reader_intro_definition"
         tools:src="@drawable/sample_cover_image" />

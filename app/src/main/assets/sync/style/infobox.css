@@ -1,4 +1,5 @@
 .infobox {
+	border-left: solid 1px rgba(255, 255, 255, 0.5);
 }
 
 .reader .section.infobox {
@@ -6,11 +7,11 @@
 }
 
 .infobox .circle {
-	width: 240px;
-	height: 240px;
-	right: 0px;
-	top: 30%;
-	background-color: #FFFFFF20;
+	width: 300px;
+	height: 300px;
+	left: -50px;
+	bottom: 25%;
+	background-color: rgba(255,255,255,0.2);
 	z-index: -10;
 }
 
@@ -20,10 +21,6 @@
 	height: 100%;
 	padding: 40px;
 	padding-top: 0;
-}
-
-.infobox .container.accent {
-	border-left: solid 1px rgba(255, 255, 255, 0.5);
 }
 
 .infobox h2 {
@@ -55,7 +52,7 @@
 	text-transform: uppercase;	
 }
 
-.infobox .last-updated p {
+.infobox .timestamp p {
 	color: white;
 }
 
@@ -63,16 +60,25 @@
 	color: white;
 	text-transform: uppercase;	
 	font-size: 1.4rem;
+	padding: 6px 0px;
 }
 
 .infobox .separator {
-	color: white;
+	color: black;
 	font-size: 1.4rem;
-	padding: 0 10px;
+	padding: 6px 10px;
 }
 
 .infobox .value {
 	color: white;	
 	text-transform: lowercase;	
 	font-size: 1.4rem;
+	padding: 6px 0;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+/* MODERN THEME */
+
+.reader.modern .infobox .circle {
+	border-radius: 0;
 }

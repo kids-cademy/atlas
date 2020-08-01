@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        style="?reader_trivia_image"
         android:id="@+id/trivia_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -25,10 +26,6 @@
         android:adjustViewBounds="true"
         android:background="@color/image_bg"
         android:contentDescription="@string/support_graphics"
-        android:paddingStart="@dimen/block_start_indent"
-        android:paddingTop="@dimen/paragraph_space"
-        android:paddingEnd="@dimen/block_start_indent"
-        android:paddingBottom="@dimen/paragraph_space"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

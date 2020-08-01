@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--
+    <style name="reader_intro_bg_classic">
+        <item name="android:background">@drawable/shape_cover_page_bg_classic</item>
+    </style>
+
+    <style name="reader_intro_bg_modern">
+        <item name="android:background">@drawable/shape_cover_page_bg_modern</item>
+    </style>
+
+    <style name="reader_intro_large_circle_classic">
+        <item name="android:alpha">0.3</item>
+    </style>
+
+    <style name="reader_intro_large_circle_modern">
+        <item name="android:alpha">0</item>
+    </style>
+
+    <style name="reader_intro_small_circle_classic">
+        <item name="srcCompat">@drawable/shape_solid_circle</item>
+    </style>
+
+    <style name="reader_intro_small_circle_modern">
+        <item name="srcCompat">@drawable/shape_solid_square</item>
+    </style>
+-->
+    <style name="reader_intro_image_classic">
+        <item name="android:paddingStart">@dimen/block_start_indent</item>
+        <item name="android:paddingTop">@dimen/paragraph_space</item>
+        <item name="android:paddingEnd">@dimen/block_start_indent</item>
+        <item name="android:paddingBottom">@dimen/paragraph_space</item>
+    </style>
+
+    <style name="reader_intro_image_modern">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="reader_featured_image_classic">
+        <item name="android:paddingStart">@dimen/block_start_indent</item>
+        <item name="android:paddingTop">@dimen/paragraph_space</item>
+        <item name="android:paddingEnd">@dimen/block_start_indent</item>
+        <item name="android:paddingBottom">@dimen/paragraph_space</item>
+    </style>
+
+    <style name="reader_featured_image_modern">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="reader_trivia_image_classic">
+        <item name="android:paddingStart">@dimen/block_start_indent</item>
+        <item name="android:paddingTop">@dimen/paragraph_space</item>
+        <item name="android:paddingEnd">@dimen/block_start_indent</item>
+        <item name="android:paddingBottom">@dimen/paragraph_space</item>
+    </style>
+
+    <style name="reader_trivia_image_modern">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="reader_item_fact_bullet_classic">
+        <item name="srcCompat">@drawable/facts_bullet_circle</item>
+    </style>
+
+    <style name="reader_item_fact_bullet_modern">
+        <item name="srcCompat">@drawable/facts_bullet_square</item>
+    </style>
+
+</resources>

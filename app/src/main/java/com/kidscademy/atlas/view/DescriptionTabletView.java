@@ -15,6 +15,7 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.util.Views;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -124,6 +125,9 @@ public class DescriptionTabletView extends LinearLayout implements ReaderSection
      * @param atlasObject object to display description. It state is altered.
      */
     private void render(AtlasObject atlasObject) {
+        if (!atlasObject.hasDescription()) {
+            return;
+        }
         List<String> description = atlasObject.getDescription().getText();
         int paragraphIndex = atlasObject.getDescriptionParagraphOffset();
         int currentHeight = 0;

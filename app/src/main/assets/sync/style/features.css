@@ -1,6 +1,5 @@
 .features {
 	width: 550px;
-	xheight: 600px;
 }
 
 .features .text {
@@ -23,7 +22,6 @@
 
 .features table {
 	width: 100%;
-	xmargin-bottom: 140px;	
 }
 
 .features tr {
@@ -31,11 +29,6 @@
 }
 
 .features .name, .features .value {
-	xdisplay: inline-block;
-	xbox-sizing: border-box;
-	xvertical-align: top;
-	xmargin-bottom: 4px;
-	xmargin-bottom: 20px;
 	padding: 20px 60px;
 	padding: 20px 30px;
 }
@@ -45,26 +38,17 @@
 }
 
 .features .name {
-	xwidth: 360px;
-	xbackground-color: rgba(21, 101, 192, 0.25);
-	color: white;
+	color: #E0E0E0;
 	text-transform: uppercase;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	xtext-align: right; 
-	xpadding-left: 0;
-	xpadding-right: 10px;
 }
 
 .features .value {
 	width: 100%;
-	xwidth: 480px;
-	xbackground-color: rgba(198, 40, 40, 0.25);
-	xbackground-color: rgba(21, 101, 192, 0.5);
-	border-left: solid 2px rgba(255, 255, 255, 0.5);
-	color: #E0E0E0;
-	xpadding-right: 0;
+	border-left: solid 4px rgba(255, 255, 255, 0.5);
+	color: white;
 }
 
 .features tr:nth-of-type(1) .value {
@@ -116,7 +100,6 @@
 .features .caption {
 	position: absolute;
 	width: 100%;
-	xright: 0;
 	bottom: 0;
 	background: rgba(0, 0, 0, 0.2);
 	padding: 40px;
@@ -136,6 +119,5 @@
 }
 
 .features .column-text {
-	xbox-sizing: border-box;
 	margin-top: 100px;	
 }

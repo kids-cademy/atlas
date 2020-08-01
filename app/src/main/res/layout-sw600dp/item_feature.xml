@@ -13,7 +13,7 @@
         android:paddingEnd="20dp"
         android:paddingBottom="8dp"
         android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.XSmall"
+        android:textAppearance="@style/TextAppearance.XSmall.Mute"
         tools:text="Body Length" />
 
     <TextView

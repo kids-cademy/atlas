@@ -9,16 +9,13 @@
     tools:parentTag="android.support.constraint.ConstraintLayout">
 
     <ImageView
+        style="?reader_featured_image"
         android:id="@+id/reader_featured_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="@color/image_bg"
         android:contentDescription="@string/support_graphics"
-        android:paddingStart="@dimen/block_start_indent"
-        android:paddingTop="@dimen/paragraph_space"
-        android:paddingEnd="@dimen/block_start_indent"
-        android:paddingBottom="@dimen/paragraph_space"
         android:scaleType="fitCenter"
         tools:src="@drawable/sample_cover_image" />
 

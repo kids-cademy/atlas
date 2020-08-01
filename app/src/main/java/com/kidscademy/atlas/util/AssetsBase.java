@@ -14,7 +14,6 @@ import js.log.Log;
 import js.log.LogFactory;
 import js.util.Classes;
 import js.util.Files;
-import js.util.Types;
 
 public abstract class AssetsBase {
     protected static final Log log = LogFactory.getLog(AssetsBase.class);

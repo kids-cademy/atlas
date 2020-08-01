@@ -19,7 +19,7 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="@string/reader_column_separator"
-        android:textAppearance="@style/TextAppearance.Small" />
+        android:textAppearance="@style/TextAppearance.Small.Inverse" />
 
     <TextView
         android:layout_width="wrap_content"
