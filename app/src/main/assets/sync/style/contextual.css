@@ -10,15 +10,15 @@
 .contextual .caption {
 	box-sizing: border-box;
 	width: 100%;
-	background: rgba(0, 0, 0, 0.3);
+	margin: 40px 0 0 0;
+	background: rgba(0, 0, 0, 0.4);
 	padding: 40px;
-	margin-top: 20px;
 } 
 
 .contextual .caption p {
 	margin: 20px 0 0;
-	font-size: 1.1rem;
 	line-height: 1.5rem;
+	font-size: 0.9rem;
 	color: yellow;
 }
 

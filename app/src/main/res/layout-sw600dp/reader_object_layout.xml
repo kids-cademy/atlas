@@ -21,7 +21,7 @@
         android:id="@+id/reader_infobox_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <ImageView
             android:id="@+id/reader_infobox_shape"
@@ -80,13 +80,13 @@
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
         android:showDividers="middle"
-        tools:visibility="invisible" />
+        tools:visibility="gone" />
 
     <com.kidscademy.atlas.view.ReaderConservationView
         android:id="@+id/reader_conservation_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:visibility="invisible" />
+        tools:visibility="gone" />
 
     <com.kidscademy.atlas.view.ReaderFeaturesView
         android:id="@+id/reader_features"
@@ -94,7 +94,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        tools:visibility="invisible" />
+        tools:visibility="gone" />
 
     <com.kidscademy.atlas.view.DescriptionTabletView
         android:id="@+id/reader_description_column2"
@@ -104,11 +104,11 @@
         android:divider="@drawable/shape_paragraph_divider"
         android:orientation="vertical"
         android:showDividers="middle"
-        tools:visibility="invisible" />
+        tools:visibility="gone" />
 
     <com.kidscademy.atlas.view.ReaderFeaturedView
         android:id="@+id/reader_featured_view"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/reader_featured_width"
         android:layout_height="match_parent"
         tools:visibility="visible" />
 

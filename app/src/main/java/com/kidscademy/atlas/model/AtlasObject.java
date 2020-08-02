@@ -18,7 +18,7 @@ public class AtlasObject {
     private String name;
     private String display;
     private String definition;
-    private HTML description;
+    private String[] description;
     private int descriptionParagraphOffset;
 
     /**
@@ -54,8 +54,6 @@ public class AtlasObject {
     private RelatedObject[] related;
     private Link[] links;
 
-    private String theme;
-
     public int getIndex() {
         return index;
     }
@@ -76,13 +74,12 @@ public class AtlasObject {
     }
 
     public boolean hasDescription() {
-        log.debug("descriptionParagraphOffset=%d description.getText().size()=%d", descriptionParagraphOffset, description.getText().size());
-        return description != null && descriptionParagraphOffset < description.getText().size();
+        return description != null && descriptionParagraphOffset < description.length;
     }
 
     @NonNull
-    public HTML getDescription() {
-        if (description == null || descriptionParagraphOffset >= description.getText().size()) {
+    public String[] getDescription() {
+        if (description == null || descriptionParagraphOffset >= description.length) {
             throw new BugError("Attempt to retrieve not existing description for object |%s|.", name);
         }
         return description;
@@ -165,7 +162,7 @@ public class AtlasObject {
 
     private String getImageCaption(String imageName) {
         Image image = images.get(imageName);
-        return image != null ? image.getCaption() : null;
+        return image != null ? Strings.join(image.getCaption(), "\n\n") : null;
     }
 
     public boolean hasAudioSample() {
@@ -312,19 +309,19 @@ public class AtlasObject {
     }
 
     public static AtlasObject getEmptyInstance() {
+        // all next null values have predicate for null test
         AtlasObject object = new AtlasObject();
         object.index = 0;
         object.name = "empty";
         object.display = "Empty";
         object.definition = "";
-        object.description = new HTML();
+        object.description = null;
         object.descriptionParagraphOffset = 0;
         object.images = Collections.emptyMap();
         object.lastUpdated = new Date();
         object.taxonomy = new Taxon[0];
         object.aliases = new String[0];
         object.spreading = new Region[0];
-        // all next null values have predicate for null test
         object.startDate = null;
         object.endDate = null;
         object.progenitor = null;
@@ -337,8 +334,6 @@ public class AtlasObject {
         object.features = new Feature[0];
         object.related = new RelatedObject[0];
         object.links = new Link[0];
-        // not used
-        object.theme = null;
         return object;
     }
 }

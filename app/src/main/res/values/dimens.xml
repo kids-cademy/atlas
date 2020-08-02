@@ -48,26 +48,28 @@
     <!-- ATLAS READER -->
 
     <!-- atlas reader sections width; for mobile are not used since all have match parent -->
-    <dimen name="reader_description_width"></dimen>
-    <dimen name="reader_facts_width"></dimen>
-    <dimen name="reader_features_width"></dimen>
-    <dimen name="reader_featured_width"></dimen>
-    <dimen name="reader_related_width"></dimen>
-    <dimen name="reader_links_width"></dimen>
+    <dimen name="reader_description_width">0</dimen>
+    <dimen name="reader_facts_width">0</dimen>
+    <dimen name="reader_features_width">0</dimen>
+    <dimen name="reader_featured_width">0</dimen>
+    <dimen name="reader_related_width">0</dimen>
+    <dimen name="reader_links_width">0</dimen>
     <dimen name="heading_size">80dp</dimen>
     <integer name="reader_paragraphs_count">6</integer>
 
     <!-- top margin for description column from features section  -->
-    <dimen name="features_description_margin_top"></dimen>
+    <dimen name="features_description_margin_top">0</dimen>
 
     <!-- atlas reader on tablet has a contextual image with some spare graphics - couple circles aligned horizontally -->
     <!-- this value is teh space between those circles -->
     <dimen name="contextual_image_circle_space">24dp</dimen>
 
     <!-- featured image -->
-    <dimen name="featured_image_margin">80dp</dimen>
-    <dimen name="featured_caption_padding_x">16dp</dimen>
-    <dimen name="featured_caption_padding_y">16dp</dimen>
+    <dimen name="featured_image_margin">50dp</dimen>
+
+    <dimen name="image_caption_margin_top">16dp</dimen>
+    <dimen name="image_caption_padding">16dp</dimen>
+    <dimen name="image_caption_text_size">14sp</dimen>
 
     <!-- conservation status -->
     <dimen name="conservation_bullets_space">8dp</dimen>

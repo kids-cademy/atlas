@@ -12,8 +12,6 @@ import android.widget.TextView;
 import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 
-import java.util.List;
-
 public class DescriptionPhoneView extends LinearLayout implements ReaderSectionView {
     private final LayoutInflater inflater;
 
@@ -32,13 +30,13 @@ public class DescriptionPhoneView extends LinearLayout implements ReaderSectionV
     }
 
     public void update(AtlasObject atlasObject) {
-        List<String> description = atlasObject.getDescription().getText();
+        String[] description = atlasObject.getDescription();
         int paragraphIndex = atlasObject.getDescriptionParagraphOffset();
-        int paragraphsCount = Math.min(this.paragraphsCount, description.size() - paragraphIndex);
+        int paragraphsCount = Math.min(this.paragraphsCount, description.length - paragraphIndex);
 
         int childIndex = 0;
         for (; childIndex < paragraphsCount; ++childIndex, ++paragraphIndex) {
-            String paragraph = description.get(paragraphIndex);
+            String paragraph = description[paragraphIndex];
             TextView paragraphView = (TextView) getChildAt(childIndex);
             if (paragraphView == null) {
                 paragraphView = (TextView) inflater.inflate(R.layout.compo_paragraph, this, false);

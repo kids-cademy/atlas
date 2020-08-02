@@ -51,7 +51,7 @@ sync.App.prototype = {
 	},
 
 	setObject : function(atlasObject) {
-		this._paragraphsCache.setHTML(atlasObject.description);
+		this._paragraphsCache.setObject(atlasObject.description);
 		atlasObject.paragraphs = this._paragraphsCache;
 				
 		this._coverSection.hide();

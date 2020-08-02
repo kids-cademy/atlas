@@ -7,20 +7,6 @@
     tools:background="#2196F3"
     tools:parentTag="android.support.constraint.ConstraintLayout">
 
-    <ImageView
-        android:id="@+id/trivia_image"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/image_description"
-        android:scaleType="fitCenter"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/trivia_caption"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/features_table"
-        app:srcCompat="@drawable/sample_trivia_image" />
-
     <com.kidscademy.atlas.view.FeaturesTableView
         android:id="@+id/features_table"
         android:layout_width="match_parent"
@@ -31,22 +17,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/trivia_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/image_caption_margin_top"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/image_description"
+        android:scaleType="fitCenter"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/features_table"
+        app:srcCompat="@drawable/sample_trivia_image" />
+
     <TextView
         android:id="@+id/trivia_caption"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/image_caption_margin_top"
         android:background="@color/black_T60"
         android:gravity="fill_horizontal"
-        android:paddingStart="@dimen/featured_caption_padding_x"
-        android:paddingTop="@dimen/featured_caption_padding_y"
-        android:paddingEnd="@dimen/featured_caption_padding_x"
-        android:paddingBottom="@dimen/featured_caption_padding_y"
+        android:paddingStart="@dimen/image_caption_padding"
+        android:paddingTop="@dimen/image_caption_padding"
+        android:paddingEnd="@dimen/image_caption_padding"
+        android:paddingBottom="@dimen/image_caption_padding"
         android:text="@string/sample_habitat"
         android:textAppearance="@style/TextAppearance.XSmall.Accent"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="@dimen/image_caption_text_size"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trivia_image" />
 
     <com.kidscademy.atlas.view.DescriptionTabletView
         android:id="@+id/features_description"

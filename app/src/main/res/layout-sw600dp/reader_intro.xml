@@ -16,12 +16,13 @@
     <TextView
         android:id="@+id/reader_intro_bg"
         style="?reader_intro_bg"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:maxWidth="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/reader_intro_guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.7" />
 
     <ImageView
         android:id="@+id/reader_intro_large_shape"

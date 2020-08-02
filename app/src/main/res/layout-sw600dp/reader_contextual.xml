@@ -24,23 +24,23 @@
         android:id="@+id/contextual_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="contextual_caption_text" />
 
     <TextView
         android:id="@+id/contextual_caption_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="@dimen/image_caption_margin_top"
         android:background="@color/image_caption_bg"
-        android:paddingStart="@dimen/featured_caption_padding_x"
-        android:paddingTop="@dimen/featured_caption_padding_y"
-        android:paddingEnd="@dimen/featured_caption_padding_x"
-        android:paddingBottom="@dimen/featured_caption_padding_y"
+        android:paddingStart="@dimen/image_caption_padding"
+        android:paddingTop="@dimen/image_caption_padding"
+        android:paddingEnd="@dimen/image_caption_padding"
+        android:paddingBottom="@dimen/image_caption_padding"
         android:text="@string/sample_image_caption"
         android:textAppearance="@style/TextAppearance.XSmall.Accent"
+        android:textSize="@dimen/image_caption_text_size"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/contextual_image"
         app:layout_constraintStart_toStartOf="@id/contextual_image"
         app:layout_constraintTop_toBottomOf="@id/contextual_image" />
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="contextual_sample_title,contextual_play_button,contextual_waveform"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/contextual_sample_title"

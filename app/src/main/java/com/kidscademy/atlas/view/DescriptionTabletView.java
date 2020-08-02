@@ -15,9 +15,6 @@ import com.kidscademy.atlas.R;
 import com.kidscademy.atlas.model.AtlasObject;
 import com.kidscademy.atlas.util.Views;
 
-import java.util.Collections;
-import java.util.List;
-
 /**
  * Description column view for tablet. This view has fixed dimensions, {@link #columnWidth} and {@link #columnHeight}
  * and a known divider height. It grabs as much description as it can accommodate in its real estate.
@@ -128,13 +125,13 @@ public class DescriptionTabletView extends LinearLayout implements ReaderSection
         if (!atlasObject.hasDescription()) {
             return;
         }
-        List<String> description = atlasObject.getDescription().getText();
+        String[] description = atlasObject.getDescription();
         int paragraphIndex = atlasObject.getDescriptionParagraphOffset();
         int currentHeight = 0;
         int childIndex = 0;
 
-        for (; paragraphIndex < description.size(); ++childIndex, ++paragraphIndex) {
-            String paragraph = description.get(paragraphIndex);
+        for (; paragraphIndex < description.length; ++childIndex, ++paragraphIndex) {
+            String paragraph = description[paragraphIndex];
             boolean recycledChild = true;
 
             TextView paragraphView = (TextView) getChildAt(childIndex);

@@ -88,7 +88,7 @@
 
 		<DIV class="image-frame" data-if="images.trivia">
 			<IMG class="image fit-center" data-format="sync.AbsolutePath" data-src="images.trivia.path"></IMG>
-			<DIV class="caption" data-html="images.trivia.caption" data-if="images.trivia.caption"></DIV>
+			<DIV class="caption" data-if="images.trivia.caption" data-list="images.trivia.caption"><P></P></DIV>
 		</DIV>
 
 		<DIV class="column-text flex-fit" data-if="!images.trivia">
@@ -100,9 +100,7 @@
 			</DIV>	
 			<DIV class="featured section" data-if="images.featured"><DIV class="image-container">
 		<IMG class="image fit-center" data-format="sync.AbsolutePath" data-src="images.featured.path"></IMG>
-	</DIV><DIV class="caption-container">
-		<P data-html="images.featured.caption"></P>
-	</DIV></DIV>
+	</DIV><DIV class="caption-container" data-list="images.featured.caption"><P></P></DIV></DIV>
 			<DIV class="section column-text">
 				<DIV class="column" data-class="sync.TextColumn" data-text="."></DIV>
 			</DIV>	
@@ -113,7 +111,7 @@
 		<IMG class="waveform" data-format="sync.AbsolutePath" data-if="samplePath" data-src="waveformPath"></IMG>
 	
 		<DIV class="frame" data-if="!samplePath">
-			<DIV class="caption" data-html="images.contextual.caption" data-if="images.contextual.caption"></DIV>
+			<DIV class="caption" data-if="images.contextual.caption" data-list="images.contextual.caption"><P></P></DIV>
 			<DIV class="graphics" data-if="!images.contextual.caption">
 				<HR class="rule h"></HR>
 				<IMG class="graphic i1" src="media/contextual_square-1.png"></IMG>
@@ -138,7 +136,7 @@
 			<P class="description" data-text="description"></P></LI></UL></DIV>
 		</DIV>
 	</DIV><DIV class="scroll-mask"></DIV><DIV class="section column-text">
-		<DIV class="paragraphs-cache column"></DIV>
+		<DIV class="paragraphs-cache column" data-list="."><P></P></DIV>
 	</DIV></DIV>
 <SCRIPT src="script/js-lib.js" type="text/javascript"></SCRIPT>
 <SCRIPT src="script/sync.AbsolutePath.js" type="text/javascript"></SCRIPT>
