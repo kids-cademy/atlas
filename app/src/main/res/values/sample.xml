@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="sample_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="sample_text" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="sample_object_name" translatable="false">Hammered Dulcimer</string>
     <string name="sample_object_definition" translatable="false">A portable wind instrument with a small keyboard and free metal reeds that sound when air is forced past them by pleated bellows operated by the player.</string>
     <string name="sample_object_description" translatable="false">The bansuri is a transverse flute from a single hollow shaft of bamboo with six or seven finger holes. It is a ancient musical instrument associated with cowherds and the pastoral tradition.</string>
@@ -10,14 +10,14 @@
     <string name="sample_object_spreading" translatable="false">India\nPakistan</string>
     <string name="sample_object_aliases" translatable="false">Drum Set\nTrap Set</string>
     <string name="sample_object_date" translatable="false">XVIII-th century</string>
-    <string name="sample_image_caption">There is also a variant that uses buttons to play notes.</string>
-    <string name="sample_progenitor">Bell Helicopter</string>
-    <string name="sample_conservation">Critically Endangered</string>
-    <string name="sample_link_display">Wikipedia</string>
-    <string name="sample_link_description">Wikipedia article about accordion.</string>
-    <string name="sample_taxon_name">Species</string>
-    <string name="sample_taxon_value">Tyrannosaurus rex</string>
-    <string name="sample_last_updated">November 5, 2019</string>
-    <string name="sample_habitat">Peregrine falcons are among the world\'s most common birds of prey and live on all continents except Antarctica.\n\nThey prefer wide-open spaces, and thrive near coasts where shorebirds are common, but they can be found everywhere from tundra to deserts.\n\nPeregrines are even known to live on bridges and skyscrapers in major cities.</string>
+    <string name="sample_image_caption" translatable="false">There is also a variant that uses buttons to play notes.</string>
+    <string name="sample_progenitor" translatable="false">Bell Helicopter</string>
+    <string name="sample_conservation" translatable="false">Critically Endangered</string>
+    <string name="sample_link_display" translatable="false">Wikipedia</string>
+    <string name="sample_link_description" translatable="false">Wikipedia article about accordion.</string>
+    <string name="sample_taxon_name" translatable="false">Species</string>
+    <string name="sample_taxon_value" translatable="false">Tyrannosaurus rex</string>
+    <string name="sample_last_updated" translatable="false">November 5, 2019</string>
+    <string name="sample_habitat" translatable="false">Peregrine falcons are among the world\'s most common birds of prey and live on all continents except Antarctica.\n\nThey prefer wide-open spaces, and thrive near coasts where shorebirds are common, but they can be found everywhere from tundra to deserts.\n\nPeregrines are even known to live on bridges and skyscrapers in major cities.</string>
 
 </resources>

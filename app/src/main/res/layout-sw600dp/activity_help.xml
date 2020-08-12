@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
-                android:text="@string/help_atlas_reader"
+                android:text="@string/menu_reader"
                 android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.Large" />
 
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
-                android:text="@string/help_atlas_search"
+                android:text="@string/menu_search"
                 android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.Large" />
 
@@ -74,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
-                android:text="@string/help_atlas_index"
+                android:text="@string/menu_index"
                 android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.Large" />
 
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
-                android:text="@string/help_browser_sync"
+                android:text="@string/menu_sync"
                 android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.Large" />
         </LinearLayout>

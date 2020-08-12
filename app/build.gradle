@@ -2,6 +2,10 @@ if (project.hasProperty('publish')) {
     println 'Building Atlas as AAR library.'
     apply plugin: 'com.android.library'
     android {
+        packagingOptions {
+            exclude 'src/main/res/raw/*.json'
+            exclude 'src/main/res/raw-ro/*.json'
+        }
         aaptOptions {
             ignoreAssetsPattern '!atlas'
         }

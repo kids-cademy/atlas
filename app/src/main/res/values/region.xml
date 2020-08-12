@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="region_ALL">%s"</string>
+    <string name="region_ALL" translatable="false">%s"</string>
     <string name="region_CENTRAL">Central %s</string>
     <string name="region_NORTH">Northern %s</string>
     <string name="region_NORTH_EAST">Northeastern %s"</string>

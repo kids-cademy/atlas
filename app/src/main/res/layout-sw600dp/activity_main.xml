@@ -66,7 +66,7 @@
     <ImageView
         android:id="@+id/main_picture"
         style="@style/Shape.Image"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:src="@drawable/cover_page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +77,7 @@
 
     <ImageView
         style="@style/Shape.Circle"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:tint="@color/purple_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +89,7 @@
 
     <ImageView
         style="@style/Shape.Circle"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:tint="#E91E63"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +101,7 @@
 
     <ImageView
         style="@style/Shape.Circle"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:tint="@color/green_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +113,7 @@
 
     <TextView
         style="@style/Shape.Text"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:padding="50dp"
         android:text="@string/app_logotype"
         app:backgroundTint="#881976D2"
@@ -129,7 +129,7 @@
         android:id="@+id/main_kids_cademy"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:text="@string/app_publisher"
         android:textAppearance="@style/TextAppearance.Small"
         android:textColor="#e16a6a"

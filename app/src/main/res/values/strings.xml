@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- application specific overrides -->
-    <string name="app_name">Atlas</string>
+    <string name="app_name" translatable="false">Atlas</string>
     <string name="app_edition">community edition</string>
     <string name="app_release">Release 1.0 beta</string>
     <string name="app_update">December 21, 2018</string>
     <string name="app_publisher">Published by kids (a)cademy</string>
     <string name="content_license">public domain knowledge</string>
-    <string name="app_logotype">App Logotype</string>
-    <string name="app_description">App Description</string>
-    <string name="app_about">App About</string>
+    <string name="app_logotype" translatable="false">App Logotype</string>
+    <string name="app_description" translatable="false">App Description</string>
+    <string name="app_about" translatable="false">App About</string>
     <string name="app_about_caption">About Atlas</string>
     <string name="app_rate_caption">Rate Atlas</string>
     <string name="app_share_caption">Share Atlas</string>
 
-    <!-- atlas reader features -->
-    <string name="feature_lifespan">Lifespan</string>
-    <string name="feature_lifespan_captivity">Lifespan in Captivity</string>
-    <string name="feature_wingspan">Wingspan</string>
-    <string name="feature_length">Length</string>
-    <string name="feature_length_bill">Bill Size</string>
-    <string name="feature_length_tail">Tail Length</string>
-    <string name="feature_height">Height</string>
-    <string name="feature_weight">Weight</string>
-    <string name="feature_speed">Speed</string>
-    <string name="feature_speed_gliding">Gliding Speed</string>
-    <string name="feature_speed_diving">Diving Speed</string>
-
     <!-- atlas reader activity -->
-    <string name="reader_column_separator">:</string>
+    <string name="reader_column_separator" translatable="false">:</string>
     <string name="conservation_label_LC">Least Concern</string>
     <string name="conservation_label_NT">Near Threatened</string>
     <string name="conservation_label_VU">Vulnerable</string>
@@ -37,14 +24,14 @@
     <string name="conservation_label_EW">Extinct In The Wild</string>
     <string name="conservation_label_EX">Extinct</string>
     <string name="conservation_label_NA">Not Available</string>
-    <string name="conservation_bullet_LC">LC</string>
-    <string name="conservation_bullet_NT">NT</string>
-    <string name="conservation_bullet_VU">VU</string>
-    <string name="conservation_bullet_EN">EN</string>
-    <string name="conservation_bullet_CR">CR</string>
-    <string name="conservation_bullet_EW">EW</string>
-    <string name="conservation_bullet_EX">EX</string>
-    <string name="conservation_bullet_NA">NA</string>
+    <string name="conservation_bullet_LC" translatable="false">LC</string>
+    <string name="conservation_bullet_NT" translatable="false">NT</string>
+    <string name="conservation_bullet_VU" translatable="false">VU</string>
+    <string name="conservation_bullet_EN" translatable="false">EN</string>
+    <string name="conservation_bullet_CR" translatable="false">CR</string>
+    <string name="conservation_bullet_EW" translatable="false">EW</string>
+    <string name="conservation_bullet_EX" translatable="false">EX</string>
+    <string name="conservation_bullet_NA" translatable="false">NA</string>
     <string name="infobox_last_updated">Last updated</string>
     <string name="infobox_classification">Classification</string>
     <string name="infobox_progenitor">Manufacturer</string>
@@ -53,25 +40,25 @@
     <string name="infobox_period">Period</string>
     <string name="infobox_spreading">Spreading</string>
     <string name="reader_related">Related</string>
-    <string name="reader_links">Sources</string>
+    <string name="reader_links">External Sources</string>
 
     <!-- search activity -->
     <string name="search">search</string>
 
     <!-- about activity -->
     <string name="about_vision">Atlas is a quick reference on a particular subject</string>
-    <string name="about_atlas">This application is a release from a collection named Atlas. Perhaps the name is pretentious or even misleading. Is not on purpose. We really did not found a better one.</string>
-    <string name="about_atlas_intent">Atlas is focused on facts, with reasonable text and media content. It is not meant to be exhaustive but rather to be used as a quick reference on a particular subject or field. For complete reference one can visit linked external sources.</string>
+    <string name="about_atlas">This application is a release from a collection named Atlas. Perhaps the name is pretentious or even misleading. Is not on purpose. We really did not found a more suitable one.</string>
+    <string name="about_atlas_intent">Atlas is focused on facts, with reasonable amount of text and media content. It is not meant to be exhaustive but rather to be used as a quick reference on a particular subject or field. For complete reference one can visit the external sources listed in article.</string>
     <string name="about_open_source">Atlas is a community, open source project. Source code can be found on GitHub. Atlas articles are updated by contributors on kids (a)cademy site.</string>
     <string name="about_license_heading">Apache License 2.0</string>
-    <string name="about_license">Atlas is distributed under Apache License 2.0, the same used by Android. This basically means anyone can do anything with application and sources but no warranty from kids (a)cademy. Source code on https://github.com/kids-cademy/</string>
+    <string name="about_license">Atlas is distributed under Apache License 2.0, the same used by Android. This basically means anyone can do anything with application and sources but no warranty from kids (a) cademy. Source code is on https://github.com/kids-cademy/</string>
     <string name="about_free">Atlas is completely free. Free of annoying ads, no misleading in-app payment, no spy-ware. Development effort is donated. It is a humble way to show gratitude to Internet community that gives us all so much.</string>
 
     <!-- rate activity -->
-    <string name="rate_on_store">Click here to rate on Google Play Store!</string>
-    <string name="rate_review">Google ranking uses reviews.\n\nHelp increasing atlas visibility by writing reviews!</string>
-    <string name="rate_improving">We invest substantial effort to ensure atlas quality, but still there may be mistakes.\n\nHelp us improving and spread the word!</string>
-    <string name="rate_suggestion">If found something not reasonable please use\ncontact@kids-cademy.com\nto send us corrections.\n\nSuggestions for improvement are also welcomed.</string>
+    <string name="rate_on_store">Click here to rate on Google Play!</string>
+    <string name="rate_review">Google ranking uses reviews.\n\nHelp increasing Atlas visibility by writing reviews!</string>
+    <string name="rate_improving">We invest substantial effort to ensure Atlas quality, but still there may be mistakes.\n\nHelp us improving Atlas and spread the word!</string>
+    <string name="rate_suggestion">If found something not reasonable please use\ncontact@kids-cademy.com\nto send us corrections.\n\nThe suggestions for improvement are also welcomed.</string>
 
     <!-- share activity -->
 
@@ -79,153 +66,149 @@
     <string name="help_caption">User Guide</string>
     <string name="help_overview">Overview</string>
     <string name="help_main_menu">Main Menu</string>
-    <string name="help_atlas_reader">Atlas Reader</string>
-    <string name="help_atlas_search">Atlas Search</string>
-    <string name="help_atlas_index">Atlas Index</string>
-    <string name="help_browser_sync">Browser Sync</string>
     <string name="help_previous_article">Previous Article</string>
     <string name="help_next_article">Next Article</string>
     <string name="help_swap_order">Swap Order</string>
     <string name="help_collapse_all">Collapse All</string>
     <string name="help_expand_all">Expand All</string>
 
-    <string name="help_overview_p1">Atlas is a collection of related articles. An article displays a particular object, focusing on facts, with reasonable text and media content.</string>
-    <string name="help_overview_p2">Atlas can be used as a quick reference on a particular subject or field and search is its primary mean to locate articles.</string>
-    <string name="help_overview_p3">There is also an atlas index, sorted alphabetically. It can be used to browse articles collection.</string>
-    <string name="help_overview_p4">Atlas user interface supports both mobile phones and tables. Phones are used in portrait mode and tables in landscapes.</string>
-    <string name="help_overview_p5">Atlas is organized into pages that can be opened using action icons. Every page has a back arrow that allow to go back to previous pages.</string>
-    <string name="help_overview_p6">From cover page, that is opened at atlas launch, go to main menu by pressing forward arrow from title bar. From main menu can go to every atlas page.</string>
-    <string name="help_overview_p7">Atlas has also an embedded server that allows to read articles from an external, large screen, browser. See browser sync.</string>
+    <string name="help_overview_p1">Atlas is a collection of related articles. An article displays a particular object, focusing on facts, with a reasonable amount of text and media content.</string>
+    <string name="help_overview_p2">Atlas can be used as a quick reference on a particular subject or domain, with search being its primary mean to locate articles.</string>
+    <string name="help_overview_p3">There is also an index for Atlas articles, sorted alphabetically. It can be used to browse articles collection.</string>
+    <string name="help_overview_p4">Atlas can be used on both mobile phones and tablets. Phones are used in portrait mode and tablets in landscape mode.</string>
+    <string name="help_overview_p5">Atlas is organized into pages that can be opened using the icons. Every page has a back arrow that allow to go back to previous pages.</string>
+    <string name="help_overview_p6">From cover page, that is opened at Atlas launch, go to main menu by pressing forward arrow from title bar. From main menu can go to every Atlas page.</string>
+    <string name="help_overview_p7">Atlas has also an embedded server that allows to read articles from an external browser, on a large screen. See browser sync.</string>
     <string name="help_overview_p8">Atlas articles are displayed on a reader. Reader uses vertical scroll on mobile phones and horizontal on tablets.</string>
-    <string name="help_overview_p9">Reader has options to go to next and previous article, to jump to related ones or to open external resources.</string>
+    <string name="help_overview_p9">Reader has options to go to next and previous article, to navigate to related ones or to open external resources.</string>
 
-    <string name="help_menu_description">Main menu page is opened from cover page and has links to all atlas pages. There are two groups of icons: core atlas actions and support actions.</string>
-    <string name="help_atlas_actions_h">Core Atlas Actions</string>
-    <string name="help_atlas_actions_p1">Core atlas icons are bigger. This group is the main actions group containing links to atlas related pages.</string>
-    <string name="help_atlas_actions_p2">Usually use search page to locate atlas article but index page can be handy to browse all items from collection.</string>
-    <string name="help_atlas_actions_p3">See related user guide sections for main atlas actions.</string>
+    <string name="help_menu_description">Main menu page is opened from cover page and has links to all Atlas pages. There are two groups of icons: core actions and support actions.</string>
+    <string name="help_atlas_actions_h">Core Actions</string>
+    <string name="help_atlas_actions_p1">Core icons are bigger. This group is the main actions group containing links to Atlas related pages.</string>
+    <string name="help_atlas_actions_p2">Usually use search page to locate Atlas article but index page can be handy to browse all items from collection.</string>
+    <string name="help_atlas_actions_p3">See related user guide sections for main Atlas actions.</string>
     <string name="help_support_actions_h">Support Actions</string>
     <string name="help_support_actions_p1">Support icons group are on page bottom side and are smaller.</string>
-    <string name="help_support_actions_p2">This actions group is auxiliary and has links to this user guide and support pages.</string>
-    <string name="help_support_actions_p3">Support actions provides means to share and rate the atlas.</string>
+    <string name="help_support_actions_p3">Support actions provides means to share and rate the Atlas.</string>
 
-    <string name="help_reader_description">Atlas reader displays atlas articles, focused on facts, with reasonable amount of text and media content. It also has links to related articles and external sources.</string>
+    <string name="help_reader_description">Atlas reader displays the articles, focused on facts, with reasonable amount of text and media content. It also has links to the related articles and the external sources.</string>
     <string name="help_reader_p1">Reader\'s page is organized into sections and uses vertical scroll on mobile phones and horizontal scroll on tablets.</string>
     <string name="help_reader_p2">Although reader has different user interfaces for mobile phones and tablets, article content is the same.</string>
     <string name="help_reader_actions_h">On reader actions bar there are icons for:</string>
     <string name="help_reader_actions_p1">go to search and index pages to locate another article</string>
     <string name="help_reader_actions_p2">navigate to next and previous article from collection, in alphabetical order</string>
-    <string name="help_reader_actions_p3">enable / disable browser synchronization for article view on external large screen</string>
-    <string name="help_reader_actions_p4">go to atlas main menu</string>
+    <string name="help_reader_actions_p3">enable / disable browser synchronization for article view on an external large screen</string>
+    <string name="help_reader_actions_p4">go to Atlas main menu</string>
 
-    <string name="help_search_description">Search is the primary mean to locate atlas articles. Current implementation is not Google Search but is pretty decent.</string>
-    <string name="help_search_p1">Search is performed on words, that is, partial word searching is not supported. This is not a so much limitation because there is auto-suggestion, updated for every user input. Anyway, there still is a limitation: search does not support multiple words.</string>
+    <string name="help_search_description">Search is the primary mean to locate Atlas articles. Current implementation is not comparable with Google Search but is pretty decent.</string>
+    <string name="help_search_p1">Search is performed on words and partial word searching is not supported. This is not a so much limitation because there is auto-suggestion, updated for every user input. Anyway, there still is a limitation: search does not support multiple words.</string>
     <string name="help_search_p2">Search happens in two steps:</string>
-    <string name="help_search_p21">collect user input and suggest relevant keywords</string>
-    <string name="help_search_p22">uses selected keyword to actually locate atlas article</string>
-    <string name="help_search_p3">Search result page usually has more articles, sorted by relevance. Just click on desired one to open atlas reader. If not desired article press back from reader to go back to search result page.</string>
-    <string name="help_search_p4">From search pages, both input and results, can go to atlas index and main menu.</string>
-    <string name="help_search_p5">Search algorithm uses a standard search index, generated at build phase, for every atlas release. The trick is it uses different keyword relevance for article entities like titles, definitions, descriptions, image captions, related names, etc. It is classified by Wikipedia as vertical search.</string>
+    <string name="help_search_p21">collects user input and suggests the relevant keywords</string>
+    <string name="help_search_p22">uses selected keyword to actually locate Atlas article</string>
+    <string name="help_search_p3">Search result page usually has more articles, sorted by relevance. Just click on desired one to open Atlas reader. If not desired article press back from reader to go back to the search result page.</string>
+    <string name="help_search_p4">From search pages, both input and results, can go to Atlas index and main menu.</string>
+    <string name="help_search_p5">Search algorithm uses a standard search index, generated at build phase, for every Atlas release. The trick is it uses different relevance for the different article entities like titles, definitions, descriptions, image captions, related names, etc. It is classified by Wikipedia as vertical search.</string>
 
     <string name="help_index_description">Atlas index is sorted alphabetically and can be used to browse entire articles collection. Every article from index has name, icon and a short excerpt from article definition.</string>
     <string name="help_index_p1">Index page is organized into collapsible sections, grouped by first letter from article name. Sections are ordered alphabetically.</string>
-    <string name="help_index_p2">On mobile phones index is scrolled vertically. On tables, sections are scrolled horizontally and articles on section, vertically.</string>
+    <string name="help_index_p2">On mobile phones the index is scrolled vertically. On tables, sections are scrolled horizontally but articles from section, vertically.</string>
     <string name="help_index_actions_h">Atlas index actions bar has icons for:</string>
-    <string name="help_index_actions_p1">reverse index sections ordering, that is, swap order</string>
-    <string name="help_index_actions_p2">collapse and expand all index sections; toggle individual section by clicking on section icon</string>
+    <string name="help_index_actions_p1">reverse ordering of the index sections</string>
+    <string name="help_index_actions_p2">collapse and expand all index sections; toggle an individual section by clicking on section icon</string>
     <string name="help_index_actions_p3">move to search page to locate articles by other criteria than article name</string>
-    <string name="help_index_actions_p4">go to atlas main menu</string>
+    <string name="help_index_actions_p4">go to Atlas main menu</string>
 
-    <string name="help_sync_description">Atlas has an embedded, custom made server that allows to read articles from an external, large screen, browser.</string>
-    <string name="help_sync_p1">External browser is passive. It is controlled from mobile device. Article content is pushed from atlas server to external browser.</string>
+    <string name="help_sync_description">Atlas has an embedded custom made server that allows to read articles from an external browser, on a large screen, for a group experience.</string>
+    <string name="help_sync_p1">External browser is passive. It is controlled from mobile device. Article content is pushed from Atlas server to external browser.</string>
     <string name="help_sync_p2">All browsers with push technology are supported, including smart TV. Technical name for push technology is HTML5 Server-Sent Events.</string>
-    <string name="help_sync_p3">To enable / disable browser synchronization open sync page from main menu or atlas reader. If browser synchronization is active icon is yellow.</string>
+    <string name="help_sync_p3">To enable / disable browser synchronization open sync page from main menu or the Atlas reader. If browser synchronization is active icon is yellow.</string>
     <string name="help_sync_p4">To start browser synchronization:</string>
     <string name="help_sync_p41">press sync button to start embedded server on mobile device</string>
     <string name="help_sync_p42">copy sync address displayed on mobile device to browser address bar and load the page</string>
-    <string name="help_sync_p5">To stop synchronization open sync page and just press the stop button. Since atlas server takes care to close itself, sync stop operation is optional.</string>
-    <string name="help_sync_p6">In current version external browser should be on the same network as mobile device. It is not possible to synchronize with a browser from a different location.</string>
+    <string name="help_sync_p5">To stop synchronization open sync page and just press the stop button. Since Atlas server takes care to close itself, stop operation for synchronization is optional.</string>
+    <string name="help_sync_p6">In current version external browser should be in the same network as mobile device. It is not possible to synchronize with a browser from a different location.</string>
 
     <!-- error activity -->
-    <string name="error_message">There are some problems running this app. Please try to stop and launch it again.\n\nEnsure app is updated. As final resort you can reinstall it.\n\nIf still not working please fill a bad comment on store.</string>
-    <string name="error_restart">Restart Application</string>
+    <string name="error_message">There are some problems running this app. Please try to stop the app and launch it again.\n\nEnsure app is updated. As final resort, you can reinstall it.\n\nIf still not working please fill a bad comment on store.</string>
+    <string name="error_restart">App Restart</string>
 
     <string name="action_forward">Move forward</string>
 
     <!-- main menu activity -->
-    <string name="menu_help_reader">Atlas Reader</string>
-    <string name="menu_help_search">Atlas Search</string>
-    <string name="menu_help_index">Atlas Index</string>
-    <string name="menu_help_sync">Browser Sync</string>
-    <string name="menu_help_accessibility">Accessibility Mode</string>
-    <string name="menu_help_user_guide">User Guide</string>
-    <string name="menu_help_about">About Atlas</string>
-    <string name="menu_help_share">Share Atlas</string>
-    <string name="menu_help_rate">Rate Atlas</string>
-    <string name="menu_help_close">Close Atlas</string>
+    <string name="menu_reader">Atlas Reader</string>
+    <string name="menu_search">Atlas Search</string>
+    <string name="menu_index">Atlas Index</string>
+    <string name="menu_sync">Browser Sync</string>
+    <string name="menu_accessibility">Accessibility Mode</string>
+    <string name="menu_user_guide">User Guide</string>
+    <string name="menu_about">About Atlas</string>
+    <string name="menu_share">Share Atlas</string>
+    <string name="menu_rate">Rate Atlas</string>
+    <string name="menu_close">Close Atlas</string>
 
     <!-- sync activity -->
-    <string name="sync_start_button">Sync</string>
+    <string name="sync_start_button" translatable="false">Sync</string>
     <string name="sync_stop_button">Stop</string>
     <string name="sync_info">For more information about browser synchronization please see user guide.</string>
-    <string name="sync_start_short_message_1">View together on big screen browser.</string>
-    <string name="sync_start_message_1">View together on big screen browser in two steps:</string>
+    <string name="sync_start_short_message_1">View together on a big screen browser.</string>
+    <string name="sync_start_message_1">View together on a big screen browser in two steps:</string>
     <string name="sync_start_message_2">press SYNC to start HTTP server on this device</string>
-    <string name="sync_start_message_3">copy SYNC address on browser address bar and load the page</string>
-    <string name="sync_start_short_success_1">Your browser is in sync.</string>
+    <string name="sync_start_message_3">copy synchronization address in browser address bar and load the page</string>
+    <string name="sync_start_short_success_1">Your browser is synchronized.</string>
     <string name="sync_start_success_1">Your browser was successfully synchronized.</string>
-    <string name="sync_start_success_2">Now you can navigate through atlas reader from this device and synchronized browser will be updated.</string>
+    <string name="sync_start_success_2">Now you can navigate through Atlas reader from this device and synchronized browser will be updated.</string>
     <string name="sync_start_short_error_1">Your browser is not supported</string>
-    <string name="sync_start_error_1">Unfortunately your browser is not supported and can not be used for SYNC.</string>
-    <string name="sync_start_error_2">Please open another browser and reload SYNC link.</string>
-    <string name="sync_stop_message_1">Your browser is in sync.</string>
-    <string name="sync_stop_message_2">If you no longer use atlas reader on browser is recommended to stop synchronization.</string>
-    <string name="sync_start_text">Please copy below link in browser address bar:</string>
-    <string name="sync_dialog_message">SYNC is not complete.\n\nDo you want to abort?</string>
+    <string name="sync_start_error_1">Unfortunately your browser is not supported and can not be used for synchronization.</string>
+    <string name="sync_start_error_2">Please open another browser and reload synchronization link.</string>
+    <string name="sync_stop_message_1">Your browser is synchronized.</string>
+    <string name="sync_stop_message_2">If you no longer use Atlas in browser, is recommended to stop synchronization.</string>
+    <string name="sync_start_text">Please copy the below link in browser address bar:</string>
+    <string name="sync_dialog_message">Synchronization is not complete.\n\nDo you want to cancel?</string>
     <string name="sync_dialog_positive">yes</string>
     <string name="sync_dialog_negative">no</string>
     <string name="sync_start_done">In Sync</string>
 
     <!-- we play activity -->
     <string name="we_play" translatable="false">we\nplay</string>
-    <string name="we_play_caption">WE PLAY Experience</string>
-    <string name="we_play_logotype">WE PLAY\n\nshared experience on a large screen web browser</string>
-    <string name="we_play_message_2">Atlas reader from browser is passive. It is controlled by mobile device.</string>
-    <string name="we_play_message_3">Mobile device has an embedded HTTP server hosting web atlas reader.</string>
-    <string name="we_play_message_4">Web browser connects to HTTP server from mobile and displays the reader. Atlas articles are pushed to browser.</string>
+    <string name="we_play_caption" translatable="false">WE PLAY Experience</string>
+    <string name="we_play_logotype" translatable="false">WE PLAY\n\nshared experience on a large screen web browser</string>
+    <string name="we_play_message_2">Reader from browser is passive. It is controlled by mobile device.</string>
+    <string name="we_play_message_3">Mobile device has an embedded HTTP server hosting the synchronized reader.</string>
+    <string name="we_play_message_4">Browser connects to HTTP server from mobile and displays the reader. Atlas articles are pushed to browser.</string>
     <string name="we_play_message_5">All modern browsers with push technology are supported, smart TV included.\n\nTechnical name for push technology is HTML5 Server-Sent Events.</string>
 
     <!-- we do -->
-    <string name="we_do">we\ndo</string>
-    <string name="we_do_logotype">WE DO\n\ndevelopment process driven by community</string>
-    <string name="we_do_vision">Atlas features suggested by community and sustained by votes. Development is started when a critical mass is reached.</string>
-    <string name="we_do_disclaimer">Developer reserve the right to filter out features based on relevance or resources limit.</string>
-    <string name="we_do_accessibility">Accessibility Mode feature is in incubation phase and needs community support. Please vote if you consider worth implementing.</string>
+    <string name="we_do" translatable="false">we\ndo</string>
+    <string name="we_do_logotype" translatable="false">WE DO\n\ndevelopment process driven by community</string>
+    <string name="we_do_vision">New features suggested by community and sustained by votes. Development is started when a critical mass is reached.</string>
+    <string name="we_do_disclaimer">Developer reserves the right to filter out features based on relevance and resources limit.</string>
+    <string name="we_do_accessibility">Accessibility mode is in incubation phase and needs community support. Please vote if you consider worth implementing.</string>
 
     <!-- no ads manifesto activity -->
     <string name="no_ads" translatable="false">no\nads</string>
-    <string name="no_ads_caption">No Ads Manifesto</string>
-    <string name="no_ads_h1">1. Content Farming for Ads</string>
+    <string name="no_ads_caption">"The Manifesto for 'No Ads' "</string>
+    <string name="no_ads_h1">1. Multiplicated Content</string>
     <string name="no_ads_p1">Arguable, Internet did change the world and we all agree with that. But aggressive advertisement campaigns lead to myriad of sites specialized on content farming and applications created only for advertisement. Digital space became an immense advertising machine with poor quality and multiplicate content.</string>
     <string name="no_ads_h2">2. Old Media Days</string>
-    <string name="no_ads_p2">Digital space started to resemble old days media. In fact is worse. At least there we are not forced to support advertisement all the time; there is 30 minutes pause.</string>
-    <string name="no_ads_h3">3. Bad Ads Quality</string>
-    <string name="no_ads_p3">And advertisement quality is critical. Most ads are not so appealing, some of them being downright ugly. And in most cases destroys beautifully crafted sites and applications and ruins user experience.</string>
+    <string name="no_ads_p2">Digital space started to resemble old days media. In fact is worse. At least there we are not forced to see the advertisement in continuum; there is 30 minutes pause.</string>
+    <string name="no_ads_h3">3. Bad Quality Ads</string>
+    <string name="no_ads_p3">And advertisement quality is critical. Most ads are not so appealing, some of them being downright ugly. And in most cases destroy beautifully crafted sites and applications and ruins user experience.</string>
     <string name="no_ads_h4">4. Ad Blindness</string>
-    <string name="no_ads_p4">As a result users adapted and learned to avoid areas from screen covered by ads, the so called ad blindness. There are studies revealing that up to 93\% from ads remain unviewed. So little gain for business with so bad impact on user experience!</string>
+    <string name="no_ads_p4">As a result users adapted and learned to avoid areas from screen covered by ads, the so called ad blindness. There are studies revealing that up to 93 % from ads remain unviewed. So little gain for business with so bad impact on user experience!</string>
     <string name="no_ads_h5">5. Ads are not Evil per se</string>
     <string name="no_ads_p5">That being said, we do not believe advertisement is evil per se. Au contraire. Good ads can help deciding and can be fun to watch. The only problem is we do not want to see ads all the time and want them separated by content.</string>
     <string name="no_ads_h6">6. Solution</string>
-    <string name="no_ads_p6">The good news is it may be a solution. Create separated space dedicated for native advertisement. This way user can enjoy content and when in need for new services or products, or maybe for some fun, can willingly access advertisement page.</string>
+    <string name="no_ads_p6">The good news is it may be a solution. Create separated space dedicated for advertisement. This way user can enjoy content and when in need for new services or products, or maybe for some fun, can willingly access advertisement page.</string>
 
     <!-- accessibility activity -->
     <string name="accessibility_caption">Accessibility Mode</string>
-    <string name="accessibility_p1">In a nutshell, accessibility mode is about using atlas without touching the screen.</string>
-    <string name="accessibility_p2">The atlas should recognize a set of spoken commands, locate desired article and play it. Use aside play button for a basic sample. Need to be online.</string>
-    <string name="accessibility_p3">The goal is to allow users with visual impairment to use the atlas but is not limited to this. For example, accessibility mode can be used by a driver while he is on the road.</string>
+    <string name="accessibility_p1">In a nutshell, accessibility mode is about using Atlas without touching the screen.</string>
+    <string name="accessibility_p2">The Atlas should recognize a set of spoken commands, locate desired article and play it. Use aside play button for a basic sample. Need to be online.</string>
+    <string name="accessibility_p3">The goal is to allow users with visual impairment to use the Atlas but is not limited to this. For example, accessibility mode can be used by a driver while he is on the road.</string>
     <string name="accessibility_p4">Or perhaps somebody wants to improve his listening skills in a foreign language. Or simply because one is too lazy to read; any suggestion is welcome.</string>
     <string name="accessibility_vote_label">Vote</string>
     <string name="accessibility_vote_restriction">A device can vote only once.</string>
 
     <string name="image_description">image</string>
+    <string name="help_support_actions_p2">This actions group is auxiliary and has links to this user guide and to support pages.</string>
 </resources>

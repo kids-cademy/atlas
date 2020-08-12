@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:text="@string/menu_help_user_guide"
+            android:text="@string/menu_user_guide"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.Small.Mute"
             app:layout_constraintStart_toStartOf="parent"

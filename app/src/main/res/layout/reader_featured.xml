@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="@color/image_bg"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:scaleType="fitCenter"
         tools:src="@drawable/sample_cover_image" />
 

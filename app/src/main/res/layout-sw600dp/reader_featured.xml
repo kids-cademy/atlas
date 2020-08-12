@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/featured_image_margin"
-        android:contentDescription="@string/featured_image"
+        android:contentDescription="@string/image_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

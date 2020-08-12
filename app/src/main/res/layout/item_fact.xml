@@ -13,7 +13,7 @@
         android:layout_width="@dimen/bullet_size"
         android:layout_height="@dimen/bullet_size"
         android:layout_marginTop="8dp"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         app:layout_constraintEnd_toEndOf="@id/item_fact_vr"
         app:layout_constraintStart_toStartOf="@id/item_fact_vr"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_width="@dimen/bullet_size"
         android:layout_height="@dimen/bullet_size"
         android:layout_gravity="center_vertical|end"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:tint="@color/text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/item_fact_bullet"

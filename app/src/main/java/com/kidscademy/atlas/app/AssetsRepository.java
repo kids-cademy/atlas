@@ -1,6 +1,7 @@
 package com.kidscademy.atlas.app;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 
 import com.kidscademy.atlas.model.AtlasObject;
@@ -10,13 +11,13 @@ import com.kidscademy.atlas.util.AssetsBase;
 import com.kidscademy.atlas.util.AsyncTask;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.List;
 
-import js.lang.BugError;
 import js.lang.GType;
 import js.log.Log;
 import js.log.LogFactory;
-import js.util.Strings;
 
 /**
  * Atlas repository stored on application assets.
@@ -29,6 +30,7 @@ class AssetsRepository extends AssetsBase implements AtlasRepository {
      */
     private static final Log log = LogFactory.getLog(AssetsRepository.class);
 
+    private final Resources resources;
     private final String[] names;
     private final AtlasObject[] objects;
 
@@ -38,13 +40,14 @@ class AssetsRepository extends AssetsBase implements AtlasRepository {
     AssetsRepository(Context context) throws IOException {
         super(context);
         log.trace("AssetsRepository(Context context)");
+        resources=context.getResources();
 
         names = loadObject(getAssetReader("atlas/objects-list.json"), String[].class);
 
         AsyncTask<Void> searchIndexLoader = new AsyncTask<Void>() {
             @Override
             protected Void execute() throws Throwable {
-                searchIndex = loadObject(getAssetReader("atlas/search-index.json"), new GType(List.class, SearchIndex.class));
+                searchIndex = loadRawObject("search-index", new GType(List.class, SearchIndex.class));
                 synchronized (searchIndexLock) {
                     searchIndexLock.notify();
                 }
@@ -61,7 +64,7 @@ class AssetsRepository extends AssetsBase implements AtlasRepository {
                     if (objects[index] == null) {
                         synchronized (this) {
                             if (objects[index] == null) {
-                                objects[index] = loadObject(getAssetReader(getObjectPath(names[index])), AtlasObject.class);
+                                objects[index] = loadRawObject(names[index], AtlasObject.class);
                             }
                         }
                     }
@@ -85,11 +88,7 @@ class AssetsRepository extends AssetsBase implements AtlasRepository {
             synchronized (this) {
                 object = objects[index];
                 if (object == null) {
-                    try {
-                        object = loadObject(getAssetReader(getObjectPath(names[index])), AtlasObject.class);
-                    } catch (IOException e) {
-                        throw new BugError(e);
-                    }
+                    object = loadRawObject(names[index], AtlasObject.class);
                     objects[index] = object;
                 }
             }
@@ -113,11 +112,10 @@ class AssetsRepository extends AssetsBase implements AtlasRepository {
         return searchIndex;
     }
 
-    // --------------------------------------------------------------------------------------------
-    // UTILITY METHODS
-
-    private static String getObjectPath(String objectName) {
-        // TODO: hard coded language to English
-        return Strings.concat("atlas/", objectName, "/object_en.json");
+    private <T> T loadRawObject(String objectName, Type type) {
+        // raw resources name convention uses underscore '_' instead of dash '-'
+        objectName = objectName.replace('-', '_');
+        int resourceId = resources.getIdentifier(objectName, "raw", context.getPackageName());
+        return loadObject(new InputStreamReader(resources.openRawResource(resourceId)), type);
     }
 }

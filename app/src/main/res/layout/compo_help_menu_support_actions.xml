@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:background="#03A9F4">
 
     <ImageView
         android:id="@+id/help_menu_support_actions_first_icon"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/menu_help_index"
+        android:contentDescription="@string/menu_index"
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_share_label"
         app:layout_constraintDimensionRatio="1"
@@ -19,7 +21,18 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/menu_help_sync"
+        android:contentDescription="@string/menu_index"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_about_label"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/help_menu_support_actions_about_label"
+        app:srcCompat="@drawable/action_about" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/menu_sync"
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_rate_label"
         app:layout_constraintDimensionRatio="1"
@@ -30,7 +43,7 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/menu_help_accessibility"
+        android:contentDescription="@string/menu_accessibility"
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/help_menu_support_actions_close_label"
         app:layout_constraintDimensionRatio="1"
@@ -39,27 +52,15 @@
         app:srcCompat="@drawable/action_close" />
 
     <TextView
-        android:id="@+id/help_menu_support_actions_guide_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/menu_help_user_guide"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.Medium.Mute"
-        app:layout_constraintStart_toEndOf="@id/help_menu_support_actions_rule"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/help_menu_support_actions_about_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/menu_help_about"
+        android:text="@string/menu_about"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Medium.Mute"
         app:layout_constraintStart_toStartOf="@id/help_menu_support_actions_rule"
-        app:layout_constraintTop_toBottomOf="@id/help_menu_support_actions_guide_label" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/help_menu_support_actions_share_label"
@@ -67,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/menu_help_share"
+        android:text="@string/menu_share"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Medium.Mute"
         app:layout_constraintStart_toEndOf="@id/help_menu_support_actions_rule"
@@ -79,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/menu_help_rate"
+        android:text="@string/menu_rate"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Medium.Mute"
         app:layout_constraintStart_toStartOf="@id/help_menu_support_actions_rule"
@@ -91,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/menu_help_close"
+        android:text="@string/menu_close"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.Medium.Mute"
         app:layout_constraintStart_toStartOf="@id/help_menu_support_actions_rule"

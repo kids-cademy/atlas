@@ -10,7 +10,7 @@
         android:layout_width="@dimen/hexa_icon_size"
         android:layout_height="@dimen/hexa_icon_size"
         android:background="@drawable/shape_stroke_circle"
-        android:contentDescription="@string/support_graphics"
+        android:contentDescription="@string/image_description"
         android:padding="10dp"
         android:tint="@color/black"
         app:layout_constraintStart_toStartOf="parent"

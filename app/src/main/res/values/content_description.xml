@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="support_graphics" translatable="false">support graphics</string>
-    <string name="intro_image">intro image</string>
-    <string name="featured_image">featured image</string>
-
-</resources>

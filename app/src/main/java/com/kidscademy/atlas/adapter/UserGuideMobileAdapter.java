@@ -26,10 +26,10 @@ public class UserGuideMobileAdapter extends PagerAdapter {
     private static final int[] captionResIds = new int[]{
             R.string.help_overview,
             R.string.help_main_menu,
-            R.string.help_atlas_reader,
-            R.string.help_atlas_search,
-            R.string.help_atlas_index,
-            R.string.help_browser_sync
+            R.string.menu_reader,
+            R.string.menu_search,
+            R.string.menu_index,
+            R.string.menu_sync
     };
 
     private final LayoutInflater inflater;

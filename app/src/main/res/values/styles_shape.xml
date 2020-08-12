@@ -4,7 +4,7 @@
     <style name="Shape">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:contentDescription">@string/support_graphics</item>
+        <item name="android:contentDescription">@string/image_description</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
